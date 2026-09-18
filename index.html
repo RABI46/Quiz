@@ -342,7 +342,7 @@ h1 span{color:var(--red)}
       <div class="ic"><div class="emo">❓</div><div class="lbl">Questions</div><div class="val">20</div></div>
       <div class="ic"><div class="emo">⏱️</div><div class="lbl">Par question</div><div class="val">30s</div></div>
       <div class="ic"><div class="emo">🔥</div><div class="lbl">Combo bonus</div><div class="val">×2</div></div>
-      <div class="ic"><div class="emo">🏆</div><div class="lbl">Score max</div><div class="val">200</div></div>
+      <div class="ic"><div class="emo">🏆</div><div class="lbl">Score max</div><div class="val">3900</div></div>
     </div>
     <div class="fgrp">
       <label>Ton prénom</label>
@@ -458,7 +458,7 @@ let curQ=0,score=0,name='',timer=null,tLeft=30,answered=false;
 let streak=0,maxStreak=0,correctCount=0,totalTime=0,qStart=0;
 let history=[];
 const LTR=['A','B','C','D'];
-const MAX=QS.length*100;
+const MAX=QS.length===0?0:(100+(QS.length-1)*200);
 const CIRC=2*Math.PI*21;
 
 /* ── AUDIO ── */
@@ -553,7 +553,7 @@ function updTimer(){
   document.getElementById('tnum').textContent=tLeft;
   document.getElementById('twrap').className='timer-wrap'+(tLeft<=10?' timer-warn':'');
 }
-function timeUp(){if(answered)return;answered=true;streak=0;updCombo();revealAnswer(-1);}
+function timeUp(){if(answered)return;answered=true;streak=0;totalTime+=30;history.push({qi:curQ,sel:-1,ok:false});updCombo();revealAnswer(-1);}
 
 /* ── COMBO ── */
 function updCombo(){
@@ -635,7 +635,7 @@ function launchConfetti(){
   const cols=['#E30613','#003189','#FFFFFF','#FFD700','#00C896','#FF8C00'];
   for(let i=0;i<100;i++){
     const p=document.createElement('div');p.className='cp';
-    p.style.cssText=\`left:\${Math.random()*100}vw;background:\${cols[Math.floor(Math.random()*cols.length)]};width:\${6+Math.random()*8}px;height:\${10+Math.random()*14}px;animation-duration:\${1.8+Math.random()*2.5}s;animation-delay:\${Math.random()*1.5}s\`;
+    p.style.cssText=`left:${Math.random()*100}vw;background:${cols[Math.floor(Math.random()*cols.length)]};width:${6+Math.random()*8}px;height:${10+Math.random()*14}px;animation-duration:${1.8+Math.random()*2.5}s;animation-delay:${Math.random()*1.5}s`;
     c.appendChild(p);
   }
   setTimeout(()=>c.innerHTML='',5500);
@@ -655,11 +655,11 @@ function buildReview(){
   history.forEach(h=>{
     const q=QS[h.qi];
     const div=document.createElement('div');div.className='r-item';
-    const ansOk=`<div class="r-ans ok">✅ <span>\${q.opts[q.c]}</span></div>`;
+    const ansOk=`<div class="r-ans ok">✅ <span>${q.opts[q.c]}</span></div>`;
     const ansKo=h.sel>=0
-      ?`<div class="r-ans ko">❌ <span>Tu as répondu : \${q.opts[h.sel]}</span></div><div class="r-ans ok" style="margin-top:3px">✅ <span>Bonne : \${q.opts[q.c]}</span></div>`
-      :`<div class="r-ans ko">⏰ <span>Temps écoulé — Bonne : \${q.opts[q.c]}</span></div>`;
-    div.innerHTML=`<div class="r-cat">\${q.cat}</div><div class="r-q">\${q.q}</div>\${h.ok?ansOk:ansKo}`;
+      ?`<div class="r-ans ko">❌ <span>Tu as répondu : ${q.opts[h.sel]}</span></div><div class="r-ans ok" style="margin-top:3px">✅ <span>Bonne : ${q.opts[q.c]}</span></div>`
+      :`<div class="r-ans ko">⏰ <span>Temps écoulé — Bonne : ${q.opts[q.c]}</span></div>`;
+    div.innerHTML=`<div class="r-cat">${q.cat}</div><div class="r-q">${q.q}</div>${h.ok?ansOk:ansKo}`;
     panel.appendChild(div);
   });
   document.getElementById('review-wrap').style.display='block';
@@ -679,14 +679,14 @@ function showLB(showMy=false){
               :'📖 Continue ta formation, tu progresseras !';
     myDiv.className='res-card';
     myDiv.innerHTML=`
-      <div class="res-score">\${score}</div>
-      <div class="res-lbl">points sur \${MAX}</div>
-      <div class="res-name">\${esc(name)}</div>
-      <div class="res-msg">\${pct}% de bonnes réponses · \${msg}</div>
+      <div class="res-score">${score}</div>
+      <div class="res-lbl">points sur ${MAX}</div>
+      <div class="res-name">${esc(name)}</div>
+      <div class="res-msg">${pct}% de bonnes réponses · ${msg}</div>
       <div class="res-stats">
-        <div class="rs"><div class="rs-val">\${correctCount}/\${QS.length}</div><div class="rs-lbl">Bonnes réponses</div></div>
-        <div class="rs"><div class="rs-val">\${maxStreak}</div><div class="rs-lbl">Meilleur combo</div></div>
-        <div class="rs"><div class="rs-val">\${avgT}s</div><div class="rs-lbl">Temps moyen</div></div>
+        <div class="rs"><div class="rs-val">${correctCount}/${QS.length}</div><div class="rs-lbl">Bonnes réponses</div></div>
+        <div class="rs"><div class="rs-val">${maxStreak}</div><div class="rs-lbl">Meilleur combo</div></div>
+        <div class="rs"><div class="rs-val">${avgT}s</div><div class="rs-lbl">Temps moyen</div></div>
       </div>`;
     myDiv.style.display='block';
     buildReview();
@@ -701,7 +701,7 @@ function showLB(showMy=false){
     ord.forEach(i=>{
       if(!top[i])return;
       const d=document.createElement('div');d.className='pi';
-      d.innerHTML=`<div class="pi-med">\${medals[i]}</div><div class="pi-name">\${esc(top[i].name)}</div><div class="pi-pts">\${top[i].pts}</div><div class="pi-base"></div>`;
+      d.innerHTML=`<div class="pi-med">${medals[i]}</div><div class="pi-name">${esc(top[i].name)}</div><div class="pi-pts">${top[i].pts}</div><div class="pi-base"></div>`;
       pod.appendChild(d);
     });
   }
@@ -715,9 +715,9 @@ function showLB(showMy=false){
     row.className='lb-row'+(isMe?' me':'');
     row.style.animationDelay=(i*.04)+'s';
     const streak_txt=s.streak>=3?` 🔥\${s.streak}`:'';
-    row.innerHTML=`<div class="lb-rank">\${i+1}</div>
-      <div class="lb-name">\${esc(s.name)}\${streak_txt}\${isMe?' <span style="font-size:11px;color:var(--red)">← toi</span>':''}</div>
-      <div><div class="lb-pts">\${s.pts}</div><div class="lb-pct">\${s.pct}% · \${s.correct||'?'}/\${QS.length}</div></div>`;
+    row.innerHTML=`<div class="lb-rank">${i+1}</div>
+      <div class="lb-name">\${esc(s.name)}${streak_txt}\${isMe?' <span style="font-size:11px;color:var(--red)">← toi</span>':''}</div>
+      <div><div class="lb-pts">${s.pts}</div><div class="lb-pct">${s.pct}% · ${s.correct||'?'}/${QS.length}</div></div>`;
     list.appendChild(row);
   });
 }

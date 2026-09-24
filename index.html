@@ -315,6 +315,7 @@ h1 span{color:var(--red)}
 
 <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database-compat.js"></script>
+<script src="questions.js"></script>
 
 </head>
 <body>
@@ -333,16 +334,16 @@ h1 span{color:var(--red)}
       <div class="logo-txt">Protection Civile du Lot</div>
     </div>
     <h1>QUIZ <span>PSE</span></h1>
-    <div class="sub">Premiers Secours en Équipe · 20 questions</div>
+    <div class="sub">Premiers Secours en Équipe · 20 questions tirées aléatoirement</div>
     <div class="stripe"></div>
   </div>
 
   <div id="sw" class="screen on">
     <div class="info-grid">
-      <div class="ic"><div class="emo">❓</div><div class="lbl">Questions</div><div class="val">20</div></div>
+      <div class="ic"><div class="emo">❓</div><div class="lbl">Banque</div><div class="val" id="bank-size-val">500</div></div>
+      <div class="ic"><div class="emo">🎯</div><div class="lbl">Tirage</div><div class="val">20 Qs</div></div>
       <div class="ic"><div class="emo">⏱️</div><div class="lbl">Par question</div><div class="val">30s</div></div>
-      <div class="ic"><div class="emo">🔥</div><div class="lbl">Combo bonus</div><div class="val">×2</div></div>
-      <div class="ic"><div class="emo">🏆</div><div class="lbl">Score max</div><div class="val">3900</div></div>
+      <div class="ic"><div class="emo">🏆</div><div class="lbl">Score max</div><div class="val" id="max-score-val">3900</div></div>
     </div>
     <div class="fgrp">
       <label>Ton prénom</label>
@@ -391,31 +392,30 @@ h1 span{color:var(--red)}
     <p style="text-align:center;color:var(--muted);font-size:13px;margin-bottom:20px">Résultats de tous les participants (temps réel)</p>
     <div class="podium" id="podium"></div>
     <div class="lb-list" id="lbList"></div>
-    <div class="share-box">📲 Envoie ce fichier sur ton groupe WhatsApp !<br><strong>Chaque équipier joue depuis son téléphone.</strong></div>
+    <div class="share-box">📲 Envoie ce lien sur ton groupe WhatsApp !<br><strong>Chaque équipier joue depuis son téléphone.</strong></div>
     <button class="btn btn-red" onclick="goHome()">🔁 Rejouer</button>
-    <button class="btn btn-ghost" onclick="resetAll()" style="margin-top:10px">🗑️ Réinitialiser les scores</button>
+    <button class="btn btn-ghost" onclick="resetAll()" style="margin-top:10px">🔒 Réinitialiser les scores (Admin)</button>
   </div>
 
 </div><script>
-/* ── CONFIGURATION CONFIGURATION FIREBASE (REPRISE DE L'IMAGE) ── */
+/* ── CONFIGURATION FIREBASE ── */
 const firebaseConfig = {
-  apiKey: "AIzaSyAh3WToickRwNXbYSH7INiUjSp...", // Raccourci pour l'affichage, elle est complète en interne
+  apiKey: "AIzaSyAh3WToickRwNXbYSH7INiUjSpV8_98EwI",
   authDomain: "quiz-pse1.firebaseapp.com",
-  databaseURL: "https://quiz-pse1-default-rtdb.firebaseio.com", // Ajouté automatiquement pour le Realtime
+  databaseURL: "https://quiz-pse1-default-rtdb.firebaseio.com",
   projectId: "quiz-pse1",
   storageBucket: "quiz-pse1.firebasestorage.app",
   messagingSenderId: "731288200130",
-  appId: "1:731288200130:web:ae4f126c83bf7..."
+  appId: "1:731288200130:web:ae4f126c83bf78b8bc14f8"
 };
-
-// Injection des valeurs complètes lues sur l'image
-firebaseConfig.apiKey = "AIzaSyAh3WToickRwNXbYSH7INiUjSpV8_98EwI";
-firebaseConfig.appId = "1:731288200130:web:ae4f126c83bf78b8bc14f8";
 
 // Initialisation Firebase
 firebase.initializeApp(firebaseConfig);
 const db = firebase.database();
 let globalScores = [];
+
+// Mot de passe administrateur sécurisé pour la réinitialisation
+const ADMIN_PASSWORD = "PSE1-PROTECTION-CIVILE";
 
 // Écoute en temps réel de la bdd globale
 db.ref('scores').on('value', (snapshot) => {
@@ -429,36 +429,33 @@ db.ref('scores').on('value', (snapshot) => {
   }
 });
 
-/* ── DATA ─────────────────────────────────────────── */
-const QS=[
- {cat:"Attitude & Comportement",q:"Quelle est la priorité absolue du secouriste lors d'une intervention ?",opts:["Examiner la victime en détail","Protéger : sécuriser la zone et mettre en sécurité","Alerter les secours publics","Débuter la RCP immédiatement"],c:1,e:"La <strong>protection</strong> est la priorité absolue : sécuriser avant tout geste pour ne pas créer de nouvelles victimes."},
- {cat:"Bilans & Évaluation",q:"Combien de « regards » le secouriste effectue-t-il pour évaluer une situation ?",opts:["2 regards","3 regards","4 regards","5 regards"],c:2,e:"Les <strong>4 regards</strong> : 1) observer les dangers de loin, 2) identifier menaces vitales, 3) évaluer les 3 fonctions vitales, 4) interrogatoire complet."},
- {cat:"Urgences Vitales",q:"Quelle est la 1ʳᵉ priorité dans l'ordre des menaces vitales ?",opts:["Absence de respiration","Obstruction des voies aériennes","Hémorragie externe grave","Perte de connaissance"],c:2,e:"L'<strong>hémorragie externe grave</strong> est la 1ʳᵉ priorité : elle peut tuer en quelques minutes. Stopper le saignement d'abord !"},
- {cat:"RCP",q:"Quel est le rythme correct des compressions thoraciques lors d'une RCP ?",opts:["60-80 / min","80-100 / min","100-120 / min","120-140 / min"],c:2,e:"<strong>100 à 120 compressions / min</strong>, profondeur ≥ 5 cm. Ratio : 30 compressions / 2 insufflations."},
- {cat:"Obstruction des Voies Aériennes",q:"Face à une obstruction COMPLÈTE (silence total, impossible de tousser), que faire ?",opts:["Encourager à tousser","Claques dans le dos puis compressions abdominales en alternant","Mettre en PLS immédiatement","Administrer de l'oxygène"],c:1,e:"Obstruction complète → <strong>5 claques dans le dos</strong> puis <strong>5 compressions abdominales</strong> en alternant jusqu'à réussite."},
- {cat:"Hygiène & Asepsie",q:"Quelle convention s'applique pour les gants lors d'une intervention ?",opts:["Main dominante = main propre","Main non dominante = main sale","Les deux mains sont propres si les gants sont neufs","Gants stériles aux deux mains obligatoires"],c:1,e:"Convention EPI : la <strong>main non dominante</strong> = main « sale » (contacts extérieurs). La main dominante reste « propre » pour les soins."},
- {cat:"Évaluation Neurologique",q:"Dans l'échelle AVPU, que signifie la lettre « P » ?",opts:["Patient éveillé (Alert)","Réagit à la douleur (Pain)","Évalue la pression artérielle","Pupilles réactives"],c:1,e:"Échelle AVPU : A=Alert, V=Verbal, <strong>P=Pain</strong> (réagit uniquement à la douleur), U=Unresponsive."},
- {cat:"Hémorragie",q:"Le garrot est utilisé comme :",opts:["Premier geste systématique","Ultime recours si la compression échoue","Uniquement pour les membres inférieurs","Seulement si la gaze hémostatique est absente"],c:1,e:"Ordre : compression → pansement compressif → gaze hémostatique → <strong>garrot (ultime recours)</strong>. Toujours noter l'heure !"},
- {cat:"Malaises & Affections",q:"Quels sont les signes d'une réaction anaphylactique grave ?",opts:["Fièvre, toux sèche, éruption localisée","Gonflement lèvres/gorge, urticaire, dyspnée, hypotension","Maux de tête, nausées, diplopie","Douleur thoracique irradiant bras gauche"],c:1,e:"Anaphylaxie : <strong>gonflement rapide lèvres/gorge</strong>, urticaire généralisée, sifflement, choc. SAMU + épinéphrine IM si disponible."},
- {cat:"Traumatismes – Brûlures",q:"Combien de minutes minimum faut-il refroidir une brûlure à l'eau froide ?",opts:["5 minutes","10 minutes","15 minutes","20 minutes"],c:2,e:"Refroidissement <strong>minimum 15 minutes</strong> à l'eau froide (pas glacée) : soulage la douleur et limite les lésions en profondeur."},
- {cat:"DAE – Défibrillateur",q:"Avant de délivrer un choc avec un DAE, que faut-il impérativement faire ?",opts:["Continuer le massage cardiaque","Vérifier la saturation O₂","Écarter tout le monde — ne pas toucher la victime","Prévenir les pompiers"],c:2,e:"Sécurité absolue : <strong>ÉCARTER tout le monde</strong> avant chaque choc. Personne ne touche la victime au moment de la défibrillation."},
- {cat:"Position Latérale de Secours",q:"À quel moment doit-on installer une victime en PLS ?",opts:["Dès qu'elle est consciente","Dès la perte de connaissance si elle respire","Uniquement après crise convulsive","Quand FR < 12/min"],c:1,e:"<strong>PLS</strong> = perte de connaissance + respiration présente. Objectif : libérer les voies aériennes et permettre le drainage."},
- {cat:"Crise Convulsive",q:"Que NE doit-on PAS faire pendant une crise convulsive ?",opts:["Écarter les objets dangereux","Maintenir la victime de force pour stopper les convulsions","Laisser la crise évoluer naturellement","Préparer la PLS pour après"],c:1,e:"<strong>Ne jamais maintenir de force.</strong> On protège, on éloigne les dangers, on laisse évoluer. PLS seulement après la crise."},
- {cat:"Bilans – Paramètres Vitaux",q:"En cas de détresse vitale, à quelle fréquence mesure-t-on les paramètres vitaux ?",opts:["Toutes les 2 min","Toutes les 5 min","Toutes les 10 min","Toutes les 15 min"],c:1,e:"En détresse vitale : <strong>toutes les 5 min</strong> minimum. Sans détresse immédiate : toutes les 10-15 min."},
- {cat:"AVC",q:"Quel signe spécifique différencie l'AVC d'un simple malaise ?",opts:["Forte fièvre + confusion","Paralysie soudaine d'un demi-corps, trouble parole, asymétrie visage","Hypoglycémie + tremblements","Douleur thoracique + sueurs"],c:1,e:"Signes AVC : <strong>paralysie soudaine d'un côté</strong>, trouble de la parole, asymétrie faciale. SAMU URGENT + noter l'heure de début."},
- {cat:"Noyade",q:"Lors d'une noyade, en combien de temps maximum doit-on retirer la victime de l'eau ?",opts:["30 secondes","60 secondes","2 minutes","5 minutes"],c:1,e:"Retirer la victime idéalement en <strong>60 secondes</strong>. Ensuite : libérer les voies, PLS si elle respire, RCP si absent de respiration."},
- {cat:"Hypoglycémie",q:"Diabétique conscient avec sueurs, tremblements et confusion : quelle conduite à tenir ?",opts:["SAMU uniquement, ne rien donner","Donner du sucre immédiatement","Installer en PLS","Donner de l'eau salée"],c:1,e:"Hypoglycémie + conscient → <strong>sucre rapide immédiatement</strong> (jus, soda). Ne pas confondre avec hyperglycémie où on n'en donne PAS."},
- {cat:"Traumatisme Rachis",q:"En cas de suspicion de traumatisme du rachis, quelle est la première action ?",opts:["Mettre en PLS pour sécuriser les voies","Immobiliser la tête en position neutre","Administrer un antalgique","Mobiliser rapidement la victime"],c:1,e:"Traumatisme rachis : <strong>immobiliser la tête en position NEUTRE</strong> en priorité, puis collier cervical, puis brancard rigide."},
- {cat:"Accouchement Inopiné",q:"Lors d'un accouchement inopiné, que faire avec le cordon ombilical ?",opts:["Couper immédiatement avec des ciseaux propres","Ne PAS couper sauf urgence absolue (2 nœuds)","Couper après 10 minutes","Tirer doucement pour expulser le placenta"],c:1,e:"<strong>Ne pas couper le cordon.</strong> Urgence absolue : 2 nœuds solides avant coupe. Ne jamais tirer sur le cordon pour le placenta."},
- {cat:"Formation Continue",q:"À quelle fréquence le recyclage PSE est-il obligatoire ?",opts:["Tous les ans","Tous les 2 ans","Tous les 3 ans","Tous les 5 ans"],c:1,e:"Recyclage obligatoire <strong>tous les ans</strong> minimum : actualise les techniques et maintient les automatismes par la pratique."}
-];
+/* ── DATA & SELECTION ALEATOIRE DE 20 QUESTIONS ── */
+const QUESTIONS_PER_SESSION = 20;
+let QS = [];
+
+function selectRandomQuestions() {
+  const bank = (typeof QUESTION_BANK !== 'undefined' && QUESTION_BANK.length > 0) ? QUESTION_BANK : [];
+  const count = Math.min(QUESTIONS_PER_SESSION, bank.length);
+  const shuffled = [...bank].sort(() => 0.5 - Math.random());
+  QS = shuffled.slice(0, count);
+}
 
 /* ── STATE ── */
 let curQ=0,score=0,name='',timer=null,tLeft=30,answered=false;
 let streak=0,maxStreak=0,correctCount=0,totalTime=0,qStart=0;
 let history=[];
 const LTR=['A','B','C','D'];
-const MAX=QS.length===0?0:(100+(QS.length-1)*200);
+let MAX = 3900;
+
+function updateMaxScoreDisplay() {
+  const qCount = QS.length > 0 ? QS.length : QUESTIONS_PER_SESSION;
+  MAX = qCount === 0 ? 0 : (100 + (qCount - 1) * 200);
+  const el = document.getElementById('max-score-val');
+  if(el) el.textContent = MAX;
+  const bankEl = document.getElementById('bank-size-val');
+  if(bankEl && typeof QUESTION_BANK !== 'undefined') bankEl.textContent = QUESTION_BANK.length;
+}
+
 const CIRC=2*Math.PI*21;
 
 /* ── AUDIO ── */
@@ -487,11 +484,18 @@ function saveScore(n,pts,correct,streak){
     date: Date.now()
   });
 }
+
 function resetAll(){
-  if(confirm('Réinitialiser définitivement le classement pour tout le monde ?')){
-    db.ref('scores').remove()
-      .then(() => { toast('Classement effacé !'); })
-      .catch(() => { toast('Erreur réseau'); });
+  const pass = prompt("Entrez le mot de passe Administrateur pour réinitialiser le classement :");
+  if(!pass) return;
+  if(pass === ADMIN_PASSWORD) {
+    if(confirm('Êtes-vous sûr de vouloir tout effacer ?')){
+      db.ref('scores').remove()
+        .then(() => { toast('Classement effacé avec succès !'); })
+        .catch(() => { toast('Erreur réseau lors de la suppression.'); });
+    }
+  } else {
+    alert("Mot de passe administrateur incorrect. Action refusée.");
   }
 }
 
@@ -503,6 +507,8 @@ function goHome(){clearInterval(timer);curQ=0;score=0;streak=0;maxStreak=0;corre
 function startQuiz(){
   name=document.getElementById('pname').value.trim();
   if(!name){document.getElementById('pname').focus();toast('Entre ton prénom !');return;}
+  selectRandomQuestions();
+  updateMaxScoreDisplay();
   curQ=0;score=0;streak=0;maxStreak=0;correctCount=0;totalTime=0;history=[];
   showScreen('sq');renderQ();
 }
@@ -714,10 +720,10 @@ function showLB(showMy=false){
     const row=document.createElement('div');
     row.className='lb-row'+(isMe?' me':'');
     row.style.animationDelay=(i*.04)+'s';
-    const streak_txt=s.streak>=3?` 🔥\${s.streak}`:'';
+    const streak_txt=s.streak>=3?` 🔥${s.streak}`:'';
     row.innerHTML=`<div class="lb-rank">${i+1}</div>
-      <div class="lb-name">\${esc(s.name)}${streak_txt}\${isMe?' <span style="font-size:11px;color:var(--red)">← toi</span>':''}</div>
-      <div><div class="lb-pts">${s.pts}</div><div class="lb-pct">${s.pct}% · ${s.correct||'?'}/${QS.length}</div></div>`;
+      <div class="lb-name">${esc(s.name)}${streak_txt}${isMe?' <span style="font-size:11px;color:var(--red)">← toi</span>':''}</div>
+      <div><div class="lb-pts">${s.pts}</div><div class="lb-pct">${s.pct}% · ${s.correct||'?'}/${QS.length||20}</div></div>`;
     list.appendChild(row);
   });
 }
@@ -728,6 +734,7 @@ let _toastT;
 function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(_toastT);_toastT=setTimeout(()=>t.classList.remove('show'),2600);}
 
 document.addEventListener('DOMContentLoaded',()=>{
+  updateMaxScoreDisplay();
   document.getElementById('pname').addEventListener('keydown',e=>{if(e.key==='Enter')startQuiz();});
 });
 </script>

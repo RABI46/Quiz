@@ -418,23 +418,31 @@ const firebaseConfig = {
 };
 
 // Initialisation Firebase
-firebase.initializeApp(firebaseConfig);
-const db = firebase.database();
+let db = null;
 let globalScores = [];
 
-// Écoute en temps réel de la bdd globale
-db.ref('scores').on('value', (snapshot) => {
-  const data = snapshot.val() || {};
-  globalScores = Object.values(data);
-  globalScores.sort((a, b) => b.pts - a.pts);
-  
-  renderHomeScores();
+try {
+  if (typeof firebase !== 'undefined') {
+    firebase.initializeApp(firebaseConfig);
+    db = firebase.database();
 
-  if(document.getElementById('slb').classList.contains('on')) {
-    const isShowingMyRes = document.getElementById('myres').style.display === 'block';
-    showLB(isShowingMyRes);
+    // Écoute en temps réel de la bdd globale
+    db.ref('scores').on('value', (snapshot) => {
+      const data = snapshot.val() || {};
+      globalScores = Object.values(data);
+      globalScores.sort((a, b) => b.pts - a.pts);
+
+      renderHomeScores();
+
+      if(document.getElementById('slb') && document.getElementById('slb').classList.contains('on')) {
+        const isShowingMyRes = document.getElementById('myres').style.display === 'block';
+        showLB(isShowingMyRes);
+      }
+    });
   }
-});
+} catch (err) {
+  console.warn('Firebase error:', err);
+}
 
 /* ── DATA ─────────────────────────────────────────── */
 const QS=[
@@ -486,22 +494,26 @@ function sndTick(){playTone(440,.04,'square',.06);}
 
 /* ── STORAGE (FIREBASE) ── */
 function saveScore(n,pts,correct,streak){
-  db.ref('scores').push({
-    name: n,
-    pts: pts,
-    pct: Math.round(pts/MAX*100),
-    correct: correct,
-    streak: streak,
-    date: Date.now()
-  });
+  if (db) {
+    db.ref('scores').push({
+      name: n,
+      pts: pts,
+      pct: Math.round(pts/MAX*100),
+      correct: correct,
+      streak: streak,
+      date: Date.now()
+    });
+  }
 }
 function resetAll(){
   const pwd = prompt('Entrez le mot de passe administrateur pour réinitialiser les scores :');
   if(pwd === 'PSE1-PROTECTION-CIVILE'){
     if(confirm('Réinitialiser définitivement le classement pour tout le monde ?')){
-      db.ref('scores').remove()
-        .then(() => { toast('Classement effacé !'); })
-        .catch(() => { toast('Erreur réseau'); });
+      if (db) {
+        db.ref('scores').remove()
+          .then(() => { toast('Classement effacé !'); })
+          .catch(() => { toast('Erreur réseau'); });
+      }
     }
   } else if(pwd !== null) {
     toast('Mot de passe incorrect !');

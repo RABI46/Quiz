@@ -456,7 +456,7 @@ const QS=[
 /* ── STATE ── */
 let curQ=0,score=0,name='',timer=null,tLeft=30,answered=false;
 let streak=0,maxStreak=0,correctCount=0,totalTime=0,qStart=0;
-let history=[];
+let history=[],sessionQS=[];
 const LTR=['A','B','C','D'];
 const MAX=QS.length===0?0:(100+(QS.length-1)*200);
 const CIRC=2*Math.PI*21;
@@ -499,18 +499,42 @@ function resetAll(){
 function showScreen(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('on'));const el=document.getElementById(id);el.classList.add('on');}
 function goHome(){clearInterval(timer);curQ=0;score=0;streak=0;maxStreak=0;correctCount=0;totalTime=0;history=[];answered=false;showScreen('sw');}
 
+function shuffleArray(arr){
+  for(let i = arr.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+function prepareSessionQuestions(){
+  const shuffledQS = shuffleArray([...QS]);
+  return shuffledQS.map(item => {
+    const optsWithIndices = item.opts.map((opt, idx) => ({ opt, isCorrect: idx === item.c }));
+    shuffleArray(optsWithIndices);
+    return {
+      cat: item.cat,
+      q: item.q,
+      opts: optsWithIndices.map(o => o.opt),
+      c: optsWithIndices.findIndex(o => o.isCorrect),
+      e: item.e
+    };
+  });
+}
+
 /* ── START ── */
 function startQuiz(){
   name=document.getElementById('pname').value.trim();
   if(!name){document.getElementById('pname').focus();toast('Entre ton prénom !');return;}
   curQ=0;score=0;streak=0;maxStreak=0;correctCount=0;totalTime=0;history=[];
+  sessionQS=prepareSessionQuestions();
   showScreen('sq');renderQ();
 }
 
 /* ── RENDER ── */
 function renderQ(){
   answered=false;clearInterval(timer);qStart=Date.now();
-  const q=QS[curQ],total=QS.length;
+  const q=sessionQS[curQ],total=sessionQS.length;
   document.getElementById('prog').style.width=(curQ/total*100)+'%';
   document.getElementById('qnum').textContent=`${curQ+1} / ${total}`;
   document.getElementById('score-live').textContent=score+' pts';
@@ -567,7 +591,7 @@ function updCombo(){
 /* ── ANSWER ── */
 function selectA(idx){
   if(answered)return;answered=true;clearInterval(timer);
-  const q=QS[curQ];
+  const q=sessionQS[curQ];
   const elapsed=Math.round((Date.now()-qStart)/1000);
   totalTime+=elapsed;
   const isOk=idx===q.c;
@@ -595,7 +619,7 @@ function flashScore(txt,cls){
 }
 
 function revealAnswer(sel){
-  const q=QS[curQ];
+  const q=sessionQS[curQ];
   document.querySelectorAll('.opt').forEach((b,i)=>{
     b.disabled=true;
     if(i===q.c) b.classList.add('correct');
@@ -617,10 +641,10 @@ function revealAnswer(sel){
   updCombo();
   const bn=document.getElementById('btnNext');
   bn.style.display='block';
-  bn.textContent=curQ<QS.length-1?'Question suivante →':'🏁 Voir mes résultats';
+  bn.textContent=curQ<sessionQS.length-1?'Question suivante →':'🏁 Voir mes résultats';
 }
 
-function nextQ(){curQ++;curQ>=QS.length?finishQuiz():renderQ();}
+function nextQ(){curQ++;curQ>=sessionQS.length?finishQuiz():renderQ();}
 
 /* ── FINISH ── */
 function finishQuiz(){
@@ -653,7 +677,7 @@ function buildReview(){
   const panel=document.getElementById('rev-panel');
   panel.innerHTML='';
   history.forEach(h=>{
-    const q=QS[h.qi];
+    const q=sessionQS[h.qi];
     const div=document.createElement('div');div.className='r-item';
     const ansOk=`<div class="r-ans ok">✅ <span>${q.opts[q.c]}</span></div>`;
     const ansKo=h.sel>=0
@@ -673,7 +697,7 @@ function showLB(showMy=false){
 
   if(showMy&&name){
     const pct=Math.round(score/MAX*100);
-    const avgT=QS.length>0?Math.round(totalTime/QS.length):0;
+    const avgT=sessionQS.length>0?Math.round(totalTime/sessionQS.length):0;
     const msg=pct>=80?'🎖️ Expert ! Tu maîtrises les gestes de secours !'
               :pct>=60?'👍 Bon niveau ! Quelques points à revoir.'
               :'📖 Continue ta formation, tu progresseras !';
@@ -684,7 +708,7 @@ function showLB(showMy=false){
       <div class="res-name">${esc(name)}</div>
       <div class="res-msg">${pct}% de bonnes réponses · ${msg}</div>
       <div class="res-stats">
-        <div class="rs"><div class="rs-val">${correctCount}/${QS.length}</div><div class="rs-lbl">Bonnes réponses</div></div>
+        <div class="rs"><div class="rs-val">${correctCount}/${sessionQS.length}</div><div class="rs-lbl">Bonnes réponses</div></div>
         <div class="rs"><div class="rs-val">${maxStreak}</div><div class="rs-lbl">Meilleur combo</div></div>
         <div class="rs"><div class="rs-val">${avgT}s</div><div class="rs-lbl">Temps moyen</div></div>
       </div>`;
@@ -714,10 +738,10 @@ function showLB(showMy=false){
     const row=document.createElement('div');
     row.className='lb-row'+(isMe?' me':'');
     row.style.animationDelay=(i*.04)+'s';
-    const streak_txt=s.streak>=3?` 🔥\${s.streak}`:'';
+    const streak_txt=s.streak>=3?` 🔥${s.streak}`:'';
     row.innerHTML=`<div class="lb-rank">${i+1}</div>
-      <div class="lb-name">\${esc(s.name)}${streak_txt}\${isMe?' <span style="font-size:11px;color:var(--red)">← toi</span>':''}</div>
-      <div><div class="lb-pts">${s.pts}</div><div class="lb-pct">${s.pct}% · ${s.correct||'?'}/${QS.length}</div></div>`;
+      <div class="lb-name">${esc(s.name)}${streak_txt}${isMe?' <span style="font-size:11px;color:var(--red)">← toi</span>':''}</div>
+      <div><div class="lb-pts">${s.pts}</div><div class="lb-pct">${s.pct}% · ${s.correct||'?'}/${sessionQS.length||QS.length}</div></div>`;
     list.appendChild(row);
   });
 }

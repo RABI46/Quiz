@@ -350,6 +350,12 @@ h1 span{color:var(--red)}
     </div>
     <button class="btn btn-red" onclick="startQuiz()">🚀 Démarrer le Quiz</button>
     <button class="btn btn-blue" onclick="showLB()">🏆 Voir le Classement</button>
+
+    <div class="sep"></div>
+    <div style="margin-top:14px">
+      <div style="font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px;text-align:center">Derniers participants</div>
+      <div id="homeScoresList" class="lb-list" style="margin-bottom:0"></div>
+    </div>
   </div>
 
   <div id="sq" class="screen">
@@ -421,6 +427,8 @@ db.ref('scores').on('value', (snapshot) => {
   globalScores = Object.values(data);
   globalScores.sort((a, b) => b.pts - a.pts);
   
+  renderHomeScores();
+
   if(document.getElementById('slb').classList.contains('on')) {
     const isShowingMyRes = document.getElementById('myres').style.display === 'block';
     showLB(isShowingMyRes);
@@ -743,15 +751,47 @@ function showLB(showMy=false){
     row.className='lb-row'+(isMe?' me':'');
     row.style.animationDelay=(i*.04)+'s';
     const streak_txt=s.streak>=3?` 🔥${s.streak}`:'';
+    const dtStr = s.date ? formatDate(s.date) : "";
     row.innerHTML=`<div class="lb-rank">${i+1}</div>
-      <div class="lb-name">${esc(s.name)}${streak_txt}${isMe?' <span style="font-size:11px;color:var(--red)">← toi</span>':''}</div>
+      <div class="lb-name">${esc(s.name)}${streak_txt}${isMe?' <span style="font-size:11px;color:var(--red)">← toi</span>':''}<div style="font-size:11px;color:var(--muted);font-weight:400">${dtStr}</div></div>
       <div><div class="lb-pts">${s.pts}</div><div class="lb-pct">${s.pct}% · ${s.correct||'?'}/${sessionQS.length||QS.length}</div></div>`;
     list.appendChild(row);
   });
 }
 
 /* ── UTILS ── */
-function esc(s){return s ? s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;') : '';}
+function renderHomeScores(){
+  const container = document.getElementById('homeScoresList');
+  if(!container) return;
+  container.innerHTML = '';
+  if(!globalScores.length){
+    container.innerHTML = '<div style="text-align:center;color:var(--muted);font-size:13px;padding:10px">Aucun score enregistré.</div>';
+    return;
+  }
+  // Sort by most recent date
+  const recent = [...globalScores].sort((a,b) => (b.date || 0) - (a.date || 0)).slice(0, 5);
+  recent.forEach((s) => {
+    const row = document.createElement('div');
+    row.className = 'lb-row';
+    const dtStr = s.date ? formatDate(s.date) : '';
+    row.innerHTML = `<div class="lb-name" style="font-size:13px">${esc(s.name)}<div style="font-size:11px;color:var(--muted);font-weight:400">${dtStr}</div></div>
+      <div><div class="lb-pts" style="font-size:18px">${s.pts} pts</div><div class="lb-pct">${s.pct}%</div></div>`;
+    container.appendChild(row);
+  });
+}
+function formatDate(ts){
+  if(!ts) return "";
+  const d = new Date(ts);
+  if(isNaN(d.getTime())) return "";
+  const day = String(d.getDate()).padStart(2, "0");
+  const month = String(d.getMonth() + 1).padStart(2, "0");
+  const year = d.getFullYear();
+  const hours = String(d.getHours()).padStart(2, "0");
+  const mins = String(d.getMinutes()).padStart(2, "0");
+  return `${day}/${month}/${year} à ${hours}:${mins}`;
+}
+function esc(s){
+return s ? s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;') : '';}
 let _toastT;
 function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(_toastT);_toastT=setTimeout(()=>t.classList.remove('show'),2600);}
 

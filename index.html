@@ -448,6 +448,9 @@ const firebaseConfig = {
 let db = null;
 let globalScores = [];
 
+// Mot de passe administrateur sécurisé pour la réinitialisation
+const ADMIN_PASSWORD = "PSE1-PROTECTION-CIVILE";
+
 try {
   if (typeof firebase !== 'undefined') {
     firebase.initializeApp(firebaseConfig);
@@ -466,24 +469,12 @@ try {
         showLB(isShowingMyRes);
       }
     });
-// Mot de passe administrateur sécurisé pour la réinitialisation
-const ADMIN_PASSWORD = "PSE1-PROTECTION-CIVILE";
-
-// Écoute en temps réel de la bdd globale
-db.ref('scores').on('value', (snapshot) => {
-  const data = snapshot.val() || {};
-  globalScores = Object.values(data);
-  globalScores.sort((a, b) => b.pts - a.pts);
-  
-  if(document.getElementById('slb').classList.contains('on')) {
-    const isShowingMyRes = document.getElementById('myres').style.display === 'block';
-    showLB(isShowingMyRes);
   }
 } catch (err) {
   console.warn('Firebase error:', err);
 }
 
-⁸/* ── DATA & SELECTION ALEATOIRE DE 20 QUESTIONS ── */
+/* ── DATA & SELECTION ALEATOIRE DE 20 QUESTIONS ── */
 const QUESTIONS_PER_SESSION = 20;
 let QS = [];
 

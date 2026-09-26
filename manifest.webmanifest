@@ -1,0 +1,13 @@
+{
+  "name":"Quiz PSE – Protection Civile du Lot",
+  "short_name":"Quiz PSE",
+  "description":"Quiz d'entraînement Premiers Secours en Équipe – Protection Civile du Lot.",
+  "start_url":"./",
+  "scope":"./",
+  "display":"standalone",
+  "orientation":"portrait",
+  "background_color":"#061121",
+  "theme_color":"#0A192F",
+  "lang":"fr-FR",
+  "icons":[{"src":"icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
+}

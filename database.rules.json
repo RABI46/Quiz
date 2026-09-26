@@ -1,0 +1,13 @@
+{
+  "rules":{
+    "scores":{
+      ".read":true,
+      ".write":false,
+      "$scoreId":{
+        ".write":"!data.exists()",
+        ".validate":"newData.hasChildren(['name','pts','pct','correct','streak','date']) && newData.child('pts').isNumber() && newData.child('name').isString() && newData.child('name').val().length <= 20"
+      }
+    },
+    "$other":{".read":false,".write":false}
+  }
+}

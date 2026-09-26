@@ -258,8 +258,6 @@ h1 span{color:var(--pc-orange);text-shadow:0 0 35px var(--pc-orange)}
   animation:spin 8s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 .res-card>*{position:relative;z-index:1}
-.res-score{font-family:'Bebas Neue',sans-serif;font-size:5.8rem;line-height:1;
-  color:var(--pc-orange);text-shadow:0 0 35px var(--pc-orange-glow)}
 .res-lbl{color:var(--muted);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1.4px;margin-top:2px}
 .res-name{font-size:22px;font-weight:800;margin-top:8px}
 .res-msg{font-size:14.5px;color:rgba(255,255,255,.75);margin-top:6px;line-height:1.4}
@@ -399,15 +397,6 @@ let streak=0,maxStreak=0,correctCount=0,totalTime=0,qStart=0;
 let history=[],sessionQS=[];
 const LTR=['A','B','C','D'];
 
-function updateMaxScoreDisplay() {
-  const qCount = QS.length > 0 ? QS.length : QUESTIONS_PER_SESSION;
-  MAX = qCount === 0 ? 0 : (100 + (qCount - 1) * 200);
-  const el = document.getElementById('max-score-val');
-  if(el) el.textContent = MAX;
-  const bankEl = document.getElementById('bank-size-val');
-  if(bankEl && typeof QUESTION_BANK !== 'undefined') bankEl.textContent = QUESTION_BANK.length;
-}
-
 const CIRC=2*Math.PI*21;
 
 /* ── AUDIO ── */
@@ -428,7 +417,7 @@ function sndTick(){playTone(440,.04,'square',.06);}
 
 /* ── NAV ── */
 function showScreen(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('on'));const el=document.getElementById(id);el.classList.add('on');}
-function goHome(){clearInterval(timer);curQ=0;score=0;streak=0;maxStreak=0;correctCount=0;totalTime=0;history=[];answered=false;showScreen('sw');}
+function goHome(){clearInterval(timer);curQ=0;streak=0;maxStreak=0;correctCount=0;totalTime=0;history=[];answered=false;showScreen('sw');}
 
 function shuffleArray(arr){
   for(let i = arr.length - 1; i > 0; i--){

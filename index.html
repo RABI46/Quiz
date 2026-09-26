@@ -373,18 +373,7 @@ h1 span{color:var(--pc-orange);text-shadow:0 0 35px var(--pc-orange)}
       <div class="ic"><div class="emo">⏱️</div><div class="lbl">Par question</div><div class="val">30s</div></div>
       <div class="ic"><div class="emo">🏆</div><div class="lbl">Score max</div><div class="val" id="max-score-val">3900</div></div>
     </div>
-    <div class="fgrp">
-      <label>Ton prénom</label>
-      <input type="text" id="pname" placeholder="ex : Sophie, Marc…" maxlength="20" autocomplete="off"/>
-    </div>
     <button class="btn btn-orange" onclick="startQuiz()">🚀 Démarrer le Quiz</button>
-    <button class="btn btn-blue" onclick="showLB()">🏆 Voir le Classement</button>
-
-    <div class="sep"></div>
-    <div style="margin-top:14px">
-      <div style="font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px;text-align:center">Derniers participants</div>
-      <div id="homeScoresList" class="lb-list" style="margin-bottom:0"></div>
-    </div>
   </div>
 
   <div id="sq" class="screen">
@@ -423,13 +412,7 @@ h1 span{color:var(--pc-orange);text-shadow:0 0 35px var(--pc-orange)}
       <div class="review-panel" id="rev-panel"></div>
     </div>
 
-    <div style="font-family:'Bebas Neue',sans-serif;font-size:2.4rem;letter-spacing:2px;text-align:center;margin-bottom:4px">🏆 Classement</div>
-    <p style="text-align:center;color:var(--muted);font-size:13px;margin-bottom:20px">Résultats de tous les participants (temps réel)</p>
-    <div class="podium" id="podium"></div>
-    <div class="lb-list" id="lbList"></div>
-    <div class="share-box">📲 Envoie ce lien sur ton groupe WhatsApp !<br><strong>Chaque équipier joue depuis son téléphone.</strong></div>
     <button class="btn btn-orange" onclick="goHome()">🔁 Rejouer</button>
-    <button class="btn btn-ghost" onclick="resetAll()" style="margin-top:10px">🔒 Réinitialiser les scores (Admin)</button>
   </div>
 
 </div><script>
@@ -577,8 +560,6 @@ function prepareSessionQuestions(){
 
 /* ── START ── */
 function startQuiz(){
-  name=document.getElementById('pname').value.trim();
-  if(!name){document.getElementById('pname').focus();toast('Entre ton prénom !');return;}
   selectRandomQuestions();
   updateMaxScoreDisplay();
   curQ=0;score=0;streak=0;maxStreak=0;correctCount=0;totalTime=0;history=[];
@@ -703,9 +684,8 @@ function nextQ(){curQ++;curQ>=sessionQS.length?finishQuiz():renderQ();}
 
 /* ── FINISH ── */
 function finishQuiz(){
-  saveScore(name,score,correctCount,maxStreak);
   if(score/MAX>=0.5)launchConfetti();
-  showLB(true);
+  showResults();
 }
 
 /* ── CONFETTI ── */
@@ -745,61 +725,26 @@ function buildReview(){
 }
 
 /* ── LB ── */
-function showLB(showMy=false){
+function showResults(){
   showScreen('slb');
-  const all=globalScores;
   const myDiv=document.getElementById('myres');
-
-  if(showMy&&name){
-    const pct=Math.round(score/MAX*100);
-    const avgT=sessionQS.length>0?Math.round(totalTime/sessionQS.length):0;
-    const msg=pct>=80?'🎖️ Expert ! Tu maîtrises les gestes de secours !'
-              :pct>=60?'👍 Bon niveau ! Quelques points à revoir.'
-              :'📖 Continue ta formation, tu progresseras !';
-    myDiv.className='res-card';
-    myDiv.innerHTML=`
-      <div class="res-score">${score}</div>
-      <div class="res-lbl">points sur ${MAX}</div>
-      <div class="res-name">${esc(name)}</div>
-      <div class="res-msg">${pct}% de bonnes réponses · ${msg}</div>
-      <div class="res-stats">
-        <div class="rs"><div class="rs-val">${correctCount}/${sessionQS.length}</div><div class="rs-lbl">Bonnes réponses</div></div>
-        <div class="rs"><div class="rs-val">${maxStreak}</div><div class="rs-lbl">Meilleur combo</div></div>
-        <div class="rs"><div class="rs-val">${avgT}s</div><div class="rs-lbl">Temps moyen</div></div>
-      </div>`;
-    myDiv.style.display='block';
-    buildReview();
-  } else { myDiv.style.display='none'; document.getElementById('review-wrap').style.display='none'; }
-
-  /* Podium */
-  const pod=document.getElementById('podium');pod.innerHTML='';
-  const medals=['🥇','🥈','🥉'];
-  if(all.length){
-    const top=all.slice(0,3);
-    const ord=top.length===1?[0]:top.length===2?[1,0]:[1,0,2];
-    ord.forEach(i=>{
-      if(!top[i])return;
-      const d=document.createElement('div');d.className='pi';
-      d.innerHTML=`<div class="pi-med">${medals[i]}</div><div class="pi-name">${esc(top[i].name)}</div><div class="pi-pts">${top[i].pts}</div><div class="pi-base"></div>`;
-      pod.appendChild(d);
-    });
-  }
-
-  /* List */
-  const list=document.getElementById('lbList');list.innerHTML='';
-  if(!all.length){list.innerHTML='<div style="text-align:center;color:var(--muted);padding:20px">Aucun score pour l\'instant. Sois le premier !</div>';return;}
-  all.forEach((s,i)=>{
-    const isMe=showMy&&s.name===name&&s.pts===score;
-    const row=document.createElement('div');
-    row.className='lb-row'+(isMe?' me':'');
-    row.style.animationDelay=(i*.04)+'s';
-    const streak_txt=s.streak>=3?` 🔥${s.streak}`:'';
-    const dtStr = s.date ? formatDate(s.date) : "";
-    row.innerHTML=`<div class="lb-rank">${i+1}</div>
-      <div class="lb-name">${esc(s.name)}${streak_txt}${isMe?' <span style="font-size:11px;color:var(--red)">← toi</span>':''}<div style="font-size:11px;color:var(--muted);font-weight:400">${dtStr}</div></div>
-      <div><div class="lb-pts">${s.pts}</div><div class="lb-pct">${s.pct}% · ${s.correct||'?'}/${sessionQS.length||QS.length}</div></div>`;
-    list.appendChild(row);
-  });
+  const pct=Math.round(score/MAX*100);
+  const avgT=sessionQS.length>0?Math.round(totalTime/sessionQS.length):0;
+  const msg=pct>=80?'🎖️ Expert ! Tu maîtrises les gestes de secours !'
+            :pct>=60?'👍 Bon niveau ! Quelques points à revoir.'
+            :'📖 Continue ta formation, tu progresseras !';
+  myDiv.className='res-card';
+  myDiv.innerHTML=`
+    <div class="res-score">${score}</div>
+    <div class="res-lbl">points sur ${MAX}</div>
+    <div class="res-msg">${pct}% de bonnes réponses · ${msg}</div>
+    <div class="res-stats">
+      <div class="rs"><div class="rs-val">${correctCount}/${sessionQS.length}</div><div class="rs-lbl">Bonnes réponses</div></div>
+      <div class="rs"><div class="rs-val">${maxStreak}</div><div class="rs-lbl">Meilleur combo</div></div>
+      <div class="rs"><div class="rs-val">${avgT}s</div><div class="rs-lbl">Temps moyen</div></div>
+    </div>`;
+  myDiv.style.display='block';
+  buildReview();
 }
 
 /* ── UTILS ── */

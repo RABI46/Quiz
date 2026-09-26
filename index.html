@@ -248,13 +248,7 @@ function selectA(idx){
   totalTime+=elapsed;
   const isOk=idx===q.c;
   history.push({qi:curQ,sel:idx,ok:isOk});
-
-  if(isOk){
-    correctCount++;streak++;if(streak>maxStreak)maxStreak=streak;
-    sndOk();
-    } else {
-    streak=0;sndBad();
-  }
+  if(isOk){sndOk();}else{sndBad();}
   revealAnswer(idx);
 }
 

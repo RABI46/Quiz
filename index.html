@@ -8,313 +8,341 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
 
 :root {
-  --blue:#003189; --blue2:#001f5c; --blue3:#0044c8;
-  --red:#E30613;  --red2:#b80000; --red3:#ff3347;
-  --white:#FFFFFF; --off:#E8EDF5;
-  --muted:#7a8fb8; --muted2:#4a5f88;
-  --card:rgba(255,255,255,.055); --card2:rgba(255,255,255,.09);
-  --green:#00C896; --gold:#FFD700; --orange:#FF8C00;
-  --r:14px; --r2:10px;
-  --shadow:0 8px 32px rgba(0,0,0,.35);
+  /* Couleurs Officielles Protection Civile Française : Orange & Bleu Marine / Bleu Roi & Blanc */
+  --pc-orange:#FF6600;
+  --pc-orange2:#E05500;
+  --pc-orange-glow:rgba(255, 102, 0, 0.45);
+  --pc-navy:#0A192F;
+  --pc-blue:#003380;
+  --pc-blue2:#001F52;
+  --pc-blue-glow:rgba(0, 51, 128, 0.6);
+  --white:#FFFFFF;
+  --off:#F0F4F8;
+  --muted:#8DA4C4;
+  --muted2:#5B789E;
+  --card:rgba(255, 255, 255, 0.07);
+  --card2:rgba(255, 255, 255, 0.12);
+  --green:#00E6A1;
+  --green-glow:rgba(0, 230, 161, 0.4);
+  --gold:#FFD700;
+  --red-err:#FF3347;
+  --r:16px;
+  --r2:10px;
+  --shadow:0 10px 40px rgba(0,0,0,0.45);
 }
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-tap-highlight-color:transparent}
 body{
   font-family:'Barlow',sans-serif;
-  background:var(--blue2);
+  background:linear-gradient(135deg, #061121 0%, #0A192F 50%, #001A40 100%);
   color:var(--white);
   min-height:100vh;
   overflow-x:hidden;
 }
 
-/* ════════════ BG ════════════ */
-.hex{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.06;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100'%3E%3Cpolygon points='28,2 54,16 54,44 28,58 2,44 2,16' fill='none' stroke='%23fff' stroke-width='1'/%3E%3C/svg%3E");
+/* ════════════ BG & ANIMATED EFFETS ════════════ */
+.hex{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100'%3E%3Cpolygon points='28,2 54,16 54,44 28,58 2,44 2,16' fill='none' stroke='%23fff' stroke-width='1.2'/%3E%3C/svg%3E");
   background-size:56px 100px}
+
 .glow{position:fixed;inset:0;z-index:0;pointer-events:none;
   background:
-    radial-gradient(ellipse 65% 45% at 12% 8%,rgba(227,6,19,.16) 0,transparent 65%),
-    radial-gradient(ellipse 55% 65% at 88% 92%,rgba(0,49,137,.5) 0,transparent 65%);
-  animation:glowPulse 9s ease-in-out infinite alternate}
-@keyframes glowPulse{0%{opacity:.7}100%{opacity:1}}
+    radial-gradient(ellipse 70% 50% at 15% 10%, rgba(255, 102, 0, 0.2) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 70% at 85% 90%, rgba(0, 51, 128, 0.55) 0%, transparent 70%);
+  animation:glowPulse 8s ease-in-out infinite alternate}
+@keyframes glowPulse{0%{opacity:.75;transform:scale(1)}100%{opacity:1;transform:scale(1.05)}}
 
 /* ════════════ LAYOUT ════════════ */
 .wrap{position:relative;z-index:1;max-width:680px;margin:0 auto;padding:24px 14px 80px}
 
 /* ════════════ SCREENS ════════════ */
 .screen{display:none}
-.screen.on{display:block;animation:fadeUp .38s cubic-bezier(.2,.8,.4,1) both}
-@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
-@keyframes fadeDown{from{opacity:0;transform:translateY(-14px)}to{opacity:1;transform:none}}
+.screen.on{display:block;animation:fadeUp .42s cubic-bezier(.16,1,.3,1) both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-18px)}to{opacity:1;transform:none}}
 
-/* ════════════ HEADER ════════════ */
+/* ════════════ HEADER PROTECTION CIVILE ════════════ */
 .hdr{text-align:center;margin-bottom:28px;animation:fadeDown .7s both}
-.logo{display:inline-flex;align-items:center;gap:10px;
-  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);
-  border-radius:50px;padding:7px 18px 7px 10px;margin-bottom:18px;backdrop-filter:blur(6px)}
+.logo{display:inline-flex;align-items:center;gap:12px;
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);
+  border-radius:50px;padding:8px 22px 8px 10px;margin-bottom:18px;
+  backdrop-filter:blur(10px);box-shadow:0 8px 24px rgba(0,0,0,.25)}
+
 .cross{
-  width:34px;height:34px;border-radius:6px;
-  background:var(--red);display:flex;align-items:center;justify-content:center;
-  font-size:20px;font-weight:900;color:#fff;flex-shrink:0;
-  box-shadow:0 0 14px rgba(227,6,19,.6);
-  animation:crossPulse 2.8s ease-in-out infinite}
-@keyframes crossPulse{0%,100%{box-shadow:0 0 14px rgba(227,6,19,.6)}50%{box-shadow:0 0 28px rgba(227,6,19,1)}}
-.logo-txt{font-size:12px;font-weight:700;letter-spacing:1.3px;text-transform:uppercase;color:var(--off)}
-h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,11vw,5.2rem);
+  width:38px;height:38px;border-radius:8px;
+  background:linear-gradient(135deg, var(--pc-orange), var(--pc-orange2));
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px;font-weight:900;color:#fff;flex-shrink:0;
+  box-shadow:0 0 18px var(--pc-orange-glow);
+  animation:orangePulse 2.5s ease-in-out infinite}
+@keyframes orangePulse{0%,100%{box-shadow:0 0 14px var(--pc-orange-glow);transform:scale(1)}50%{box-shadow:0 0 30px var(--pc-orange), 0 0 10px #fff;transform:scale(1.06)}}
+
+.logo-txt{font-size:13px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--white)}
+h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(3.2rem,11.5vw,5.5rem);
   letter-spacing:3px;line-height:.92;color:var(--white);
-  text-shadow:0 0 60px rgba(227,6,19,.45);margin-bottom:4px}
-h1 span{color:var(--red)}
-.sub{color:var(--muted);font-size:14px;font-weight:500;letter-spacing:.4px}
-.stripe{height:4px;border-radius:2px;margin:16px 0 22px;
-  background:linear-gradient(90deg,var(--red),var(--blue),var(--red));
-  background-size:200% 100%;animation:stripeMove 3s linear infinite}
-@keyframes stripeMove{0%{background-position:0%}100%{background-position:200%}}
+  text-shadow:0 0 50px var(--pc-orange-glow);margin-bottom:4px}
+h1 span{color:var(--pc-orange);text-shadow:0 0 35px var(--pc-orange)}
+.sub{color:var(--muted);font-size:14px;font-weight:600;letter-spacing:.6px}
+
+.stripe{height:5px;border-radius:3px;margin:18px 0 24px;
+  background:linear-gradient(90deg, var(--pc-orange), var(--pc-blue), #ffffff, var(--pc-orange));
+  background-size:250% 100%;animation:stripeMove 4s linear infinite}
+@keyframes stripeMove{0%{background-position:0%}100%{background-position:250%}}
 
 /* ════════════ WELCOME ════════════ */
-.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:22px}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px}
 .ic{
-  background:var(--card);border:1px solid rgba(255,255,255,.09);border-radius:var(--r);
-  padding:16px 12px;text-align:center;position:relative;overflow:hidden;
-  transition:transform .2s,border-color .2s,background .2s}
-.ic::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;
-  background:linear-gradient(90deg,var(--red),var(--blue))}
-.ic:hover{transform:translateY(-3px);border-color:rgba(255,255,255,.2);background:var(--card2)}
-.ic .emo{font-size:26px;margin-bottom:6px}
-.ic .lbl{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1.3px;font-weight:700}
-.ic .val{font-family:'Bebas Neue',sans-serif;font-size:26px;color:var(--white);letter-spacing:1px}
+  background:var(--card);border:1px solid rgba(255,255,255,.11);border-radius:var(--r);
+  padding:18px 14px;text-align:center;position:relative;overflow:hidden;
+  backdrop-filter:blur(8px);
+  transition:transform .25s,border-color .25s,background .25s,box-shadow .25s}
+.ic::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--pc-orange),var(--pc-blue))}
+.ic:hover{transform:translateY(-4px);border-color:rgba(255,102,0,.4);background:var(--card2);box-shadow:0 12px 30px rgba(0,0,0,.3)}
+.ic .emo{font-size:28px;margin-bottom:6px;filter:drop-shadow(0 2px 8px rgba(0,0,0,.3))}
+.ic .lbl{font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:1.4px;font-weight:700}
+.ic .val{font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--white);letter-spacing:1px}
 
 /* ════════════ FORM ════════════ */
-.fgrp{margin-bottom:14px}
-.fgrp label{display:block;font-size:11px;font-weight:700;color:var(--muted);
-  text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px}
+.fgrp{margin-bottom:16px}
+.fgrp label{display:block;font-size:11px;font-weight:800;color:var(--muted);
+  text-transform:uppercase;letter-spacing:1.6px;margin-bottom:8px}
 .fgrp input{
-  width:100%;background:rgba(255,255,255,.06);border:2px solid rgba(255,255,255,.1);
-  border-radius:10px;padding:13px 16px;font-size:16px;font-family:'Barlow',sans-serif;
-  color:var(--white);outline:none;transition:border-color .2s,background .2s,box-shadow .2s}
-.fgrp input:focus{border-color:var(--red);background:rgba(255,255,255,.1);box-shadow:0 0 0 4px rgba(227,6,19,.14)}
-.fgrp input::placeholder{color:rgba(255,255,255,.28)}
+  width:100%;background:rgba(255,255,255,.07);border:2px solid rgba(255,255,255,.15);
+  border-radius:12px;padding:14px 18px;font-size:16px;font-family:'Barlow',sans-serif;
+  color:var(--white);outline:none;transition:border-color .25s,background .25s,box-shadow .25s}
+.fgrp input:focus{border-color:var(--pc-orange);background:rgba(255,255,255,.12);box-shadow:0 0 0 4px var(--pc-orange-glow)}
+.fgrp input::placeholder{color:rgba(255,255,255,.32)}
 
-/* ════════════ BUTTONS ════════════ */
+/* ════════════ BUTTONS MODERNES ════════════ */
 .btn{
-  display:block;width:100%;padding:15px;border:none;border-radius:10px;
-  font-family:'Barlow',sans-serif;font-size:16px;font-weight:700;cursor:pointer;
-  letter-spacing:.4px;position:relative;overflow:hidden;
-  transition:transform .14s,box-shadow .18s,opacity .15s}
-.btn::after{content:'';position:absolute;inset:0;background:rgba(255,255,255,.13);
-  transform:translateX(-101%);transition:transform .3s ease;border-radius:inherit}
+  display:block;width:100%;padding:16px;border:none;border-radius:12px;
+  font-family:'Barlow',sans-serif;font-size:16px;font-weight:800;cursor:pointer;
+  letter-spacing:.6px;position:relative;overflow:hidden;
+  transition:transform .15s,box-shadow .2s,opacity .15s,background .2s}
+.btn::after{content:'';position:absolute;inset:0;background:rgba(255,255,255,.18);
+  transform:translateX(-101%);transition:transform .35s ease;border-radius:inherit}
 .btn:hover::after{transform:translateX(0)}
 .btn:active{transform:scale(.97)}
-.btn-red{background:var(--red);color:#fff;box-shadow:0 6px 22px rgba(227,6,19,.38)}
-.btn-red:hover{box-shadow:0 10px 34px rgba(227,6,19,.6)}
-.btn-blue{background:var(--blue);color:#fff;border:1px solid rgba(255,255,255,.14);
-  box-shadow:0 4px 16px rgba(0,49,137,.5);margin-top:10px}
-.btn-blue:hover{box-shadow:0 8px 28px rgba(0,49,137,.7)}
-.btn-ghost{background:rgba(255,255,255,.06);color:var(--white);
-  border:1px solid rgba(255,255,255,.12);margin-top:10px}
-.btn-ghost:hover{background:rgba(255,255,255,.11)}
-.btn:disabled{opacity:.38;cursor:not-allowed}
 
-/* ════════════ PROGRESS ════════════ */
-.prog-bar{background:rgba(255,255,255,.08);border-radius:50px;height:6px;
-  margin-bottom:8px;overflow:hidden}
-.prog-fill{height:100%;background:linear-gradient(90deg,var(--red),#ff6060);
+.btn-orange{background:linear-gradient(135deg, var(--pc-orange), var(--pc-orange2));color:#fff;
+  box-shadow:0 8px 26px var(--pc-orange-glow)}
+.btn-orange:hover{box-shadow:0 12px 38px var(--pc-orange)}
+
+.btn-blue{background:linear-gradient(135deg, var(--pc-blue), var(--pc-blue2));color:#fff;border:1px solid rgba(255,255,255,.2);
+  box-shadow:0 6px 20px var(--pc-blue-glow);margin-top:12px}
+.btn-blue:hover{box-shadow:0 10px 30px var(--pc-blue)}
+
+.btn-ghost{background:rgba(255,255,255,.07);color:var(--white);
+  border:1px solid rgba(255,255,255,.15);margin-top:10px;backdrop-filter:blur(6px)}
+.btn-ghost:hover{background:rgba(255,255,255,.13)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+
+/* ════════════ PROGRESS & META ════════════ */
+.prog-bar{background:rgba(255,255,255,.1);border-radius:50px;height:7px;
+  margin-bottom:10px;overflow:hidden}
+.prog-fill{height:100%;background:linear-gradient(90deg, var(--pc-orange), #FF9933);
   border-radius:50px;transition:width .42s cubic-bezier(.4,0,.2,1);position:relative}
 .prog-fill::after{content:'';position:absolute;right:-1px;top:-3px;
-  width:12px;height:12px;border-radius:50%;background:#fff;
-  box-shadow:0 0 8px rgba(227,6,19,.9)}
+  width:13px;height:13px;border-radius:50%;background:#fff;
+  box-shadow:0 0 10px var(--pc-orange)}
 .prog-meta{display:flex;justify-content:space-between;align-items:center;
-  font-size:12px;color:var(--muted);margin-bottom:18px}
-.qnum{font-weight:800;color:var(--red);font-size:13px}
+  font-size:12px;color:var(--muted);margin-bottom:20px}
+.qnum{font-weight:800;color:var(--pc-orange);font-size:14px;text-transform:uppercase;letter-spacing:1px}
 
 /* ════════════ CIRCULAR TIMER ════════════ */
-.timer-wrap{position:relative;width:52px;height:52px;flex-shrink:0}
+.timer-wrap{position:relative;width:54px;height:54px;flex-shrink:0}
 .timer-svg{transform:rotate(-90deg)}
-.timer-track{fill:none;stroke:rgba(255,255,255,.1);stroke-width:4}
-.timer-arc{fill:none;stroke:var(--red);stroke-width:4;stroke-linecap:round;
+.timer-track{fill:none;stroke:rgba(255,255,255,.12);stroke-width:4}
+.timer-arc{fill:none;stroke:var(--pc-orange);stroke-width:4;stroke-linecap:round;
   stroke-dasharray:131;stroke-dashoffset:0;transition:stroke-dashoffset .9s linear,stroke .5s}
 .timer-num{
   position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
-  font-family:'Bebas Neue',sans-serif;font-size:18px;color:var(--white);line-height:1}
-.timer-warn .timer-arc{stroke:var(--red3);animation:timerFlash .5s ease-in-out infinite alternate}
+  font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--white);line-height:1}
+.timer-warn .timer-arc{stroke:var(--red-err);animation:timerFlash .4s ease-in-out infinite alternate}
 @keyframes timerFlash{from{opacity:1}to{opacity:.3}}
-.timer-warn .timer-num{color:var(--red3)}
+.timer-warn .timer-num{color:var(--red-err)}
 
 /* ════════════ COMBO STREAK ════════════ */
 .combo{
   display:flex;align-items:center;gap:8px;
-  background:rgba(255,215,0,.08);border:1px solid rgba(255,215,0,.2);
-  border-radius:50px;padding:5px 14px;font-size:13px;font-weight:700;
-  color:var(--gold);margin-bottom:14px;
-  transition:opacity .3s,transform .3s;opacity:0;transform:scale(.92)}
-.combo.show{opacity:1;transform:scale(1)}
-.combo-fire{font-size:18px}
-.combo-txt{letter-spacing:.5px}
+  background:rgba(255,215,0,.1);border:1px solid rgba(255,215,0,.3);
+  border-radius:50px;padding:6px 16px;font-size:13px;font-weight:800;
+  color:var(--gold);margin-bottom:16px;
+  transition:opacity .3s,transform .3s;opacity:0;transform:scale(.9)}
+.combo.show{opacity:1;transform:scale(1);box-shadow:0 0 20px rgba(255,215,0,.3)}
+.combo-fire{font-size:20px}
+.combo-txt{letter-spacing:.6px}
 
-/* ════════════ QUESTION CARD ════════════ */
+/* ════════════ QUESTION CARD GLASSMORPHISM ════════════ */
 .q-card{
-  background:var(--card);border:1px solid rgba(255,255,255,.08);
-  border-radius:var(--r);padding:20px 18px 14px;margin-bottom:14px;
-  position:relative;overflow:hidden}
-.q-card::before{content:'';position:absolute;top:0;left:0;width:4px;bottom:0;
-  background:linear-gradient(180deg,var(--red),var(--blue))}
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);
+  border-radius:var(--r);padding:22px 20px 16px;margin-bottom:16px;
+  position:relative;overflow:hidden;backdrop-filter:blur(12px);
+  box-shadow:0 12px 35px rgba(0,0,0,.3)}
+.q-card::before{content:'';position:absolute;top:0;left:0;width:5px;bottom:0;
+  background:linear-gradient(180deg, var(--pc-orange), var(--pc-blue))}
 .q-tag{
-  display:inline-flex;align-items:center;gap:5px;
-  font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;
-  color:rgba(255,255,255,.65);background:rgba(0,49,137,.4);
-  border:1px solid rgba(0,49,137,.7);border-radius:50px;padding:3px 12px;margin-bottom:12px}
-.q-tag::before{content:'';display:inline-block;width:5px;height:5px;border-radius:50%;
-  background:var(--red);box-shadow:0 0 6px var(--red)}
-.q-txt{font-size:clamp(15px,4.2vw,20px);font-weight:600;line-height:1.45;color:var(--white)}
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:1.6px;
+  color:var(--white);background:rgba(0,51,128,.55);
+  border:1px solid rgba(255,255,255,.2);border-radius:50px;padding:4px 14px;margin-bottom:14px}
+.q-tag::before{content:'';display:inline-block;width:6px;height:6px;border-radius:50%;
+  background:var(--pc-orange);box-shadow:0 0 8px var(--pc-orange)}
+.q-txt{font-size:clamp(16px,4.5vw,21px);font-weight:600;line-height:1.45;color:var(--white)}
 
 /* ════════════ OPTIONS ════════════ */
-.opts{display:flex;flex-direction:column;gap:9px;margin-bottom:16px}
+.opts{display:flex;flex-direction:column;gap:10px;margin-bottom:18px}
 .opt{
-  background:rgba(255,255,255,.045);border:2px solid rgba(255,255,255,.07);
-  border-radius:10px;padding:12px 15px;cursor:pointer;
-  font-family:'Barlow',sans-serif;font-size:15px;font-weight:500;
+  background:rgba(255,255,255,.05);border:2px solid rgba(255,255,255,.09);
+  border-radius:12px;padding:14px 16px;cursor:pointer;
+  font-family:'Barlow',sans-serif;font-size:15px;font-weight:600;
   color:var(--white);text-align:left;
-  display:flex;align-items:center;gap:11px;
-  transition:border-color .14s,background .14s,transform .11s;
-  position:relative;overflow:hidden}
-.opt:hover:not(:disabled){border-color:rgba(255,255,255,.28);background:rgba(255,255,255,.08);transform:translateX(5px)}
+  display:flex;align-items:center;gap:12px;
+  transition:border-color .18s,background .18s,transform .14s,box-shadow .18s;
+  position:relative;overflow:hidden;backdrop-filter:blur(6px)}
+.opt:hover:not(:disabled){border-color:var(--pc-orange);background:rgba(255,102,0,.12);transform:translateX(6px);box-shadow:0 6px 20px rgba(255,102,0,.2)}
 .opt:disabled{cursor:default}
 .oltr{
-  width:28px;height:28px;min-width:28px;border-radius:7px;
-  background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;
-  font-size:12px;font-weight:800;color:var(--muted);transition:background .15s,color .15s}
-.opt .ripple{position:absolute;border-radius:50%;width:8px;height:8px;
-  background:rgba(255,255,255,.3);pointer-events:none;transform:scale(0);
+  width:30px;height:30px;min-width:30px;border-radius:8px;
+  background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;
+  font-size:13px;font-weight:800;color:var(--off);transition:background .18s,color .18s}
+.opt .ripple{position:absolute;border-radius:50%;width:10px;height:10px;
+  background:rgba(255,255,255,.35);pointer-events:none;transform:scale(0);
   animation:rpl .5s linear}
-@keyframes rpl{to{transform:scale(32);opacity:0}}
+@keyframes rpl{to{transform:scale(35);opacity:0}}
 
-/* States */
-.opt.correct{border-color:var(--green) !important;background:rgba(0,200,150,.1) !important;
-  animation:cpop .38s cubic-bezier(.2,.8,.4,1.4)}
-.opt.wrong{border-color:rgba(255,255,255,.1) !important;background:rgba(255,255,255,.03) !important;opacity:.45}
-.opt.sel-wrong{border-color:var(--red) !important;background:rgba(227,6,19,.13) !important;
-  animation:shake .32s ease}
+/* States Options */
+.opt.correct{border-color:var(--green) !important;background:rgba(0,230,161,.16) !important;
+  box-shadow:0 0 25px var(--green-glow) !important;animation:cpop .38s cubic-bezier(.2,.8,.4,1.4)}
+.opt.wrong{border-color:rgba(255,255,255,.08) !important;background:rgba(255,255,255,.02) !important;opacity:.4}
+.opt.sel-wrong{border-color:var(--red-err) !important;background:rgba(255,51,71,.18) !important;
+  box-shadow:0 0 20px rgba(255,51,71,.3) !important;animation:shake .32s ease}
 .opt.correct .oltr{background:var(--green);color:#000}
-.opt.sel-wrong .oltr{background:var(--red);color:#fff}
-@keyframes cpop{0%{transform:scale(.97)}55%{transform:scale(1.025)}100%{transform:scale(1)}}
-@keyframes shake{0%,100%{transform:none}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.opt.sel-wrong .oltr{background:var(--red-err);color:#fff}
+@keyframes cpop{0%{transform:scale(.97)}55%{transform:scale(1.02)}100%{transform:scale(1)}}
+@keyframes shake{0%,100%{transform:none}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
 
 /* ════════════ FEEDBACK ════════════ */
 .fb{
-  background:rgba(255,255,255,.04);border-left:4px solid var(--green);
-  border-radius:10px;padding:13px 15px;font-size:14px;line-height:1.55;
-  color:rgba(255,255,255,.78);margin-bottom:14px;display:none;
-  animation:fadeUp .28s ease both}
-.fb.bad{border-left-color:var(--red)}
+  background:rgba(255,255,255,.06);border-left:5px solid var(--green);
+  border-radius:12px;padding:15px 18px;font-size:14.5px;line-height:1.55;
+  color:rgba(255,255,255,.9);margin-bottom:16px;display:none;
+  backdrop-filter:blur(8px);animation:fadeUp .28s ease both}
+.fb.bad{border-left-color:var(--red-err)}
 .fb strong{color:var(--white)}
 
 /* ════════════ SCORE FLASH ════════════ */
 .sf{
   position:fixed;top:45%;left:50%;transform:translate(-50%,-50%) scale(0);
-  font-family:'Bebas Neue',sans-serif;font-size:4.5rem;
+  font-family:'Bebas Neue',sans-serif;font-size:5rem;
   pointer-events:none;z-index:200;opacity:0;
-  transition:transform .2s cubic-bezier(.2,.8,.4,1.4),opacity .25s}
+  transition:transform .22s cubic-bezier(.2,.8,.4,1.4),opacity .25s}
 .sf.show{transform:translate(-50%,-50%) scale(1);opacity:1}
 .sf.hide{transform:translate(-50%,-65%) scale(.75);opacity:0}
-.sf.good{color:var(--green);text-shadow:0 0 28px rgba(0,200,150,.8)}
-.sf.combo-bonus{color:var(--gold);text-shadow:0 0 28px rgba(255,215,0,.8)}
+.sf.good{color:var(--green);text-shadow:0 0 35px var(--green-glow)}
+.sf.combo-bonus{color:var(--gold);text-shadow:0 0 35px rgba(255,215,0,.9)}
 
 /* ════════════ CONFETTI ════════════ */
 .cfe{position:fixed;inset:0;pointer-events:none;z-index:300;overflow:hidden}
 .cp{position:absolute;top:-14px;border-radius:2px;animation:cfFall linear both}
 @keyframes cfFall{0%{transform:translateY(0) rotate(0deg);opacity:1}100%{transform:translateY(110vh) rotate(720deg);opacity:0}}
 
-/* ════════════ RESULT ════════════ */
+/* ════════════ RESULT CARD ════════════ */
 .res-card{
-  background:linear-gradient(135deg,rgba(227,6,19,.16),rgba(0,49,137,.24));
-  border:1px solid rgba(227,6,19,.3);border-radius:var(--r);
-  padding:24px 20px;text-align:center;margin-bottom:22px;
-  position:relative;overflow:hidden}
+  background:linear-gradient(135deg, rgba(255,102,0,.2), rgba(0,51,128,.35));
+  border:1px solid rgba(255,102,0,.4);border-radius:var(--r);
+  padding:26px 22px;text-align:center;margin-bottom:24px;
+  position:relative;overflow:hidden;backdrop-filter:blur(10px);
+  box-shadow:0 15px 45px rgba(0,0,0,.4)}
 .res-card::before{content:'';position:absolute;top:-60%;left:-60%;
   width:220%;height:220%;
-  background:conic-gradient(from 0deg,transparent 0%,rgba(227,6,19,.07) 20%,transparent 40%);
+  background:conic-gradient(from 0deg,transparent 0%,rgba(255,102,0,.12) 20%,transparent 40%);
   animation:spin 8s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 .res-card>*{position:relative;z-index:1}
-.res-score{font-family:'Bebas Neue',sans-serif;font-size:5.5rem;line-height:1;
-  color:var(--red);text-shadow:0 0 30px rgba(227,6,19,.7)}
-.res-lbl{color:var(--muted);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;margin-top:2px}
-.res-name{font-size:20px;font-weight:700;margin-top:8px}
-.res-msg{font-size:14px;color:rgba(255,255,255,.6);margin-top:6px;line-height:1.4}
-.res-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:16px}
-.rs{background:rgba(255,255,255,.07);border-radius:8px;padding:10px;text-align:center}
-.rs-val{font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--white)}
+.res-score{font-family:'Bebas Neue',sans-serif;font-size:5.8rem;line-height:1;
+  color:var(--pc-orange);text-shadow:0 0 35px var(--pc-orange-glow)}
+.res-lbl{color:var(--muted);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1.4px;margin-top:2px}
+.res-name{font-size:22px;font-weight:800;margin-top:8px}
+.res-msg{font-size:14.5px;color:rgba(255,255,255,.75);margin-top:6px;line-height:1.4}
+.res-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px}
+.rs{background:rgba(255,255,255,.08);border-radius:10px;padding:12px 8px;text-align:center}
+.rs-val{font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--white)}
 .rs-lbl{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;font-weight:700}
 
 /* ════════════ REVIEW ════════════ */
 .review-btn{
-  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);
-  border-radius:10px;padding:12px 16px;
-  font-family:'Barlow',sans-serif;font-size:14px;font-weight:600;color:var(--white);
-  cursor:pointer;width:100%;text-align:left;margin-bottom:8px;
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);
+  border-radius:12px;padding:13px 18px;
+  font-family:'Barlow',sans-serif;font-size:14px;font-weight:700;color:var(--white);
+  cursor:pointer;width:100%;text-align:left;margin-bottom:10px;
   display:flex;align-items:center;justify-content:space-between;
-  transition:background .15s}
-.review-btn:hover{background:rgba(255,255,255,.1)}
+  transition:background .2s}
+.review-btn:hover{background:rgba(255,255,255,.12)}
 .review-panel{
-  background:rgba(0,0,0,.25);border-radius:10px;padding:14px 16px;
-  margin-bottom:20px;display:none;animation:fadeUp .25s ease both}
+  background:rgba(0,0,0,.3);border-radius:12px;padding:16px 18px;
+  margin-bottom:22px;display:none;animation:fadeUp .25s ease both}
 .review-panel.open{display:block}
-.r-item{padding:10px 0;border-bottom:1px solid rgba(255,255,255,.06);font-size:13px;line-height:1.5}
+.r-item{padding:12px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:13.5px;line-height:1.5}
 .r-item:last-child{border-bottom:none}
-.r-cat{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:3px}
-.r-q{font-weight:600;margin-bottom:5px}
+.r-cat{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:1.2px;color:var(--pc-orange);margin-bottom:4px}
+.r-q{font-weight:600;margin-bottom:6px}
 .r-ans{display:flex;align-items:center;gap:6px}
-.r-ans.ok{color:var(--green)}.r-ans.ko{color:var(--red3)}
-.r-ans span{font-size:12px}
+.r-ans.ok{color:var(--green)}.r-ans.ko{color:var(--red-err)}
+.r-ans span{font-size:12.5px}
 
 /* ════════════ PODIUM ════════════ */
-.podium{display:flex;justify-content:center;align-items:flex-end;gap:12px;margin-bottom:26px;flex-wrap:wrap}
-.pi{display:flex;flex-direction:column;align-items:center;gap:4px;min-width:82px}
-.pi-med{font-size:28px}
-.pi-name{font-size:12px;font-weight:700;max-width:82px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.pi-pts{font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--red)}
-.pi-base{width:58px;border-radius:6px 6px 0 0}
-.pi:nth-child(1) .pi-base{height:68px;background:linear-gradient(180deg,rgba(227,6,19,.9),rgba(0,49,137,.7))}
-.pi:nth-child(2) .pi-base{height:48px;background:linear-gradient(180deg,rgba(227,6,19,.6),rgba(0,49,137,.5))}
-.pi:nth-child(3) .pi-base{height:34px;background:linear-gradient(180deg,rgba(227,6,19,.35),rgba(0,49,137,.35))}
+.podium{display:flex;justify-content:center;align-items:flex-end;gap:14px;margin-bottom:28px;flex-wrap:wrap}
+.pi{display:flex;flex-direction:column;align-items:center;gap:4px;min-width:85px}
+.pi-med{font-size:30px;filter:drop-shadow(0 4px 10px rgba(0,0,0,.4))}
+.pi-name{font-size:12px;font-weight:800;max-width:85px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pi-pts{font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--pc-orange)}
+.pi-base{width:62px;border-radius:8px 8px 0 0}
+.pi:nth-child(1) .pi-base{height:72px;background:linear-gradient(180deg, var(--pc-orange), var(--pc-blue))}
+.pi:nth-child(2) .pi-base{height:52px;background:linear-gradient(180deg, rgba(255,102,0,.7), rgba(0,51,128,.6))}
+.pi:nth-child(3) .pi-base{height:36px;background:linear-gradient(180deg, rgba(255,102,0,.4), rgba(0,51,128,.4))}
 
 /* ════════════ LB LIST ════════════ */
-.lb-list{display:flex;flex-direction:column;gap:7px;margin-bottom:20px}
+.lb-list{display:flex;flex-direction:column;gap:8px;margin-bottom:22px}
 .lb-row{
-  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.07);
-  border-radius:10px;padding:12px 15px;
-  display:flex;align-items:center;gap:12px;
-  animation:fadeUp .3s ease both;transition:background .15s}
-.lb-row:hover{background:rgba(255,255,255,.08)}
-.lb-row.me{border-color:var(--red);background:rgba(227,6,19,.09)}
-.lb-rank{font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--muted);min-width:26px;text-align:center}
-.lb-row.me .lb-rank{color:var(--red)}
-.lb-name{flex:1;font-weight:600;font-size:14px}
-.lb-pts{font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--red);line-height:1;text-align:right}
-.lb-pct{font-size:10px;color:var(--muted);text-align:right}
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);
+  border-radius:12px;padding:13px 16px;
+  display:flex;align-items:center;gap:14px;
+  animation:fadeUp .3s ease both;transition:background .2s}
+.lb-row:hover{background:rgba(255,255,255,.09)}
+.lb-row.me{border-color:var(--pc-orange);background:rgba(255,102,0,.12);box-shadow:0 4px 20px var(--pc-orange-glow)}
+.lb-rank{font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--muted);min-width:28px;text-align:center}
+.lb-row.me .lb-rank{color:var(--pc-orange)}
+.lb-name{flex:1;font-weight:700;font-size:14.5px}
+.lb-pts{font-family:'Bebas Neue',sans-serif;font-size:26px;color:var(--pc-orange);line-height:1;text-align:right}
+.lb-pct{font-size:10.5px;color:var(--muted);text-align:right}
 
 /* ════════════ SHARE ════════════ */
 .share-box{
-  background:rgba(0,49,137,.22);border:1px dashed rgba(0,49,137,.55);
-  border-radius:10px;padding:13px 15px;text-align:center;
-  font-size:13px;color:var(--muted);margin-bottom:16px;line-height:1.5}
-.share-box strong{color:rgba(255,255,255,.75)}
+  background:rgba(0,51,128,.28);border:1px dashed rgba(255,102,0,.5);
+  border-radius:12px;padding:14px 16px;text-align:center;
+  font-size:13.5px;color:var(--muted);margin-bottom:18px;line-height:1.5}
+.share-box strong{color:rgba(255,255,255,.85)}
 
 /* ════════════ TOAST ════════════ */
 #toast{
   position:fixed;bottom:24px;left:50%;
   transform:translateX(-50%) translateY(80px);
-  background:var(--green);color:#000;font-weight:700;font-size:14px;
-  border-radius:50px;padding:10px 22px;z-index:999;
+  background:var(--green);color:#000;font-weight:800;font-size:14px;
+  border-radius:50px;padding:12px 24px;z-index:999;
+  box-shadow:0 8px 30px var(--green-glow);
   transition:transform .3s cubic-bezier(.2,.8,.4,1);white-space:nowrap}
 #toast.show{transform:translateX(-50%) translateY(0)}
 
 /* ════════════ SEPARATOR ════════════ */
-.sep{height:1px;background:rgba(255,255,255,.07);margin:18px 0}
+.sep{height:1px;background:rgba(255,255,255,.08);margin:20px 0}
 </style>
 
 <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database-compat.js"></script>
+<script src="questions.js"></script>
 
 </head>
 <body>
@@ -333,23 +361,23 @@ h1 span{color:var(--red)}
       <div class="logo-txt">Protection Civile du Lot</div>
     </div>
     <h1>QUIZ <span>PSE</span></h1>
-    <div class="sub">Premiers Secours en Équipe · 20 questions</div>
+    <div class="sub">Premiers Secours en Équipe · 20 questions tirées aléatoirement</div>
     <div class="stripe"></div>
     <button class="btn btn-ghost" onclick="goHome()" style="width:auto;margin:0 auto 10px;padding:6px 14px;font-size:13px">🏠 Accueil</button>
   </div>
 
   <div id="sw" class="screen on">
     <div class="info-grid">
-      <div class="ic"><div class="emo">❓</div><div class="lbl">Questions</div><div class="val">20</div></div>
+      <div class="ic"><div class="emo">❓</div><div class="lbl">Banque</div><div class="val" id="bank-size-val">500</div></div>
+      <div class="ic"><div class="emo">🎯</div><div class="lbl">Tirage</div><div class="val">20 Qs</div></div>
       <div class="ic"><div class="emo">⏱️</div><div class="lbl">Par question</div><div class="val">30s</div></div>
-      <div class="ic"><div class="emo">🔥</div><div class="lbl">Combo bonus</div><div class="val">×2</div></div>
-      <div class="ic"><div class="emo">🏆</div><div class="lbl">Score max</div><div class="val">3900</div></div>
+      <div class="ic"><div class="emo">🏆</div><div class="lbl">Score max</div><div class="val" id="max-score-val">3900</div></div>
     </div>
     <div class="fgrp">
       <label>Ton prénom</label>
       <input type="text" id="pname" placeholder="ex : Sophie, Marc…" maxlength="20" autocomplete="off"/>
     </div>
-    <button class="btn btn-red" onclick="startQuiz()">🚀 Démarrer le Quiz</button>
+    <button class="btn btn-orange" onclick="startQuiz()">🚀 Démarrer le Quiz</button>
     <button class="btn btn-blue" onclick="showLB()">🏆 Voir le Classement</button>
 
     <div class="sep"></div>
@@ -367,7 +395,7 @@ h1 span{color:var(--red)}
       <div style="display:flex;align-items:center;gap:12px">
         <div id="score-live" style="font-weight:700;font-size:13px;color:var(--gold)">0 pts</div>
         <div class="timer-wrap" id="twrap">
-          <svg class="timer-svg" width="52" height="52" viewBox="0 0 52 52">
+          <svg class="timer-svg" width="54" height="54" viewBox="0 0 52 52">
             <circle class="timer-track" cx="26" cy="26" r="21"/>
             <circle class="timer-arc" id="tarc" cx="26" cy="26" r="21"/>
           </svg>
@@ -382,7 +410,7 @@ h1 span{color:var(--red)}
     </div>
     <div class="opts" id="opts"></div>
     <div class="fb" id="fb"></div>
-    <button class="btn btn-red" id="btnNext" style="display:none" onclick="nextQ()">Suivant →</button>
+    <button class="btn btn-orange" id="btnNext" style="display:none" onclick="nextQ()">Suivant →</button>
   </div>
 
   <div id="slb" class="screen">
@@ -399,14 +427,13 @@ h1 span{color:var(--red)}
     <p style="text-align:center;color:var(--muted);font-size:13px;margin-bottom:20px">Résultats de tous les participants (temps réel)</p>
     <div class="podium" id="podium"></div>
     <div class="lb-list" id="lbList"></div>
-    <div class="share-box">📲 Envoie ce fichier sur ton groupe WhatsApp !<br><strong>Chaque équipier joue depuis son téléphone.</strong></div>
-    <button class="btn btn-red" onclick="goHome()">🔁 Rejouer</button>
-    <button class="btn btn-blue" onclick="goHome()" style="margin-top:10px">🏠 Retour à l'accueil</button>
-    <button class="btn btn-ghost" onclick="resetAll()" style="margin-top:10px">🗑️ Réinitialiser les scores</button>
+    <div class="share-box">📲 Envoie ce lien sur ton groupe WhatsApp !<br><strong>Chaque équipier joue depuis son téléphone.</strong></div>
+    <button class="btn btn-orange" onclick="goHome()">🔁 Rejouer</button>
+    <button class="btn btn-ghost" onclick="resetAll()" style="margin-top:10px">🔒 Réinitialiser les scores (Admin)</button>
   </div>
 
 </div><script>
-/* ── CONFIGURATION CONFIGURATION FIREBASE (REPRISE DE L'IMAGE) ── */
+/* ── CONFIGURATION FIREBASE ── */
 const firebaseConfig = {
   apiKey: "AIzaSyAh3WToickRwNXbYSH7INiUjSpV8_98EwI",
   authDomain: "quiz-pse1.firebaseapp.com",
@@ -439,41 +466,50 @@ try {
         showLB(isShowingMyRes);
       }
     });
+// Mot de passe administrateur sécurisé pour la réinitialisation
+const ADMIN_PASSWORD = "PSE1-PROTECTION-CIVILE";
+
+// Écoute en temps réel de la bdd globale
+db.ref('scores').on('value', (snapshot) => {
+  const data = snapshot.val() || {};
+  globalScores = Object.values(data);
+  globalScores.sort((a, b) => b.pts - a.pts);
+  
+  if(document.getElementById('slb').classList.contains('on')) {
+    const isShowingMyRes = document.getElementById('myres').style.display === 'block';
+    showLB(isShowingMyRes);
   }
 } catch (err) {
   console.warn('Firebase error:', err);
 }
 
-/* ── DATA ─────────────────────────────────────────── */
-const QS=[
- {cat:"Attitude & Comportement",q:"Quelle est la priorité absolue du secouriste lors d'une intervention ?",opts:["Examiner la victime en détail","Protéger : sécuriser la zone et mettre en sécurité","Alerter les secours publics","Débuter la RCP immédiatement"],c:1,e:"La <strong>protection</strong> est la priorité absolue : sécuriser avant tout geste pour ne pas créer de nouvelles victimes."},
- {cat:"Bilans & Évaluation",q:"Combien de « regards » le secouriste effectue-t-il pour évaluer une situation ?",opts:["2 regards","3 regards","4 regards","5 regards"],c:2,e:"Les <strong>4 regards</strong> : 1) observer les dangers de loin, 2) identifier menaces vitales, 3) évaluer les 3 fonctions vitales, 4) interrogatoire complet."},
- {cat:"Urgences Vitales",q:"Quelle est la 1ʳᵉ priorité dans l'ordre des menaces vitales ?",opts:["Absence de respiration","Obstruction des voies aériennes","Hémorragie externe grave","Perte de connaissance"],c:2,e:"L'<strong>hémorragie externe grave</strong> est la 1ʳᵉ priorité : elle peut tuer en quelques minutes. Stopper le saignement d'abord !"},
- {cat:"RCP",q:"Quel est le rythme correct des compressions thoraciques lors d'une RCP ?",opts:["60-80 / min","80-100 / min","100-120 / min","120-140 / min"],c:2,e:"<strong>100 à 120 compressions / min</strong>, profondeur ≥ 5 cm. Ratio : 30 compressions / 2 insufflations."},
- {cat:"Obstruction des Voies Aériennes",q:"Face à une obstruction COMPLÈTE (silence total, impossible de tousser), que faire ?",opts:["Encourager à tousser","Claques dans le dos puis compressions abdominales en alternant","Mettre en PLS immédiatement","Administrer de l'oxygène"],c:1,e:"Obstruction complète → <strong>5 claques dans le dos</strong> puis <strong>5 compressions abdominales</strong> en alternant jusqu'à réussite."},
- {cat:"Hygiène & Asepsie",q:"Quelle convention s'applique pour les gants lors d'une intervention ?",opts:["Main dominante = main sale","Main non dominante = main sale","Les deux mains sont propres si les gants sont neufs","Gants stériles aux deux mains obligatoires"],c:1,e:"Convention EPI : la <strong>main non dominante</strong> = main « sale » (contacts extérieurs). La main dominante reste « propre » pour les soins."},
- {cat:"Évaluation Neurologique",q:"Dans l'échelle AVPU, que signifie la lettre « P » ?",opts:["Patient éveillé (Alert)","Réagit à la douleur (Pain)","Évalue la pression artérielle","Pupilles réactives"],c:1,e:"Échelle AVPU : A=Alert, V=Verbal, <strong>P=Pain</strong> (réagit uniquement à la douleur), U=Unresponsive."},
- {cat:"Hémorragie",q:"Le garrot est utilisé comme :",opts:["Premier geste systématique","Ultime recours si la compression échoue","Uniquement pour les membres inférieurs","Seulement si la gaze hémostatique est absente"],c:1,e:"Ordre : compression → pansement compressif → gaze hémostatique → <strong>garrot (ultime recours)</strong>. Toujours noter l'heure !"},
- {cat:"Malaises & Affections",q:"Quels sont les signes d'une réaction anaphylactique grave ?",opts:["Fièvre, toux sèche, éruption localisée","Gonflement lèvres/gorge, urticaire, dyspnée, hypotension","Maux de tête, nausées, diplopie","Douleur thoracique irradiant bras gauche"],c:1,e:"Anaphylaxie : <strong>gonflement rapide lèvres/gorge</strong>, urticaire généralisée, sifflement, choc. SAMU + épinéphrine IM si disponible."},
- {cat:"Traumatismes – Brûlures",q:"Combien de minutes minimum faut-il refroidir une brûlure à l'eau froide ?",opts:["5 minutes","10 minutes","15 minutes","20 minutes"],c:2,e:"Refroidissement <strong>minimum 15 minutes</strong> à l'eau froide (pas glacée) : soulage la douleur et limite les lésions en profondeur."},
- {cat:"DAE – Défibrillateur",q:"Avant de délivrer un choc avec un DAE, que faut-il impérativement faire ?",opts:["Continuer le massage cardiaque","Vérifier la saturation O₂","Écarter tout le monde — ne pas toucher la victime","Prévenir les pompiers"],c:2,e:"Sécurité absolue : <strong>ÉCARTER tout le monde</strong> avant chaque choc. Personne ne touche la victime au moment de la défibrillation."},
- {cat:"Position Latérale de Secours",q:"À quel moment doit-on installer une victime en PLS ?",opts:["Dès qu'elle est consciente","Dès la perte de connaissance si elle respire","Uniquement après crise convulsive","Quand FR < 12/min"],c:1,e:"<strong>PLS</strong> = perte de connaissance + respiration présente. Objectif : libérer les voies aériennes et permettre le drainage."},
- {cat:"Crise Convulsive",q:"Que NE doit-on PAS faire pendant une crise convulsive ?",opts:["Écarter les objets dangereux","Maintenir la victime de force pour stopper les convulsions","Laisser la crise évoluer naturellement","Préparer la PLS pour après"],c:1,e:"<strong>Ne jamais maintenir de force.</strong> On protège, on éloigne les dangers, on laisse évoluer. PLS seulement après la crise."},
- {cat:"Bilans – Paramètres Vitaux",q:"En cas de détresse vitale, à quelle fréquence mesure-t-on les paramètres vitaux ?",opts:["Toutes les 2 min","Toutes les 5 min","Toutes les 10 min","Toutes les 15 min"],c:1,e:"En détresse vitale : <strong>toutes les 5 min</strong> minimum. Sans détresse immédiate : toutes les 10-15 min."},
- {cat:"AVC",q:"Quel signe spécifique différencie l'AVC d'un simple malaise ?",opts:["Forte fièvre + confusion","Paralysie soudaine d'un demi-corps, trouble parole, asymétrie visage","Hypoglycémie + tremblements","Douleur thoracique + sueurs"],c:1,e:"Signes AVC : <strong>paralysie soudaine d'un côté</strong>, trouble de la parole, asymétrie faciale. SAMU URGENT + noter l'heure de début."},
- {cat:"Noyade",q:"Lors d'une noyade, en combien de temps maximum doit-on retirer la victime de l'eau ?",opts:["30 secondes","60 secondes","2 minutes","5 minutes"],c:1,e:"Retirer la victime idéalement en <strong>60 secondes</strong>. Ensuite : libérer les voies, PLS si elle respire, RCP si absent de respiration."},
- {cat:"Hypoglycémie",q:"Diabétique conscient avec sueurs, tremblements et confusion : quelle conduite à tenir ?",opts:["SAMU uniquement, ne rien donner","Donner du sucre immédiatement","Installer en PLS","Donner de l'eau salée"],c:1,e:"Hypoglycémie + conscient → <strong>sucre rapide immédiatement</strong> (jus, soda). Ne pas confondre avec hyperglycémie où on n'en donne PAS."},
- {cat:"Traumatisme Rachis",q:"En cas de suspicion de traumatisme du rachis, quelle est la première action ?",opts:["Mettre en PLS pour sécuriser les voies","Immobiliser la tête en position neutre","Administrer un antalgique","Mobiliser rapidement la victime"],c:1,e:"Traumatisme rachis : <strong>immobiliser la tête en position NEUTRE</strong> en priorité, puis collier cervical, puis brancard rigide."},
- {cat:"Accouchement Inopiné",q:"Lors d'un accouchement inopiné, que faire avec le cordon ombilical ?",opts:["Couper immédiatement avec des ciseaux propres","Ne PAS couper sauf urgence absolue (2 nœuds)","Couper après 10 minutes","Tirer doucement pour expulser le placenta"],c:1,e:"<strong>Ne pas couper le cordon.</strong> Urgence absolue : 2 nœuds solides avant coupe. Ne jamais tirer sur le cordon pour le placenta."},
- {cat:"Formation Continue",q:"À quelle fréquence le recyclage PSE est-il obligatoire ?",opts:["Tous les ans","Tous les 2 ans","Tous les 3 ans","Tous les 5 ans"],c:0,e:"Recyclage obligatoire <strong>tous les ans</strong> minimum : actualise les techniques et maintient les automatismes par la pratique."}
-];
+⁸/* ── DATA & SELECTION ALEATOIRE DE 20 QUESTIONS ── */
+const QUESTIONS_PER_SESSION = 20;
+let QS = [];
+
+function selectRandomQuestions() {
+  const bank = (typeof QUESTION_BANK !== 'undefined' && QUESTION_BANK.length > 0) ? QUESTION_BANK : [];
+  const count = Math.min(QUESTIONS_PER_SESSION, bank.length);
+  const shuffled = [...bank].sort(() => 0.5 - Math.random());
+  QS = shuffled.slice(0, count);
+}
 
 /* ── STATE ── */
 let curQ=0,score=0,name='',timer=null,tLeft=30,answered=false;
 let streak=0,maxStreak=0,correctCount=0,totalTime=0,qStart=0;
 let history=[],sessionQS=[];
 const LTR=['A','B','C','D'];
-const MAX=QS.length===0?0:(100+(QS.length-1)*200);
+let MAX = 3900;
+
+function updateMaxScoreDisplay() {
+  const qCount = QS.length > 0 ? QS.length : QUESTIONS_PER_SESSION;
+  MAX = qCount === 0 ? 0 : (100 + (qCount - 1) * 200);
+  const el = document.getElementById('max-score-val');
+  if(el) el.textContent = MAX;
+  const bankEl = document.getElementById('bank-size-val');
+  if(bankEl && typeof QUESTION_BANK !== 'undefined') bankEl.textContent = QUESTION_BANK.length;
+}
+
 const CIRC=2*Math.PI*21;
 
 /* ── AUDIO ── */
@@ -505,6 +541,7 @@ function saveScore(n,pts,correct,streak){
     });
   }
 }
+
 function resetAll(){
   const pwd = prompt('Entrez le mot de passe administrateur pour réinitialiser les scores :');
   if(pwd === 'PSE1-PROTECTION-CIVILE'){
@@ -551,6 +588,8 @@ function prepareSessionQuestions(){
 function startQuiz(){
   name=document.getElementById('pname').value.trim();
   if(!name){document.getElementById('pname').focus();toast('Entre ton prénom !');return;}
+  selectRandomQuestions();
+  updateMaxScoreDisplay();
   curQ=0;score=0;streak=0;maxStreak=0;correctCount=0;totalTime=0;history=[];
   sessionQS=prepareSessionQuestions();
   showScreen('sq');renderQ();
@@ -681,7 +720,7 @@ function finishQuiz(){
 /* ── CONFETTI ── */
 function launchConfetti(){
   const c=document.getElementById('cfe');c.innerHTML='';
-  const cols=['#E30613','#003189','#FFFFFF','#FFD700','#00C896','#FF8C00'];
+  const cols=['#FF6600','#003380','#FFFFFF','#FFD700','#00E6A1','#FF8C00'];
   for(let i=0;i<100;i++){
     const p=document.createElement('div');p.className='cp';
     p.style.cssText=`left:${Math.random()*100}vw;background:${cols[Math.floor(Math.random()*cols.length)]};width:${6+Math.random()*8}px;height:${10+Math.random()*14}px;animation-duration:${1.8+Math.random()*2.5}s;animation-delay:${Math.random()*1.5}s`;
@@ -809,6 +848,7 @@ let _toastT;
 function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(_toastT);_toastT=setTimeout(()=>t.classList.remove('show'),2600);}
 
 document.addEventListener('DOMContentLoaded',()=>{
+  updateMaxScoreDisplay();
   document.getElementById('pname').addEventListener('keydown',e=>{if(e.key==='Enter')startQuiz();});
 });
 </script>

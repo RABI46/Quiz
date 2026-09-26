@@ -84,6 +84,8 @@ if ("serviceWorker" in navigator) window.addEventListener("load", () => navigato
       <div class="ic"><div class="emo">❓</div><div class="lbl">Banque</div><div class="val" id="bank-size-val">500</div></div>
       <div class="ic"><div class="emo">🎯</div><div class="lbl">Tirage</div><div class="val">20 Qs</div></div>
       <div class="ic"><div class="emo">⏱️</div><div class="lbl">Par question</div><div class="val">30s</div></div>
+      <div class="ic"><div class="emo">🏆</div><div class="lbl">Score max</div><div class="val" id="max-score-val">3900</div></div>
+    </div>
       </div>
     <button class="btn btn-orange" onclick="startQuiz()">🚀 Démarrer le Quiz</button>
   </div>
@@ -119,6 +121,7 @@ if ("serviceWorker" in navigator) window.addEventListener("load", () => navigato
       <div class="res-msg">Bravo, tu as terminé les 20 questions.</div>
       <div class="res-msg" style="margin-top:10px">Les corrections et explications ont été affichées pendant la session.</div>
     </div>
+
     <button class="btn btn-orange" onclick="goHome()">🔁 Rejouer</button>
   </div>
 
@@ -280,6 +283,10 @@ function revealAnswer(sel){
 function nextQ(){curQ++;curQ>=sessionQS.length?finishQuiz():renderQ();}
 
 /* ── FINISH ── */
+function finishQuiz(){
+  if(score/MAX>=0.5)launchConfetti();
+  showResults();
+}
 function finishQuiz(){showScreen('slb');launchConfetti();}
 
 /* ── CONFETTI ── */
@@ -292,6 +299,53 @@ function launchConfetti(){
     c.appendChild(p);
   }
   setTimeout(()=>c.innerHTML='',5500);
+}
+
+/* ── REVIEW ── */
+function toggleReview(){
+  const p=document.getElementById('rev-panel');
+  const a=document.getElementById('rev-arrow');
+  const open=p.classList.toggle('open');
+  a.textContent=open?'▲':'▼';
+}
+
+function buildReview(){
+  const panel=document.getElementById('rev-panel');
+  panel.innerHTML='';
+  history.forEach(h=>{
+    const q=sessionQS[h.qi];
+    const div=document.createElement('div');div.className='r-item';
+    const ansOk=`<div class="r-ans ok">✅ <span>${q.opts[q.c]}</span></div>`;
+    const ansKo=h.sel>=0
+      ?`<div class="r-ans ko">❌ <span>Tu as répondu : ${q.opts[h.sel]}</span></div><div class="r-ans ok" style="margin-top:3px">✅ <span>Bonne : ${q.opts[q.c]}</span></div>`
+      :`<div class="r-ans ko">⏰ <span>Temps écoulé — Bonne : ${q.opts[q.c]}</span></div>`;
+    div.innerHTML=`<div class="r-cat">${q.cat}</div><div class="r-q">${q.q}</div>${h.ok?ansOk:ansKo}`;
+    panel.appendChild(div);
+  });
+  document.getElementById('review-wrap').style.display='block';
+}
+
+/* ── LB ── */
+function showResults(){
+  showScreen('slb');
+  const myDiv=document.getElementById('myres');
+  const pct=Math.round(score/MAX*100);
+  const avgT=sessionQS.length>0?Math.round(totalTime/sessionQS.length):0;
+  const msg=pct>=80?'🎖️ Expert ! Tu maîtrises les gestes de secours !'
+            :pct>=60?'👍 Bon niveau ! Quelques points à revoir.'
+            :'📖 Continue ta formation, tu progresseras !';
+  myDiv.className='res-card';
+  myDiv.innerHTML=`
+    <div class="res-score">${score}</div>
+    <div class="res-lbl">points sur ${MAX}</div>
+    <div class="res-msg">${pct}% de bonnes réponses · ${msg}</div>
+    <div class="res-stats">
+      <div class="rs"><div class="rs-val">${correctCount}/${sessionQS.length}</div><div class="rs-lbl">Bonnes réponses</div></div>
+      <div class="rs"><div class="rs-val">${maxStreak}</div><div class="rs-lbl">Meilleur combo</div></div>
+      <div class="rs"><div class="rs-val">${avgT}s</div><div class="rs-lbl">Temps moyen</div></div>
+    </div>`;
+  myDiv.style.display='block';
+  buildReview();
 }
 
 /* ── UTILS ── */

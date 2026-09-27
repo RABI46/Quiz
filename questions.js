@@ -1,4 +1,4 @@
-const QUESTION_BANK = [
+var QUESTION_BANK = [
   {
     "cat": "Attitude & Comportement",
     "q": "Quelle est la priorité absolue du secouriste lorsqu'il arrive sur une scène d'accident ?",
@@ -6000,3 +6000,4 @@ const QUESTION_BANK = [
     "e": "Resucrage immédiat par voie orale si la victime est consciente et capable d'avaler."
   }
 ];
+if (typeof window !== "undefined") { window.QUESTION_BANK = QUESTION_BANK; }

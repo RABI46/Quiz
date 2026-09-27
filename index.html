@@ -19,7 +19,7 @@ function esc(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&l
 function show(id){["home","quiz","done"].forEach(x=>document.getElementById(x).classList.toggle("hidden",x!==id))}
 function goHome(){clearInterval(timer);show("home");scrollTo(0,0)}
 function buildThemes(){
-  const bank=Array.isArray(window.QUESTION_BANK)?window.QUESTION_BANK:[];
+  const bank=(typeof QUESTION_BANK!=="undefined"&&Array.isArray(QUESTION_BANK))?QUESTION_BANK:(Array.isArray(window.QUESTION_BANK)?window.QUESTION_BANK:[]);
   const groups={};
   bank.forEach(x=>{const k=x.cat||"PSE1";(groups[k]??=[]).push(x)});
   const box=document.getElementById("themes");
@@ -33,7 +33,7 @@ function buildThemes(){
   });
 }
 function startQuiz(theme){
-  const bank=Array.isArray(window.QUESTION_BANK)?window.QUESTION_BANK:[];
+  const bank=(typeof QUESTION_BANK!=="undefined"&&Array.isArray(QUESTION_BANK))?QUESTION_BANK:(Array.isArray(window.QUESTION_BANK)?window.QUESTION_BANK:[]);
   const groups={};
   bank.forEach(x=>{const k=x.cat||"PSE1";(groups[k]??=[]).push(x)});
   if(!groups[theme]||groups[theme].length<TOTAL){alert("Cette thématique ne contient pas assez de questions.");return}

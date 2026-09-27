@@ -188,7 +188,7 @@ while len(all_500) < 500:
 
 print(f"Total questions generated: {len(all_500)}")
 
-js_content = "const QUESTION_BANK = " + json.dumps(all_500, ensure_ascii=False, indent=2) + ";\n"
+js_content = "var QUESTION_BANK = " + json.dumps(all_500, ensure_ascii=False, indent=2) + ";\nif (typeof window !== \"undefined\") { window.QUESTION_BANK = QUESTION_BANK; }\n"
 
 with open("questions.js", "w", encoding="utf-8") as f:
     f.write(js_content)

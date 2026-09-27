@@ -9,7 +9,7 @@
 </style></head><body><main class="app">
 <header class="top"><div class="brand"><div class="cross">✚</div><div><small>Protection Civile</small><b>du Lot · PSE1</b></div></div><button class="home" onclick="goHome()">⌂ Accueil</button></header>
 <section id="home"><div class="hero"><h1>QUIZ <span>PSE</span></h1><p>Entraînement PSE1 — 20 questions aléatoires</p></div><div class="card start"><div class="stats"><div class="stat"><b id="bank">20</b><span>Questions</span></div><div class="stat"><b>30s</b><span>Par question</span></div><div class="stat"><b>✓</b><span>Correction</span></div></div><button class="primary" onclick="startQuiz()">🚀 Nouveau quiz — 20 questions</button></div></section>
-<section id="quiz" class="hidden"><div class="progress"><i id="bar"></i></div><div class="meta"><span id="num">Question 1 / 20</span><span class="timer" id="timer">30</span></div><div class="card question"><div class="tag" id="cat">PSE1</div><h2 id="q"></h2></div><div class="answers" id="answers"></div><div id="feedback" class="feedback hidden"></div><button id="next" class="primary next hidden" onclick="nextQuestion()">Question suivante →</button></section>
+<section id="quiz" class="hidden"><div class="progress"><i id="bar"></i></div><div class="meta"><span><b id="lot">Lot 1 / 2</b> · <span id="num">Question 1 / 20</span></span><span class="timer" id="timer">30</span></div><div class="card question"><div class="tag" id="cat">PSE1</div><div id="illustration" class="qillustration" aria-hidden="true"></div><h2 id="q"></h2></div><div class="answers" id="answers"></div><div id="feedback" class="feedback hidden"></div><button id="next" class="primary next hidden" onclick="nextQuestion()">Question suivante →</button></section>
 <section id="done" class="hidden"><div class="card done"><div style="font-size:54px">🎉</div><h2>Les 20 questions sont terminées</h2><p>La session d'entraînement est terminée.</p><button class="primary" onclick="goHome()">🔁 Recommencer</button></div></section>
 <div class="foot">Quiz PSE1 · Protection Civile du Lot</div></main>
 <script src="./questions.js"></script><script>
@@ -19,24 +19,30 @@ function esc(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&l
 function show(id){["home","quiz","done"].forEach(x=>document.getElementById(x).classList.toggle("hidden",x!==id))}
 function goHome(){clearInterval(timer);show("home");scrollTo(0,0)}
 function startQuiz(){
-  let bank=typeof QUESTION_BANK!=="undefined"?QUESTION_BANK:[];
-  if(bank.length<TOTAL)return;
+  const bank=Array.isArray(window.QUESTION_BANK)?window.QUESTION_BANK:[];
+  if(bank.length<TOTAL){alert("La banque de questions n'est pas disponible.");return}
+  const groups={};
+  bank.forEach(x=>{const k=x.cat||"PSE1";(groups[k]??=[]).push(x)});
+  const themes=Object.keys(groups).filter(k=>groups[k].length>=10);
+  if(themes.length<2){alert("Il faut au moins deux thèmes contenant 10 questions.");return}
+
   let previous=[];
   try{previous=JSON.parse(localStorage.getItem("quizPSEPrevious")||"[]")}catch(e){}
-  let pool=shuffle([...bank]);
-  let chosen=pool.slice(0,TOTAL);
-  let previousSet=new Set(previous);
-  if(previous.length===TOTAL){
-    let attempts=0;
-    while(chosen.every(x=>previousSet.has(x.q))&&attempts<20){
-      pool=shuffle([...bank]); chosen=pool.slice(0,TOTAL); attempts++;
-    }
-  }
-  qs=chosen.map(x=>{
-    let o=x.opts.map((v,i)=>({v,ok:i===x.c}));
-    shuffle(o);
-    return{cat:x.cat||"PSE1",q:x.q,opts:o.map(z=>z.v),c:o.findIndex(z=>z.ok),e:x.e||""}
+  const previousSet=new Set(previous);
+  const selectedThemes=shuffle([...themes]).slice(0,2);
+  const chosen=[];
+
+  selectedThemes.forEach(theme=>{
+    let candidates=shuffle(groups[theme].filter(x=>!previousSet.has(x.q)));
+    if(candidates.length<10)candidates=shuffle([...groups[theme]]);
+    chosen.push(...candidates.slice(0,10));
   });
+
+  qs=shuffle(chosen.map(x=>{
+    const o=(Array.isArray(x.opts)?x.opts:[]).map((v,i)=>({v,ok:i===x.c}));
+    shuffle(o);
+    return {cat:x.cat||"PSE1",q:x.q,opts:o.map(z=>z.v),c:o.findIndex(z=>z.ok),e:x.e||""};
+  }));
   try{localStorage.setItem("quizPSEPrevious",JSON.stringify(qs.map(x=>x.q)))}catch(e){}
   cur=0;show("quiz");render()
 }
@@ -57,7 +63,7 @@ function illustrationFor(x){
   const escSvg=v=>String(v).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
   return '<svg viewBox="0 0 760 170" role="img" aria-label="'+escSvg(title)+'"><defs><linearGradient id="ig" x1="0" x2="1"><stop offset="0" stop-color="#ff6600"/><stop offset="1" stop-color="#ff9a58"/></linearGradient><radialGradient id="rg"><stop stop-color="#ffffff22"/><stop offset="1" stop-color="#ffffff00"/></radialGradient></defs><rect width="760" height="170" fill="#0b1b33"/><circle cx="650" cy="30" r="145" fill="url(#rg)"/><circle cx="120" cy="150" r="110" fill="#ff660012"/><rect x="28" y="28" width="114" height="114" rx="28" fill="url(#ig)" opacity=".95"/><text x="85" y="103" text-anchor="middle" class="ill-main">'+escSvg(icon)+'</text><text x="175" y="72" class="ill-label">'+escSvg(title)+'</text><text x="175" y="102" fill="#fff" font-size="24" font-weight="800" font-family="system-ui,sans-serif">'+escSvg(sub)+'</text><path d="M175 121h430" stroke="#ffffff22"/><circle cx="625" cy="121" r="5" fill="#ff6600"/><circle cx="645" cy="121" r="5" fill="#ff6600" opacity=".55"/><circle cx="665" cy="121" r="5" fill="#ff6600" opacity=".25"/></svg>';
 }
-function render(){answered=false;clearInterval(timer);let x=qs[cur];document.getElementById("num").textContent="Question "+(cur+1)+" / "+qs.length;document.getElementById("bar").style.width=(cur/qs.length*100)+"%";document.getElementById("cat").textContent=x.cat;document.getElementById("illustration").innerHTML=illustrationFor(x);document.getElementById("q").textContent=x.q;document.getElementById("feedback").className="feedback hidden";document.getElementById("next").classList.add("hidden");let a=document.getElementById("answers");a.innerHTML="";x.opts.forEach((v,i)=>{let b=document.createElement("button");b.className="answer";b.innerHTML='<span class="letter">'+L[i]+'</span><span>'+esc(v)+'</span>';b.onclick=()=>answer(i);a.appendChild(b)});left=TIME;tick();timer=setInterval(()=>{left--;tick();if(left<=0){clearInterval(timer);answer(-1)}},1000)}
+function render(){answered=false;clearInterval(timer);let x=qs[cur];document.getElementById("num").textContent="Question "+(cur+1)+" / "+qs.length;document.getElementById("lot").textContent="Lot "+(Math.floor(cur/10)+1)+" / 2";document.getElementById("bar").style.width=(cur/qs.length*100)+"%";document.getElementById("cat").textContent=x.cat;document.getElementById("illustration").innerHTML=illustrationFor(x);document.getElementById("q").textContent=x.q;document.getElementById("feedback").className="feedback hidden";document.getElementById("next").classList.add("hidden");let a=document.getElementById("answers");a.innerHTML="";x.opts.forEach((v,i)=>{let b=document.createElement("button");b.className="answer";b.innerHTML='<span class="letter">'+L[i]+'</span><span>'+esc(v)+'</span>';b.onclick=()=>answer(i);a.appendChild(b)});left=TIME;tick();timer=setInterval(()=>{left--;tick();if(left<=0){clearInterval(timer);answer(-1)}},1000)}
 function tick(){let t=document.getElementById("timer");t.textContent=left;t.classList.toggle("warn",left<=10)}
 function answer(i){if(answered)return;answered=true;clearInterval(timer);let x=qs[cur];document.querySelectorAll(".answer").forEach((b,k)=>{b.disabled=true;if(k===x.c)b.classList.add("correct");else if(k===i)b.classList.add("wrong")});let f=document.getElementById("feedback");if(i===x.c){f.className="feedback good";f.innerHTML="<b>✅ Bonne réponse.</b> "+esc(x.e)}else if(i===-1){f.className="feedback bad";f.innerHTML="<b>⏰ Temps écoulé.</b> Bonne réponse : <b>"+esc(x.opts[x.c])+"</b><br>"+esc(x.e)}else{f.className="feedback bad";f.innerHTML="<b>❌ Mauvaise réponse.</b> Bonne réponse : <b>"+esc(x.opts[x.c])+"</b><br>"+esc(x.e)}f.classList.remove("hidden");let n=document.getElementById("next");n.textContent=cur<qs.length-1?"Question suivante →":"🏁 Terminer";n.classList.remove("hidden")}
 function nextQuestion(){cur++;if(cur>=qs.length){show("done");document.getElementById("bar").style.width="100%"}else render();scrollTo(0,0)}

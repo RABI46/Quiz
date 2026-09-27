@@ -31,7 +31,6 @@ function buildThemes(){
     b.onclick=()=>startQuiz(theme);
     box.appendChild(b);
   });
-  buildThemes();
 }
 function startQuiz(theme){
   const bank=Array.isArray(window.QUESTION_BANK)?window.QUESTION_BANK:[];
@@ -74,5 +73,5 @@ function render(){answered=false;clearInterval(timer);let x=qs[cur];document.get
 function tick(){let t=document.getElementById("timer");t.textContent=left;t.classList.toggle("warn",left<=10)}
 function answer(i){if(answered)return;answered=true;clearInterval(timer);let x=qs[cur];document.querySelectorAll(".answer").forEach((b,k)=>{b.disabled=true;if(k===x.c)b.classList.add("correct");else if(k===i)b.classList.add("wrong")});let f=document.getElementById("feedback");if(i===x.c){f.className="feedback good";f.innerHTML="<b>✅ Bonne réponse.</b> "+esc(x.e)}else if(i===-1){f.className="feedback bad";f.innerHTML="<b>⏰ Temps écoulé.</b> Bonne réponse : <b>"+esc(x.opts[x.c])+"</b><br>"+esc(x.e)}else{f.className="feedback bad";f.innerHTML="<b>❌ Mauvaise réponse.</b> Bonne réponse : <b>"+esc(x.opts[x.c])+"</b><br>"+esc(x.e)}f.classList.remove("hidden");let n=document.getElementById("next");n.textContent=cur<qs.length-1?"Question suivante →":"🏁 Terminer";n.classList.remove("hidden")}
 function nextQuestion(){cur++;if(cur>=qs.length){show("done");document.getElementById("bar").style.width="100%"}else render();scrollTo(0,0)}
-document.getElementById("bank").textContent=TOTAL;
+buildThemes();
 </script></body></html>

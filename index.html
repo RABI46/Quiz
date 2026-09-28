@@ -62,6 +62,10 @@ function resetHistory(){
 }
 function buildThemes(){
   const bank=getBank(), counts={};
+  document.querySelectorAll("#themes .themeBtn").forEach(b=>{
+    b.onclick=()=>startQuiz(b.dataset.theme);
+    b.type="button";
+  });
   bank.forEach(x=>{const k=x.cat||"PSE1";counts[k]=(counts[k]||0)+1});
   document.querySelectorAll("#themes .themeBtn").forEach(b=>{
     const theme=b.dataset.theme, total=counts[theme]||0, pool=readPool(theme), remaining=pool.length;

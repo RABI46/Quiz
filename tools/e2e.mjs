@@ -116,6 +116,17 @@ $("classic-btn").dispatchEvent(new window.MouseEvent("click", { bubbles: true })
 await wait(30);
 if (!visible("quiz")) problems.push("classique : le mode classique ne démarre pas");
 if (!/^Question 1 \/ \d+$/.test($("num").textContent)) problems.push("classique : entête inattendue");
+
+/* réponse au clavier (accessibilité) */
+const keyboardState = window.quizPSE.state();
+const expected = keyboardState.questions[keyboardState.index].c;
+window.document.dispatchEvent(new window.KeyboardEvent("keydown", { key: "1", bubbles: true }));
+await wait(20);
+if ($("feedback").classList.contains("hidden")) problems.push("clavier : la réponse par la touche « 1 » n'est pas prise en compte");
+const chosenLetter = window.document.querySelectorAll("#answers .answer");
+const marked = [...chosenLetter].findIndex((a) => a.classList.contains("correct") || a.classList.contains("wrong"));
+if (marked !== 0) problems.push(`clavier : la touche « 1 » répond à la proposition ${marked + 1}`);
+if (expected < 0) problems.push("clavier : état interne incohérent");
 $("top-home").dispatchEvent(new window.MouseEvent("click", { bubbles: true }));
 await wait(20);
 
@@ -155,5 +166,5 @@ if (problems.length) {
   problems.forEach((p) => console.error("   - " + p));
   process.exit(1);
 }
-console.log("✅ Parcours complet validé : accueil, lot sans répétition, corrections, score, erreurs, classique, mémo, révision, stockage.");
+console.log("✅ Parcours complet validé : accueil, lot sans répétition, corrections, score, erreurs, classique, clavier, mémo, révision, stockage.");
 dom.window.close();

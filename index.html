@@ -145,6 +145,22 @@ function render(){if(!qs.length||!qs[cur]){goHome();return}answered=false;clearI
 function tick(){let t=document.getElementById("timer");t.textContent=left;t.classList.toggle("warn",left<=10)}
 function answer(i){if(answered)return;answered=true;clearInterval(timer);let x=qs[cur];document.querySelectorAll(".answer").forEach((b,k)=>{b.disabled=true;if(k===x.c)b.classList.add("correct");else if(k===i)b.classList.add("wrong")});let f=document.getElementById("feedback");if(i===x.c){f.className="feedback good";f.innerHTML="<b>✅ Bonne réponse.</b> "+esc(x.e)}else if(i===-1){f.className="feedback bad";f.innerHTML="<b>⏰ Temps écoulé.</b> Bonne réponse : <b>"+esc(x.opts[x.c])+"</b><br>"+esc(x.e)}else{f.className="feedback bad";f.innerHTML="<b>❌ Mauvaise réponse.</b> Bonne réponse : <b>"+esc(x.opts[x.c])+"</b><br>"+esc(x.e)}f.classList.remove("hidden");let n=document.getElementById("next");n.textContent=cur<qs.length-1?"Question suivante →":"🏁 Terminer";n.classList.remove("hidden")}
 function nextQuestion(){cur++;if(cur>=qs.length){document.getElementById("doneTheme").textContent=currentTheme;show("done");document.getElementById("bar").style.width="100%"}else render();scrollTo(0,0)}
-document.addEventListener("click",e=>{const b=e.target.closest("#themes .themeBtn");if(b){e.preventDefault();startQuiz(b.dataset.theme||"")}});
-window.addEventListener("DOMContentLoaded",()=>{buildThemes();if("serviceWorker" in navigator)navigator.serviceWorker.register("./sw.js").catch(()=>{})});
+document.addEventListener("click",e=>{
+  const b=e.target.closest("#themes .themeBtn");
+  if(!b)return;
+  e.preventDefault();
+  try{startQuiz(b.dataset.theme||"")}
+  catch(err){
+    console.error(err);
+    alert("Erreur lors du lancement du quiz : "+(err&&err.message?err.message:"erreur JavaScript"));
+  }
+});
+window.addEventListener("DOMContentLoaded",()=>{
+  buildThemes();
+  // Désactive les anciens service workers pour éviter qu'une ancienne version du quiz reste en cache.
+  if("serviceWorker" in navigator){
+    navigator.serviceWorker.getRegistrations().then(rs=>rs.forEach(r=>r.unregister())).catch(()=>{});
+    if("caches" in window)caches.keys().then(keys=>keys.filter(k=>k.startsWith("quiz-pse-")).forEach(k=>caches.delete(k))).catch(()=>{});
+  }
+});
 </script></body></html>

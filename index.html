@@ -38,12 +38,57 @@ function startQuiz(theme){
   bank.forEach(x=>{const k=x.cat||"PSE1";(groups[k]??=[]).push(x)});
   if(!groups[theme]||groups[theme].length<TOTAL){alert("Cette thématique ne contient pas assez de questions.");return}
   currentTheme=theme;
+
+  // File de questions persistante par thématique :
+  // une question utilisée est retirée jusqu'à épuisement du lot.
+  const poolKey="quizPSEPool_"+theme;
+  let pool=[];
+  try{pool=JSON.parse(localStorage.getItem(poolKey)||"[]")}catch(e){pool=[]}
+
+  const byQ=new Map(groups[theme].map(x=>[x.q,x]));
+  pool=pool.filter(q=>byQ.has(q));
+
+  // Si le stock restant est insuffisant pour constituer un quiz,
+  // on complète avec le début d'un nouveau cycle, en privilégiant
+  // les questions qui n'étaient pas dans le quiz précédent.
   let previous=[];
   try{previous=JSON.parse(localStorage.getItem("quizPSEPrevious_"+theme)||"[]")}catch(e){}
   const previousSet=new Set(previous);
-  let candidates=shuffle(groups[theme].filter(x=>!previousSet.has(x.q)));
-  if(candidates.length<TOTAL)candidates=shuffle([...groups[theme]]);
-  const chosen=candidates.slice(0,TOTAL);
+
+  let available=groups[theme].filter(x=>!pool.includes(x.q));
+  let chosen=[];
+
+  // Si aucun stock n'existe encore, on crée un cycle complet.
+  if(pool.length===0){
+    pool=shuffle(groups[theme].map(x=>x.q));
+  }
+
+  // Prendre d'abord les questions jamais utilisées dans le cycle courant.
+  while(chosen.length<TOTAL && pool.length){
+    const q=pool.shift();
+    const x=byQ.get(q);
+    if(x)chosen.push(x);
+  }
+
+  // S'il reste moins de 10 questions dans le cycle, compléter avec le
+  // nouveau cycle. Cela limite les répétitions au strict minimum.
+  if(chosen.length<TOTAL){
+    let refill=shuffle(groups[theme].filter(x=>!chosen.some(y=>y.q===x.q) && !previousSet.has(x.q)));
+    if(refill.length<TOTAL-chosen.length){
+      refill=shuffle(groups[theme].filter(x=>!chosen.some(y=>y.q===x.q)));
+    }
+    const needed=TOTAL-chosen.length;
+    chosen.push(...refill.slice(0,needed));
+    const used=new Set(chosen.map(x=>x.q));
+    pool=shuffle(groups[theme].filter(x=>!used.has(x.q)).map(x=>x.q));
+  }
+
+  // Sauvegarder le reliquat du cycle pour le prochain quiz.
+  try{
+    localStorage.setItem(poolKey,JSON.stringify(pool));
+    localStorage.setItem("quizPSEPrevious_"+theme,JSON.stringify(chosen.map(x=>x.q)));
+  }catch(e){}
+
   qs=chosen.map(x=>{
     const o=(Array.isArray(x.opts)?x.opts:[]).map((v,i)=>({v,ok:i===x.c}));
     shuffle(o);

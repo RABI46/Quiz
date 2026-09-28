@@ -1,6003 +1,1883 @@
-var QUESTION_BANK = [
-  {
-    "cat": "Attitude & Comportement",
-    "q": "quelle est la priorité absolue du secouriste lorsqu'il arrive sur une scène d'accident ?",
-    "opts": [
-      "Identifier les antécédents de la victime",
-      "Protéger : assurer sa sécurité, celle de l'équipe et de la victime",
-      "Pratiquer immédiatement un bilan vital",
-      "Transmettre le bilan au SAMU"
-    ],
-    "c": 1,
-    "e": "La protection est primordiale pour éviter le suraccident et garantir la sécurité des intervenants."
-  },
-  {
-    "cat": "Attitude & Comportement",
-    "q": "en présence d'un danger imminent incontrôlable (ex: incendie majeur, effondrement), que fait le secouriste ?",
-    "opts": [
-      "Tenter une extraction rapide quel que soit le danger",
-      "Réaliser un dégagement d'urgence si possible sinon évacuer la zone et baliser",
-      "Attendre sans prévenir personne",
-      "Pratiquer la RCP sur place"
-    ],
-    "c": 1,
-    "e": "Face à un danger imminent, si le dégagement d'urgence est impossible ou trop dangereux, il faut sécuriser le périmètre et alerter."
-  },
-  {
-    "cat": "Attitude & Comportement",
-    "q": "combien de regards comporte l'évaluation initiale de la situation par le secouriste ?",
-    "opts": [
-      "2 regards",
-      "3 regards",
-      "4 regards",
-      "5 regards"
-    ],
-    "c": 2,
-    "e": "L'évaluation initiale comprend 4 regards : observer les dangers, identifier les menaces vitales, évaluer les fonctions vitales et réaliser le bilan complémentaire."
-  },
-  {
-    "cat": "Attitude & Comportement",
-    "q": "quel est l'objectif principal du balisage lors d'un accident de la circulation ?",
-    "opts": [
-      "Régler le trafic automobile",
-      "Matérialiser la zone de danger pour protéger les victimes et les secours",
-      "Faciliter l'arrivée des médias",
-      "Éviter les amendes des forces de l'ordre"
-    ],
-    "c": 1,
-    "e": "Le balisage permet de rendre la zone visible de loin et de prévenir les suraccidents."
-  },
-  {
-    "cat": "Attitude & Comportement",
-    "q": "quelle distance minimale de sécurité est préconisée face à un véhicule en feu sur autoroute ?",
-    "opts": [
-      "10 mètres",
-      "25 mètres",
-      "50 mètres",
-      "100 mètres"
-    ],
-    "c": 2,
-    "e": "Une distance minimale de 50 mètres est nécessaire en raison des risques d'explosion ou de fumées toxiques."
-  },
-  {
-    "cat": "Attitude & Comportement",
-    "q": "lors de l'intervention auprès d'une victime agressive, quelle doit être l'attitude du secouriste ?",
-    "opts": [
-      "Employer la force pour la maintenir",
-      "Garder une distance de sécurité, rester calme, ne pas isoler le secouriste et demander du renfort",
-      "Quitter les lieux définitivement sans prévenir les secours",
-      "Ignorer l'agressivité et toucher la victime de force"
-    ],
-    "c": 1,
-    "e": "La sécurité du secouriste prime : garder ses distances, communiquer sereinement et solliciter les forces de l'ordre si nécessaire."
-  },
-  {
-    "cat": "Attitude & Comportement",
-    "q": "que signifie le secret professionnel pour un secouriste en équipe ?",
-    "opts": [
-      "Ne rien dire même aux médecins du SAMU",
-      "Ne divulguer les informations médicales qu'aux seules personnes participant directement aux soins de la victime",
-      "Publier les informations sur les réseaux sociaux si les noms sont masqués",
-      "Raconter l'intervention à sa famille"
-    ],
-    "c": 1,
-    "e": "Les informations médicales sont confidentielles et ne sont transmises qu'aux professionnels de santé prenant en charge la victime."
-  },
-  {
-    "cat": "Attitude & Comportement",
-    "q": "dans le cadre du port des epi, quand le secouriste doit-il mettre ses gants à usage unique ?",
-    "opts": [
-      "Uniquement s'il y a du sang visible",
-      "Avant tout contact avec la victime ou du matériel souillé",
-      "Juste avant de transmettre le bilan",
-      "Après avoir pris la tension"
-    ],
-    "c": 1,
-    "e": "Le port des gants est obligatoire avant tout contact avec la victime pour éviter les risques de contamination manuportée."
-  },
-  {
-    "cat": "Attitude & Comportement",
-    "q": "que doit faire un secouriste si une victime consciente refuse expressément les soins ?",
-    "opts": [
-      "L'obliger physiquement à se faire soigner",
-      "Informer la victime des risques, respecter sa décision si elle est lucide, et demander l'avis du médecin régulateur",
-      "Laisser la victime immédiatement sans contacter le régulateur",
-      "Appeler directement la famille pour décision"
-    ],
-    "c": 1,
-    "e": "Toute personne consciente et majeure peut refuser les soins; le secouriste informe et prend avis auprès du médecin régulateur."
-  },
-  {
-    "cat": "Attitude & Comportement",
-    "q": "quel numéro permet de joindre les secours d'urgence depuis n'importe quel pays de l'union européenne ?",
-    "opts": [
-      "15",
-      "17",
-      "18",
-      "112"
-    ],
-    "c": 3,
-    "e": "Le 112 est le numéro d'urgence européen unique."
-  },
-  {
-    "cat": "Attitude & Comportement",
-    "q": "en france, quel numéro permet de joindre le samu ?",
-    "opts": [
-      "15",
-      "18",
-      "112",
-      "114"
-    ],
-    "c": 0,
-    "e": "Le 15 est le numéro direct pour la régulation médicale du SAMU."
-  },
-  {
-    "cat": "Attitude & Comportement",
-    "q": "le numéro d'urgence 114 est spécifiquement dédié :",
-    "opts": [
-      "Aux urgences en mer",
-      "Aux personnes sourdes ou malentendantes (par SMS ou application)",
-      "Aux urgences psychiatriques",
-      "Aux accidents du travail"
-    ],
-    "c": 1,
-    "e": "Le 114 permet aux personnes sourdes ou malentendantes de contacter les secours par texte ou vidéo."
-  },
-  {
-    "cat": "Attitude & Comportement",
-    "q": "quel numéro d'urgence joindre en priorité pour un incendie ou un risque d'effondrement ?",
-    "opts": [
-      "15",
-      "17",
-      "18",
-      "115"
-    ],
-    "c": 2,
-    "e": "Le 18 est le numéro d'urgence des Sapeurs-Pompiers."
-  },
-  {
-    "cat": "Attitude & Comportement",
-    "q": "lors du bilan transmis au samu, quel élément doit obligatoirement figurer dès le début du message ?",
-    "opts": [
-      "Le nom du médecin traitant",
-      "L'adresse précise du lieu d'intervention et le motif d'appel",
-      "La température corporelle de la victime",
-      "La tension artérielle exacte"
-    ],
-    "c": 1,
-    "e": "La localisation exacte garantit l'envoi immédiat des secours même si la ligne est coupée."
-  },
-  {
-    "cat": "Attitude & Comportement",
-    "q": "quelle est la première étape de la chaîne de survie chez l'adulte en arrêt cardiaque ?",
-    "opts": [
-      "La défibrillation précoce",
-      "La reconnaissance précoce de l'arrêt et l'alerte des secours",
-      "La réanimation cardio-pulmonaire précoce",
-      "Les soins post-réanimation"
-    ],
-    "c": 1,
-    "e": "Le premier maillon de la chaîne de survie est la reconnaissance et l'alerte immédiate."
-  },
-  {
-    "cat": "Urgences Vitales",
-    "q": "quel geste d'urgence prime sur tous les autres lors du bilan d'une victime ?",
-    "opts": [
-      "Prendre la température",
-      "Poser un collier cervical",
-      "Arrêter une hémorragie externe grave",
-      "Mettre en PLS"
-    ],
-    "c": 2,
-    "e": "L'hémorragie externe peut tuer en quelques minutes."
-  },
-  {
-    "cat": "Urgences Vitales",
-    "q": "face à un saignement en jet, abondant et continu, que doit faire le secouriste immédiatement ?",
-    "opts": [
-      "Donner à boire",
-      "Mettre les jambes en l'air",
-      "Appliquer une compression directe sur la plaie",
-      "Poser de la glace"
-    ],
-    "c": 2,
-    "e": "La compression directe est le geste immédiat de choix."
-  },
-  {
-    "cat": "Urgences Vitales",
-    "q": "quand le secouriste doit-il poser un garrot d'emblée ?",
-    "opts": [
-      "Pour toute plaie simple du bras",
-      "En cas d'hémorragie externe d'un membre si la compression directe est inefficace ou impossible",
-      "Pour un saignement du nez",
-      "Pour une écorchure du genou"
-    ],
-    "c": 1,
-    "e": "Le garrot s'impose dès que la compression directe ne suffit pas ou est irréalisable sur un membre."
-  },
-  {
-    "cat": "Urgences Vitales",
-    "q": "à quel endroit pose-t-on un garrot tourniquet sur un membre saignant ?",
-    "opts": [
-      "Quelques centimètres au-dessus de la plaie (en amont du saignement), hors d'une articulation",
-      "En dessous de la plaie",
-      "Sur la plaie directement",
-      "Sur l'articulation la plus proche"
-    ],
-    "c": 0,
-    "e": "Le garrot se pose toujours en amont de la blessure, entre la plaie et le cœur."
-  },
-  {
-    "cat": "Urgences Vitales",
-    "q": "une fois le garrot posé et serré, que doit faire impérativement le secouriste ?",
-    "opts": [
-      "Le desserrer toutes les 5 minutes",
-      "Le recouvrir d'un pansement étanche pour le cacher",
-      "Noter l'heure exacte de pose et ne JAMAIS desserrer le garrot",
-      "L'enlever dès que le saignement s'arrête"
-    ],
-    "c": 2,
-    "e": "Le garrot ne doit être retiré que par un médecin sous surveillance."
-  },
-  {
-    "cat": "Urgences Vitales",
-    "q": "Lors d'une intervention à domicile, quel geste d'urgence prime sur tous les autres lors du bilan d'une victime ?",
-    "opts": [
-      "Prendre la température",
-      "Poser un collier cervical",
-      "Arrêter une hémorragie externe grave",
-      "Mettre en PLS"
-    ],
-    "c": 2,
-    "e": "L'hémorragie externe peut tuer en quelques minutes."
-  },
-  {
-    "cat": "Urgences Vitales",
-    "q": "Lors d'une intervention à domicile, face à un saignement en jet, abondant et continu, que doit faire le secouriste immédiatement ?",
-    "opts": [
-      "Donner à boire",
-      "Mettre les jambes en l'air",
-      "Appliquer une compression directe sur la plaie",
-      "Poser de la glace"
-    ],
-    "c": 2,
-    "e": "La compression directe est le geste immédiat de choix."
-  },
-  {
-    "cat": "Urgences Vitales",
-    "q": "Lors d'une intervention à domicile, quand le secouriste doit-il poser un garrot d'emblée ?",
-    "opts": [
-      "Pour toute plaie simple du bras",
-      "En cas d'hémorragie externe d'un membre si la compression directe est inefficace ou impossible",
-      "Pour un saignement du nez",
-      "Pour une écorchure du genou"
-    ],
-    "c": 1,
-    "e": "Le garrot s'impose dès que la compression directe ne suffit pas ou est irréalisable sur un membre."
-  },
-  {
-    "cat": "Urgences Vitales",
-    "q": "Lors d'une intervention à domicile, à quel endroit pose-t-on un garrot tourniquet sur un membre saignant ?",
-    "opts": [
-      "Quelques centimètres au-dessus de la plaie (en amont du saignement), hors d'une articulation",
-      "En dessous de la plaie",
-      "Sur la plaie directement",
-      "Sur l'articulation la plus proche"
-    ],
-    "c": 0,
-    "e": "Le garrot se pose toujours en amont de la blessure, entre la plaie et le cœur."
-  },
-  {
-    "cat": "Urgences Vitales",
-    "q": "Lors d'une intervention à domicile, une fois le garrot posé et serré, que doit faire impérativement le secouriste ?",
-    "opts": [
-      "Le desserrer toutes les 5 minutes",
-      "Le recouvrir d'un pansement étanche pour le cacher",
-      "Noter l'heure exacte de pose et ne JAMAIS desserrer le garrot",
-      "L'enlever dès que le saignement s'arrête"
-    ],
-    "c": 2,
-    "e": "Le garrot ne doit être retiré que par un médecin sous surveillance."
-  },
-  {
-    "cat": "Urgences Vitales",
-    "q": "Lors d'une intervention sur la voie publique, quel geste d'urgence prime sur tous les autres lors du bilan d'une victime ?",
-    "opts": [
-      "Prendre la température",
-      "Poser un collier cervical",
-      "Arrêter une hémorragie externe grave",
-      "Mettre en PLS"
-    ],
-    "c": 2,
-    "e": "L'hémorragie externe peut tuer en quelques minutes."
-  },
-  {
-    "cat": "Urgences Vitales",
-    "q": "Lors d'une intervention sur la voie publique, face à un saignement en jet, abondant et continu, que doit faire le secouriste immédiatement ?",
-    "opts": [
-      "Donner à boire",
-      "Mettre les jambes en l'air",
-      "Appliquer une compression directe sur la plaie",
-      "Poser de la glace"
-    ],
-    "c": 2,
-    "e": "La compression directe est le geste immédiat de choix."
-  },
-  {
-    "cat": "Urgences Vitales",
-    "q": "Lors d'une intervention sur la voie publique, quand le secouriste doit-il poser un garrot d'emblée ?",
-    "opts": [
-      "Pour toute plaie simple du bras",
-      "En cas d'hémorragie externe d'un membre si la compression directe est inefficace ou impossible",
-      "Pour un saignement du nez",
-      "Pour une écorchure du genou"
-    ],
-    "c": 1,
-    "e": "Le garrot s'impose dès que la compression directe ne suffit pas ou est irréalisable sur un membre."
-  },
-  {
-    "cat": "Urgences Vitales",
-    "q": "Lors d'une intervention sur la voie publique, à quel endroit pose-t-on un garrot tourniquet sur un membre saignant ?",
-    "opts": [
-      "Quelques centimètres au-dessus de la plaie (en amont du saignement), hors d'une articulation",
-      "En dessous de la plaie",
-      "Sur la plaie directement",
-      "Sur l'articulation la plus proche"
-    ],
-    "c": 0,
-    "e": "Le garrot se pose toujours en amont de la blessure, entre la plaie et le cœur."
-  },
-  {
-    "cat": "Urgences Vitales",
-    "q": "Lors d'une intervention sur la voie publique, une fois le garrot posé et serré, que doit faire impérativement le secouriste ?",
-    "opts": [
-      "Le desserrer toutes les 5 minutes",
-      "Le recouvrir d'un pansement étanche pour le cacher",
-      "Noter l'heure exacte de pose et ne JAMAIS desserrer le garrot",
-      "L'enlever dès que le saignement s'arrête"
-    ],
-    "c": 2,
-    "e": "Le garrot ne doit être retiré que par un médecin sous surveillance."
-  },
-  {
-    "cat": "Urgences Vitales",
-    "q": "Lors d'une intervention dans un lieu public, quel geste d'urgence prime sur tous les autres lors du bilan d'une victime ?",
-    "opts": [
-      "Prendre la température",
-      "Poser un collier cervical",
-      "Arrêter une hémorragie externe grave",
-      "Mettre en PLS"
-    ],
-    "c": 2,
-    "e": "L'hémorragie externe peut tuer en quelques minutes."
-  },
-  {
-    "cat": "Urgences Vitales",
-    "q": "Lors d'une intervention dans un lieu public, face à un saignement en jet, abondant et continu, que doit faire le secouriste immédiatement ?",
-    "opts": [
-      "Donner à boire",
-      "Mettre les jambes en l'air",
-      "Appliquer une compression directe sur la plaie",
-      "Poser de la glace"
-    ],
-    "c": 2,
-    "e": "La compression directe est le geste immédiat de choix."
-  },
-  {
-    "cat": "Urgences Vitales",
-    "q": "Lors d'une intervention dans un lieu public, quand le secouriste doit-il poser un garrot d'emblée ?",
-    "opts": [
-      "Pour toute plaie simple du bras",
-      "En cas d'hémorragie externe d'un membre si la compression directe est inefficace ou impossible",
-      "Pour un saignement du nez",
-      "Pour une écorchure du genou"
-    ],
-    "c": 1,
-    "e": "Le garrot s'impose dès que la compression directe ne suffit pas ou est irréalisable sur un membre."
-  },
-  {
-    "cat": "Urgences Vitales",
-    "q": "Lors d'une intervention dans un lieu public, à quel endroit pose-t-on un garrot tourniquet sur un membre saignant ?",
-    "opts": [
-      "Quelques centimètres au-dessus de la plaie (en amont du saignement), hors d'une articulation",
-      "En dessous de la plaie",
-      "Sur la plaie directement",
-      "Sur l'articulation la plus proche"
-    ],
-    "c": 0,
-    "e": "Le garrot se pose toujours en amont de la blessure, entre la plaie et le cœur."
-  },
-  {
-    "cat": "Urgences Vitales",
-    "q": "Lors d'une intervention dans un lieu public, une fois le garrot posé et serré, que doit faire impérativement le secouriste ?",
-    "opts": [
-      "Le desserrer toutes les 5 minutes",
-      "Le recouvrir d'un pansement étanche pour le cacher",
-      "Noter l'heure exacte de pose et ne JAMAIS desserrer le garrot",
-      "L'enlever dès que le saignement s'arrête"
-    ],
-    "c": 2,
-    "e": "Le garrot ne doit être retiré que par un médecin sous surveillance."
-  },
-  {
-    "cat": "Urgences Vitales",
-    "q": "Lors d'une intervention de nuit, quel geste d'urgence prime sur tous les autres lors du bilan d'une victime ?",
-    "opts": [
-      "Prendre la température",
-      "Poser un collier cervical",
-      "Arrêter une hémorragie externe grave",
-      "Mettre en PLS"
-    ],
-    "c": 2,
-    "e": "L'hémorragie externe peut tuer en quelques minutes."
-  },
-  {
-    "cat": "Urgences Vitales",
-    "q": "Lors d'une intervention de nuit, face à un saignement en jet, abondant et continu, que doit faire le secouriste immédiatement ?",
-    "opts": [
-      "Donner à boire",
-      "Mettre les jambes en l'air",
-      "Appliquer une compression directe sur la plaie",
-      "Poser de la glace"
-    ],
-    "c": 2,
-    "e": "La compression directe est le geste immédiat de choix."
-  },
-  {
-    "cat": "Urgences Vitales",
-    "q": "Lors d'une intervention de nuit, quand le secouriste doit-il poser un garrot d'emblée ?",
-    "opts": [
-      "Pour toute plaie simple du bras",
-      "En cas d'hémorragie externe d'un membre si la compression directe est inefficace ou impossible",
-      "Pour un saignement du nez",
-      "Pour une écorchure du genou"
-    ],
-    "c": 1,
-    "e": "Le garrot s'impose dès que la compression directe ne suffit pas ou est irréalisable sur un membre."
-  },
-  {
-    "cat": "Urgences Vitales",
-    "q": "Lors d'une intervention de nuit, à quel endroit pose-t-on un garrot tourniquet sur un membre saignant ?",
-    "opts": [
-      "Quelques centimètres au-dessus de la plaie (en amont du saignement), hors d'une articulation",
-      "En dessous de la plaie",
-      "Sur la plaie directement",
-      "Sur l'articulation la plus proche"
-    ],
-    "c": 0,
-    "e": "Le garrot se pose toujours en amont de la blessure, entre la plaie et le cœur."
-  },
-  {
-    "cat": "Urgences Vitales",
-    "q": "Lors d'une intervention de nuit, une fois le garrot posé et serré, que doit faire impérativement le secouriste ?",
-    "opts": [
-      "Le desserrer toutes les 5 minutes",
-      "Le recouvrir d'un pansement étanche pour le cacher",
-      "Noter l'heure exacte de pose et ne JAMAIS desserrer le garrot",
-      "L'enlever dès que le saignement s'arrête"
-    ],
-    "c": 2,
-    "e": "Le garrot ne doit être retiré que par un médecin sous surveillance."
-  },
-  {
-    "cat": "Urgences Vitales",
-    "q": "Lors d'une intervention avec plusieurs témoins, quel geste d'urgence prime sur tous les autres lors du bilan d'une victime ?",
-    "opts": [
-      "Prendre la température",
-      "Poser un collier cervical",
-      "Arrêter une hémorragie externe grave",
-      "Mettre en PLS"
-    ],
-    "c": 2,
-    "e": "L'hémorragie externe peut tuer en quelques minutes."
-  },
-  {
-    "cat": "Urgences Vitales",
-    "q": "Lors d'une intervention avec plusieurs témoins, face à un saignement en jet, abondant et continu, que doit faire le secouriste immédiatement ?",
-    "opts": [
-      "Donner à boire",
-      "Mettre les jambes en l'air",
-      "Appliquer une compression directe sur la plaie",
-      "Poser de la glace"
-    ],
-    "c": 2,
-    "e": "La compression directe est le geste immédiat de choix."
-  },
-  {
-    "cat": "Urgences Vitales",
-    "q": "Lors d'une intervention avec plusieurs témoins, quand le secouriste doit-il poser un garrot d'emblée ?",
-    "opts": [
-      "Pour toute plaie simple du bras",
-      "En cas d'hémorragie externe d'un membre si la compression directe est inefficace ou impossible",
-      "Pour un saignement du nez",
-      "Pour une écorchure du genou"
-    ],
-    "c": 1,
-    "e": "Le garrot s'impose dès que la compression directe ne suffit pas ou est irréalisable sur un membre."
-  },
-  {
-    "cat": "Urgences Vitales",
-    "q": "Lors d'une intervention avec plusieurs témoins, à quel endroit pose-t-on un garrot tourniquet sur un membre saignant ?",
-    "opts": [
-      "Quelques centimètres au-dessus de la plaie (en amont du saignement), hors d'une articulation",
-      "En dessous de la plaie",
-      "Sur la plaie directement",
-      "Sur l'articulation la plus proche"
-    ],
-    "c": 0,
-    "e": "Le garrot se pose toujours en amont de la blessure, entre la plaie et le cœur."
-  },
-  {
-    "cat": "Urgences Vitales",
-    "q": "Lors d'une intervention avec plusieurs témoins, une fois le garrot posé et serré, que doit faire impérativement le secouriste ?",
-    "opts": [
-      "Le desserrer toutes les 5 minutes",
-      "Le recouvrir d'un pansement étanche pour le cacher",
-      "Noter l'heure exacte de pose et ne JAMAIS desserrer le garrot",
-      "L'enlever dès que le saignement s'arrête"
-    ],
-    "c": 2,
-    "e": "Le garrot ne doit être retiré que par un médecin sous surveillance."
-  },
-  {
-    "cat": "Urgences Vitales",
-    "q": "Lors d'une intervention en équipe, quel geste d'urgence prime sur tous les autres lors du bilan d'une victime ?",
-    "opts": [
-      "Prendre la température",
-      "Poser un collier cervical",
-      "Arrêter une hémorragie externe grave",
-      "Mettre en PLS"
-    ],
-    "c": 2,
-    "e": "L'hémorragie externe peut tuer en quelques minutes."
-  },
-  {
-    "cat": "Urgences Vitales",
-    "q": "Lors d'une intervention en équipe, face à un saignement en jet, abondant et continu, que doit faire le secouriste immédiatement ?",
-    "opts": [
-      "Donner à boire",
-      "Mettre les jambes en l'air",
-      "Appliquer une compression directe sur la plaie",
-      "Poser de la glace"
-    ],
-    "c": 2,
-    "e": "La compression directe est le geste immédiat de choix."
-  },
-  {
-    "cat": "Urgences Vitales",
-    "q": "Lors d'une intervention en équipe, quand le secouriste doit-il poser un garrot d'emblée ?",
-    "opts": [
-      "Pour toute plaie simple du bras",
-      "En cas d'hémorragie externe d'un membre si la compression directe est inefficace ou impossible",
-      "Pour un saignement du nez",
-      "Pour une écorchure du genou"
-    ],
-    "c": 1,
-    "e": "Le garrot s'impose dès que la compression directe ne suffit pas ou est irréalisable sur un membre."
-  },
-  {
-    "cat": "Urgences Vitales",
-    "q": "Lors d'une intervention en équipe, à quel endroit pose-t-on un garrot tourniquet sur un membre saignant ?",
-    "opts": [
-      "Quelques centimètres au-dessus de la plaie (en amont du saignement), hors d'une articulation",
-      "En dessous de la plaie",
-      "Sur la plaie directement",
-      "Sur l'articulation la plus proche"
-    ],
-    "c": 0,
-    "e": "Le garrot se pose toujours en amont de la blessure, entre la plaie et le cœur."
-  },
-  {
-    "cat": "Urgences Vitales",
-    "q": "Lors d'une intervention en équipe, une fois le garrot posé et serré, que doit faire impérativement le secouriste ?",
-    "opts": [
-      "Le desserrer toutes les 5 minutes",
-      "Le recouvrir d'un pansement étanche pour le cacher",
-      "Noter l'heure exacte de pose et ne JAMAIS desserrer le garrot",
-      "L'enlever dès que le saignement s'arrête"
-    ],
-    "c": 2,
-    "e": "Le garrot ne doit être retiré que par un médecin sous surveillance."
-  },
-  {
-    "cat": "Urgences Vitales",
-    "q": "Lors d'une intervention en milieu sportif, quel geste d'urgence prime sur tous les autres lors du bilan d'une victime ?",
-    "opts": [
-      "Prendre la température",
-      "Poser un collier cervical",
-      "Arrêter une hémorragie externe grave",
-      "Mettre en PLS"
-    ],
-    "c": 2,
-    "e": "L'hémorragie externe peut tuer en quelques minutes."
-  },
-  {
-    "cat": "Urgences Vitales",
-    "q": "Lors d'une intervention en milieu sportif, face à un saignement en jet, abondant et continu, que doit faire le secouriste immédiatement ?",
-    "opts": [
-      "Donner à boire",
-      "Mettre les jambes en l'air",
-      "Appliquer une compression directe sur la plaie",
-      "Poser de la glace"
-    ],
-    "c": 2,
-    "e": "La compression directe est le geste immédiat de choix."
-  },
-  {
-    "cat": "Urgences Vitales",
-    "q": "Lors d'une intervention en milieu sportif, quand le secouriste doit-il poser un garrot d'emblée ?",
-    "opts": [
-      "Pour toute plaie simple du bras",
-      "En cas d'hémorragie externe d'un membre si la compression directe est inefficace ou impossible",
-      "Pour un saignement du nez",
-      "Pour une écorchure du genou"
-    ],
-    "c": 1,
-    "e": "Le garrot s'impose dès que la compression directe ne suffit pas ou est irréalisable sur un membre."
-  },
-  {
-    "cat": "Urgences Vitales",
-    "q": "Lors d'une intervention en milieu sportif, à quel endroit pose-t-on un garrot tourniquet sur un membre saignant ?",
-    "opts": [
-      "Quelques centimètres au-dessus de la plaie (en amont du saignement), hors d'une articulation",
-      "En dessous de la plaie",
-      "Sur la plaie directement",
-      "Sur l'articulation la plus proche"
-    ],
-    "c": 0,
-    "e": "Le garrot se pose toujours en amont de la blessure, entre la plaie et le cœur."
-  },
-  {
-    "cat": "Urgences Vitales",
-    "q": "Lors d'une intervention en milieu sportif, une fois le garrot posé et serré, que doit faire impérativement le secouriste ?",
-    "opts": [
-      "Le desserrer toutes les 5 minutes",
-      "Le recouvrir d'un pansement étanche pour le cacher",
-      "Noter l'heure exacte de pose et ne JAMAIS desserrer le garrot",
-      "L'enlever dès que le saignement s'arrête"
-    ],
-    "c": 2,
-    "e": "Le garrot ne doit être retiré que par un médecin sous surveillance."
-  },
-  {
-    "cat": "Urgences Vitales",
-    "q": "Lors d'une intervention après un accident domestique, quel geste d'urgence prime sur tous les autres lors du bilan d'une victime ?",
-    "opts": [
-      "Prendre la température",
-      "Poser un collier cervical",
-      "Arrêter une hémorragie externe grave",
-      "Mettre en PLS"
-    ],
-    "c": 2,
-    "e": "L'hémorragie externe peut tuer en quelques minutes."
-  },
-  {
-    "cat": "Urgences Vitales",
-    "q": "Lors d'une intervention après un accident domestique, face à un saignement en jet, abondant et continu, que doit faire le secouriste immédiatement ?",
-    "opts": [
-      "Donner à boire",
-      "Mettre les jambes en l'air",
-      "Appliquer une compression directe sur la plaie",
-      "Poser de la glace"
-    ],
-    "c": 2,
-    "e": "La compression directe est le geste immédiat de choix."
-  },
-  {
-    "cat": "Urgences Vitales",
-    "q": "Lors d'une intervention après un accident domestique, quand le secouriste doit-il poser un garrot d'emblée ?",
-    "opts": [
-      "Pour toute plaie simple du bras",
-      "En cas d'hémorragie externe d'un membre si la compression directe est inefficace ou impossible",
-      "Pour un saignement du nez",
-      "Pour une écorchure du genou"
-    ],
-    "c": 1,
-    "e": "Le garrot s'impose dès que la compression directe ne suffit pas ou est irréalisable sur un membre."
-  },
-  {
-    "cat": "Urgences Vitales",
-    "q": "Lors d'une intervention après un accident domestique, à quel endroit pose-t-on un garrot tourniquet sur un membre saignant ?",
-    "opts": [
-      "Quelques centimètres au-dessus de la plaie (en amont du saignement), hors d'une articulation",
-      "En dessous de la plaie",
-      "Sur la plaie directement",
-      "Sur l'articulation la plus proche"
-    ],
-    "c": 0,
-    "e": "Le garrot se pose toujours en amont de la blessure, entre la plaie et le cœur."
-  },
-  {
-    "cat": "Urgences Vitales",
-    "q": "Lors d'une intervention après un accident domestique, une fois le garrot posé et serré, que doit faire impérativement le secouriste ?",
-    "opts": [
-      "Le desserrer toutes les 5 minutes",
-      "Le recouvrir d'un pansement étanche pour le cacher",
-      "Noter l'heure exacte de pose et ne JAMAIS desserrer le garrot",
-      "L'enlever dès que le saignement s'arrête"
-    ],
-    "c": 2,
-    "e": "Le garrot ne doit être retiré que par un médecin sous surveillance."
-  },
-  {
-    "cat": "Urgences Vitales",
-    "q": "Lors d'une intervention après un accident de la circulation, quel geste d'urgence prime sur tous les autres lors du bilan d'une victime ?",
-    "opts": [
-      "Prendre la température",
-      "Poser un collier cervical",
-      "Arrêter une hémorragie externe grave",
-      "Mettre en PLS"
-    ],
-    "c": 2,
-    "e": "L'hémorragie externe peut tuer en quelques minutes."
-  },
-  {
-    "cat": "Urgences Vitales",
-    "q": "Lors d'une intervention après un accident de la circulation, face à un saignement en jet, abondant et continu, que doit faire le secouriste immédiatement ?",
-    "opts": [
-      "Donner à boire",
-      "Mettre les jambes en l'air",
-      "Appliquer une compression directe sur la plaie",
-      "Poser de la glace"
-    ],
-    "c": 2,
-    "e": "La compression directe est le geste immédiat de choix."
-  },
-  {
-    "cat": "Urgences Vitales",
-    "q": "Lors d'une intervention après un accident de la circulation, quand le secouriste doit-il poser un garrot d'emblée ?",
-    "opts": [
-      "Pour toute plaie simple du bras",
-      "En cas d'hémorragie externe d'un membre si la compression directe est inefficace ou impossible",
-      "Pour un saignement du nez",
-      "Pour une écorchure du genou"
-    ],
-    "c": 1,
-    "e": "Le garrot s'impose dès que la compression directe ne suffit pas ou est irréalisable sur un membre."
-  },
-  {
-    "cat": "Urgences Vitales",
-    "q": "Lors d'une intervention après un accident de la circulation, à quel endroit pose-t-on un garrot tourniquet sur un membre saignant ?",
-    "opts": [
-      "Quelques centimètres au-dessus de la plaie (en amont du saignement), hors d'une articulation",
-      "En dessous de la plaie",
-      "Sur la plaie directement",
-      "Sur l'articulation la plus proche"
-    ],
-    "c": 0,
-    "e": "Le garrot se pose toujours en amont de la blessure, entre la plaie et le cœur."
-  },
-  {
-    "cat": "Urgences Vitales",
-    "q": "Lors d'une intervention après un accident de la circulation, une fois le garrot posé et serré, que doit faire impérativement le secouriste ?",
-    "opts": [
-      "Le desserrer toutes les 5 minutes",
-      "Le recouvrir d'un pansement étanche pour le cacher",
-      "Noter l'heure exacte de pose et ne JAMAIS desserrer le garrot",
-      "L'enlever dès que le saignement s'arrête"
-    ],
-    "c": 2,
-    "e": "Le garrot ne doit être retiré que par un médecin sous surveillance."
-  },
-  {
-    "cat": "Urgences Vitales",
-    "q": "Lors d'une intervention en entreprise, quel geste d'urgence prime sur tous les autres lors du bilan d'une victime ?",
-    "opts": [
-      "Prendre la température",
-      "Poser un collier cervical",
-      "Arrêter une hémorragie externe grave",
-      "Mettre en PLS"
-    ],
-    "c": 2,
-    "e": "L'hémorragie externe peut tuer en quelques minutes."
-  },
-  {
-    "cat": "Urgences Vitales",
-    "q": "Lors d'une intervention en entreprise, face à un saignement en jet, abondant et continu, que doit faire le secouriste immédiatement ?",
-    "opts": [
-      "Donner à boire",
-      "Mettre les jambes en l'air",
-      "Appliquer une compression directe sur la plaie",
-      "Poser de la glace"
-    ],
-    "c": 2,
-    "e": "La compression directe est le geste immédiat de choix."
-  },
-  {
-    "cat": "Urgences Vitales",
-    "q": "Lors d'une intervention en entreprise, quand le secouriste doit-il poser un garrot d'emblée ?",
-    "opts": [
-      "Pour toute plaie simple du bras",
-      "En cas d'hémorragie externe d'un membre si la compression directe est inefficace ou impossible",
-      "Pour un saignement du nez",
-      "Pour une écorchure du genou"
-    ],
-    "c": 1,
-    "e": "Le garrot s'impose dès que la compression directe ne suffit pas ou est irréalisable sur un membre."
-  },
-  {
-    "cat": "Urgences Vitales",
-    "q": "Lors d'une intervention en entreprise, à quel endroit pose-t-on un garrot tourniquet sur un membre saignant ?",
-    "opts": [
-      "Quelques centimètres au-dessus de la plaie (en amont du saignement), hors d'une articulation",
-      "En dessous de la plaie",
-      "Sur la plaie directement",
-      "Sur l'articulation la plus proche"
-    ],
-    "c": 0,
-    "e": "Le garrot se pose toujours en amont de la blessure, entre la plaie et le cœur."
-  },
-  {
-    "cat": "Urgences Vitales",
-    "q": "Lors d'une intervention en entreprise, une fois le garrot posé et serré, que doit faire impérativement le secouriste ?",
-    "opts": [
-      "Le desserrer toutes les 5 minutes",
-      "Le recouvrir d'un pansement étanche pour le cacher",
-      "Noter l'heure exacte de pose et ne JAMAIS desserrer le garrot",
-      "L'enlever dès que le saignement s'arrête"
-    ],
-    "c": 2,
-    "e": "Le garrot ne doit être retiré que par un médecin sous surveillance."
-  },
-  {
-    "cat": "Urgences Vitales",
-    "q": "Lors d'une intervention dans un environnement bruyant, quel geste d'urgence prime sur tous les autres lors du bilan d'une victime ?",
-    "opts": [
-      "Prendre la température",
-      "Poser un collier cervical",
-      "Arrêter une hémorragie externe grave",
-      "Mettre en PLS"
-    ],
-    "c": 2,
-    "e": "L'hémorragie externe peut tuer en quelques minutes."
-  },
-  {
-    "cat": "Urgences Vitales",
-    "q": "Lors d'une intervention dans un environnement bruyant, face à un saignement en jet, abondant et continu, que doit faire le secouriste immédiatement ?",
-    "opts": [
-      "Donner à boire",
-      "Mettre les jambes en l'air",
-      "Appliquer une compression directe sur la plaie",
-      "Poser de la glace"
-    ],
-    "c": 2,
-    "e": "La compression directe est le geste immédiat de choix."
-  },
-  {
-    "cat": "Urgences Vitales",
-    "q": "Lors d'une intervention dans un environnement bruyant, quand le secouriste doit-il poser un garrot d'emblée ?",
-    "opts": [
-      "Pour toute plaie simple du bras",
-      "En cas d'hémorragie externe d'un membre si la compression directe est inefficace ou impossible",
-      "Pour un saignement du nez",
-      "Pour une écorchure du genou"
-    ],
-    "c": 1,
-    "e": "Le garrot s'impose dès que la compression directe ne suffit pas ou est irréalisable sur un membre."
-  },
-  {
-    "cat": "Urgences Vitales",
-    "q": "Lors d'une intervention dans un environnement bruyant, à quel endroit pose-t-on un garrot tourniquet sur un membre saignant ?",
-    "opts": [
-      "Quelques centimètres au-dessus de la plaie (en amont du saignement), hors d'une articulation",
-      "En dessous de la plaie",
-      "Sur la plaie directement",
-      "Sur l'articulation la plus proche"
-    ],
-    "c": 0,
-    "e": "Le garrot se pose toujours en amont de la blessure, entre la plaie et le cœur."
-  },
-  {
-    "cat": "Urgences Vitales",
-    "q": "Lors d'une intervention dans un environnement bruyant, une fois le garrot posé et serré, que doit faire impérativement le secouriste ?",
-    "opts": [
-      "Le desserrer toutes les 5 minutes",
-      "Le recouvrir d'un pansement étanche pour le cacher",
-      "Noter l'heure exacte de pose et ne JAMAIS desserrer le garrot",
-      "L'enlever dès que le saignement s'arrête"
-    ],
-    "c": 2,
-    "e": "Le garrot ne doit être retiré que par un médecin sous surveillance."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "quel est le ratio compressions / insufflations chez l'adulte en arrêt cardiaque ?",
-    "opts": [
-      "15 compressions pour 2 insufflations",
-      "30 compressions pour 2 insufflations",
-      "50 compressions pour 5 insufflations",
-      "5 compressions pour 1 insufflation"
-    ],
-    "c": 1,
-    "e": "30:2 est le rythme standard international chez l'adulte."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "quelle est la fréquence préconisée pour les compressions thoraciques chez l'adulte ?",
-    "opts": [
-      "80 à 100 compressions par minute",
-      "100 à 120 compressions par minute",
-      "130 à 150 compressions par minute",
-      "60 à 80 compressions par minute"
-    ],
-    "c": 1,
-    "e": "Le rythme cible est de 100 à 120 compressions/min."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "quelle doit être la profondeur de compression du thorax chez un adulte ?",
-    "opts": [
-      "3 à 4 cm",
-      "5 à 6 cm",
-      "8 à 10 cm",
-      "1 à 2 cm"
-    ],
-    "c": 1,
-    "e": "La dépression du sternum doit être d'au moins 5 cm sans dépasser 6 cm."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "lors de l'utilisation d'un dae, que faut-il faire pendant l'analyse du rythme cardiaque ?",
-    "opts": [
-      "Secouer la victime",
-      "Faire du bouche-à-bouche",
-      "S'écarter et veiller à ce que personne ne touche la victime",
-      "Continuer les compressions thoraciques"
-    ],
-    "c": 2,
-    "e": "Toute mouvement ou contact peut fausser l'analyse de l'appareil."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "où se collent les électrodes du dae chez l'adulte ?",
-    "opts": [
-      "Sur les deux cuisses",
-      "Les deux sur la poitrine à gauche",
-      "Sur le ventre et dans le dos",
-      "Une sous la clavicule droite, l'autre sous l'aisselle gauche (flanc gauche)"
-    ],
-    "c": 3,
-    "e": "Position antéro-latérale standard pour englober le cœur dans le champ électrique."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "si la victime d'arrêt cardiaque est trempée d'eau, que fait le secouriste avant de poser les électrodes dae ?",
-    "opts": [
-      "Attendre que la victime séche seule pendant 20 minutes",
-      "Mettre de l'alcool sur la poitrine",
-      "Poser les électrodes directement sur la peau mouillée",
-      "Sécher le thorax de la victime et la déplacer hors d'une flaque d'eau"
-    ],
-    "c": 3,
-    "e": "L'eau conduit le courant et risque de dériver le choc électrique."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "Lors d'une intervention à domicile, quel est le ratio compressions / insufflations chez l'adulte en arrêt cardiaque ?",
-    "opts": [
-      "15 compressions pour 2 insufflations",
-      "30 compressions pour 2 insufflations",
-      "50 compressions pour 5 insufflations",
-      "5 compressions pour 1 insufflation"
-    ],
-    "c": 1,
-    "e": "30:2 est le rythme standard international chez l'adulte."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "Lors d'une intervention à domicile, quelle est la fréquence préconisée pour les compressions thoraciques chez l'adulte ?",
-    "opts": [
-      "80 à 100 compressions par minute",
-      "100 à 120 compressions par minute",
-      "130 à 150 compressions par minute",
-      "60 à 80 compressions par minute"
-    ],
-    "c": 1,
-    "e": "Le rythme cible est de 100 à 120 compressions/min."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "Lors d'une intervention à domicile, quelle doit être la profondeur de compression du thorax chez un adulte ?",
-    "opts": [
-      "3 à 4 cm",
-      "5 à 6 cm",
-      "8 à 10 cm",
-      "1 à 2 cm"
-    ],
-    "c": 1,
-    "e": "La dépression du sternum doit être d'au moins 5 cm sans dépasser 6 cm."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "Lors d'une intervention à domicile, lors de l'utilisation d'un dae, que faut-il faire pendant l'analyse du rythme cardiaque ?",
-    "opts": [
-      "Secouer la victime",
-      "Faire du bouche-à-bouche",
-      "S'écarter et veiller à ce que personne ne touche la victime",
-      "Continuer les compressions thoraciques"
-    ],
-    "c": 2,
-    "e": "Toute mouvement ou contact peut fausser l'analyse de l'appareil."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "Lors d'une intervention à domicile, où se collent les électrodes du dae chez l'adulte ?",
-    "opts": [
-      "Sur les deux cuisses",
-      "Les deux sur la poitrine à gauche",
-      "Sur le ventre et dans le dos",
-      "Une sous la clavicule droite, l'autre sous l'aisselle gauche (flanc gauche)"
-    ],
-    "c": 3,
-    "e": "Position antéro-latérale standard pour englober le cœur dans le champ électrique."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "Lors d'une intervention à domicile, si la victime d'arrêt cardiaque est trempée d'eau, que fait le secouriste avant de poser les électrodes dae ?",
-    "opts": [
-      "Attendre que la victime séche seule pendant 20 minutes",
-      "Mettre de l'alcool sur la poitrine",
-      "Poser les électrodes directement sur la peau mouillée",
-      "Sécher le thorax de la victime et la déplacer hors d'une flaque d'eau"
-    ],
-    "c": 3,
-    "e": "L'eau conduit le courant et risque de dériver le choc électrique."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "Lors d'une intervention sur la voie publique, quel est le ratio compressions / insufflations chez l'adulte en arrêt cardiaque ?",
-    "opts": [
-      "15 compressions pour 2 insufflations",
-      "30 compressions pour 2 insufflations",
-      "50 compressions pour 5 insufflations",
-      "5 compressions pour 1 insufflation"
-    ],
-    "c": 1,
-    "e": "30:2 est le rythme standard international chez l'adulte."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "Lors d'une intervention sur la voie publique, quelle est la fréquence préconisée pour les compressions thoraciques chez l'adulte ?",
-    "opts": [
-      "80 à 100 compressions par minute",
-      "100 à 120 compressions par minute",
-      "130 à 150 compressions par minute",
-      "60 à 80 compressions par minute"
-    ],
-    "c": 1,
-    "e": "Le rythme cible est de 100 à 120 compressions/min."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "Lors d'une intervention sur la voie publique, quelle doit être la profondeur de compression du thorax chez un adulte ?",
-    "opts": [
-      "3 à 4 cm",
-      "5 à 6 cm",
-      "8 à 10 cm",
-      "1 à 2 cm"
-    ],
-    "c": 1,
-    "e": "La dépression du sternum doit être d'au moins 5 cm sans dépasser 6 cm."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "Lors d'une intervention sur la voie publique, lors de l'utilisation d'un dae, que faut-il faire pendant l'analyse du rythme cardiaque ?",
-    "opts": [
-      "Secouer la victime",
-      "Faire du bouche-à-bouche",
-      "S'écarter et veiller à ce que personne ne touche la victime",
-      "Continuer les compressions thoraciques"
-    ],
-    "c": 2,
-    "e": "Toute mouvement ou contact peut fausser l'analyse de l'appareil."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "Lors d'une intervention sur la voie publique, où se collent les électrodes du dae chez l'adulte ?",
-    "opts": [
-      "Sur les deux cuisses",
-      "Les deux sur la poitrine à gauche",
-      "Sur le ventre et dans le dos",
-      "Une sous la clavicule droite, l'autre sous l'aisselle gauche (flanc gauche)"
-    ],
-    "c": 3,
-    "e": "Position antéro-latérale standard pour englober le cœur dans le champ électrique."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "Lors d'une intervention sur la voie publique, si la victime d'arrêt cardiaque est trempée d'eau, que fait le secouriste avant de poser les électrodes dae ?",
-    "opts": [
-      "Attendre que la victime séche seule pendant 20 minutes",
-      "Mettre de l'alcool sur la poitrine",
-      "Poser les électrodes directement sur la peau mouillée",
-      "Sécher le thorax de la victime et la déplacer hors d'une flaque d'eau"
-    ],
-    "c": 3,
-    "e": "L'eau conduit le courant et risque de dériver le choc électrique."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "Lors d'une intervention dans un lieu public, quel est le ratio compressions / insufflations chez l'adulte en arrêt cardiaque ?",
-    "opts": [
-      "15 compressions pour 2 insufflations",
-      "30 compressions pour 2 insufflations",
-      "50 compressions pour 5 insufflations",
-      "5 compressions pour 1 insufflation"
-    ],
-    "c": 1,
-    "e": "30:2 est le rythme standard international chez l'adulte."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "Lors d'une intervention dans un lieu public, quelle est la fréquence préconisée pour les compressions thoraciques chez l'adulte ?",
-    "opts": [
-      "80 à 100 compressions par minute",
-      "100 à 120 compressions par minute",
-      "130 à 150 compressions par minute",
-      "60 à 80 compressions par minute"
-    ],
-    "c": 1,
-    "e": "Le rythme cible est de 100 à 120 compressions/min."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "Lors d'une intervention dans un lieu public, quelle doit être la profondeur de compression du thorax chez un adulte ?",
-    "opts": [
-      "3 à 4 cm",
-      "5 à 6 cm",
-      "8 à 10 cm",
-      "1 à 2 cm"
-    ],
-    "c": 1,
-    "e": "La dépression du sternum doit être d'au moins 5 cm sans dépasser 6 cm."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "Lors d'une intervention dans un lieu public, lors de l'utilisation d'un dae, que faut-il faire pendant l'analyse du rythme cardiaque ?",
-    "opts": [
-      "Secouer la victime",
-      "Faire du bouche-à-bouche",
-      "S'écarter et veiller à ce que personne ne touche la victime",
-      "Continuer les compressions thoraciques"
-    ],
-    "c": 2,
-    "e": "Toute mouvement ou contact peut fausser l'analyse de l'appareil."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "Lors d'une intervention dans un lieu public, où se collent les électrodes du dae chez l'adulte ?",
-    "opts": [
-      "Sur les deux cuisses",
-      "Les deux sur la poitrine à gauche",
-      "Sur le ventre et dans le dos",
-      "Une sous la clavicule droite, l'autre sous l'aisselle gauche (flanc gauche)"
-    ],
-    "c": 3,
-    "e": "Position antéro-latérale standard pour englober le cœur dans le champ électrique."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "Lors d'une intervention dans un lieu public, si la victime d'arrêt cardiaque est trempée d'eau, que fait le secouriste avant de poser les électrodes dae ?",
-    "opts": [
-      "Attendre que la victime séche seule pendant 20 minutes",
-      "Mettre de l'alcool sur la poitrine",
-      "Poser les électrodes directement sur la peau mouillée",
-      "Sécher le thorax de la victime et la déplacer hors d'une flaque d'eau"
-    ],
-    "c": 3,
-    "e": "L'eau conduit le courant et risque de dériver le choc électrique."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "Lors d'une intervention de nuit, quel est le ratio compressions / insufflations chez l'adulte en arrêt cardiaque ?",
-    "opts": [
-      "15 compressions pour 2 insufflations",
-      "30 compressions pour 2 insufflations",
-      "50 compressions pour 5 insufflations",
-      "5 compressions pour 1 insufflation"
-    ],
-    "c": 1,
-    "e": "30:2 est le rythme standard international chez l'adulte."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "Lors d'une intervention de nuit, quelle est la fréquence préconisée pour les compressions thoraciques chez l'adulte ?",
-    "opts": [
-      "80 à 100 compressions par minute",
-      "100 à 120 compressions par minute",
-      "130 à 150 compressions par minute",
-      "60 à 80 compressions par minute"
-    ],
-    "c": 1,
-    "e": "Le rythme cible est de 100 à 120 compressions/min."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "Lors d'une intervention de nuit, quelle doit être la profondeur de compression du thorax chez un adulte ?",
-    "opts": [
-      "3 à 4 cm",
-      "5 à 6 cm",
-      "8 à 10 cm",
-      "1 à 2 cm"
-    ],
-    "c": 1,
-    "e": "La dépression du sternum doit être d'au moins 5 cm sans dépasser 6 cm."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "Lors d'une intervention de nuit, lors de l'utilisation d'un dae, que faut-il faire pendant l'analyse du rythme cardiaque ?",
-    "opts": [
-      "Secouer la victime",
-      "Faire du bouche-à-bouche",
-      "S'écarter et veiller à ce que personne ne touche la victime",
-      "Continuer les compressions thoraciques"
-    ],
-    "c": 2,
-    "e": "Toute mouvement ou contact peut fausser l'analyse de l'appareil."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "Lors d'une intervention de nuit, où se collent les électrodes du dae chez l'adulte ?",
-    "opts": [
-      "Sur les deux cuisses",
-      "Les deux sur la poitrine à gauche",
-      "Sur le ventre et dans le dos",
-      "Une sous la clavicule droite, l'autre sous l'aisselle gauche (flanc gauche)"
-    ],
-    "c": 3,
-    "e": "Position antéro-latérale standard pour englober le cœur dans le champ électrique."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "Lors d'une intervention de nuit, si la victime d'arrêt cardiaque est trempée d'eau, que fait le secouriste avant de poser les électrodes dae ?",
-    "opts": [
-      "Attendre que la victime séche seule pendant 20 minutes",
-      "Mettre de l'alcool sur la poitrine",
-      "Poser les électrodes directement sur la peau mouillée",
-      "Sécher le thorax de la victime et la déplacer hors d'une flaque d'eau"
-    ],
-    "c": 3,
-    "e": "L'eau conduit le courant et risque de dériver le choc électrique."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "Lors d'une intervention avec plusieurs témoins, quel est le ratio compressions / insufflations chez l'adulte en arrêt cardiaque ?",
-    "opts": [
-      "15 compressions pour 2 insufflations",
-      "30 compressions pour 2 insufflations",
-      "50 compressions pour 5 insufflations",
-      "5 compressions pour 1 insufflation"
-    ],
-    "c": 1,
-    "e": "30:2 est le rythme standard international chez l'adulte."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "Lors d'une intervention avec plusieurs témoins, quelle est la fréquence préconisée pour les compressions thoraciques chez l'adulte ?",
-    "opts": [
-      "80 à 100 compressions par minute",
-      "100 à 120 compressions par minute",
-      "130 à 150 compressions par minute",
-      "60 à 80 compressions par minute"
-    ],
-    "c": 1,
-    "e": "Le rythme cible est de 100 à 120 compressions/min."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "Lors d'une intervention avec plusieurs témoins, quelle doit être la profondeur de compression du thorax chez un adulte ?",
-    "opts": [
-      "3 à 4 cm",
-      "5 à 6 cm",
-      "8 à 10 cm",
-      "1 à 2 cm"
-    ],
-    "c": 1,
-    "e": "La dépression du sternum doit être d'au moins 5 cm sans dépasser 6 cm."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "Lors d'une intervention avec plusieurs témoins, lors de l'utilisation d'un dae, que faut-il faire pendant l'analyse du rythme cardiaque ?",
-    "opts": [
-      "Secouer la victime",
-      "Faire du bouche-à-bouche",
-      "S'écarter et veiller à ce que personne ne touche la victime",
-      "Continuer les compressions thoraciques"
-    ],
-    "c": 2,
-    "e": "Toute mouvement ou contact peut fausser l'analyse de l'appareil."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "Lors d'une intervention avec plusieurs témoins, où se collent les électrodes du dae chez l'adulte ?",
-    "opts": [
-      "Sur les deux cuisses",
-      "Les deux sur la poitrine à gauche",
-      "Sur le ventre et dans le dos",
-      "Une sous la clavicule droite, l'autre sous l'aisselle gauche (flanc gauche)"
-    ],
-    "c": 3,
-    "e": "Position antéro-latérale standard pour englober le cœur dans le champ électrique."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "Lors d'une intervention avec plusieurs témoins, si la victime d'arrêt cardiaque est trempée d'eau, que fait le secouriste avant de poser les électrodes dae ?",
-    "opts": [
-      "Attendre que la victime séche seule pendant 20 minutes",
-      "Mettre de l'alcool sur la poitrine",
-      "Poser les électrodes directement sur la peau mouillée",
-      "Sécher le thorax de la victime et la déplacer hors d'une flaque d'eau"
-    ],
-    "c": 3,
-    "e": "L'eau conduit le courant et risque de dériver le choc électrique."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "Lors d'une intervention en équipe, quel est le ratio compressions / insufflations chez l'adulte en arrêt cardiaque ?",
-    "opts": [
-      "15 compressions pour 2 insufflations",
-      "30 compressions pour 2 insufflations",
-      "50 compressions pour 5 insufflations",
-      "5 compressions pour 1 insufflation"
-    ],
-    "c": 1,
-    "e": "30:2 est le rythme standard international chez l'adulte."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "Lors d'une intervention en équipe, quelle est la fréquence préconisée pour les compressions thoraciques chez l'adulte ?",
-    "opts": [
-      "80 à 100 compressions par minute",
-      "100 à 120 compressions par minute",
-      "130 à 150 compressions par minute",
-      "60 à 80 compressions par minute"
-    ],
-    "c": 1,
-    "e": "Le rythme cible est de 100 à 120 compressions/min."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "Lors d'une intervention en équipe, quelle doit être la profondeur de compression du thorax chez un adulte ?",
-    "opts": [
-      "3 à 4 cm",
-      "5 à 6 cm",
-      "8 à 10 cm",
-      "1 à 2 cm"
-    ],
-    "c": 1,
-    "e": "La dépression du sternum doit être d'au moins 5 cm sans dépasser 6 cm."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "Lors d'une intervention en équipe, lors de l'utilisation d'un dae, que faut-il faire pendant l'analyse du rythme cardiaque ?",
-    "opts": [
-      "Secouer la victime",
-      "Faire du bouche-à-bouche",
-      "S'écarter et veiller à ce que personne ne touche la victime",
-      "Continuer les compressions thoraciques"
-    ],
-    "c": 2,
-    "e": "Toute mouvement ou contact peut fausser l'analyse de l'appareil."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "Lors d'une intervention en équipe, où se collent les électrodes du dae chez l'adulte ?",
-    "opts": [
-      "Sur les deux cuisses",
-      "Les deux sur la poitrine à gauche",
-      "Sur le ventre et dans le dos",
-      "Une sous la clavicule droite, l'autre sous l'aisselle gauche (flanc gauche)"
-    ],
-    "c": 3,
-    "e": "Position antéro-latérale standard pour englober le cœur dans le champ électrique."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "Lors d'une intervention en équipe, si la victime d'arrêt cardiaque est trempée d'eau, que fait le secouriste avant de poser les électrodes dae ?",
-    "opts": [
-      "Attendre que la victime séche seule pendant 20 minutes",
-      "Mettre de l'alcool sur la poitrine",
-      "Poser les électrodes directement sur la peau mouillée",
-      "Sécher le thorax de la victime et la déplacer hors d'une flaque d'eau"
-    ],
-    "c": 3,
-    "e": "L'eau conduit le courant et risque de dériver le choc électrique."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "Lors d'une intervention en milieu sportif, quel est le ratio compressions / insufflations chez l'adulte en arrêt cardiaque ?",
-    "opts": [
-      "15 compressions pour 2 insufflations",
-      "30 compressions pour 2 insufflations",
-      "50 compressions pour 5 insufflations",
-      "5 compressions pour 1 insufflation"
-    ],
-    "c": 1,
-    "e": "30:2 est le rythme standard international chez l'adulte."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "Lors d'une intervention en milieu sportif, quelle est la fréquence préconisée pour les compressions thoraciques chez l'adulte ?",
-    "opts": [
-      "80 à 100 compressions par minute",
-      "100 à 120 compressions par minute",
-      "130 à 150 compressions par minute",
-      "60 à 80 compressions par minute"
-    ],
-    "c": 1,
-    "e": "Le rythme cible est de 100 à 120 compressions/min."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "Lors d'une intervention en milieu sportif, quelle doit être la profondeur de compression du thorax chez un adulte ?",
-    "opts": [
-      "3 à 4 cm",
-      "5 à 6 cm",
-      "8 à 10 cm",
-      "1 à 2 cm"
-    ],
-    "c": 1,
-    "e": "La dépression du sternum doit être d'au moins 5 cm sans dépasser 6 cm."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "Lors d'une intervention en milieu sportif, lors de l'utilisation d'un dae, que faut-il faire pendant l'analyse du rythme cardiaque ?",
-    "opts": [
-      "Secouer la victime",
-      "Faire du bouche-à-bouche",
-      "S'écarter et veiller à ce que personne ne touche la victime",
-      "Continuer les compressions thoraciques"
-    ],
-    "c": 2,
-    "e": "Toute mouvement ou contact peut fausser l'analyse de l'appareil."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "Lors d'une intervention en milieu sportif, où se collent les électrodes du dae chez l'adulte ?",
-    "opts": [
-      "Sur les deux cuisses",
-      "Les deux sur la poitrine à gauche",
-      "Sur le ventre et dans le dos",
-      "Une sous la clavicule droite, l'autre sous l'aisselle gauche (flanc gauche)"
-    ],
-    "c": 3,
-    "e": "Position antéro-latérale standard pour englober le cœur dans le champ électrique."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "Lors d'une intervention en milieu sportif, si la victime d'arrêt cardiaque est trempée d'eau, que fait le secouriste avant de poser les électrodes dae ?",
-    "opts": [
-      "Attendre que la victime séche seule pendant 20 minutes",
-      "Mettre de l'alcool sur la poitrine",
-      "Poser les électrodes directement sur la peau mouillée",
-      "Sécher le thorax de la victime et la déplacer hors d'une flaque d'eau"
-    ],
-    "c": 3,
-    "e": "L'eau conduit le courant et risque de dériver le choc électrique."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "Lors d'une intervention après un accident domestique, quel est le ratio compressions / insufflations chez l'adulte en arrêt cardiaque ?",
-    "opts": [
-      "15 compressions pour 2 insufflations",
-      "30 compressions pour 2 insufflations",
-      "50 compressions pour 5 insufflations",
-      "5 compressions pour 1 insufflation"
-    ],
-    "c": 1,
-    "e": "30:2 est le rythme standard international chez l'adulte."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "Lors d'une intervention après un accident domestique, quelle est la fréquence préconisée pour les compressions thoraciques chez l'adulte ?",
-    "opts": [
-      "80 à 100 compressions par minute",
-      "100 à 120 compressions par minute",
-      "130 à 150 compressions par minute",
-      "60 à 80 compressions par minute"
-    ],
-    "c": 1,
-    "e": "Le rythme cible est de 100 à 120 compressions/min."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "Lors d'une intervention après un accident domestique, quelle doit être la profondeur de compression du thorax chez un adulte ?",
-    "opts": [
-      "3 à 4 cm",
-      "5 à 6 cm",
-      "8 à 10 cm",
-      "1 à 2 cm"
-    ],
-    "c": 1,
-    "e": "La dépression du sternum doit être d'au moins 5 cm sans dépasser 6 cm."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "Lors d'une intervention après un accident domestique, lors de l'utilisation d'un dae, que faut-il faire pendant l'analyse du rythme cardiaque ?",
-    "opts": [
-      "Secouer la victime",
-      "Faire du bouche-à-bouche",
-      "S'écarter et veiller à ce que personne ne touche la victime",
-      "Continuer les compressions thoraciques"
-    ],
-    "c": 2,
-    "e": "Toute mouvement ou contact peut fausser l'analyse de l'appareil."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "Lors d'une intervention après un accident domestique, où se collent les électrodes du dae chez l'adulte ?",
-    "opts": [
-      "Sur les deux cuisses",
-      "Les deux sur la poitrine à gauche",
-      "Sur le ventre et dans le dos",
-      "Une sous la clavicule droite, l'autre sous l'aisselle gauche (flanc gauche)"
-    ],
-    "c": 3,
-    "e": "Position antéro-latérale standard pour englober le cœur dans le champ électrique."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "Lors d'une intervention après un accident domestique, si la victime d'arrêt cardiaque est trempée d'eau, que fait le secouriste avant de poser les électrodes dae ?",
-    "opts": [
-      "Attendre que la victime séche seule pendant 20 minutes",
-      "Mettre de l'alcool sur la poitrine",
-      "Poser les électrodes directement sur la peau mouillée",
-      "Sécher le thorax de la victime et la déplacer hors d'une flaque d'eau"
-    ],
-    "c": 3,
-    "e": "L'eau conduit le courant et risque de dériver le choc électrique."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "Lors d'une intervention après un accident de la circulation, quel est le ratio compressions / insufflations chez l'adulte en arrêt cardiaque ?",
-    "opts": [
-      "15 compressions pour 2 insufflations",
-      "30 compressions pour 2 insufflations",
-      "50 compressions pour 5 insufflations",
-      "5 compressions pour 1 insufflation"
-    ],
-    "c": 1,
-    "e": "30:2 est le rythme standard international chez l'adulte."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "Lors d'une intervention après un accident de la circulation, quelle est la fréquence préconisée pour les compressions thoraciques chez l'adulte ?",
-    "opts": [
-      "80 à 100 compressions par minute",
-      "100 à 120 compressions par minute",
-      "130 à 150 compressions par minute",
-      "60 à 80 compressions par minute"
-    ],
-    "c": 1,
-    "e": "Le rythme cible est de 100 à 120 compressions/min."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "Lors d'une intervention après un accident de la circulation, quelle doit être la profondeur de compression du thorax chez un adulte ?",
-    "opts": [
-      "3 à 4 cm",
-      "5 à 6 cm",
-      "8 à 10 cm",
-      "1 à 2 cm"
-    ],
-    "c": 1,
-    "e": "La dépression du sternum doit être d'au moins 5 cm sans dépasser 6 cm."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "Lors d'une intervention après un accident de la circulation, lors de l'utilisation d'un dae, que faut-il faire pendant l'analyse du rythme cardiaque ?",
-    "opts": [
-      "Secouer la victime",
-      "Faire du bouche-à-bouche",
-      "S'écarter et veiller à ce que personne ne touche la victime",
-      "Continuer les compressions thoraciques"
-    ],
-    "c": 2,
-    "e": "Toute mouvement ou contact peut fausser l'analyse de l'appareil."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "Lors d'une intervention après un accident de la circulation, où se collent les électrodes du dae chez l'adulte ?",
-    "opts": [
-      "Sur les deux cuisses",
-      "Les deux sur la poitrine à gauche",
-      "Sur le ventre et dans le dos",
-      "Une sous la clavicule droite, l'autre sous l'aisselle gauche (flanc gauche)"
-    ],
-    "c": 3,
-    "e": "Position antéro-latérale standard pour englober le cœur dans le champ électrique."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "Lors d'une intervention après un accident de la circulation, si la victime d'arrêt cardiaque est trempée d'eau, que fait le secouriste avant de poser les électrodes dae ?",
-    "opts": [
-      "Attendre que la victime séche seule pendant 20 minutes",
-      "Mettre de l'alcool sur la poitrine",
-      "Poser les électrodes directement sur la peau mouillée",
-      "Sécher le thorax de la victime et la déplacer hors d'une flaque d'eau"
-    ],
-    "c": 3,
-    "e": "L'eau conduit le courant et risque de dériver le choc électrique."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "Lors d'une intervention en entreprise, quel est le ratio compressions / insufflations chez l'adulte en arrêt cardiaque ?",
-    "opts": [
-      "15 compressions pour 2 insufflations",
-      "30 compressions pour 2 insufflations",
-      "50 compressions pour 5 insufflations",
-      "5 compressions pour 1 insufflation"
-    ],
-    "c": 1,
-    "e": "30:2 est le rythme standard international chez l'adulte."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "Lors d'une intervention en entreprise, quelle est la fréquence préconisée pour les compressions thoraciques chez l'adulte ?",
-    "opts": [
-      "80 à 100 compressions par minute",
-      "100 à 120 compressions par minute",
-      "130 à 150 compressions par minute",
-      "60 à 80 compressions par minute"
-    ],
-    "c": 1,
-    "e": "Le rythme cible est de 100 à 120 compressions/min."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "Lors d'une intervention en entreprise, quelle doit être la profondeur de compression du thorax chez un adulte ?",
-    "opts": [
-      "3 à 4 cm",
-      "5 à 6 cm",
-      "8 à 10 cm",
-      "1 à 2 cm"
-    ],
-    "c": 1,
-    "e": "La dépression du sternum doit être d'au moins 5 cm sans dépasser 6 cm."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "Lors d'une intervention en entreprise, lors de l'utilisation d'un dae, que faut-il faire pendant l'analyse du rythme cardiaque ?",
-    "opts": [
-      "Secouer la victime",
-      "Faire du bouche-à-bouche",
-      "S'écarter et veiller à ce que personne ne touche la victime",
-      "Continuer les compressions thoraciques"
-    ],
-    "c": 2,
-    "e": "Toute mouvement ou contact peut fausser l'analyse de l'appareil."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "Lors d'une intervention en entreprise, où se collent les électrodes du dae chez l'adulte ?",
-    "opts": [
-      "Sur les deux cuisses",
-      "Les deux sur la poitrine à gauche",
-      "Sur le ventre et dans le dos",
-      "Une sous la clavicule droite, l'autre sous l'aisselle gauche (flanc gauche)"
-    ],
-    "c": 3,
-    "e": "Position antéro-latérale standard pour englober le cœur dans le champ électrique."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "Lors d'une intervention en entreprise, si la victime d'arrêt cardiaque est trempée d'eau, que fait le secouriste avant de poser les électrodes dae ?",
-    "opts": [
-      "Attendre que la victime séche seule pendant 20 minutes",
-      "Mettre de l'alcool sur la poitrine",
-      "Poser les électrodes directement sur la peau mouillée",
-      "Sécher le thorax de la victime et la déplacer hors d'une flaque d'eau"
-    ],
-    "c": 3,
-    "e": "L'eau conduit le courant et risque de dériver le choc électrique."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "Lors d'une intervention dans un environnement bruyant, quel est le ratio compressions / insufflations chez l'adulte en arrêt cardiaque ?",
-    "opts": [
-      "15 compressions pour 2 insufflations",
-      "30 compressions pour 2 insufflations",
-      "50 compressions pour 5 insufflations",
-      "5 compressions pour 1 insufflation"
-    ],
-    "c": 1,
-    "e": "30:2 est le rythme standard international chez l'adulte."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "Lors d'une intervention dans un environnement bruyant, quelle est la fréquence préconisée pour les compressions thoraciques chez l'adulte ?",
-    "opts": [
-      "80 à 100 compressions par minute",
-      "100 à 120 compressions par minute",
-      "130 à 150 compressions par minute",
-      "60 à 80 compressions par minute"
-    ],
-    "c": 1,
-    "e": "Le rythme cible est de 100 à 120 compressions/min."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "Lors d'une intervention dans un environnement bruyant, quelle doit être la profondeur de compression du thorax chez un adulte ?",
-    "opts": [
-      "3 à 4 cm",
-      "5 à 6 cm",
-      "8 à 10 cm",
-      "1 à 2 cm"
-    ],
-    "c": 1,
-    "e": "La dépression du sternum doit être d'au moins 5 cm sans dépasser 6 cm."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "Lors d'une intervention dans un environnement bruyant, lors de l'utilisation d'un dae, que faut-il faire pendant l'analyse du rythme cardiaque ?",
-    "opts": [
-      "Secouer la victime",
-      "Faire du bouche-à-bouche",
-      "S'écarter et veiller à ce que personne ne touche la victime",
-      "Continuer les compressions thoraciques"
-    ],
-    "c": 2,
-    "e": "Toute mouvement ou contact peut fausser l'analyse de l'appareil."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "Lors d'une intervention dans un environnement bruyant, où se collent les électrodes du dae chez l'adulte ?",
-    "opts": [
-      "Sur les deux cuisses",
-      "Les deux sur la poitrine à gauche",
-      "Sur le ventre et dans le dos",
-      "Une sous la clavicule droite, l'autre sous l'aisselle gauche (flanc gauche)"
-    ],
-    "c": 3,
-    "e": "Position antéro-latérale standard pour englober le cœur dans le champ électrique."
-  },
-  {
-    "cat": "RCP & DAE",
-    "q": "Lors d'une intervention dans un environnement bruyant, si la victime d'arrêt cardiaque est trempée d'eau, que fait le secouriste avant de poser les électrodes dae ?",
-    "opts": [
-      "Attendre que la victime séche seule pendant 20 minutes",
-      "Mettre de l'alcool sur la poitrine",
-      "Poser les électrodes directement sur la peau mouillée",
-      "Sécher le thorax de la victime et la déplacer hors d'une flaque d'eau"
-    ],
-    "c": 3,
-    "e": "L'eau conduit le courant et risque de dériver le choc électrique."
-  },
-  {
-    "cat": "Obstruction des Voies Aériennes",
-    "q": "quel est le signe caractéristique d'une oava totale ?",
-    "opts": [
-      "La victime ronfle bruyamment en dormant",
-      "La victime a une voix rauque mais répond aux questions",
-      "La victime ne peut ni parler, ni tousser, ni respirer et porte ses mains à la gorge",
-      "La victime tousse vigoureusement et parle"
-    ],
-    "c": 2,
-    "e": "En obstruction totale, aucun flux d'air ne passe : impossibilité absolue de tousser ou parler."
-  },
-  {
-    "cat": "Obstruction des Voies Aériennes",
-    "q": "face à une obstruction totale des voies aériennes chez l'adulte conscient, quel est le premier geste ?",
-    "opts": [
-      "Allonger la victime sur le dos",
-      "Donner un verre d'eau",
-      "Donner jusqu'à 5 claques vigoureuses dans le dos entre les omoplates",
-      "Pratiquer la méthode d'Heimlich directement"
-    ],
-    "c": 2,
-    "e": "On commence toujours par 1 à 5 claques dans le dos."
-  },
-  {
-    "cat": "Obstruction des Voies Aériennes",
-    "q": "si 5 claques dans le dos ne désobstruent pas les voies aériennes chez l'adulte, que fait-on ?",
-    "opts": [
-      "Réaliser 1 à 5 compressions abdominales (méthode de Heimlich)",
-      "Mettre en PLS",
-      "Insufler de l'air de force",
-      "Effectuer un balayage de la bouche avec le doigt"
-    ],
-    "c": 0,
-    "e": "Les compressions abdominales succèdent aux claques dorsales inefficaces."
-  },
-  {
-    "cat": "Obstruction des Voies Aériennes",
-    "q": "si une victime d'oava totale perd connaissance, quelle est la conduite à tenir immédiate ?",
-    "opts": [
-      "Attendre 5 minutes",
-      "Mettre la victime debout",
-      "Continuer la méthode de Heimlich au sol",
-      "Accompagner la victime au sol, alerter les secours et débuter la RCP par 30 compressions thoraciques"
-    ],
-    "c": 3,
-    "e": "Dès la perte de connaissance, on débute la RCP."
-  },
-  {
-    "cat": "Obstruction des Voies Aériennes",
-    "q": "chez une personne très obèse ou une femme enceinte à terme, par quoi remplace-t-on les compressions abdominales ?",
-    "opts": [
-      "L'immersion dans l'eau",
-      "Des compressions thoraciques au centre du sternum",
-      "Des compressions sur les cuisses",
-      "Des tapotements sur les joues"
-    ],
-    "c": 1,
-    "e": "Les compressions thoraciques sont préconisées pour éviter les lésions abdominales/fœtales."
-  },
-  {
-    "cat": "Obstruction des Voies Aériennes",
-    "q": "Lors d'une intervention à domicile, quel est le signe caractéristique d'une oava totale ?",
-    "opts": [
-      "La victime ronfle bruyamment en dormant",
-      "La victime a une voix rauque mais répond aux questions",
-      "La victime ne peut ni parler, ni tousser, ni respirer et porte ses mains à la gorge",
-      "La victime tousse vigoureusement et parle"
-    ],
-    "c": 2,
-    "e": "En obstruction totale, aucun flux d'air ne passe : impossibilité absolue de tousser ou parler."
-  },
-  {
-    "cat": "Obstruction des Voies Aériennes",
-    "q": "Lors d'une intervention à domicile, face à une obstruction totale des voies aériennes chez l'adulte conscient, quel est le premier geste ?",
-    "opts": [
-      "Allonger la victime sur le dos",
-      "Donner un verre d'eau",
-      "Donner jusqu'à 5 claques vigoureuses dans le dos entre les omoplates",
-      "Pratiquer la méthode d'Heimlich directement"
-    ],
-    "c": 2,
-    "e": "On commence toujours par 1 à 5 claques dans le dos."
-  },
-  {
-    "cat": "Obstruction des Voies Aériennes",
-    "q": "Lors d'une intervention à domicile, si 5 claques dans le dos ne désobstruent pas les voies aériennes chez l'adulte, que fait-on ?",
-    "opts": [
-      "Réaliser 1 à 5 compressions abdominales (méthode de Heimlich)",
-      "Mettre en PLS",
-      "Insufler de l'air de force",
-      "Effectuer un balayage de la bouche avec le doigt"
-    ],
-    "c": 0,
-    "e": "Les compressions abdominales succèdent aux claques dorsales inefficaces."
-  },
-  {
-    "cat": "Obstruction des Voies Aériennes",
-    "q": "Lors d'une intervention à domicile, si une victime d'oava totale perd connaissance, quelle est la conduite à tenir immédiate ?",
-    "opts": [
-      "Attendre 5 minutes",
-      "Mettre la victime debout",
-      "Continuer la méthode de Heimlich au sol",
-      "Accompagner la victime au sol, alerter les secours et débuter la RCP par 30 compressions thoraciques"
-    ],
-    "c": 3,
-    "e": "Dès la perte de connaissance, on débute la RCP."
-  },
-  {
-    "cat": "Obstruction des Voies Aériennes",
-    "q": "Lors d'une intervention à domicile, chez une personne très obèse ou une femme enceinte à terme, par quoi remplace-t-on les compressions abdominales ?",
-    "opts": [
-      "L'immersion dans l'eau",
-      "Des compressions thoraciques au centre du sternum",
-      "Des compressions sur les cuisses",
-      "Des tapotements sur les joues"
-    ],
-    "c": 1,
-    "e": "Les compressions thoraciques sont préconisées pour éviter les lésions abdominales/fœtales."
-  },
-  {
-    "cat": "Obstruction des Voies Aériennes",
-    "q": "Lors d'une intervention sur la voie publique, quel est le signe caractéristique d'une oava totale ?",
-    "opts": [
-      "La victime ronfle bruyamment en dormant",
-      "La victime a une voix rauque mais répond aux questions",
-      "La victime ne peut ni parler, ni tousser, ni respirer et porte ses mains à la gorge",
-      "La victime tousse vigoureusement et parle"
-    ],
-    "c": 2,
-    "e": "En obstruction totale, aucun flux d'air ne passe : impossibilité absolue de tousser ou parler."
-  },
-  {
-    "cat": "Obstruction des Voies Aériennes",
-    "q": "Lors d'une intervention sur la voie publique, face à une obstruction totale des voies aériennes chez l'adulte conscient, quel est le premier geste ?",
-    "opts": [
-      "Allonger la victime sur le dos",
-      "Donner un verre d'eau",
-      "Donner jusqu'à 5 claques vigoureuses dans le dos entre les omoplates",
-      "Pratiquer la méthode d'Heimlich directement"
-    ],
-    "c": 2,
-    "e": "On commence toujours par 1 à 5 claques dans le dos."
-  },
-  {
-    "cat": "Obstruction des Voies Aériennes",
-    "q": "Lors d'une intervention sur la voie publique, si 5 claques dans le dos ne désobstruent pas les voies aériennes chez l'adulte, que fait-on ?",
-    "opts": [
-      "Réaliser 1 à 5 compressions abdominales (méthode de Heimlich)",
-      "Mettre en PLS",
-      "Insufler de l'air de force",
-      "Effectuer un balayage de la bouche avec le doigt"
-    ],
-    "c": 0,
-    "e": "Les compressions abdominales succèdent aux claques dorsales inefficaces."
-  },
-  {
-    "cat": "Obstruction des Voies Aériennes",
-    "q": "Lors d'une intervention sur la voie publique, si une victime d'oava totale perd connaissance, quelle est la conduite à tenir immédiate ?",
-    "opts": [
-      "Attendre 5 minutes",
-      "Mettre la victime debout",
-      "Continuer la méthode de Heimlich au sol",
-      "Accompagner la victime au sol, alerter les secours et débuter la RCP par 30 compressions thoraciques"
-    ],
-    "c": 3,
-    "e": "Dès la perte de connaissance, on débute la RCP."
-  },
-  {
-    "cat": "Obstruction des Voies Aériennes",
-    "q": "Lors d'une intervention sur la voie publique, chez une personne très obèse ou une femme enceinte à terme, par quoi remplace-t-on les compressions abdominales ?",
-    "opts": [
-      "L'immersion dans l'eau",
-      "Des compressions thoraciques au centre du sternum",
-      "Des compressions sur les cuisses",
-      "Des tapotements sur les joues"
-    ],
-    "c": 1,
-    "e": "Les compressions thoraciques sont préconisées pour éviter les lésions abdominales/fœtales."
-  },
-  {
-    "cat": "Obstruction des Voies Aériennes",
-    "q": "Lors d'une intervention dans un lieu public, quel est le signe caractéristique d'une oava totale ?",
-    "opts": [
-      "La victime ronfle bruyamment en dormant",
-      "La victime a une voix rauque mais répond aux questions",
-      "La victime ne peut ni parler, ni tousser, ni respirer et porte ses mains à la gorge",
-      "La victime tousse vigoureusement et parle"
-    ],
-    "c": 2,
-    "e": "En obstruction totale, aucun flux d'air ne passe : impossibilité absolue de tousser ou parler."
-  },
-  {
-    "cat": "Obstruction des Voies Aériennes",
-    "q": "Lors d'une intervention dans un lieu public, face à une obstruction totale des voies aériennes chez l'adulte conscient, quel est le premier geste ?",
-    "opts": [
-      "Allonger la victime sur le dos",
-      "Donner un verre d'eau",
-      "Donner jusqu'à 5 claques vigoureuses dans le dos entre les omoplates",
-      "Pratiquer la méthode d'Heimlich directement"
-    ],
-    "c": 2,
-    "e": "On commence toujours par 1 à 5 claques dans le dos."
-  },
-  {
-    "cat": "Obstruction des Voies Aériennes",
-    "q": "Lors d'une intervention dans un lieu public, si 5 claques dans le dos ne désobstruent pas les voies aériennes chez l'adulte, que fait-on ?",
-    "opts": [
-      "Réaliser 1 à 5 compressions abdominales (méthode de Heimlich)",
-      "Mettre en PLS",
-      "Insufler de l'air de force",
-      "Effectuer un balayage de la bouche avec le doigt"
-    ],
-    "c": 0,
-    "e": "Les compressions abdominales succèdent aux claques dorsales inefficaces."
-  },
-  {
-    "cat": "Obstruction des Voies Aériennes",
-    "q": "Lors d'une intervention dans un lieu public, si une victime d'oava totale perd connaissance, quelle est la conduite à tenir immédiate ?",
-    "opts": [
-      "Attendre 5 minutes",
-      "Mettre la victime debout",
-      "Continuer la méthode de Heimlich au sol",
-      "Accompagner la victime au sol, alerter les secours et débuter la RCP par 30 compressions thoraciques"
-    ],
-    "c": 3,
-    "e": "Dès la perte de connaissance, on débute la RCP."
-  },
-  {
-    "cat": "Obstruction des Voies Aériennes",
-    "q": "Lors d'une intervention dans un lieu public, chez une personne très obèse ou une femme enceinte à terme, par quoi remplace-t-on les compressions abdominales ?",
-    "opts": [
-      "L'immersion dans l'eau",
-      "Des compressions thoraciques au centre du sternum",
-      "Des compressions sur les cuisses",
-      "Des tapotements sur les joues"
-    ],
-    "c": 1,
-    "e": "Les compressions thoraciques sont préconisées pour éviter les lésions abdominales/fœtales."
-  },
-  {
-    "cat": "Obstruction des Voies Aériennes",
-    "q": "Lors d'une intervention de nuit, quel est le signe caractéristique d'une oava totale ?",
-    "opts": [
-      "La victime ronfle bruyamment en dormant",
-      "La victime a une voix rauque mais répond aux questions",
-      "La victime ne peut ni parler, ni tousser, ni respirer et porte ses mains à la gorge",
-      "La victime tousse vigoureusement et parle"
-    ],
-    "c": 2,
-    "e": "En obstruction totale, aucun flux d'air ne passe : impossibilité absolue de tousser ou parler."
-  },
-  {
-    "cat": "Obstruction des Voies Aériennes",
-    "q": "Lors d'une intervention de nuit, face à une obstruction totale des voies aériennes chez l'adulte conscient, quel est le premier geste ?",
-    "opts": [
-      "Allonger la victime sur le dos",
-      "Donner un verre d'eau",
-      "Donner jusqu'à 5 claques vigoureuses dans le dos entre les omoplates",
-      "Pratiquer la méthode d'Heimlich directement"
-    ],
-    "c": 2,
-    "e": "On commence toujours par 1 à 5 claques dans le dos."
-  },
-  {
-    "cat": "Obstruction des Voies Aériennes",
-    "q": "Lors d'une intervention de nuit, si 5 claques dans le dos ne désobstruent pas les voies aériennes chez l'adulte, que fait-on ?",
-    "opts": [
-      "Réaliser 1 à 5 compressions abdominales (méthode de Heimlich)",
-      "Mettre en PLS",
-      "Insufler de l'air de force",
-      "Effectuer un balayage de la bouche avec le doigt"
-    ],
-    "c": 0,
-    "e": "Les compressions abdominales succèdent aux claques dorsales inefficaces."
-  },
-  {
-    "cat": "Obstruction des Voies Aériennes",
-    "q": "Lors d'une intervention de nuit, si une victime d'oava totale perd connaissance, quelle est la conduite à tenir immédiate ?",
-    "opts": [
-      "Attendre 5 minutes",
-      "Mettre la victime debout",
-      "Continuer la méthode de Heimlich au sol",
-      "Accompagner la victime au sol, alerter les secours et débuter la RCP par 30 compressions thoraciques"
-    ],
-    "c": 3,
-    "e": "Dès la perte de connaissance, on débute la RCP."
-  },
-  {
-    "cat": "Obstruction des Voies Aériennes",
-    "q": "Lors d'une intervention de nuit, chez une personne très obèse ou une femme enceinte à terme, par quoi remplace-t-on les compressions abdominales ?",
-    "opts": [
-      "L'immersion dans l'eau",
-      "Des compressions thoraciques au centre du sternum",
-      "Des compressions sur les cuisses",
-      "Des tapotements sur les joues"
-    ],
-    "c": 1,
-    "e": "Les compressions thoraciques sont préconisées pour éviter les lésions abdominales/fœtales."
-  },
-  {
-    "cat": "Obstruction des Voies Aériennes",
-    "q": "Lors d'une intervention avec plusieurs témoins, quel est le signe caractéristique d'une oava totale ?",
-    "opts": [
-      "La victime ronfle bruyamment en dormant",
-      "La victime a une voix rauque mais répond aux questions",
-      "La victime ne peut ni parler, ni tousser, ni respirer et porte ses mains à la gorge",
-      "La victime tousse vigoureusement et parle"
-    ],
-    "c": 2,
-    "e": "En obstruction totale, aucun flux d'air ne passe : impossibilité absolue de tousser ou parler."
-  },
-  {
-    "cat": "Obstruction des Voies Aériennes",
-    "q": "Lors d'une intervention avec plusieurs témoins, face à une obstruction totale des voies aériennes chez l'adulte conscient, quel est le premier geste ?",
-    "opts": [
-      "Allonger la victime sur le dos",
-      "Donner un verre d'eau",
-      "Donner jusqu'à 5 claques vigoureuses dans le dos entre les omoplates",
-      "Pratiquer la méthode d'Heimlich directement"
-    ],
-    "c": 2,
-    "e": "On commence toujours par 1 à 5 claques dans le dos."
-  },
-  {
-    "cat": "Obstruction des Voies Aériennes",
-    "q": "Lors d'une intervention avec plusieurs témoins, si 5 claques dans le dos ne désobstruent pas les voies aériennes chez l'adulte, que fait-on ?",
-    "opts": [
-      "Réaliser 1 à 5 compressions abdominales (méthode de Heimlich)",
-      "Mettre en PLS",
-      "Insufler de l'air de force",
-      "Effectuer un balayage de la bouche avec le doigt"
-    ],
-    "c": 0,
-    "e": "Les compressions abdominales succèdent aux claques dorsales inefficaces."
-  },
-  {
-    "cat": "Obstruction des Voies Aériennes",
-    "q": "Lors d'une intervention avec plusieurs témoins, si une victime d'oava totale perd connaissance, quelle est la conduite à tenir immédiate ?",
-    "opts": [
-      "Attendre 5 minutes",
-      "Mettre la victime debout",
-      "Continuer la méthode de Heimlich au sol",
-      "Accompagner la victime au sol, alerter les secours et débuter la RCP par 30 compressions thoraciques"
-    ],
-    "c": 3,
-    "e": "Dès la perte de connaissance, on débute la RCP."
-  },
-  {
-    "cat": "Obstruction des Voies Aériennes",
-    "q": "Lors d'une intervention avec plusieurs témoins, chez une personne très obèse ou une femme enceinte à terme, par quoi remplace-t-on les compressions abdominales ?",
-    "opts": [
-      "L'immersion dans l'eau",
-      "Des compressions thoraciques au centre du sternum",
-      "Des compressions sur les cuisses",
-      "Des tapotements sur les joues"
-    ],
-    "c": 1,
-    "e": "Les compressions thoraciques sont préconisées pour éviter les lésions abdominales/fœtales."
-  },
-  {
-    "cat": "Obstruction des Voies Aériennes",
-    "q": "Lors d'une intervention en équipe, quel est le signe caractéristique d'une oava totale ?",
-    "opts": [
-      "La victime ronfle bruyamment en dormant",
-      "La victime a une voix rauque mais répond aux questions",
-      "La victime ne peut ni parler, ni tousser, ni respirer et porte ses mains à la gorge",
-      "La victime tousse vigoureusement et parle"
-    ],
-    "c": 2,
-    "e": "En obstruction totale, aucun flux d'air ne passe : impossibilité absolue de tousser ou parler."
-  },
-  {
-    "cat": "Obstruction des Voies Aériennes",
-    "q": "Lors d'une intervention en équipe, face à une obstruction totale des voies aériennes chez l'adulte conscient, quel est le premier geste ?",
-    "opts": [
-      "Allonger la victime sur le dos",
-      "Donner un verre d'eau",
-      "Donner jusqu'à 5 claques vigoureuses dans le dos entre les omoplates",
-      "Pratiquer la méthode d'Heimlich directement"
-    ],
-    "c": 2,
-    "e": "On commence toujours par 1 à 5 claques dans le dos."
-  },
-  {
-    "cat": "Obstruction des Voies Aériennes",
-    "q": "Lors d'une intervention en équipe, si 5 claques dans le dos ne désobstruent pas les voies aériennes chez l'adulte, que fait-on ?",
-    "opts": [
-      "Réaliser 1 à 5 compressions abdominales (méthode de Heimlich)",
-      "Mettre en PLS",
-      "Insufler de l'air de force",
-      "Effectuer un balayage de la bouche avec le doigt"
-    ],
-    "c": 0,
-    "e": "Les compressions abdominales succèdent aux claques dorsales inefficaces."
-  },
-  {
-    "cat": "Obstruction des Voies Aériennes",
-    "q": "Lors d'une intervention en équipe, si une victime d'oava totale perd connaissance, quelle est la conduite à tenir immédiate ?",
-    "opts": [
-      "Attendre 5 minutes",
-      "Mettre la victime debout",
-      "Continuer la méthode de Heimlich au sol",
-      "Accompagner la victime au sol, alerter les secours et débuter la RCP par 30 compressions thoraciques"
-    ],
-    "c": 3,
-    "e": "Dès la perte de connaissance, on débute la RCP."
-  },
-  {
-    "cat": "Obstruction des Voies Aériennes",
-    "q": "Lors d'une intervention en équipe, chez une personne très obèse ou une femme enceinte à terme, par quoi remplace-t-on les compressions abdominales ?",
-    "opts": [
-      "L'immersion dans l'eau",
-      "Des compressions thoraciques au centre du sternum",
-      "Des compressions sur les cuisses",
-      "Des tapotements sur les joues"
-    ],
-    "c": 1,
-    "e": "Les compressions thoraciques sont préconisées pour éviter les lésions abdominales/fœtales."
-  },
-  {
-    "cat": "Obstruction des Voies Aériennes",
-    "q": "Lors d'une intervention en milieu sportif, quel est le signe caractéristique d'une oava totale ?",
-    "opts": [
-      "La victime ronfle bruyamment en dormant",
-      "La victime a une voix rauque mais répond aux questions",
-      "La victime ne peut ni parler, ni tousser, ni respirer et porte ses mains à la gorge",
-      "La victime tousse vigoureusement et parle"
-    ],
-    "c": 2,
-    "e": "En obstruction totale, aucun flux d'air ne passe : impossibilité absolue de tousser ou parler."
-  },
-  {
-    "cat": "Obstruction des Voies Aériennes",
-    "q": "Lors d'une intervention en milieu sportif, face à une obstruction totale des voies aériennes chez l'adulte conscient, quel est le premier geste ?",
-    "opts": [
-      "Allonger la victime sur le dos",
-      "Donner un verre d'eau",
-      "Donner jusqu'à 5 claques vigoureuses dans le dos entre les omoplates",
-      "Pratiquer la méthode d'Heimlich directement"
-    ],
-    "c": 2,
-    "e": "On commence toujours par 1 à 5 claques dans le dos."
-  },
-  {
-    "cat": "Obstruction des Voies Aériennes",
-    "q": "Lors d'une intervention en milieu sportif, si 5 claques dans le dos ne désobstruent pas les voies aériennes chez l'adulte, que fait-on ?",
-    "opts": [
-      "Réaliser 1 à 5 compressions abdominales (méthode de Heimlich)",
-      "Mettre en PLS",
-      "Insufler de l'air de force",
-      "Effectuer un balayage de la bouche avec le doigt"
-    ],
-    "c": 0,
-    "e": "Les compressions abdominales succèdent aux claques dorsales inefficaces."
-  },
-  {
-    "cat": "Obstruction des Voies Aériennes",
-    "q": "Lors d'une intervention en milieu sportif, si une victime d'oava totale perd connaissance, quelle est la conduite à tenir immédiate ?",
-    "opts": [
-      "Attendre 5 minutes",
-      "Mettre la victime debout",
-      "Continuer la méthode de Heimlich au sol",
-      "Accompagner la victime au sol, alerter les secours et débuter la RCP par 30 compressions thoraciques"
-    ],
-    "c": 3,
-    "e": "Dès la perte de connaissance, on débute la RCP."
-  },
-  {
-    "cat": "Obstruction des Voies Aériennes",
-    "q": "Lors d'une intervention en milieu sportif, chez une personne très obèse ou une femme enceinte à terme, par quoi remplace-t-on les compressions abdominales ?",
-    "opts": [
-      "L'immersion dans l'eau",
-      "Des compressions thoraciques au centre du sternum",
-      "Des compressions sur les cuisses",
-      "Des tapotements sur les joues"
-    ],
-    "c": 1,
-    "e": "Les compressions thoraciques sont préconisées pour éviter les lésions abdominales/fœtales."
-  },
-  {
-    "cat": "Obstruction des Voies Aériennes",
-    "q": "Lors d'une intervention après un accident domestique, quel est le signe caractéristique d'une oava totale ?",
-    "opts": [
-      "La victime ronfle bruyamment en dormant",
-      "La victime a une voix rauque mais répond aux questions",
-      "La victime ne peut ni parler, ni tousser, ni respirer et porte ses mains à la gorge",
-      "La victime tousse vigoureusement et parle"
-    ],
-    "c": 2,
-    "e": "En obstruction totale, aucun flux d'air ne passe : impossibilité absolue de tousser ou parler."
-  },
-  {
-    "cat": "Obstruction des Voies Aériennes",
-    "q": "Lors d'une intervention après un accident domestique, face à une obstruction totale des voies aériennes chez l'adulte conscient, quel est le premier geste ?",
-    "opts": [
-      "Allonger la victime sur le dos",
-      "Donner un verre d'eau",
-      "Donner jusqu'à 5 claques vigoureuses dans le dos entre les omoplates",
-      "Pratiquer la méthode d'Heimlich directement"
-    ],
-    "c": 2,
-    "e": "On commence toujours par 1 à 5 claques dans le dos."
-  },
-  {
-    "cat": "Obstruction des Voies Aériennes",
-    "q": "Lors d'une intervention après un accident domestique, si 5 claques dans le dos ne désobstruent pas les voies aériennes chez l'adulte, que fait-on ?",
-    "opts": [
-      "Réaliser 1 à 5 compressions abdominales (méthode de Heimlich)",
-      "Mettre en PLS",
-      "Insufler de l'air de force",
-      "Effectuer un balayage de la bouche avec le doigt"
-    ],
-    "c": 0,
-    "e": "Les compressions abdominales succèdent aux claques dorsales inefficaces."
-  },
-  {
-    "cat": "Obstruction des Voies Aériennes",
-    "q": "Lors d'une intervention après un accident domestique, si une victime d'oava totale perd connaissance, quelle est la conduite à tenir immédiate ?",
-    "opts": [
-      "Attendre 5 minutes",
-      "Mettre la victime debout",
-      "Continuer la méthode de Heimlich au sol",
-      "Accompagner la victime au sol, alerter les secours et débuter la RCP par 30 compressions thoraciques"
-    ],
-    "c": 3,
-    "e": "Dès la perte de connaissance, on débute la RCP."
-  },
-  {
-    "cat": "Obstruction des Voies Aériennes",
-    "q": "Lors d'une intervention après un accident domestique, chez une personne très obèse ou une femme enceinte à terme, par quoi remplace-t-on les compressions abdominales ?",
-    "opts": [
-      "L'immersion dans l'eau",
-      "Des compressions thoraciques au centre du sternum",
-      "Des compressions sur les cuisses",
-      "Des tapotements sur les joues"
-    ],
-    "c": 1,
-    "e": "Les compressions thoraciques sont préconisées pour éviter les lésions abdominales/fœtales."
-  },
-  {
-    "cat": "Obstruction des Voies Aériennes",
-    "q": "Lors d'une intervention après un accident de la circulation, quel est le signe caractéristique d'une oava totale ?",
-    "opts": [
-      "La victime ronfle bruyamment en dormant",
-      "La victime a une voix rauque mais répond aux questions",
-      "La victime ne peut ni parler, ni tousser, ni respirer et porte ses mains à la gorge",
-      "La victime tousse vigoureusement et parle"
-    ],
-    "c": 2,
-    "e": "En obstruction totale, aucun flux d'air ne passe : impossibilité absolue de tousser ou parler."
-  },
-  {
-    "cat": "Obstruction des Voies Aériennes",
-    "q": "Lors d'une intervention après un accident de la circulation, face à une obstruction totale des voies aériennes chez l'adulte conscient, quel est le premier geste ?",
-    "opts": [
-      "Allonger la victime sur le dos",
-      "Donner un verre d'eau",
-      "Donner jusqu'à 5 claques vigoureuses dans le dos entre les omoplates",
-      "Pratiquer la méthode d'Heimlich directement"
-    ],
-    "c": 2,
-    "e": "On commence toujours par 1 à 5 claques dans le dos."
-  },
-  {
-    "cat": "Obstruction des Voies Aériennes",
-    "q": "Lors d'une intervention après un accident de la circulation, si 5 claques dans le dos ne désobstruent pas les voies aériennes chez l'adulte, que fait-on ?",
-    "opts": [
-      "Réaliser 1 à 5 compressions abdominales (méthode de Heimlich)",
-      "Mettre en PLS",
-      "Insufler de l'air de force",
-      "Effectuer un balayage de la bouche avec le doigt"
-    ],
-    "c": 0,
-    "e": "Les compressions abdominales succèdent aux claques dorsales inefficaces."
-  },
-  {
-    "cat": "Obstruction des Voies Aériennes",
-    "q": "Lors d'une intervention après un accident de la circulation, si une victime d'oava totale perd connaissance, quelle est la conduite à tenir immédiate ?",
-    "opts": [
-      "Attendre 5 minutes",
-      "Mettre la victime debout",
-      "Continuer la méthode de Heimlich au sol",
-      "Accompagner la victime au sol, alerter les secours et débuter la RCP par 30 compressions thoraciques"
-    ],
-    "c": 3,
-    "e": "Dès la perte de connaissance, on débute la RCP."
-  },
-  {
-    "cat": "Obstruction des Voies Aériennes",
-    "q": "Lors d'une intervention après un accident de la circulation, chez une personne très obèse ou une femme enceinte à terme, par quoi remplace-t-on les compressions abdominales ?",
-    "opts": [
-      "L'immersion dans l'eau",
-      "Des compressions thoraciques au centre du sternum",
-      "Des compressions sur les cuisses",
-      "Des tapotements sur les joues"
-    ],
-    "c": 1,
-    "e": "Les compressions thoraciques sont préconisées pour éviter les lésions abdominales/fœtales."
-  },
-  {
-    "cat": "Obstruction des Voies Aériennes",
-    "q": "Lors d'une intervention en entreprise, quel est le signe caractéristique d'une oava totale ?",
-    "opts": [
-      "La victime ronfle bruyamment en dormant",
-      "La victime a une voix rauque mais répond aux questions",
-      "La victime ne peut ni parler, ni tousser, ni respirer et porte ses mains à la gorge",
-      "La victime tousse vigoureusement et parle"
-    ],
-    "c": 2,
-    "e": "En obstruction totale, aucun flux d'air ne passe : impossibilité absolue de tousser ou parler."
-  },
-  {
-    "cat": "Obstruction des Voies Aériennes",
-    "q": "Lors d'une intervention en entreprise, face à une obstruction totale des voies aériennes chez l'adulte conscient, quel est le premier geste ?",
-    "opts": [
-      "Allonger la victime sur le dos",
-      "Donner un verre d'eau",
-      "Donner jusqu'à 5 claques vigoureuses dans le dos entre les omoplates",
-      "Pratiquer la méthode d'Heimlich directement"
-    ],
-    "c": 2,
-    "e": "On commence toujours par 1 à 5 claques dans le dos."
-  },
-  {
-    "cat": "Obstruction des Voies Aériennes",
-    "q": "Lors d'une intervention en entreprise, si 5 claques dans le dos ne désobstruent pas les voies aériennes chez l'adulte, que fait-on ?",
-    "opts": [
-      "Réaliser 1 à 5 compressions abdominales (méthode de Heimlich)",
-      "Mettre en PLS",
-      "Insufler de l'air de force",
-      "Effectuer un balayage de la bouche avec le doigt"
-    ],
-    "c": 0,
-    "e": "Les compressions abdominales succèdent aux claques dorsales inefficaces."
-  },
-  {
-    "cat": "Obstruction des Voies Aériennes",
-    "q": "Lors d'une intervention en entreprise, si une victime d'oava totale perd connaissance, quelle est la conduite à tenir immédiate ?",
-    "opts": [
-      "Attendre 5 minutes",
-      "Mettre la victime debout",
-      "Continuer la méthode de Heimlich au sol",
-      "Accompagner la victime au sol, alerter les secours et débuter la RCP par 30 compressions thoraciques"
-    ],
-    "c": 3,
-    "e": "Dès la perte de connaissance, on débute la RCP."
-  },
-  {
-    "cat": "Obstruction des Voies Aériennes",
-    "q": "Lors d'une intervention en entreprise, chez une personne très obèse ou une femme enceinte à terme, par quoi remplace-t-on les compressions abdominales ?",
-    "opts": [
-      "L'immersion dans l'eau",
-      "Des compressions thoraciques au centre du sternum",
-      "Des compressions sur les cuisses",
-      "Des tapotements sur les joues"
-    ],
-    "c": 1,
-    "e": "Les compressions thoraciques sont préconisées pour éviter les lésions abdominales/fœtales."
-  },
-  {
-    "cat": "Obstruction des Voies Aériennes",
-    "q": "Lors d'une intervention dans un environnement bruyant, quel est le signe caractéristique d'une oava totale ?",
-    "opts": [
-      "La victime ronfle bruyamment en dormant",
-      "La victime a une voix rauque mais répond aux questions",
-      "La victime ne peut ni parler, ni tousser, ni respirer et porte ses mains à la gorge",
-      "La victime tousse vigoureusement et parle"
-    ],
-    "c": 2,
-    "e": "En obstruction totale, aucun flux d'air ne passe : impossibilité absolue de tousser ou parler."
-  },
-  {
-    "cat": "Obstruction des Voies Aériennes",
-    "q": "Lors d'une intervention dans un environnement bruyant, face à une obstruction totale des voies aériennes chez l'adulte conscient, quel est le premier geste ?",
-    "opts": [
-      "Allonger la victime sur le dos",
-      "Donner un verre d'eau",
-      "Donner jusqu'à 5 claques vigoureuses dans le dos entre les omoplates",
-      "Pratiquer la méthode d'Heimlich directement"
-    ],
-    "c": 2,
-    "e": "On commence toujours par 1 à 5 claques dans le dos."
-  },
-  {
-    "cat": "Obstruction des Voies Aériennes",
-    "q": "Lors d'une intervention dans un environnement bruyant, si 5 claques dans le dos ne désobstruent pas les voies aériennes chez l'adulte, que fait-on ?",
-    "opts": [
-      "Réaliser 1 à 5 compressions abdominales (méthode de Heimlich)",
-      "Mettre en PLS",
-      "Insufler de l'air de force",
-      "Effectuer un balayage de la bouche avec le doigt"
-    ],
-    "c": 0,
-    "e": "Les compressions abdominales succèdent aux claques dorsales inefficaces."
-  },
-  {
-    "cat": "Obstruction des Voies Aériennes",
-    "q": "Lors d'une intervention dans un environnement bruyant, si une victime d'oava totale perd connaissance, quelle est la conduite à tenir immédiate ?",
-    "opts": [
-      "Attendre 5 minutes",
-      "Mettre la victime debout",
-      "Continuer la méthode de Heimlich au sol",
-      "Accompagner la victime au sol, alerter les secours et débuter la RCP par 30 compressions thoraciques"
-    ],
-    "c": 3,
-    "e": "Dès la perte de connaissance, on débute la RCP."
-  },
-  {
-    "cat": "Obstruction des Voies Aériennes",
-    "q": "Lors d'une intervention dans un environnement bruyant, chez une personne très obèse ou une femme enceinte à terme, par quoi remplace-t-on les compressions abdominales ?",
-    "opts": [
-      "L'immersion dans l'eau",
-      "Des compressions thoraciques au centre du sternum",
-      "Des compressions sur les cuisses",
-      "Des tapotements sur les joues"
-    ],
-    "c": 1,
-    "e": "Les compressions thoraciques sont préconisées pour éviter les lésions abdominales/fœtales."
-  },
-  {
-    "cat": "Évaluation Neurologique",
-    "q": "que signifie la lettre 'a' dans le score avpu ?",
-    "opts": [
-      "Anxiété",
-      "Arrêt cardiaque",
-      "Aphasique",
-      "Alert (Alerte / Éveillé)"
-    ],
-    "c": 3,
-    "e": "A = Alert (la victime est éveillée et répond spontanément)."
-  },
-  {
-    "cat": "Évaluation Neurologique",
-    "q": "que signifie la lettre 'v' dans le score avpu ?",
-    "opts": [
-      "Vascularisé",
-      "Vision",
-      "Vertige",
-      "Verbal (Répond à la stimulation verbale)"
-    ],
-    "c": 3,
-    "e": "V = Verbal (réagit aux ordres ou questions verbales)."
-  },
-  {
-    "cat": "Évaluation Neurologique",
-    "q": "que signifie la lettre 'p' dans le score avpu ?",
-    "opts": [
-      "Paralysie",
-      "Pupille",
-      "Pouls",
-      "Pain (Réagit uniquement à la douleur)"
-    ],
-    "c": 3,
-    "e": "P = Pain (réagit seulement aux stimuli douloureux)."
-  },
-  {
-    "cat": "Évaluation Neurologique",
-    "q": "que signifie la lettre 'u' dans le score avpu ?",
-    "opts": [
-      "Urinaire",
-      "Unresponsive (Abolition totale des réponses / Inconscient)",
-      "Urgente",
-      "Unilateral"
-    ],
-    "c": 1,
-    "e": "U = Unresponsive (aucun stimulus ne fait réagir la victime)."
-  },
-  {
-    "cat": "Évaluation Neurologique",
-    "q": "comment doivent être les pupilles d'un sujet sain à la lumière ?",
-    "opts": [
-      "Dilatées en permanence (mydriase)",
-      "Égales, rondes et réactives à la lumière (myosis à la lumière)",
-      "Asymétriques et immobiles",
-      "De couleurs différentes"
-    ],
-    "c": 1,
-    "e": "Des pupilles normales sont isocores (égales) et réactives (se contractent à la lumière)."
-  },
-  {
-    "cat": "Évaluation Neurologique",
-    "q": "Lors d'une intervention à domicile, que signifie la lettre 'a' dans le score avpu ?",
-    "opts": [
-      "Anxiété",
-      "Arrêt cardiaque",
-      "Aphasique",
-      "Alert (Alerte / Éveillé)"
-    ],
-    "c": 3,
-    "e": "A = Alert (la victime est éveillée et répond spontanément)."
-  },
-  {
-    "cat": "Évaluation Neurologique",
-    "q": "Lors d'une intervention à domicile, que signifie la lettre 'v' dans le score avpu ?",
-    "opts": [
-      "Vascularisé",
-      "Vision",
-      "Vertige",
-      "Verbal (Répond à la stimulation verbale)"
-    ],
-    "c": 3,
-    "e": "V = Verbal (réagit aux ordres ou questions verbales)."
-  },
-  {
-    "cat": "Évaluation Neurologique",
-    "q": "Lors d'une intervention à domicile, que signifie la lettre 'p' dans le score avpu ?",
-    "opts": [
-      "Paralysie",
-      "Pupille",
-      "Pouls",
-      "Pain (Réagit uniquement à la douleur)"
-    ],
-    "c": 3,
-    "e": "P = Pain (réagit seulement aux stimuli douloureux)."
-  },
-  {
-    "cat": "Évaluation Neurologique",
-    "q": "Lors d'une intervention à domicile, que signifie la lettre 'u' dans le score avpu ?",
-    "opts": [
-      "Urinaire",
-      "Unresponsive (Abolition totale des réponses / Inconscient)",
-      "Urgente",
-      "Unilateral"
-    ],
-    "c": 1,
-    "e": "U = Unresponsive (aucun stimulus ne fait réagir la victime)."
-  },
-  {
-    "cat": "Évaluation Neurologique",
-    "q": "Lors d'une intervention à domicile, comment doivent être les pupilles d'un sujet sain à la lumière ?",
-    "opts": [
-      "Dilatées en permanence (mydriase)",
-      "Égales, rondes et réactives à la lumière (myosis à la lumière)",
-      "Asymétriques et immobiles",
-      "De couleurs différentes"
-    ],
-    "c": 1,
-    "e": "Des pupilles normales sont isocores (égales) et réactives (se contractent à la lumière)."
-  },
-  {
-    "cat": "Évaluation Neurologique",
-    "q": "Lors d'une intervention sur la voie publique, que signifie la lettre 'a' dans le score avpu ?",
-    "opts": [
-      "Anxiété",
-      "Arrêt cardiaque",
-      "Aphasique",
-      "Alert (Alerte / Éveillé)"
-    ],
-    "c": 3,
-    "e": "A = Alert (la victime est éveillée et répond spontanément)."
-  },
-  {
-    "cat": "Évaluation Neurologique",
-    "q": "Lors d'une intervention sur la voie publique, que signifie la lettre 'v' dans le score avpu ?",
-    "opts": [
-      "Vascularisé",
-      "Vision",
-      "Vertige",
-      "Verbal (Répond à la stimulation verbale)"
-    ],
-    "c": 3,
-    "e": "V = Verbal (réagit aux ordres ou questions verbales)."
-  },
-  {
-    "cat": "Évaluation Neurologique",
-    "q": "Lors d'une intervention sur la voie publique, que signifie la lettre 'p' dans le score avpu ?",
-    "opts": [
-      "Paralysie",
-      "Pupille",
-      "Pouls",
-      "Pain (Réagit uniquement à la douleur)"
-    ],
-    "c": 3,
-    "e": "P = Pain (réagit seulement aux stimuli douloureux)."
-  },
-  {
-    "cat": "Évaluation Neurologique",
-    "q": "Lors d'une intervention sur la voie publique, que signifie la lettre 'u' dans le score avpu ?",
-    "opts": [
-      "Urinaire",
-      "Unresponsive (Abolition totale des réponses / Inconscient)",
-      "Urgente",
-      "Unilateral"
-    ],
-    "c": 1,
-    "e": "U = Unresponsive (aucun stimulus ne fait réagir la victime)."
-  },
-  {
-    "cat": "Évaluation Neurologique",
-    "q": "Lors d'une intervention sur la voie publique, comment doivent être les pupilles d'un sujet sain à la lumière ?",
-    "opts": [
-      "Dilatées en permanence (mydriase)",
-      "Égales, rondes et réactives à la lumière (myosis à la lumière)",
-      "Asymétriques et immobiles",
-      "De couleurs différentes"
-    ],
-    "c": 1,
-    "e": "Des pupilles normales sont isocores (égales) et réactives (se contractent à la lumière)."
-  },
-  {
-    "cat": "Évaluation Neurologique",
-    "q": "Lors d'une intervention dans un lieu public, que signifie la lettre 'a' dans le score avpu ?",
-    "opts": [
-      "Anxiété",
-      "Arrêt cardiaque",
-      "Aphasique",
-      "Alert (Alerte / Éveillé)"
-    ],
-    "c": 3,
-    "e": "A = Alert (la victime est éveillée et répond spontanément)."
-  },
-  {
-    "cat": "Évaluation Neurologique",
-    "q": "Lors d'une intervention dans un lieu public, que signifie la lettre 'v' dans le score avpu ?",
-    "opts": [
-      "Vascularisé",
-      "Vision",
-      "Vertige",
-      "Verbal (Répond à la stimulation verbale)"
-    ],
-    "c": 3,
-    "e": "V = Verbal (réagit aux ordres ou questions verbales)."
-  },
-  {
-    "cat": "Évaluation Neurologique",
-    "q": "Lors d'une intervention dans un lieu public, que signifie la lettre 'p' dans le score avpu ?",
-    "opts": [
-      "Paralysie",
-      "Pupille",
-      "Pouls",
-      "Pain (Réagit uniquement à la douleur)"
-    ],
-    "c": 3,
-    "e": "P = Pain (réagit seulement aux stimuli douloureux)."
-  },
-  {
-    "cat": "Évaluation Neurologique",
-    "q": "Lors d'une intervention dans un lieu public, que signifie la lettre 'u' dans le score avpu ?",
-    "opts": [
-      "Urinaire",
-      "Unresponsive (Abolition totale des réponses / Inconscient)",
-      "Urgente",
-      "Unilateral"
-    ],
-    "c": 1,
-    "e": "U = Unresponsive (aucun stimulus ne fait réagir la victime)."
-  },
-  {
-    "cat": "Évaluation Neurologique",
-    "q": "Lors d'une intervention dans un lieu public, comment doivent être les pupilles d'un sujet sain à la lumière ?",
-    "opts": [
-      "Dilatées en permanence (mydriase)",
-      "Égales, rondes et réactives à la lumière (myosis à la lumière)",
-      "Asymétriques et immobiles",
-      "De couleurs différentes"
-    ],
-    "c": 1,
-    "e": "Des pupilles normales sont isocores (égales) et réactives (se contractent à la lumière)."
-  },
-  {
-    "cat": "Évaluation Neurologique",
-    "q": "Lors d'une intervention de nuit, que signifie la lettre 'a' dans le score avpu ?",
-    "opts": [
-      "Anxiété",
-      "Arrêt cardiaque",
-      "Aphasique",
-      "Alert (Alerte / Éveillé)"
-    ],
-    "c": 3,
-    "e": "A = Alert (la victime est éveillée et répond spontanément)."
-  },
-  {
-    "cat": "Évaluation Neurologique",
-    "q": "Lors d'une intervention de nuit, que signifie la lettre 'v' dans le score avpu ?",
-    "opts": [
-      "Vascularisé",
-      "Vision",
-      "Vertige",
-      "Verbal (Répond à la stimulation verbale)"
-    ],
-    "c": 3,
-    "e": "V = Verbal (réagit aux ordres ou questions verbales)."
-  },
-  {
-    "cat": "Évaluation Neurologique",
-    "q": "Lors d'une intervention de nuit, que signifie la lettre 'p' dans le score avpu ?",
-    "opts": [
-      "Paralysie",
-      "Pupille",
-      "Pouls",
-      "Pain (Réagit uniquement à la douleur)"
-    ],
-    "c": 3,
-    "e": "P = Pain (réagit seulement aux stimuli douloureux)."
-  },
-  {
-    "cat": "Évaluation Neurologique",
-    "q": "Lors d'une intervention de nuit, que signifie la lettre 'u' dans le score avpu ?",
-    "opts": [
-      "Urinaire",
-      "Unresponsive (Abolition totale des réponses / Inconscient)",
-      "Urgente",
-      "Unilateral"
-    ],
-    "c": 1,
-    "e": "U = Unresponsive (aucun stimulus ne fait réagir la victime)."
-  },
-  {
-    "cat": "Évaluation Neurologique",
-    "q": "Lors d'une intervention de nuit, comment doivent être les pupilles d'un sujet sain à la lumière ?",
-    "opts": [
-      "Dilatées en permanence (mydriase)",
-      "Égales, rondes et réactives à la lumière (myosis à la lumière)",
-      "Asymétriques et immobiles",
-      "De couleurs différentes"
-    ],
-    "c": 1,
-    "e": "Des pupilles normales sont isocores (égales) et réactives (se contractent à la lumière)."
-  },
-  {
-    "cat": "Évaluation Neurologique",
-    "q": "Lors d'une intervention avec plusieurs témoins, que signifie la lettre 'a' dans le score avpu ?",
-    "opts": [
-      "Anxiété",
-      "Arrêt cardiaque",
-      "Aphasique",
-      "Alert (Alerte / Éveillé)"
-    ],
-    "c": 3,
-    "e": "A = Alert (la victime est éveillée et répond spontanément)."
-  },
-  {
-    "cat": "Évaluation Neurologique",
-    "q": "Lors d'une intervention avec plusieurs témoins, que signifie la lettre 'v' dans le score avpu ?",
-    "opts": [
-      "Vascularisé",
-      "Vision",
-      "Vertige",
-      "Verbal (Répond à la stimulation verbale)"
-    ],
-    "c": 3,
-    "e": "V = Verbal (réagit aux ordres ou questions verbales)."
-  },
-  {
-    "cat": "Évaluation Neurologique",
-    "q": "Lors d'une intervention avec plusieurs témoins, que signifie la lettre 'p' dans le score avpu ?",
-    "opts": [
-      "Paralysie",
-      "Pupille",
-      "Pouls",
-      "Pain (Réagit uniquement à la douleur)"
-    ],
-    "c": 3,
-    "e": "P = Pain (réagit seulement aux stimuli douloureux)."
-  },
-  {
-    "cat": "Évaluation Neurologique",
-    "q": "Lors d'une intervention avec plusieurs témoins, que signifie la lettre 'u' dans le score avpu ?",
-    "opts": [
-      "Urinaire",
-      "Unresponsive (Abolition totale des réponses / Inconscient)",
-      "Urgente",
-      "Unilateral"
-    ],
-    "c": 1,
-    "e": "U = Unresponsive (aucun stimulus ne fait réagir la victime)."
-  },
-  {
-    "cat": "Évaluation Neurologique",
-    "q": "Lors d'une intervention avec plusieurs témoins, comment doivent être les pupilles d'un sujet sain à la lumière ?",
-    "opts": [
-      "Dilatées en permanence (mydriase)",
-      "Égales, rondes et réactives à la lumière (myosis à la lumière)",
-      "Asymétriques et immobiles",
-      "De couleurs différentes"
-    ],
-    "c": 1,
-    "e": "Des pupilles normales sont isocores (égales) et réactives (se contractent à la lumière)."
-  },
-  {
-    "cat": "Évaluation Neurologique",
-    "q": "Lors d'une intervention en équipe, que signifie la lettre 'a' dans le score avpu ?",
-    "opts": [
-      "Anxiété",
-      "Arrêt cardiaque",
-      "Aphasique",
-      "Alert (Alerte / Éveillé)"
-    ],
-    "c": 3,
-    "e": "A = Alert (la victime est éveillée et répond spontanément)."
-  },
-  {
-    "cat": "Évaluation Neurologique",
-    "q": "Lors d'une intervention en équipe, que signifie la lettre 'v' dans le score avpu ?",
-    "opts": [
-      "Vascularisé",
-      "Vision",
-      "Vertige",
-      "Verbal (Répond à la stimulation verbale)"
-    ],
-    "c": 3,
-    "e": "V = Verbal (réagit aux ordres ou questions verbales)."
-  },
-  {
-    "cat": "Évaluation Neurologique",
-    "q": "Lors d'une intervention en équipe, que signifie la lettre 'p' dans le score avpu ?",
-    "opts": [
-      "Paralysie",
-      "Pupille",
-      "Pouls",
-      "Pain (Réagit uniquement à la douleur)"
-    ],
-    "c": 3,
-    "e": "P = Pain (réagit seulement aux stimuli douloureux)."
-  },
-  {
-    "cat": "Évaluation Neurologique",
-    "q": "Lors d'une intervention en équipe, que signifie la lettre 'u' dans le score avpu ?",
-    "opts": [
-      "Urinaire",
-      "Unresponsive (Abolition totale des réponses / Inconscient)",
-      "Urgente",
-      "Unilateral"
-    ],
-    "c": 1,
-    "e": "U = Unresponsive (aucun stimulus ne fait réagir la victime)."
-  },
-  {
-    "cat": "Évaluation Neurologique",
-    "q": "Lors d'une intervention en équipe, comment doivent être les pupilles d'un sujet sain à la lumière ?",
-    "opts": [
-      "Dilatées en permanence (mydriase)",
-      "Égales, rondes et réactives à la lumière (myosis à la lumière)",
-      "Asymétriques et immobiles",
-      "De couleurs différentes"
-    ],
-    "c": 1,
-    "e": "Des pupilles normales sont isocores (égales) et réactives (se contractent à la lumière)."
-  },
-  {
-    "cat": "Évaluation Neurologique",
-    "q": "Lors d'une intervention en milieu sportif, que signifie la lettre 'a' dans le score avpu ?",
-    "opts": [
-      "Anxiété",
-      "Arrêt cardiaque",
-      "Aphasique",
-      "Alert (Alerte / Éveillé)"
-    ],
-    "c": 3,
-    "e": "A = Alert (la victime est éveillée et répond spontanément)."
-  },
-  {
-    "cat": "Évaluation Neurologique",
-    "q": "Lors d'une intervention en milieu sportif, que signifie la lettre 'v' dans le score avpu ?",
-    "opts": [
-      "Vascularisé",
-      "Vision",
-      "Vertige",
-      "Verbal (Répond à la stimulation verbale)"
-    ],
-    "c": 3,
-    "e": "V = Verbal (réagit aux ordres ou questions verbales)."
-  },
-  {
-    "cat": "Évaluation Neurologique",
-    "q": "Lors d'une intervention en milieu sportif, que signifie la lettre 'p' dans le score avpu ?",
-    "opts": [
-      "Paralysie",
-      "Pupille",
-      "Pouls",
-      "Pain (Réagit uniquement à la douleur)"
-    ],
-    "c": 3,
-    "e": "P = Pain (réagit seulement aux stimuli douloureux)."
-  },
-  {
-    "cat": "Évaluation Neurologique",
-    "q": "Lors d'une intervention en milieu sportif, que signifie la lettre 'u' dans le score avpu ?",
-    "opts": [
-      "Urinaire",
-      "Unresponsive (Abolition totale des réponses / Inconscient)",
-      "Urgente",
-      "Unilateral"
-    ],
-    "c": 1,
-    "e": "U = Unresponsive (aucun stimulus ne fait réagir la victime)."
-  },
-  {
-    "cat": "Évaluation Neurologique",
-    "q": "Lors d'une intervention en milieu sportif, comment doivent être les pupilles d'un sujet sain à la lumière ?",
-    "opts": [
-      "Dilatées en permanence (mydriase)",
-      "Égales, rondes et réactives à la lumière (myosis à la lumière)",
-      "Asymétriques et immobiles",
-      "De couleurs différentes"
-    ],
-    "c": 1,
-    "e": "Des pupilles normales sont isocores (égales) et réactives (se contractent à la lumière)."
-  },
-  {
-    "cat": "Évaluation Neurologique",
-    "q": "Lors d'une intervention après un accident domestique, que signifie la lettre 'a' dans le score avpu ?",
-    "opts": [
-      "Anxiété",
-      "Arrêt cardiaque",
-      "Aphasique",
-      "Alert (Alerte / Éveillé)"
-    ],
-    "c": 3,
-    "e": "A = Alert (la victime est éveillée et répond spontanément)."
-  },
-  {
-    "cat": "Évaluation Neurologique",
-    "q": "Lors d'une intervention après un accident domestique, que signifie la lettre 'v' dans le score avpu ?",
-    "opts": [
-      "Vascularisé",
-      "Vision",
-      "Vertige",
-      "Verbal (Répond à la stimulation verbale)"
-    ],
-    "c": 3,
-    "e": "V = Verbal (réagit aux ordres ou questions verbales)."
-  },
-  {
-    "cat": "Évaluation Neurologique",
-    "q": "Lors d'une intervention après un accident domestique, que signifie la lettre 'p' dans le score avpu ?",
-    "opts": [
-      "Paralysie",
-      "Pupille",
-      "Pouls",
-      "Pain (Réagit uniquement à la douleur)"
-    ],
-    "c": 3,
-    "e": "P = Pain (réagit seulement aux stimuli douloureux)."
-  },
-  {
-    "cat": "Évaluation Neurologique",
-    "q": "Lors d'une intervention après un accident domestique, que signifie la lettre 'u' dans le score avpu ?",
-    "opts": [
-      "Urinaire",
-      "Unresponsive (Abolition totale des réponses / Inconscient)",
-      "Urgente",
-      "Unilateral"
-    ],
-    "c": 1,
-    "e": "U = Unresponsive (aucun stimulus ne fait réagir la victime)."
-  },
-  {
-    "cat": "Évaluation Neurologique",
-    "q": "Lors d'une intervention après un accident domestique, comment doivent être les pupilles d'un sujet sain à la lumière ?",
-    "opts": [
-      "Dilatées en permanence (mydriase)",
-      "Égales, rondes et réactives à la lumière (myosis à la lumière)",
-      "Asymétriques et immobiles",
-      "De couleurs différentes"
-    ],
-    "c": 1,
-    "e": "Des pupilles normales sont isocores (égales) et réactives (se contractent à la lumière)."
-  },
-  {
-    "cat": "Évaluation Neurologique",
-    "q": "Lors d'une intervention après un accident de la circulation, que signifie la lettre 'a' dans le score avpu ?",
-    "opts": [
-      "Anxiété",
-      "Arrêt cardiaque",
-      "Aphasique",
-      "Alert (Alerte / Éveillé)"
-    ],
-    "c": 3,
-    "e": "A = Alert (la victime est éveillée et répond spontanément)."
-  },
-  {
-    "cat": "Évaluation Neurologique",
-    "q": "Lors d'une intervention après un accident de la circulation, que signifie la lettre 'v' dans le score avpu ?",
-    "opts": [
-      "Vascularisé",
-      "Vision",
-      "Vertige",
-      "Verbal (Répond à la stimulation verbale)"
-    ],
-    "c": 3,
-    "e": "V = Verbal (réagit aux ordres ou questions verbales)."
-  },
-  {
-    "cat": "Évaluation Neurologique",
-    "q": "Lors d'une intervention après un accident de la circulation, que signifie la lettre 'p' dans le score avpu ?",
-    "opts": [
-      "Paralysie",
-      "Pupille",
-      "Pouls",
-      "Pain (Réagit uniquement à la douleur)"
-    ],
-    "c": 3,
-    "e": "P = Pain (réagit seulement aux stimuli douloureux)."
-  },
-  {
-    "cat": "Évaluation Neurologique",
-    "q": "Lors d'une intervention après un accident de la circulation, que signifie la lettre 'u' dans le score avpu ?",
-    "opts": [
-      "Urinaire",
-      "Unresponsive (Abolition totale des réponses / Inconscient)",
-      "Urgente",
-      "Unilateral"
-    ],
-    "c": 1,
-    "e": "U = Unresponsive (aucun stimulus ne fait réagir la victime)."
-  },
-  {
-    "cat": "Évaluation Neurologique",
-    "q": "Lors d'une intervention après un accident de la circulation, comment doivent être les pupilles d'un sujet sain à la lumière ?",
-    "opts": [
-      "Dilatées en permanence (mydriase)",
-      "Égales, rondes et réactives à la lumière (myosis à la lumière)",
-      "Asymétriques et immobiles",
-      "De couleurs différentes"
-    ],
-    "c": 1,
-    "e": "Des pupilles normales sont isocores (égales) et réactives (se contractent à la lumière)."
-  },
-  {
-    "cat": "Évaluation Neurologique",
-    "q": "Lors d'une intervention en entreprise, que signifie la lettre 'a' dans le score avpu ?",
-    "opts": [
-      "Anxiété",
-      "Arrêt cardiaque",
-      "Aphasique",
-      "Alert (Alerte / Éveillé)"
-    ],
-    "c": 3,
-    "e": "A = Alert (la victime est éveillée et répond spontanément)."
-  },
-  {
-    "cat": "Évaluation Neurologique",
-    "q": "Lors d'une intervention en entreprise, que signifie la lettre 'v' dans le score avpu ?",
-    "opts": [
-      "Vascularisé",
-      "Vision",
-      "Vertige",
-      "Verbal (Répond à la stimulation verbale)"
-    ],
-    "c": 3,
-    "e": "V = Verbal (réagit aux ordres ou questions verbales)."
-  },
-  {
-    "cat": "Évaluation Neurologique",
-    "q": "Lors d'une intervention en entreprise, que signifie la lettre 'p' dans le score avpu ?",
-    "opts": [
-      "Paralysie",
-      "Pupille",
-      "Pouls",
-      "Pain (Réagit uniquement à la douleur)"
-    ],
-    "c": 3,
-    "e": "P = Pain (réagit seulement aux stimuli douloureux)."
-  },
-  {
-    "cat": "Évaluation Neurologique",
-    "q": "Lors d'une intervention en entreprise, que signifie la lettre 'u' dans le score avpu ?",
-    "opts": [
-      "Urinaire",
-      "Unresponsive (Abolition totale des réponses / Inconscient)",
-      "Urgente",
-      "Unilateral"
-    ],
-    "c": 1,
-    "e": "U = Unresponsive (aucun stimulus ne fait réagir la victime)."
-  },
-  {
-    "cat": "Évaluation Neurologique",
-    "q": "Lors d'une intervention en entreprise, comment doivent être les pupilles d'un sujet sain à la lumière ?",
-    "opts": [
-      "Dilatées en permanence (mydriase)",
-      "Égales, rondes et réactives à la lumière (myosis à la lumière)",
-      "Asymétriques et immobiles",
-      "De couleurs différentes"
-    ],
-    "c": 1,
-    "e": "Des pupilles normales sont isocores (égales) et réactives (se contractent à la lumière)."
-  },
-  {
-    "cat": "Évaluation Neurologique",
-    "q": "Lors d'une intervention dans un environnement bruyant, que signifie la lettre 'a' dans le score avpu ?",
-    "opts": [
-      "Anxiété",
-      "Arrêt cardiaque",
-      "Aphasique",
-      "Alert (Alerte / Éveillé)"
-    ],
-    "c": 3,
-    "e": "A = Alert (la victime est éveillée et répond spontanément)."
-  },
-  {
-    "cat": "Évaluation Neurologique",
-    "q": "Lors d'une intervention dans un environnement bruyant, que signifie la lettre 'v' dans le score avpu ?",
-    "opts": [
-      "Vascularisé",
-      "Vision",
-      "Vertige",
-      "Verbal (Répond à la stimulation verbale)"
-    ],
-    "c": 3,
-    "e": "V = Verbal (réagit aux ordres ou questions verbales)."
-  },
-  {
-    "cat": "Évaluation Neurologique",
-    "q": "Lors d'une intervention dans un environnement bruyant, que signifie la lettre 'p' dans le score avpu ?",
-    "opts": [
-      "Paralysie",
-      "Pupille",
-      "Pouls",
-      "Pain (Réagit uniquement à la douleur)"
-    ],
-    "c": 3,
-    "e": "P = Pain (réagit seulement aux stimuli douloureux)."
-  },
-  {
-    "cat": "Évaluation Neurologique",
-    "q": "Lors d'une intervention dans un environnement bruyant, que signifie la lettre 'u' dans le score avpu ?",
-    "opts": [
-      "Urinaire",
-      "Unresponsive (Abolition totale des réponses / Inconscient)",
-      "Urgente",
-      "Unilateral"
-    ],
-    "c": 1,
-    "e": "U = Unresponsive (aucun stimulus ne fait réagir la victime)."
-  },
-  {
-    "cat": "Évaluation Neurologique",
-    "q": "Lors d'une intervention dans un environnement bruyant, comment doivent être les pupilles d'un sujet sain à la lumière ?",
-    "opts": [
-      "Dilatées en permanence (mydriase)",
-      "Égales, rondes et réactives à la lumière (myosis à la lumière)",
-      "Asymétriques et immobiles",
-      "De couleurs différentes"
-    ],
-    "c": 1,
-    "e": "Des pupilles normales sont isocores (égales) et réactives (se contractent à la lumière)."
-  },
-  {
-    "cat": "Hémorragie & Pansements",
-    "q": "comment se nomme un saignement d'origine artérielle ?",
-    "opts": [
-      "Un saignement incolore",
-      "Un saignement rouge vif, rutilant, giclant en jet au rythme des battements cardiaques",
-      "Un saignement noir en nappe",
-      "Un saignement rosé très lent"
-    ],
-    "c": 1,
-    "e": "L'hémorragie artérielle se caractérise par son jet pulsatile rouge vif."
-  },
-  {
-    "cat": "Hémorragie & Pansements",
-    "q": "pendant combien de temps au minimum doit-on maintenir une compression directe manuelle ?",
-    "opts": [
-      "30 secondes puis lâcher",
-      "10 secondes",
-      "1 minute exacte",
-      "Jusqu'au relais par un pansement compressif ou l'arrivée des secours"
-    ],
-    "c": 3,
-    "e": "La compression doit être ininterrompue jusqu'au relais efficace."
-  },
-  {
-    "cat": "Hémorragie & Pansements",
-    "q": "quel type de pansement applique-t-on sur une plaie d'abdomen avec sortie des anses intestinales ?",
-    "opts": [
-      "Pansement sec très serré en appuyant fort",
-      "Mettre de l'alcool pur",
-      "Pansement stérile mouillé de sérum physiologique, ne pas réintégrer les viscères",
-      "Repousser les intestins à l'intérieur avant de panser"
-    ],
-    "c": 2,
-    "e": "On protège les viscères sans jamais chercher à les réintégrer."
-  },
-  {
-    "cat": "Hémorragie & Pansements",
-    "q": "que faire face à une plaie du thorax soufflante (avec bulles d'air) ?",
-    "opts": [
-      "Injecter de l'eau dans la plaie",
-      "Mettre la victime à plat ventre",
-      "Appuyer fort pour fermer le poumon",
-      "Poser un pansement stérile occlusif sur 3 côtés (pansement trois côtés)"
-    ],
-    "c": 3,
-    "e": "Le pansement 3 côtés permet l'évacuation de l'air à l'expiration sans laisser rentrer l'air."
-  },
-  {
-    "cat": "Hémorragie & Pansements",
-    "q": "Lors d'une intervention à domicile, comment se nomme un saignement d'origine artérielle ?",
-    "opts": [
-      "Un saignement incolore",
-      "Un saignement rouge vif, rutilant, giclant en jet au rythme des battements cardiaques",
-      "Un saignement noir en nappe",
-      "Un saignement rosé très lent"
-    ],
-    "c": 1,
-    "e": "L'hémorragie artérielle se caractérise par son jet pulsatile rouge vif."
-  },
-  {
-    "cat": "Hémorragie & Pansements",
-    "q": "Lors d'une intervention à domicile, pendant combien de temps au minimum doit-on maintenir une compression directe manuelle ?",
-    "opts": [
-      "30 secondes puis lâcher",
-      "10 secondes",
-      "1 minute exacte",
-      "Jusqu'au relais par un pansement compressif ou l'arrivée des secours"
-    ],
-    "c": 3,
-    "e": "La compression doit être ininterrompue jusqu'au relais efficace."
-  },
-  {
-    "cat": "Hémorragie & Pansements",
-    "q": "Lors d'une intervention à domicile, quel type de pansement applique-t-on sur une plaie d'abdomen avec sortie des anses intestinales ?",
-    "opts": [
-      "Pansement sec très serré en appuyant fort",
-      "Mettre de l'alcool pur",
-      "Pansement stérile mouillé de sérum physiologique, ne pas réintégrer les viscères",
-      "Repousser les intestins à l'intérieur avant de panser"
-    ],
-    "c": 2,
-    "e": "On protège les viscères sans jamais chercher à les réintégrer."
-  },
-  {
-    "cat": "Hémorragie & Pansements",
-    "q": "Lors d'une intervention à domicile, que faire face à une plaie du thorax soufflante (avec bulles d'air) ?",
-    "opts": [
-      "Injecter de l'eau dans la plaie",
-      "Mettre la victime à plat ventre",
-      "Appuyer fort pour fermer le poumon",
-      "Poser un pansement stérile occlusif sur 3 côtés (pansement trois côtés)"
-    ],
-    "c": 3,
-    "e": "Le pansement 3 côtés permet l'évacuation de l'air à l'expiration sans laisser rentrer l'air."
-  },
-  {
-    "cat": "Hémorragie & Pansements",
-    "q": "Lors d'une intervention sur la voie publique, comment se nomme un saignement d'origine artérielle ?",
-    "opts": [
-      "Un saignement incolore",
-      "Un saignement rouge vif, rutilant, giclant en jet au rythme des battements cardiaques",
-      "Un saignement noir en nappe",
-      "Un saignement rosé très lent"
-    ],
-    "c": 1,
-    "e": "L'hémorragie artérielle se caractérise par son jet pulsatile rouge vif."
-  },
-  {
-    "cat": "Hémorragie & Pansements",
-    "q": "Lors d'une intervention sur la voie publique, pendant combien de temps au minimum doit-on maintenir une compression directe manuelle ?",
-    "opts": [
-      "30 secondes puis lâcher",
-      "10 secondes",
-      "1 minute exacte",
-      "Jusqu'au relais par un pansement compressif ou l'arrivée des secours"
-    ],
-    "c": 3,
-    "e": "La compression doit être ininterrompue jusqu'au relais efficace."
-  },
-  {
-    "cat": "Hémorragie & Pansements",
-    "q": "Lors d'une intervention sur la voie publique, quel type de pansement applique-t-on sur une plaie d'abdomen avec sortie des anses intestinales ?",
-    "opts": [
-      "Pansement sec très serré en appuyant fort",
-      "Mettre de l'alcool pur",
-      "Pansement stérile mouillé de sérum physiologique, ne pas réintégrer les viscères",
-      "Repousser les intestins à l'intérieur avant de panser"
-    ],
-    "c": 2,
-    "e": "On protège les viscères sans jamais chercher à les réintégrer."
-  },
-  {
-    "cat": "Hémorragie & Pansements",
-    "q": "Lors d'une intervention sur la voie publique, que faire face à une plaie du thorax soufflante (avec bulles d'air) ?",
-    "opts": [
-      "Injecter de l'eau dans la plaie",
-      "Mettre la victime à plat ventre",
-      "Appuyer fort pour fermer le poumon",
-      "Poser un pansement stérile occlusif sur 3 côtés (pansement trois côtés)"
-    ],
-    "c": 3,
-    "e": "Le pansement 3 côtés permet l'évacuation de l'air à l'expiration sans laisser rentrer l'air."
-  },
-  {
-    "cat": "Hémorragie & Pansements",
-    "q": "Lors d'une intervention dans un lieu public, comment se nomme un saignement d'origine artérielle ?",
-    "opts": [
-      "Un saignement incolore",
-      "Un saignement rouge vif, rutilant, giclant en jet au rythme des battements cardiaques",
-      "Un saignement noir en nappe",
-      "Un saignement rosé très lent"
-    ],
-    "c": 1,
-    "e": "L'hémorragie artérielle se caractérise par son jet pulsatile rouge vif."
-  },
-  {
-    "cat": "Hémorragie & Pansements",
-    "q": "Lors d'une intervention dans un lieu public, pendant combien de temps au minimum doit-on maintenir une compression directe manuelle ?",
-    "opts": [
-      "30 secondes puis lâcher",
-      "10 secondes",
-      "1 minute exacte",
-      "Jusqu'au relais par un pansement compressif ou l'arrivée des secours"
-    ],
-    "c": 3,
-    "e": "La compression doit être ininterrompue jusqu'au relais efficace."
-  },
-  {
-    "cat": "Hémorragie & Pansements",
-    "q": "Lors d'une intervention dans un lieu public, quel type de pansement applique-t-on sur une plaie d'abdomen avec sortie des anses intestinales ?",
-    "opts": [
-      "Pansement sec très serré en appuyant fort",
-      "Mettre de l'alcool pur",
-      "Pansement stérile mouillé de sérum physiologique, ne pas réintégrer les viscères",
-      "Repousser les intestins à l'intérieur avant de panser"
-    ],
-    "c": 2,
-    "e": "On protège les viscères sans jamais chercher à les réintégrer."
-  },
-  {
-    "cat": "Hémorragie & Pansements",
-    "q": "Lors d'une intervention dans un lieu public, que faire face à une plaie du thorax soufflante (avec bulles d'air) ?",
-    "opts": [
-      "Injecter de l'eau dans la plaie",
-      "Mettre la victime à plat ventre",
-      "Appuyer fort pour fermer le poumon",
-      "Poser un pansement stérile occlusif sur 3 côtés (pansement trois côtés)"
-    ],
-    "c": 3,
-    "e": "Le pansement 3 côtés permet l'évacuation de l'air à l'expiration sans laisser rentrer l'air."
-  },
-  {
-    "cat": "Hémorragie & Pansements",
-    "q": "Lors d'une intervention de nuit, comment se nomme un saignement d'origine artérielle ?",
-    "opts": [
-      "Un saignement incolore",
-      "Un saignement rouge vif, rutilant, giclant en jet au rythme des battements cardiaques",
-      "Un saignement noir en nappe",
-      "Un saignement rosé très lent"
-    ],
-    "c": 1,
-    "e": "L'hémorragie artérielle se caractérise par son jet pulsatile rouge vif."
-  },
-  {
-    "cat": "Hémorragie & Pansements",
-    "q": "Lors d'une intervention de nuit, pendant combien de temps au minimum doit-on maintenir une compression directe manuelle ?",
-    "opts": [
-      "30 secondes puis lâcher",
-      "10 secondes",
-      "1 minute exacte",
-      "Jusqu'au relais par un pansement compressif ou l'arrivée des secours"
-    ],
-    "c": 3,
-    "e": "La compression doit être ininterrompue jusqu'au relais efficace."
-  },
-  {
-    "cat": "Hémorragie & Pansements",
-    "q": "Lors d'une intervention de nuit, quel type de pansement applique-t-on sur une plaie d'abdomen avec sortie des anses intestinales ?",
-    "opts": [
-      "Pansement sec très serré en appuyant fort",
-      "Mettre de l'alcool pur",
-      "Pansement stérile mouillé de sérum physiologique, ne pas réintégrer les viscères",
-      "Repousser les intestins à l'intérieur avant de panser"
-    ],
-    "c": 2,
-    "e": "On protège les viscères sans jamais chercher à les réintégrer."
-  },
-  {
-    "cat": "Hémorragie & Pansements",
-    "q": "Lors d'une intervention de nuit, que faire face à une plaie du thorax soufflante (avec bulles d'air) ?",
-    "opts": [
-      "Injecter de l'eau dans la plaie",
-      "Mettre la victime à plat ventre",
-      "Appuyer fort pour fermer le poumon",
-      "Poser un pansement stérile occlusif sur 3 côtés (pansement trois côtés)"
-    ],
-    "c": 3,
-    "e": "Le pansement 3 côtés permet l'évacuation de l'air à l'expiration sans laisser rentrer l'air."
-  },
-  {
-    "cat": "Hémorragie & Pansements",
-    "q": "Lors d'une intervention avec plusieurs témoins, comment se nomme un saignement d'origine artérielle ?",
-    "opts": [
-      "Un saignement incolore",
-      "Un saignement rouge vif, rutilant, giclant en jet au rythme des battements cardiaques",
-      "Un saignement noir en nappe",
-      "Un saignement rosé très lent"
-    ],
-    "c": 1,
-    "e": "L'hémorragie artérielle se caractérise par son jet pulsatile rouge vif."
-  },
-  {
-    "cat": "Hémorragie & Pansements",
-    "q": "Lors d'une intervention avec plusieurs témoins, pendant combien de temps au minimum doit-on maintenir une compression directe manuelle ?",
-    "opts": [
-      "30 secondes puis lâcher",
-      "10 secondes",
-      "1 minute exacte",
-      "Jusqu'au relais par un pansement compressif ou l'arrivée des secours"
-    ],
-    "c": 3,
-    "e": "La compression doit être ininterrompue jusqu'au relais efficace."
-  },
-  {
-    "cat": "Hémorragie & Pansements",
-    "q": "Lors d'une intervention avec plusieurs témoins, quel type de pansement applique-t-on sur une plaie d'abdomen avec sortie des anses intestinales ?",
-    "opts": [
-      "Pansement sec très serré en appuyant fort",
-      "Mettre de l'alcool pur",
-      "Pansement stérile mouillé de sérum physiologique, ne pas réintégrer les viscères",
-      "Repousser les intestins à l'intérieur avant de panser"
-    ],
-    "c": 2,
-    "e": "On protège les viscères sans jamais chercher à les réintégrer."
-  },
-  {
-    "cat": "Hémorragie & Pansements",
-    "q": "Lors d'une intervention avec plusieurs témoins, que faire face à une plaie du thorax soufflante (avec bulles d'air) ?",
-    "opts": [
-      "Injecter de l'eau dans la plaie",
-      "Mettre la victime à plat ventre",
-      "Appuyer fort pour fermer le poumon",
-      "Poser un pansement stérile occlusif sur 3 côtés (pansement trois côtés)"
-    ],
-    "c": 3,
-    "e": "Le pansement 3 côtés permet l'évacuation de l'air à l'expiration sans laisser rentrer l'air."
-  },
-  {
-    "cat": "Hémorragie & Pansements",
-    "q": "Lors d'une intervention en équipe, comment se nomme un saignement d'origine artérielle ?",
-    "opts": [
-      "Un saignement incolore",
-      "Un saignement rouge vif, rutilant, giclant en jet au rythme des battements cardiaques",
-      "Un saignement noir en nappe",
-      "Un saignement rosé très lent"
-    ],
-    "c": 1,
-    "e": "L'hémorragie artérielle se caractérise par son jet pulsatile rouge vif."
-  },
-  {
-    "cat": "Hémorragie & Pansements",
-    "q": "Lors d'une intervention en équipe, pendant combien de temps au minimum doit-on maintenir une compression directe manuelle ?",
-    "opts": [
-      "30 secondes puis lâcher",
-      "10 secondes",
-      "1 minute exacte",
-      "Jusqu'au relais par un pansement compressif ou l'arrivée des secours"
-    ],
-    "c": 3,
-    "e": "La compression doit être ininterrompue jusqu'au relais efficace."
-  },
-  {
-    "cat": "Hémorragie & Pansements",
-    "q": "Lors d'une intervention en équipe, quel type de pansement applique-t-on sur une plaie d'abdomen avec sortie des anses intestinales ?",
-    "opts": [
-      "Pansement sec très serré en appuyant fort",
-      "Mettre de l'alcool pur",
-      "Pansement stérile mouillé de sérum physiologique, ne pas réintégrer les viscères",
-      "Repousser les intestins à l'intérieur avant de panser"
-    ],
-    "c": 2,
-    "e": "On protège les viscères sans jamais chercher à les réintégrer."
-  },
-  {
-    "cat": "Hémorragie & Pansements",
-    "q": "Lors d'une intervention en équipe, que faire face à une plaie du thorax soufflante (avec bulles d'air) ?",
-    "opts": [
-      "Injecter de l'eau dans la plaie",
-      "Mettre la victime à plat ventre",
-      "Appuyer fort pour fermer le poumon",
-      "Poser un pansement stérile occlusif sur 3 côtés (pansement trois côtés)"
-    ],
-    "c": 3,
-    "e": "Le pansement 3 côtés permet l'évacuation de l'air à l'expiration sans laisser rentrer l'air."
-  },
-  {
-    "cat": "Hémorragie & Pansements",
-    "q": "Lors d'une intervention en milieu sportif, comment se nomme un saignement d'origine artérielle ?",
-    "opts": [
-      "Un saignement incolore",
-      "Un saignement rouge vif, rutilant, giclant en jet au rythme des battements cardiaques",
-      "Un saignement noir en nappe",
-      "Un saignement rosé très lent"
-    ],
-    "c": 1,
-    "e": "L'hémorragie artérielle se caractérise par son jet pulsatile rouge vif."
-  },
-  {
-    "cat": "Hémorragie & Pansements",
-    "q": "Lors d'une intervention en milieu sportif, pendant combien de temps au minimum doit-on maintenir une compression directe manuelle ?",
-    "opts": [
-      "30 secondes puis lâcher",
-      "10 secondes",
-      "1 minute exacte",
-      "Jusqu'au relais par un pansement compressif ou l'arrivée des secours"
-    ],
-    "c": 3,
-    "e": "La compression doit être ininterrompue jusqu'au relais efficace."
-  },
-  {
-    "cat": "Hémorragie & Pansements",
-    "q": "Lors d'une intervention en milieu sportif, quel type de pansement applique-t-on sur une plaie d'abdomen avec sortie des anses intestinales ?",
-    "opts": [
-      "Pansement sec très serré en appuyant fort",
-      "Mettre de l'alcool pur",
-      "Pansement stérile mouillé de sérum physiologique, ne pas réintégrer les viscères",
-      "Repousser les intestins à l'intérieur avant de panser"
-    ],
-    "c": 2,
-    "e": "On protège les viscères sans jamais chercher à les réintégrer."
-  },
-  {
-    "cat": "Hémorragie & Pansements",
-    "q": "Lors d'une intervention en milieu sportif, que faire face à une plaie du thorax soufflante (avec bulles d'air) ?",
-    "opts": [
-      "Injecter de l'eau dans la plaie",
-      "Mettre la victime à plat ventre",
-      "Appuyer fort pour fermer le poumon",
-      "Poser un pansement stérile occlusif sur 3 côtés (pansement trois côtés)"
-    ],
-    "c": 3,
-    "e": "Le pansement 3 côtés permet l'évacuation de l'air à l'expiration sans laisser rentrer l'air."
-  },
-  {
-    "cat": "Hémorragie & Pansements",
-    "q": "Lors d'une intervention après un accident domestique, comment se nomme un saignement d'origine artérielle ?",
-    "opts": [
-      "Un saignement incolore",
-      "Un saignement rouge vif, rutilant, giclant en jet au rythme des battements cardiaques",
-      "Un saignement noir en nappe",
-      "Un saignement rosé très lent"
-    ],
-    "c": 1,
-    "e": "L'hémorragie artérielle se caractérise par son jet pulsatile rouge vif."
-  },
-  {
-    "cat": "Hémorragie & Pansements",
-    "q": "Lors d'une intervention après un accident domestique, pendant combien de temps au minimum doit-on maintenir une compression directe manuelle ?",
-    "opts": [
-      "30 secondes puis lâcher",
-      "10 secondes",
-      "1 minute exacte",
-      "Jusqu'au relais par un pansement compressif ou l'arrivée des secours"
-    ],
-    "c": 3,
-    "e": "La compression doit être ininterrompue jusqu'au relais efficace."
-  },
-  {
-    "cat": "Hémorragie & Pansements",
-    "q": "Lors d'une intervention après un accident domestique, quel type de pansement applique-t-on sur une plaie d'abdomen avec sortie des anses intestinales ?",
-    "opts": [
-      "Pansement sec très serré en appuyant fort",
-      "Mettre de l'alcool pur",
-      "Pansement stérile mouillé de sérum physiologique, ne pas réintégrer les viscères",
-      "Repousser les intestins à l'intérieur avant de panser"
-    ],
-    "c": 2,
-    "e": "On protège les viscères sans jamais chercher à les réintégrer."
-  },
-  {
-    "cat": "Hémorragie & Pansements",
-    "q": "Lors d'une intervention après un accident domestique, que faire face à une plaie du thorax soufflante (avec bulles d'air) ?",
-    "opts": [
-      "Injecter de l'eau dans la plaie",
-      "Mettre la victime à plat ventre",
-      "Appuyer fort pour fermer le poumon",
-      "Poser un pansement stérile occlusif sur 3 côtés (pansement trois côtés)"
-    ],
-    "c": 3,
-    "e": "Le pansement 3 côtés permet l'évacuation de l'air à l'expiration sans laisser rentrer l'air."
-  },
-  {
-    "cat": "Hémorragie & Pansements",
-    "q": "Lors d'une intervention après un accident de la circulation, comment se nomme un saignement d'origine artérielle ?",
-    "opts": [
-      "Un saignement incolore",
-      "Un saignement rouge vif, rutilant, giclant en jet au rythme des battements cardiaques",
-      "Un saignement noir en nappe",
-      "Un saignement rosé très lent"
-    ],
-    "c": 1,
-    "e": "L'hémorragie artérielle se caractérise par son jet pulsatile rouge vif."
-  },
-  {
-    "cat": "Hémorragie & Pansements",
-    "q": "Lors d'une intervention après un accident de la circulation, pendant combien de temps au minimum doit-on maintenir une compression directe manuelle ?",
-    "opts": [
-      "30 secondes puis lâcher",
-      "10 secondes",
-      "1 minute exacte",
-      "Jusqu'au relais par un pansement compressif ou l'arrivée des secours"
-    ],
-    "c": 3,
-    "e": "La compression doit être ininterrompue jusqu'au relais efficace."
-  },
-  {
-    "cat": "Hémorragie & Pansements",
-    "q": "Lors d'une intervention après un accident de la circulation, quel type de pansement applique-t-on sur une plaie d'abdomen avec sortie des anses intestinales ?",
-    "opts": [
-      "Pansement sec très serré en appuyant fort",
-      "Mettre de l'alcool pur",
-      "Pansement stérile mouillé de sérum physiologique, ne pas réintégrer les viscères",
-      "Repousser les intestins à l'intérieur avant de panser"
-    ],
-    "c": 2,
-    "e": "On protège les viscères sans jamais chercher à les réintégrer."
-  },
-  {
-    "cat": "Hémorragie & Pansements",
-    "q": "Lors d'une intervention après un accident de la circulation, que faire face à une plaie du thorax soufflante (avec bulles d'air) ?",
-    "opts": [
-      "Injecter de l'eau dans la plaie",
-      "Mettre la victime à plat ventre",
-      "Appuyer fort pour fermer le poumon",
-      "Poser un pansement stérile occlusif sur 3 côtés (pansement trois côtés)"
-    ],
-    "c": 3,
-    "e": "Le pansement 3 côtés permet l'évacuation de l'air à l'expiration sans laisser rentrer l'air."
-  },
-  {
-    "cat": "Hémorragie & Pansements",
-    "q": "Lors d'une intervention en entreprise, comment se nomme un saignement d'origine artérielle ?",
-    "opts": [
-      "Un saignement incolore",
-      "Un saignement rouge vif, rutilant, giclant en jet au rythme des battements cardiaques",
-      "Un saignement noir en nappe",
-      "Un saignement rosé très lent"
-    ],
-    "c": 1,
-    "e": "L'hémorragie artérielle se caractérise par son jet pulsatile rouge vif."
-  },
-  {
-    "cat": "Hémorragie & Pansements",
-    "q": "Lors d'une intervention en entreprise, pendant combien de temps au minimum doit-on maintenir une compression directe manuelle ?",
-    "opts": [
-      "30 secondes puis lâcher",
-      "10 secondes",
-      "1 minute exacte",
-      "Jusqu'au relais par un pansement compressif ou l'arrivée des secours"
-    ],
-    "c": 3,
-    "e": "La compression doit être ininterrompue jusqu'au relais efficace."
-  },
-  {
-    "cat": "Hémorragie & Pansements",
-    "q": "Lors d'une intervention en entreprise, quel type de pansement applique-t-on sur une plaie d'abdomen avec sortie des anses intestinales ?",
-    "opts": [
-      "Pansement sec très serré en appuyant fort",
-      "Mettre de l'alcool pur",
-      "Pansement stérile mouillé de sérum physiologique, ne pas réintégrer les viscères",
-      "Repousser les intestins à l'intérieur avant de panser"
-    ],
-    "c": 2,
-    "e": "On protège les viscères sans jamais chercher à les réintégrer."
-  },
-  {
-    "cat": "Hémorragie & Pansements",
-    "q": "Lors d'une intervention en entreprise, que faire face à une plaie du thorax soufflante (avec bulles d'air) ?",
-    "opts": [
-      "Injecter de l'eau dans la plaie",
-      "Mettre la victime à plat ventre",
-      "Appuyer fort pour fermer le poumon",
-      "Poser un pansement stérile occlusif sur 3 côtés (pansement trois côtés)"
-    ],
-    "c": 3,
-    "e": "Le pansement 3 côtés permet l'évacuation de l'air à l'expiration sans laisser rentrer l'air."
-  },
-  {
-    "cat": "Hémorragie & Pansements",
-    "q": "Lors d'une intervention dans un environnement bruyant, comment se nomme un saignement d'origine artérielle ?",
-    "opts": [
-      "Un saignement incolore",
-      "Un saignement rouge vif, rutilant, giclant en jet au rythme des battements cardiaques",
-      "Un saignement noir en nappe",
-      "Un saignement rosé très lent"
-    ],
-    "c": 1,
-    "e": "L'hémorragie artérielle se caractérise par son jet pulsatile rouge vif."
-  },
-  {
-    "cat": "Hémorragie & Pansements",
-    "q": "Lors d'une intervention dans un environnement bruyant, pendant combien de temps au minimum doit-on maintenir une compression directe manuelle ?",
-    "opts": [
-      "30 secondes puis lâcher",
-      "10 secondes",
-      "1 minute exacte",
-      "Jusqu'au relais par un pansement compressif ou l'arrivée des secours"
-    ],
-    "c": 3,
-    "e": "La compression doit être ininterrompue jusqu'au relais efficace."
-  },
-  {
-    "cat": "Hémorragie & Pansements",
-    "q": "Lors d'une intervention dans un environnement bruyant, quel type de pansement applique-t-on sur une plaie d'abdomen avec sortie des anses intestinales ?",
-    "opts": [
-      "Pansement sec très serré en appuyant fort",
-      "Mettre de l'alcool pur",
-      "Pansement stérile mouillé de sérum physiologique, ne pas réintégrer les viscères",
-      "Repousser les intestins à l'intérieur avant de panser"
-    ],
-    "c": 2,
-    "e": "On protège les viscères sans jamais chercher à les réintégrer."
-  },
-  {
-    "cat": "Hémorragie & Pansements",
-    "q": "Lors d'une intervention dans un environnement bruyant, que faire face à une plaie du thorax soufflante (avec bulles d'air) ?",
-    "opts": [
-      "Injecter de l'eau dans la plaie",
-      "Mettre la victime à plat ventre",
-      "Appuyer fort pour fermer le poumon",
-      "Poser un pansement stérile occlusif sur 3 côtés (pansement trois côtés)"
-    ],
-    "c": 3,
-    "e": "Le pansement 3 côtés permet l'évacuation de l'air à l'expiration sans laisser rentrer l'air."
-  },
-  {
-    "cat": "Position Latérale de Secours",
-    "q": "quelle est l'indication principale de la mise en position latérale de secours (pls) ?",
-    "opts": [
-      "Victime consciente avec fracture du bras",
-      "Victime en arrêt cardiaque",
-      "Victime en malaise hypoglycémique conscient",
-      "Victime inconsciente qui respire normalement"
-    ],
-    "c": 3,
-    "e": "Toute victime inconsciente qui respire doit être placée en PLS."
-  },
-  {
-    "cat": "Position Latérale de Secours",
-    "q": "pourquoi met-on une victime en pls ?",
-    "opts": [
-      "Pour faire baisser la tension artérielle",
-      "Pour accélérer le pouls",
-      "Pour l'empêcher de s'enfuir",
-      "Pour maintenir la liberté des voies aériennes et éviter l'inhalation de vomissures"
-    ],
-    "c": 3,
-    "e": "La PLS permet l'écoulement des liquides vers l'extérieur et empêche la langue de chuter en arrière."
-  },
-  {
-    "cat": "Position Latérale de Secours",
-    "q": "sur quel côté doit-on préférentiellement installer une femme enceinte en pls ?",
-    "opts": [
-      "Sur le côté gauche (décubitus latéral gauche)",
-      "Sur le ventre",
-      "Sur le côté droit",
-      "En position assise"
-    ],
-    "c": 0,
-    "e": "Le côté gauche évite la compression de la veine cave inférieure par le fœtus."
-  },
-  {
-    "cat": "Position Latérale de Secours",
-    "q": "si une victime inconsciente respire et présente un traumatisme suspecté du rachis, que fait-on ?",
-    "opts": [
-      "Ne jamais la tourner même si elle vomit",
-      "La maintenir dans l'axe tête-cou-tronc à plusieurs secouristes pour la tourner en PLS si nécessaire",
-      "La mettre debout",
-      "La plier en deux"
-    ],
-    "c": 1,
-    "e": "La PLS reste prioritaire en cas de vomissements/inconscience, réalisée en respectant l'axe tête-cou-tronc."
-  },
-  {
-    "cat": "Position Latérale de Secours",
-    "q": "Lors d'une intervention à domicile, quelle est l'indication principale de la mise en position latérale de secours (pls) ?",
-    "opts": [
-      "Victime consciente avec fracture du bras",
-      "Victime en arrêt cardiaque",
-      "Victime en malaise hypoglycémique conscient",
-      "Victime inconsciente qui respire normalement"
-    ],
-    "c": 3,
-    "e": "Toute victime inconsciente qui respire doit être placée en PLS."
-  },
-  {
-    "cat": "Position Latérale de Secours",
-    "q": "Lors d'une intervention à domicile, pourquoi met-on une victime en pls ?",
-    "opts": [
-      "Pour faire baisser la tension artérielle",
-      "Pour accélérer le pouls",
-      "Pour l'empêcher de s'enfuir",
-      "Pour maintenir la liberté des voies aériennes et éviter l'inhalation de vomissures"
-    ],
-    "c": 3,
-    "e": "La PLS permet l'écoulement des liquides vers l'extérieur et empêche la langue de chuter en arrière."
-  },
-  {
-    "cat": "Position Latérale de Secours",
-    "q": "Lors d'une intervention à domicile, sur quel côté doit-on préférentiellement installer une femme enceinte en pls ?",
-    "opts": [
-      "Sur le côté gauche (décubitus latéral gauche)",
-      "Sur le ventre",
-      "Sur le côté droit",
-      "En position assise"
-    ],
-    "c": 0,
-    "e": "Le côté gauche évite la compression de la veine cave inférieure par le fœtus."
-  },
-  {
-    "cat": "Position Latérale de Secours",
-    "q": "Lors d'une intervention à domicile, si une victime inconsciente respire et présente un traumatisme suspecté du rachis, que fait-on ?",
-    "opts": [
-      "Ne jamais la tourner même si elle vomit",
-      "La maintenir dans l'axe tête-cou-tronc à plusieurs secouristes pour la tourner en PLS si nécessaire",
-      "La mettre debout",
-      "La plier en deux"
-    ],
-    "c": 1,
-    "e": "La PLS reste prioritaire en cas de vomissements/inconscience, réalisée en respectant l'axe tête-cou-tronc."
-  },
-  {
-    "cat": "Position Latérale de Secours",
-    "q": "Lors d'une intervention sur la voie publique, quelle est l'indication principale de la mise en position latérale de secours (pls) ?",
-    "opts": [
-      "Victime consciente avec fracture du bras",
-      "Victime en arrêt cardiaque",
-      "Victime en malaise hypoglycémique conscient",
-      "Victime inconsciente qui respire normalement"
-    ],
-    "c": 3,
-    "e": "Toute victime inconsciente qui respire doit être placée en PLS."
-  },
-  {
-    "cat": "Position Latérale de Secours",
-    "q": "Lors d'une intervention sur la voie publique, pourquoi met-on une victime en pls ?",
-    "opts": [
-      "Pour faire baisser la tension artérielle",
-      "Pour accélérer le pouls",
-      "Pour l'empêcher de s'enfuir",
-      "Pour maintenir la liberté des voies aériennes et éviter l'inhalation de vomissures"
-    ],
-    "c": 3,
-    "e": "La PLS permet l'écoulement des liquides vers l'extérieur et empêche la langue de chuter en arrière."
-  },
-  {
-    "cat": "Position Latérale de Secours",
-    "q": "Lors d'une intervention sur la voie publique, sur quel côté doit-on préférentiellement installer une femme enceinte en pls ?",
-    "opts": [
-      "Sur le côté gauche (décubitus latéral gauche)",
-      "Sur le ventre",
-      "Sur le côté droit",
-      "En position assise"
-    ],
-    "c": 0,
-    "e": "Le côté gauche évite la compression de la veine cave inférieure par le fœtus."
-  },
-  {
-    "cat": "Position Latérale de Secours",
-    "q": "Lors d'une intervention sur la voie publique, si une victime inconsciente respire et présente un traumatisme suspecté du rachis, que fait-on ?",
-    "opts": [
-      "Ne jamais la tourner même si elle vomit",
-      "La maintenir dans l'axe tête-cou-tronc à plusieurs secouristes pour la tourner en PLS si nécessaire",
-      "La mettre debout",
-      "La plier en deux"
-    ],
-    "c": 1,
-    "e": "La PLS reste prioritaire en cas de vomissements/inconscience, réalisée en respectant l'axe tête-cou-tronc."
-  },
-  {
-    "cat": "Position Latérale de Secours",
-    "q": "Lors d'une intervention dans un lieu public, quelle est l'indication principale de la mise en position latérale de secours (pls) ?",
-    "opts": [
-      "Victime consciente avec fracture du bras",
-      "Victime en arrêt cardiaque",
-      "Victime en malaise hypoglycémique conscient",
-      "Victime inconsciente qui respire normalement"
-    ],
-    "c": 3,
-    "e": "Toute victime inconsciente qui respire doit être placée en PLS."
-  },
-  {
-    "cat": "Position Latérale de Secours",
-    "q": "Lors d'une intervention dans un lieu public, pourquoi met-on une victime en pls ?",
-    "opts": [
-      "Pour faire baisser la tension artérielle",
-      "Pour accélérer le pouls",
-      "Pour l'empêcher de s'enfuir",
-      "Pour maintenir la liberté des voies aériennes et éviter l'inhalation de vomissures"
-    ],
-    "c": 3,
-    "e": "La PLS permet l'écoulement des liquides vers l'extérieur et empêche la langue de chuter en arrière."
-  },
-  {
-    "cat": "Position Latérale de Secours",
-    "q": "Lors d'une intervention dans un lieu public, sur quel côté doit-on préférentiellement installer une femme enceinte en pls ?",
-    "opts": [
-      "Sur le côté gauche (décubitus latéral gauche)",
-      "Sur le ventre",
-      "Sur le côté droit",
-      "En position assise"
-    ],
-    "c": 0,
-    "e": "Le côté gauche évite la compression de la veine cave inférieure par le fœtus."
-  },
-  {
-    "cat": "Position Latérale de Secours",
-    "q": "Lors d'une intervention dans un lieu public, si une victime inconsciente respire et présente un traumatisme suspecté du rachis, que fait-on ?",
-    "opts": [
-      "Ne jamais la tourner même si elle vomit",
-      "La maintenir dans l'axe tête-cou-tronc à plusieurs secouristes pour la tourner en PLS si nécessaire",
-      "La mettre debout",
-      "La plier en deux"
-    ],
-    "c": 1,
-    "e": "La PLS reste prioritaire en cas de vomissements/inconscience, réalisée en respectant l'axe tête-cou-tronc."
-  },
-  {
-    "cat": "Position Latérale de Secours",
-    "q": "Lors d'une intervention de nuit, quelle est l'indication principale de la mise en position latérale de secours (pls) ?",
-    "opts": [
-      "Victime consciente avec fracture du bras",
-      "Victime en arrêt cardiaque",
-      "Victime en malaise hypoglycémique conscient",
-      "Victime inconsciente qui respire normalement"
-    ],
-    "c": 3,
-    "e": "Toute victime inconsciente qui respire doit être placée en PLS."
-  },
-  {
-    "cat": "Position Latérale de Secours",
-    "q": "Lors d'une intervention de nuit, pourquoi met-on une victime en pls ?",
-    "opts": [
-      "Pour faire baisser la tension artérielle",
-      "Pour accélérer le pouls",
-      "Pour l'empêcher de s'enfuir",
-      "Pour maintenir la liberté des voies aériennes et éviter l'inhalation de vomissures"
-    ],
-    "c": 3,
-    "e": "La PLS permet l'écoulement des liquides vers l'extérieur et empêche la langue de chuter en arrière."
-  },
-  {
-    "cat": "Position Latérale de Secours",
-    "q": "Lors d'une intervention de nuit, sur quel côté doit-on préférentiellement installer une femme enceinte en pls ?",
-    "opts": [
-      "Sur le côté gauche (décubitus latéral gauche)",
-      "Sur le ventre",
-      "Sur le côté droit",
-      "En position assise"
-    ],
-    "c": 0,
-    "e": "Le côté gauche évite la compression de la veine cave inférieure par le fœtus."
-  },
-  {
-    "cat": "Position Latérale de Secours",
-    "q": "Lors d'une intervention de nuit, si une victime inconsciente respire et présente un traumatisme suspecté du rachis, que fait-on ?",
-    "opts": [
-      "Ne jamais la tourner même si elle vomit",
-      "La maintenir dans l'axe tête-cou-tronc à plusieurs secouristes pour la tourner en PLS si nécessaire",
-      "La mettre debout",
-      "La plier en deux"
-    ],
-    "c": 1,
-    "e": "La PLS reste prioritaire en cas de vomissements/inconscience, réalisée en respectant l'axe tête-cou-tronc."
-  },
-  {
-    "cat": "Position Latérale de Secours",
-    "q": "Lors d'une intervention avec plusieurs témoins, quelle est l'indication principale de la mise en position latérale de secours (pls) ?",
-    "opts": [
-      "Victime consciente avec fracture du bras",
-      "Victime en arrêt cardiaque",
-      "Victime en malaise hypoglycémique conscient",
-      "Victime inconsciente qui respire normalement"
-    ],
-    "c": 3,
-    "e": "Toute victime inconsciente qui respire doit être placée en PLS."
-  },
-  {
-    "cat": "Position Latérale de Secours",
-    "q": "Lors d'une intervention avec plusieurs témoins, pourquoi met-on une victime en pls ?",
-    "opts": [
-      "Pour faire baisser la tension artérielle",
-      "Pour accélérer le pouls",
-      "Pour l'empêcher de s'enfuir",
-      "Pour maintenir la liberté des voies aériennes et éviter l'inhalation de vomissures"
-    ],
-    "c": 3,
-    "e": "La PLS permet l'écoulement des liquides vers l'extérieur et empêche la langue de chuter en arrière."
-  },
-  {
-    "cat": "Position Latérale de Secours",
-    "q": "Lors d'une intervention avec plusieurs témoins, sur quel côté doit-on préférentiellement installer une femme enceinte en pls ?",
-    "opts": [
-      "Sur le côté gauche (décubitus latéral gauche)",
-      "Sur le ventre",
-      "Sur le côté droit",
-      "En position assise"
-    ],
-    "c": 0,
-    "e": "Le côté gauche évite la compression de la veine cave inférieure par le fœtus."
-  },
-  {
-    "cat": "Position Latérale de Secours",
-    "q": "Lors d'une intervention avec plusieurs témoins, si une victime inconsciente respire et présente un traumatisme suspecté du rachis, que fait-on ?",
-    "opts": [
-      "Ne jamais la tourner même si elle vomit",
-      "La maintenir dans l'axe tête-cou-tronc à plusieurs secouristes pour la tourner en PLS si nécessaire",
-      "La mettre debout",
-      "La plier en deux"
-    ],
-    "c": 1,
-    "e": "La PLS reste prioritaire en cas de vomissements/inconscience, réalisée en respectant l'axe tête-cou-tronc."
-  },
-  {
-    "cat": "Position Latérale de Secours",
-    "q": "Lors d'une intervention en équipe, quelle est l'indication principale de la mise en position latérale de secours (pls) ?",
-    "opts": [
-      "Victime consciente avec fracture du bras",
-      "Victime en arrêt cardiaque",
-      "Victime en malaise hypoglycémique conscient",
-      "Victime inconsciente qui respire normalement"
-    ],
-    "c": 3,
-    "e": "Toute victime inconsciente qui respire doit être placée en PLS."
-  },
-  {
-    "cat": "Position Latérale de Secours",
-    "q": "Lors d'une intervention en équipe, pourquoi met-on une victime en pls ?",
-    "opts": [
-      "Pour faire baisser la tension artérielle",
-      "Pour accélérer le pouls",
-      "Pour l'empêcher de s'enfuir",
-      "Pour maintenir la liberté des voies aériennes et éviter l'inhalation de vomissures"
-    ],
-    "c": 3,
-    "e": "La PLS permet l'écoulement des liquides vers l'extérieur et empêche la langue de chuter en arrière."
-  },
-  {
-    "cat": "Position Latérale de Secours",
-    "q": "Lors d'une intervention en équipe, sur quel côté doit-on préférentiellement installer une femme enceinte en pls ?",
-    "opts": [
-      "Sur le côté gauche (décubitus latéral gauche)",
-      "Sur le ventre",
-      "Sur le côté droit",
-      "En position assise"
-    ],
-    "c": 0,
-    "e": "Le côté gauche évite la compression de la veine cave inférieure par le fœtus."
-  },
-  {
-    "cat": "Position Latérale de Secours",
-    "q": "Lors d'une intervention en équipe, si une victime inconsciente respire et présente un traumatisme suspecté du rachis, que fait-on ?",
-    "opts": [
-      "Ne jamais la tourner même si elle vomit",
-      "La maintenir dans l'axe tête-cou-tronc à plusieurs secouristes pour la tourner en PLS si nécessaire",
-      "La mettre debout",
-      "La plier en deux"
-    ],
-    "c": 1,
-    "e": "La PLS reste prioritaire en cas de vomissements/inconscience, réalisée en respectant l'axe tête-cou-tronc."
-  },
-  {
-    "cat": "Position Latérale de Secours",
-    "q": "Lors d'une intervention en milieu sportif, quelle est l'indication principale de la mise en position latérale de secours (pls) ?",
-    "opts": [
-      "Victime consciente avec fracture du bras",
-      "Victime en arrêt cardiaque",
-      "Victime en malaise hypoglycémique conscient",
-      "Victime inconsciente qui respire normalement"
-    ],
-    "c": 3,
-    "e": "Toute victime inconsciente qui respire doit être placée en PLS."
-  },
-  {
-    "cat": "Position Latérale de Secours",
-    "q": "Lors d'une intervention en milieu sportif, pourquoi met-on une victime en pls ?",
-    "opts": [
-      "Pour faire baisser la tension artérielle",
-      "Pour accélérer le pouls",
-      "Pour l'empêcher de s'enfuir",
-      "Pour maintenir la liberté des voies aériennes et éviter l'inhalation de vomissures"
-    ],
-    "c": 3,
-    "e": "La PLS permet l'écoulement des liquides vers l'extérieur et empêche la langue de chuter en arrière."
-  },
-  {
-    "cat": "Position Latérale de Secours",
-    "q": "Lors d'une intervention en milieu sportif, sur quel côté doit-on préférentiellement installer une femme enceinte en pls ?",
-    "opts": [
-      "Sur le côté gauche (décubitus latéral gauche)",
-      "Sur le ventre",
-      "Sur le côté droit",
-      "En position assise"
-    ],
-    "c": 0,
-    "e": "Le côté gauche évite la compression de la veine cave inférieure par le fœtus."
-  },
-  {
-    "cat": "Position Latérale de Secours",
-    "q": "Lors d'une intervention en milieu sportif, si une victime inconsciente respire et présente un traumatisme suspecté du rachis, que fait-on ?",
-    "opts": [
-      "Ne jamais la tourner même si elle vomit",
-      "La maintenir dans l'axe tête-cou-tronc à plusieurs secouristes pour la tourner en PLS si nécessaire",
-      "La mettre debout",
-      "La plier en deux"
-    ],
-    "c": 1,
-    "e": "La PLS reste prioritaire en cas de vomissements/inconscience, réalisée en respectant l'axe tête-cou-tronc."
-  },
-  {
-    "cat": "Position Latérale de Secours",
-    "q": "Lors d'une intervention après un accident domestique, quelle est l'indication principale de la mise en position latérale de secours (pls) ?",
-    "opts": [
-      "Victime consciente avec fracture du bras",
-      "Victime en arrêt cardiaque",
-      "Victime en malaise hypoglycémique conscient",
-      "Victime inconsciente qui respire normalement"
-    ],
-    "c": 3,
-    "e": "Toute victime inconsciente qui respire doit être placée en PLS."
-  },
-  {
-    "cat": "Position Latérale de Secours",
-    "q": "Lors d'une intervention après un accident domestique, pourquoi met-on une victime en pls ?",
-    "opts": [
-      "Pour faire baisser la tension artérielle",
-      "Pour accélérer le pouls",
-      "Pour l'empêcher de s'enfuir",
-      "Pour maintenir la liberté des voies aériennes et éviter l'inhalation de vomissures"
-    ],
-    "c": 3,
-    "e": "La PLS permet l'écoulement des liquides vers l'extérieur et empêche la langue de chuter en arrière."
-  },
-  {
-    "cat": "Position Latérale de Secours",
-    "q": "Lors d'une intervention après un accident domestique, sur quel côté doit-on préférentiellement installer une femme enceinte en pls ?",
-    "opts": [
-      "Sur le côté gauche (décubitus latéral gauche)",
-      "Sur le ventre",
-      "Sur le côté droit",
-      "En position assise"
-    ],
-    "c": 0,
-    "e": "Le côté gauche évite la compression de la veine cave inférieure par le fœtus."
-  },
-  {
-    "cat": "Position Latérale de Secours",
-    "q": "Lors d'une intervention après un accident domestique, si une victime inconsciente respire et présente un traumatisme suspecté du rachis, que fait-on ?",
-    "opts": [
-      "Ne jamais la tourner même si elle vomit",
-      "La maintenir dans l'axe tête-cou-tronc à plusieurs secouristes pour la tourner en PLS si nécessaire",
-      "La mettre debout",
-      "La plier en deux"
-    ],
-    "c": 1,
-    "e": "La PLS reste prioritaire en cas de vomissements/inconscience, réalisée en respectant l'axe tête-cou-tronc."
-  },
-  {
-    "cat": "Position Latérale de Secours",
-    "q": "Lors d'une intervention après un accident de la circulation, quelle est l'indication principale de la mise en position latérale de secours (pls) ?",
-    "opts": [
-      "Victime consciente avec fracture du bras",
-      "Victime en arrêt cardiaque",
-      "Victime en malaise hypoglycémique conscient",
-      "Victime inconsciente qui respire normalement"
-    ],
-    "c": 3,
-    "e": "Toute victime inconsciente qui respire doit être placée en PLS."
-  },
-  {
-    "cat": "Position Latérale de Secours",
-    "q": "Lors d'une intervention après un accident de la circulation, pourquoi met-on une victime en pls ?",
-    "opts": [
-      "Pour faire baisser la tension artérielle",
-      "Pour accélérer le pouls",
-      "Pour l'empêcher de s'enfuir",
-      "Pour maintenir la liberté des voies aériennes et éviter l'inhalation de vomissures"
-    ],
-    "c": 3,
-    "e": "La PLS permet l'écoulement des liquides vers l'extérieur et empêche la langue de chuter en arrière."
-  },
-  {
-    "cat": "Position Latérale de Secours",
-    "q": "Lors d'une intervention après un accident de la circulation, sur quel côté doit-on préférentiellement installer une femme enceinte en pls ?",
-    "opts": [
-      "Sur le côté gauche (décubitus latéral gauche)",
-      "Sur le ventre",
-      "Sur le côté droit",
-      "En position assise"
-    ],
-    "c": 0,
-    "e": "Le côté gauche évite la compression de la veine cave inférieure par le fœtus."
-  },
-  {
-    "cat": "Position Latérale de Secours",
-    "q": "Lors d'une intervention après un accident de la circulation, si une victime inconsciente respire et présente un traumatisme suspecté du rachis, que fait-on ?",
-    "opts": [
-      "Ne jamais la tourner même si elle vomit",
-      "La maintenir dans l'axe tête-cou-tronc à plusieurs secouristes pour la tourner en PLS si nécessaire",
-      "La mettre debout",
-      "La plier en deux"
-    ],
-    "c": 1,
-    "e": "La PLS reste prioritaire en cas de vomissements/inconscience, réalisée en respectant l'axe tête-cou-tronc."
-  },
-  {
-    "cat": "Position Latérale de Secours",
-    "q": "Lors d'une intervention en entreprise, quelle est l'indication principale de la mise en position latérale de secours (pls) ?",
-    "opts": [
-      "Victime consciente avec fracture du bras",
-      "Victime en arrêt cardiaque",
-      "Victime en malaise hypoglycémique conscient",
-      "Victime inconsciente qui respire normalement"
-    ],
-    "c": 3,
-    "e": "Toute victime inconsciente qui respire doit être placée en PLS."
-  },
-  {
-    "cat": "Position Latérale de Secours",
-    "q": "Lors d'une intervention en entreprise, pourquoi met-on une victime en pls ?",
-    "opts": [
-      "Pour faire baisser la tension artérielle",
-      "Pour accélérer le pouls",
-      "Pour l'empêcher de s'enfuir",
-      "Pour maintenir la liberté des voies aériennes et éviter l'inhalation de vomissures"
-    ],
-    "c": 3,
-    "e": "La PLS permet l'écoulement des liquides vers l'extérieur et empêche la langue de chuter en arrière."
-  },
-  {
-    "cat": "Position Latérale de Secours",
-    "q": "Lors d'une intervention en entreprise, sur quel côté doit-on préférentiellement installer une femme enceinte en pls ?",
-    "opts": [
-      "Sur le côté gauche (décubitus latéral gauche)",
-      "Sur le ventre",
-      "Sur le côté droit",
-      "En position assise"
-    ],
-    "c": 0,
-    "e": "Le côté gauche évite la compression de la veine cave inférieure par le fœtus."
-  },
-  {
-    "cat": "Position Latérale de Secours",
-    "q": "Lors d'une intervention en entreprise, si une victime inconsciente respire et présente un traumatisme suspecté du rachis, que fait-on ?",
-    "opts": [
-      "Ne jamais la tourner même si elle vomit",
-      "La maintenir dans l'axe tête-cou-tronc à plusieurs secouristes pour la tourner en PLS si nécessaire",
-      "La mettre debout",
-      "La plier en deux"
-    ],
-    "c": 1,
-    "e": "La PLS reste prioritaire en cas de vomissements/inconscience, réalisée en respectant l'axe tête-cou-tronc."
-  },
-  {
-    "cat": "Position Latérale de Secours",
-    "q": "Lors d'une intervention dans un environnement bruyant, quelle est l'indication principale de la mise en position latérale de secours (pls) ?",
-    "opts": [
-      "Victime consciente avec fracture du bras",
-      "Victime en arrêt cardiaque",
-      "Victime en malaise hypoglycémique conscient",
-      "Victime inconsciente qui respire normalement"
-    ],
-    "c": 3,
-    "e": "Toute victime inconsciente qui respire doit être placée en PLS."
-  },
-  {
-    "cat": "Position Latérale de Secours",
-    "q": "Lors d'une intervention dans un environnement bruyant, pourquoi met-on une victime en pls ?",
-    "opts": [
-      "Pour faire baisser la tension artérielle",
-      "Pour accélérer le pouls",
-      "Pour l'empêcher de s'enfuir",
-      "Pour maintenir la liberté des voies aériennes et éviter l'inhalation de vomissures"
-    ],
-    "c": 3,
-    "e": "La PLS permet l'écoulement des liquides vers l'extérieur et empêche la langue de chuter en arrière."
-  },
-  {
-    "cat": "Position Latérale de Secours",
-    "q": "Lors d'une intervention dans un environnement bruyant, sur quel côté doit-on préférentiellement installer une femme enceinte en pls ?",
-    "opts": [
-      "Sur le côté gauche (décubitus latéral gauche)",
-      "Sur le ventre",
-      "Sur le côté droit",
-      "En position assise"
-    ],
-    "c": 0,
-    "e": "Le côté gauche évite la compression de la veine cave inférieure par le fœtus."
-  },
-  {
-    "cat": "Position Latérale de Secours",
-    "q": "Lors d'une intervention dans un environnement bruyant, si une victime inconsciente respire et présente un traumatisme suspecté du rachis, que fait-on ?",
-    "opts": [
-      "Ne jamais la tourner même si elle vomit",
-      "La maintenir dans l'axe tête-cou-tronc à plusieurs secouristes pour la tourner en PLS si nécessaire",
-      "La mettre debout",
-      "La plier en deux"
-    ],
-    "c": 1,
-    "e": "La PLS reste prioritaire en cas de vomissements/inconscience, réalisée en respectant l'axe tête-cou-tronc."
-  },
-  {
-    "cat": "Malaises & Affections",
-    "q": "quel est le premier réflexe du secouriste face à une personne victime d'un malaise ?",
-    "opts": [
-      "Lui faire boire un grand verre d'alcool",
-      "La mettre au repos dans la position où elle se sent le mieux",
-      "La faire courir pour activer le sang",
-      "Lui donner des médicaments de la trousse"
-    ],
-    "c": 1,
-    "e": "Mise au repos immédiate dans la position de confort choisie par la victime."
-  },
-  {
-    "cat": "Malaises & Affections",
-    "q": "quels sont les trois signes principaux recherchés dans la suspicion d'avc ?",
-    "opts": [
-      "Fièvre, toux, bouton sur la peau",
-      "Brûlure d'estomac, hoquet, crampe",
-      "Douleur au genou, envie de vomir, vision floue des deux yeux",
-      "Asymétrie du visage, faiblesse d'un bras/jambe, trouble de la parole"
-    ],
-    "c": 3,
-    "e": "Visage paralysé/déformé, bras qui retombe, parole difficile = urgence AVC (15)."
-  },
-  {
-    "cat": "Malaises & Affections",
-    "q": "quelle est la position de confort recommandée pour une personne se plaignant d'une douleur thoracique ?",
-    "opts": [
-      "Plat ventre",
-      "Debout en marchant",
-      "Tête en bas et pieds en l'air",
-      "Position semi-assise (ou position de confort choisie)"
-    ],
-    "c": 3,
-    "e": "La position semi-assise diminue le retour veineux et soulage le travail cardiaque."
-  },
-  {
-    "cat": "Malaises & Affections",
-    "q": "face à un malaise chez un diabétique connu avec sueurs, tremblements et faim canine, que suspecte-t-on ?",
-    "opts": [
-      "Une hypoglycémie",
-      "Un coup de soleil",
-      "Une crise d'asthme",
-      "Une entorse de cheville"
-    ],
-    "c": 0,
-    "e": "Des sueurs, faim, pâleur et confusion chez un diabétique évoquent fortement l'hypoglycémie."
-  },
-  {
-    "cat": "Malaises & Affections",
-    "q": "que donner à une personne consciente présentant les signes évidents d'une hypoglycémie ?",
-    "opts": [
-      "De l'eau salée",
-      "Du sucre rapide (3 morceaux de sucre, jus de fruit, boisson sucrée)",
-      "Un plat gras",
-      "Rien du tout"
-    ],
-    "c": 1,
-    "e": "Resucrage immédiat par voie orale si la victime est consciente et capable d'avaler."
-  },
-  {
-    "cat": "Malaises & Affections",
-    "q": "Lors d'une intervention à domicile, quel est le premier réflexe du secouriste face à une personne victime d'un malaise ?",
-    "opts": [
-      "Lui faire boire un grand verre d'alcool",
-      "La mettre au repos dans la position où elle se sent le mieux",
-      "La faire courir pour activer le sang",
-      "Lui donner des médicaments de la trousse"
-    ],
-    "c": 1,
-    "e": "Mise au repos immédiate dans la position de confort choisie par la victime."
-  },
-  {
-    "cat": "Malaises & Affections",
-    "q": "Lors d'une intervention à domicile, quels sont les trois signes principaux recherchés dans la suspicion d'avc ?",
-    "opts": [
-      "Fièvre, toux, bouton sur la peau",
-      "Brûlure d'estomac, hoquet, crampe",
-      "Douleur au genou, envie de vomir, vision floue des deux yeux",
-      "Asymétrie du visage, faiblesse d'un bras/jambe, trouble de la parole"
-    ],
-    "c": 3,
-    "e": "Visage paralysé/déformé, bras qui retombe, parole difficile = urgence AVC (15)."
-  },
-  {
-    "cat": "Malaises & Affections",
-    "q": "Lors d'une intervention à domicile, quelle est la position de confort recommandée pour une personne se plaignant d'une douleur thoracique ?",
-    "opts": [
-      "Plat ventre",
-      "Debout en marchant",
-      "Tête en bas et pieds en l'air",
-      "Position semi-assise (ou position de confort choisie)"
-    ],
-    "c": 3,
-    "e": "La position semi-assise diminue le retour veineux et soulage le travail cardiaque."
-  },
-  {
-    "cat": "Malaises & Affections",
-    "q": "Lors d'une intervention à domicile, face à un malaise chez un diabétique connu avec sueurs, tremblements et faim canine, que suspecte-t-on ?",
-    "opts": [
-      "Une hypoglycémie",
-      "Un coup de soleil",
-      "Une crise d'asthme",
-      "Une entorse de cheville"
-    ],
-    "c": 0,
-    "e": "Des sueurs, faim, pâleur et confusion chez un diabétique évoquent fortement l'hypoglycémie."
-  },
-  {
-    "cat": "Malaises & Affections",
-    "q": "Lors d'une intervention à domicile, que donner à une personne consciente présentant les signes évidents d'une hypoglycémie ?",
-    "opts": [
-      "De l'eau salée",
-      "Du sucre rapide (3 morceaux de sucre, jus de fruit, boisson sucrée)",
-      "Un plat gras",
-      "Rien du tout"
-    ],
-    "c": 1,
-    "e": "Resucrage immédiat par voie orale si la victime est consciente et capable d'avaler."
-  },
-  {
-    "cat": "Malaises & Affections",
-    "q": "Lors d'une intervention sur la voie publique, quel est le premier réflexe du secouriste face à une personne victime d'un malaise ?",
-    "opts": [
-      "Lui faire boire un grand verre d'alcool",
-      "La mettre au repos dans la position où elle se sent le mieux",
-      "La faire courir pour activer le sang",
-      "Lui donner des médicaments de la trousse"
-    ],
-    "c": 1,
-    "e": "Mise au repos immédiate dans la position de confort choisie par la victime."
-  },
-  {
-    "cat": "Malaises & Affections",
-    "q": "Lors d'une intervention sur la voie publique, quels sont les trois signes principaux recherchés dans la suspicion d'avc ?",
-    "opts": [
-      "Fièvre, toux, bouton sur la peau",
-      "Brûlure d'estomac, hoquet, crampe",
-      "Douleur au genou, envie de vomir, vision floue des deux yeux",
-      "Asymétrie du visage, faiblesse d'un bras/jambe, trouble de la parole"
-    ],
-    "c": 3,
-    "e": "Visage paralysé/déformé, bras qui retombe, parole difficile = urgence AVC (15)."
-  },
-  {
-    "cat": "Malaises & Affections",
-    "q": "Lors d'une intervention sur la voie publique, quelle est la position de confort recommandée pour une personne se plaignant d'une douleur thoracique ?",
-    "opts": [
-      "Plat ventre",
-      "Debout en marchant",
-      "Tête en bas et pieds en l'air",
-      "Position semi-assise (ou position de confort choisie)"
-    ],
-    "c": 3,
-    "e": "La position semi-assise diminue le retour veineux et soulage le travail cardiaque."
-  },
-  {
-    "cat": "Malaises & Affections",
-    "q": "Lors d'une intervention sur la voie publique, face à un malaise chez un diabétique connu avec sueurs, tremblements et faim canine, que suspecte-t-on ?",
-    "opts": [
-      "Une hypoglycémie",
-      "Un coup de soleil",
-      "Une crise d'asthme",
-      "Une entorse de cheville"
-    ],
-    "c": 0,
-    "e": "Des sueurs, faim, pâleur et confusion chez un diabétique évoquent fortement l'hypoglycémie."
-  },
-  {
-    "cat": "Malaises & Affections",
-    "q": "Lors d'une intervention sur la voie publique, que donner à une personne consciente présentant les signes évidents d'une hypoglycémie ?",
-    "opts": [
-      "De l'eau salée",
-      "Du sucre rapide (3 morceaux de sucre, jus de fruit, boisson sucrée)",
-      "Un plat gras",
-      "Rien du tout"
-    ],
-    "c": 1,
-    "e": "Resucrage immédiat par voie orale si la victime est consciente et capable d'avaler."
-  },
-  {
-    "cat": "Malaises & Affections",
-    "q": "Lors d'une intervention dans un lieu public, quel est le premier réflexe du secouriste face à une personne victime d'un malaise ?",
-    "opts": [
-      "Lui faire boire un grand verre d'alcool",
-      "La mettre au repos dans la position où elle se sent le mieux",
-      "La faire courir pour activer le sang",
-      "Lui donner des médicaments de la trousse"
-    ],
-    "c": 1,
-    "e": "Mise au repos immédiate dans la position de confort choisie par la victime."
-  },
-  {
-    "cat": "Malaises & Affections",
-    "q": "Lors d'une intervention dans un lieu public, quels sont les trois signes principaux recherchés dans la suspicion d'avc ?",
-    "opts": [
-      "Fièvre, toux, bouton sur la peau",
-      "Brûlure d'estomac, hoquet, crampe",
-      "Douleur au genou, envie de vomir, vision floue des deux yeux",
-      "Asymétrie du visage, faiblesse d'un bras/jambe, trouble de la parole"
-    ],
-    "c": 3,
-    "e": "Visage paralysé/déformé, bras qui retombe, parole difficile = urgence AVC (15)."
-  },
-  {
-    "cat": "Malaises & Affections",
-    "q": "Lors d'une intervention dans un lieu public, quelle est la position de confort recommandée pour une personne se plaignant d'une douleur thoracique ?",
-    "opts": [
-      "Plat ventre",
-      "Debout en marchant",
-      "Tête en bas et pieds en l'air",
-      "Position semi-assise (ou position de confort choisie)"
-    ],
-    "c": 3,
-    "e": "La position semi-assise diminue le retour veineux et soulage le travail cardiaque."
-  },
-  {
-    "cat": "Malaises & Affections",
-    "q": "Lors d'une intervention dans un lieu public, face à un malaise chez un diabétique connu avec sueurs, tremblements et faim canine, que suspecte-t-on ?",
-    "opts": [
-      "Une hypoglycémie",
-      "Un coup de soleil",
-      "Une crise d'asthme",
-      "Une entorse de cheville"
-    ],
-    "c": 0,
-    "e": "Des sueurs, faim, pâleur et confusion chez un diabétique évoquent fortement l'hypoglycémie."
-  },
-  {
-    "cat": "Malaises & Affections",
-    "q": "Lors d'une intervention dans un lieu public, que donner à une personne consciente présentant les signes évidents d'une hypoglycémie ?",
-    "opts": [
-      "De l'eau salée",
-      "Du sucre rapide (3 morceaux de sucre, jus de fruit, boisson sucrée)",
-      "Un plat gras",
-      "Rien du tout"
-    ],
-    "c": 1,
-    "e": "Resucrage immédiat par voie orale si la victime est consciente et capable d'avaler."
-  },
-  {
-    "cat": "Malaises & Affections",
-    "q": "Lors d'une intervention de nuit, quel est le premier réflexe du secouriste face à une personne victime d'un malaise ?",
-    "opts": [
-      "Lui faire boire un grand verre d'alcool",
-      "La mettre au repos dans la position où elle se sent le mieux",
-      "La faire courir pour activer le sang",
-      "Lui donner des médicaments de la trousse"
-    ],
-    "c": 1,
-    "e": "Mise au repos immédiate dans la position de confort choisie par la victime."
-  },
-  {
-    "cat": "Malaises & Affections",
-    "q": "Lors d'une intervention de nuit, quels sont les trois signes principaux recherchés dans la suspicion d'avc ?",
-    "opts": [
-      "Fièvre, toux, bouton sur la peau",
-      "Brûlure d'estomac, hoquet, crampe",
-      "Douleur au genou, envie de vomir, vision floue des deux yeux",
-      "Asymétrie du visage, faiblesse d'un bras/jambe, trouble de la parole"
-    ],
-    "c": 3,
-    "e": "Visage paralysé/déformé, bras qui retombe, parole difficile = urgence AVC (15)."
-  },
-  {
-    "cat": "Malaises & Affections",
-    "q": "Lors d'une intervention de nuit, quelle est la position de confort recommandée pour une personne se plaignant d'une douleur thoracique ?",
-    "opts": [
-      "Plat ventre",
-      "Debout en marchant",
-      "Tête en bas et pieds en l'air",
-      "Position semi-assise (ou position de confort choisie)"
-    ],
-    "c": 3,
-    "e": "La position semi-assise diminue le retour veineux et soulage le travail cardiaque."
-  },
-  {
-    "cat": "Malaises & Affections",
-    "q": "Lors d'une intervention de nuit, face à un malaise chez un diabétique connu avec sueurs, tremblements et faim canine, que suspecte-t-on ?",
-    "opts": [
-      "Une hypoglycémie",
-      "Un coup de soleil",
-      "Une crise d'asthme",
-      "Une entorse de cheville"
-    ],
-    "c": 0,
-    "e": "Des sueurs, faim, pâleur et confusion chez un diabétique évoquent fortement l'hypoglycémie."
-  },
-  {
-    "cat": "Malaises & Affections",
-    "q": "Lors d'une intervention de nuit, que donner à une personne consciente présentant les signes évidents d'une hypoglycémie ?",
-    "opts": [
-      "De l'eau salée",
-      "Du sucre rapide (3 morceaux de sucre, jus de fruit, boisson sucrée)",
-      "Un plat gras",
-      "Rien du tout"
-    ],
-    "c": 1,
-    "e": "Resucrage immédiat par voie orale si la victime est consciente et capable d'avaler."
-  },
-  {
-    "cat": "Malaises & Affections",
-    "q": "Lors d'une intervention avec plusieurs témoins, quel est le premier réflexe du secouriste face à une personne victime d'un malaise ?",
-    "opts": [
-      "Lui faire boire un grand verre d'alcool",
-      "La mettre au repos dans la position où elle se sent le mieux",
-      "La faire courir pour activer le sang",
-      "Lui donner des médicaments de la trousse"
-    ],
-    "c": 1,
-    "e": "Mise au repos immédiate dans la position de confort choisie par la victime."
-  },
-  {
-    "cat": "Malaises & Affections",
-    "q": "Lors d'une intervention avec plusieurs témoins, quels sont les trois signes principaux recherchés dans la suspicion d'avc ?",
-    "opts": [
-      "Fièvre, toux, bouton sur la peau",
-      "Brûlure d'estomac, hoquet, crampe",
-      "Douleur au genou, envie de vomir, vision floue des deux yeux",
-      "Asymétrie du visage, faiblesse d'un bras/jambe, trouble de la parole"
-    ],
-    "c": 3,
-    "e": "Visage paralysé/déformé, bras qui retombe, parole difficile = urgence AVC (15)."
-  },
-  {
-    "cat": "Malaises & Affections",
-    "q": "Lors d'une intervention avec plusieurs témoins, quelle est la position de confort recommandée pour une personne se plaignant d'une douleur thoracique ?",
-    "opts": [
-      "Plat ventre",
-      "Debout en marchant",
-      "Tête en bas et pieds en l'air",
-      "Position semi-assise (ou position de confort choisie)"
-    ],
-    "c": 3,
-    "e": "La position semi-assise diminue le retour veineux et soulage le travail cardiaque."
-  },
-  {
-    "cat": "Malaises & Affections",
-    "q": "Lors d'une intervention avec plusieurs témoins, face à un malaise chez un diabétique connu avec sueurs, tremblements et faim canine, que suspecte-t-on ?",
-    "opts": [
-      "Une hypoglycémie",
-      "Un coup de soleil",
-      "Une crise d'asthme",
-      "Une entorse de cheville"
-    ],
-    "c": 0,
-    "e": "Des sueurs, faim, pâleur et confusion chez un diabétique évoquent fortement l'hypoglycémie."
-  },
-  {
-    "cat": "Malaises & Affections",
-    "q": "Lors d'une intervention avec plusieurs témoins, que donner à une personne consciente présentant les signes évidents d'une hypoglycémie ?",
-    "opts": [
-      "De l'eau salée",
-      "Du sucre rapide (3 morceaux de sucre, jus de fruit, boisson sucrée)",
-      "Un plat gras",
-      "Rien du tout"
-    ],
-    "c": 1,
-    "e": "Resucrage immédiat par voie orale si la victime est consciente et capable d'avaler."
-  },
-  {
-    "cat": "Malaises & Affections",
-    "q": "Lors d'une intervention en équipe, quel est le premier réflexe du secouriste face à une personne victime d'un malaise ?",
-    "opts": [
-      "Lui faire boire un grand verre d'alcool",
-      "La mettre au repos dans la position où elle se sent le mieux",
-      "La faire courir pour activer le sang",
-      "Lui donner des médicaments de la trousse"
-    ],
-    "c": 1,
-    "e": "Mise au repos immédiate dans la position de confort choisie par la victime."
-  },
-  {
-    "cat": "Malaises & Affections",
-    "q": "Lors d'une intervention en équipe, quels sont les trois signes principaux recherchés dans la suspicion d'avc ?",
-    "opts": [
-      "Fièvre, toux, bouton sur la peau",
-      "Brûlure d'estomac, hoquet, crampe",
-      "Douleur au genou, envie de vomir, vision floue des deux yeux",
-      "Asymétrie du visage, faiblesse d'un bras/jambe, trouble de la parole"
-    ],
-    "c": 3,
-    "e": "Visage paralysé/déformé, bras qui retombe, parole difficile = urgence AVC (15)."
-  },
-  {
-    "cat": "Malaises & Affections",
-    "q": "Lors d'une intervention en équipe, quelle est la position de confort recommandée pour une personne se plaignant d'une douleur thoracique ?",
-    "opts": [
-      "Plat ventre",
-      "Debout en marchant",
-      "Tête en bas et pieds en l'air",
-      "Position semi-assise (ou position de confort choisie)"
-    ],
-    "c": 3,
-    "e": "La position semi-assise diminue le retour veineux et soulage le travail cardiaque."
-  },
-  {
-    "cat": "Malaises & Affections",
-    "q": "Lors d'une intervention en équipe, face à un malaise chez un diabétique connu avec sueurs, tremblements et faim canine, que suspecte-t-on ?",
-    "opts": [
-      "Une hypoglycémie",
-      "Un coup de soleil",
-      "Une crise d'asthme",
-      "Une entorse de cheville"
-    ],
-    "c": 0,
-    "e": "Des sueurs, faim, pâleur et confusion chez un diabétique évoquent fortement l'hypoglycémie."
-  },
-  {
-    "cat": "Malaises & Affections",
-    "q": "Lors d'une intervention en équipe, que donner à une personne consciente présentant les signes évidents d'une hypoglycémie ?",
-    "opts": [
-      "De l'eau salée",
-      "Du sucre rapide (3 morceaux de sucre, jus de fruit, boisson sucrée)",
-      "Un plat gras",
-      "Rien du tout"
-    ],
-    "c": 1,
-    "e": "Resucrage immédiat par voie orale si la victime est consciente et capable d'avaler."
-  },
-  {
-    "cat": "Malaises & Affections",
-    "q": "Lors d'une intervention en milieu sportif, quel est le premier réflexe du secouriste face à une personne victime d'un malaise ?",
-    "opts": [
-      "Lui faire boire un grand verre d'alcool",
-      "La mettre au repos dans la position où elle se sent le mieux",
-      "La faire courir pour activer le sang",
-      "Lui donner des médicaments de la trousse"
-    ],
-    "c": 1,
-    "e": "Mise au repos immédiate dans la position de confort choisie par la victime."
-  },
-  {
-    "cat": "Malaises & Affections",
-    "q": "Lors d'une intervention en milieu sportif, quels sont les trois signes principaux recherchés dans la suspicion d'avc ?",
-    "opts": [
-      "Fièvre, toux, bouton sur la peau",
-      "Brûlure d'estomac, hoquet, crampe",
-      "Douleur au genou, envie de vomir, vision floue des deux yeux",
-      "Asymétrie du visage, faiblesse d'un bras/jambe, trouble de la parole"
-    ],
-    "c": 3,
-    "e": "Visage paralysé/déformé, bras qui retombe, parole difficile = urgence AVC (15)."
-  },
-  {
-    "cat": "Malaises & Affections",
-    "q": "Lors d'une intervention en milieu sportif, quelle est la position de confort recommandée pour une personne se plaignant d'une douleur thoracique ?",
-    "opts": [
-      "Plat ventre",
-      "Debout en marchant",
-      "Tête en bas et pieds en l'air",
-      "Position semi-assise (ou position de confort choisie)"
-    ],
-    "c": 3,
-    "e": "La position semi-assise diminue le retour veineux et soulage le travail cardiaque."
-  },
-  {
-    "cat": "Malaises & Affections",
-    "q": "Lors d'une intervention en milieu sportif, face à un malaise chez un diabétique connu avec sueurs, tremblements et faim canine, que suspecte-t-on ?",
-    "opts": [
-      "Une hypoglycémie",
-      "Un coup de soleil",
-      "Une crise d'asthme",
-      "Une entorse de cheville"
-    ],
-    "c": 0,
-    "e": "Des sueurs, faim, pâleur et confusion chez un diabétique évoquent fortement l'hypoglycémie."
-  },
-  {
-    "cat": "Malaises & Affections",
-    "q": "Lors d'une intervention en milieu sportif, que donner à une personne consciente présentant les signes évidents d'une hypoglycémie ?",
-    "opts": [
-      "De l'eau salée",
-      "Du sucre rapide (3 morceaux de sucre, jus de fruit, boisson sucrée)",
-      "Un plat gras",
-      "Rien du tout"
-    ],
-    "c": 1,
-    "e": "Resucrage immédiat par voie orale si la victime est consciente et capable d'avaler."
-  },
-  {
-    "cat": "Malaises & Affections",
-    "q": "Lors d'une intervention après un accident domestique, quel est le premier réflexe du secouriste face à une personne victime d'un malaise ?",
-    "opts": [
-      "Lui faire boire un grand verre d'alcool",
-      "La mettre au repos dans la position où elle se sent le mieux",
-      "La faire courir pour activer le sang",
-      "Lui donner des médicaments de la trousse"
-    ],
-    "c": 1,
-    "e": "Mise au repos immédiate dans la position de confort choisie par la victime."
-  },
-  {
-    "cat": "Malaises & Affections",
-    "q": "Lors d'une intervention après un accident domestique, quels sont les trois signes principaux recherchés dans la suspicion d'avc ?",
-    "opts": [
-      "Fièvre, toux, bouton sur la peau",
-      "Brûlure d'estomac, hoquet, crampe",
-      "Douleur au genou, envie de vomir, vision floue des deux yeux",
-      "Asymétrie du visage, faiblesse d'un bras/jambe, trouble de la parole"
-    ],
-    "c": 3,
-    "e": "Visage paralysé/déformé, bras qui retombe, parole difficile = urgence AVC (15)."
-  },
-  {
-    "cat": "Malaises & Affections",
-    "q": "Lors d'une intervention après un accident domestique, quelle est la position de confort recommandée pour une personne se plaignant d'une douleur thoracique ?",
-    "opts": [
-      "Plat ventre",
-      "Debout en marchant",
-      "Tête en bas et pieds en l'air",
-      "Position semi-assise (ou position de confort choisie)"
-    ],
-    "c": 3,
-    "e": "La position semi-assise diminue le retour veineux et soulage le travail cardiaque."
-  },
-  {
-    "cat": "Malaises & Affections",
-    "q": "Lors d'une intervention après un accident domestique, face à un malaise chez un diabétique connu avec sueurs, tremblements et faim canine, que suspecte-t-on ?",
-    "opts": [
-      "Une hypoglycémie",
-      "Un coup de soleil",
-      "Une crise d'asthme",
-      "Une entorse de cheville"
-    ],
-    "c": 0,
-    "e": "Des sueurs, faim, pâleur et confusion chez un diabétique évoquent fortement l'hypoglycémie."
-  },
-  {
-    "cat": "Malaises & Affections",
-    "q": "Lors d'une intervention après un accident domestique, que donner à une personne consciente présentant les signes évidents d'une hypoglycémie ?",
-    "opts": [
-      "De l'eau salée",
-      "Du sucre rapide (3 morceaux de sucre, jus de fruit, boisson sucrée)",
-      "Un plat gras",
-      "Rien du tout"
-    ],
-    "c": 1,
-    "e": "Resucrage immédiat par voie orale si la victime est consciente et capable d'avaler."
-  },
-  {
-    "cat": "Malaises & Affections",
-    "q": "Lors d'une intervention après un accident de la circulation, quel est le premier réflexe du secouriste face à une personne victime d'un malaise ?",
-    "opts": [
-      "Lui faire boire un grand verre d'alcool",
-      "La mettre au repos dans la position où elle se sent le mieux",
-      "La faire courir pour activer le sang",
-      "Lui donner des médicaments de la trousse"
-    ],
-    "c": 1,
-    "e": "Mise au repos immédiate dans la position de confort choisie par la victime."
-  },
-  {
-    "cat": "Malaises & Affections",
-    "q": "Lors d'une intervention après un accident de la circulation, quels sont les trois signes principaux recherchés dans la suspicion d'avc ?",
-    "opts": [
-      "Fièvre, toux, bouton sur la peau",
-      "Brûlure d'estomac, hoquet, crampe",
-      "Douleur au genou, envie de vomir, vision floue des deux yeux",
-      "Asymétrie du visage, faiblesse d'un bras/jambe, trouble de la parole"
-    ],
-    "c": 3,
-    "e": "Visage paralysé/déformé, bras qui retombe, parole difficile = urgence AVC (15)."
-  },
-  {
-    "cat": "Malaises & Affections",
-    "q": "Lors d'une intervention après un accident de la circulation, quelle est la position de confort recommandée pour une personne se plaignant d'une douleur thoracique ?",
-    "opts": [
-      "Plat ventre",
-      "Debout en marchant",
-      "Tête en bas et pieds en l'air",
-      "Position semi-assise (ou position de confort choisie)"
-    ],
-    "c": 3,
-    "e": "La position semi-assise diminue le retour veineux et soulage le travail cardiaque."
-  },
-  {
-    "cat": "Malaises & Affections",
-    "q": "Lors d'une intervention après un accident de la circulation, face à un malaise chez un diabétique connu avec sueurs, tremblements et faim canine, que suspecte-t-on ?",
-    "opts": [
-      "Une hypoglycémie",
-      "Un coup de soleil",
-      "Une crise d'asthme",
-      "Une entorse de cheville"
-    ],
-    "c": 0,
-    "e": "Des sueurs, faim, pâleur et confusion chez un diabétique évoquent fortement l'hypoglycémie."
-  },
-  {
-    "cat": "Malaises & Affections",
-    "q": "Lors d'une intervention après un accident de la circulation, que donner à une personne consciente présentant les signes évidents d'une hypoglycémie ?",
-    "opts": [
-      "De l'eau salée",
-      "Du sucre rapide (3 morceaux de sucre, jus de fruit, boisson sucrée)",
-      "Un plat gras",
-      "Rien du tout"
-    ],
-    "c": 1,
-    "e": "Resucrage immédiat par voie orale si la victime est consciente et capable d'avaler."
-  },
-  {
-    "cat": "Malaises & Affections",
-    "q": "Lors d'une intervention en entreprise, quel est le premier réflexe du secouriste face à une personne victime d'un malaise ?",
-    "opts": [
-      "Lui faire boire un grand verre d'alcool",
-      "La mettre au repos dans la position où elle se sent le mieux",
-      "La faire courir pour activer le sang",
-      "Lui donner des médicaments de la trousse"
-    ],
-    "c": 1,
-    "e": "Mise au repos immédiate dans la position de confort choisie par la victime."
-  },
-  {
-    "cat": "Malaises & Affections",
-    "q": "Lors d'une intervention en entreprise, quels sont les trois signes principaux recherchés dans la suspicion d'avc ?",
-    "opts": [
-      "Fièvre, toux, bouton sur la peau",
-      "Brûlure d'estomac, hoquet, crampe",
-      "Douleur au genou, envie de vomir, vision floue des deux yeux",
-      "Asymétrie du visage, faiblesse d'un bras/jambe, trouble de la parole"
-    ],
-    "c": 3,
-    "e": "Visage paralysé/déformé, bras qui retombe, parole difficile = urgence AVC (15)."
-  },
-  {
-    "cat": "Malaises & Affections",
-    "q": "Lors d'une intervention en entreprise, quelle est la position de confort recommandée pour une personne se plaignant d'une douleur thoracique ?",
-    "opts": [
-      "Plat ventre",
-      "Debout en marchant",
-      "Tête en bas et pieds en l'air",
-      "Position semi-assise (ou position de confort choisie)"
-    ],
-    "c": 3,
-    "e": "La position semi-assise diminue le retour veineux et soulage le travail cardiaque."
-  },
-  {
-    "cat": "Malaises & Affections",
-    "q": "Lors d'une intervention en entreprise, face à un malaise chez un diabétique connu avec sueurs, tremblements et faim canine, que suspecte-t-on ?",
-    "opts": [
-      "Une hypoglycémie",
-      "Un coup de soleil",
-      "Une crise d'asthme",
-      "Une entorse de cheville"
-    ],
-    "c": 0,
-    "e": "Des sueurs, faim, pâleur et confusion chez un diabétique évoquent fortement l'hypoglycémie."
-  },
-  {
-    "cat": "Malaises & Affections",
-    "q": "Lors d'une intervention en entreprise, que donner à une personne consciente présentant les signes évidents d'une hypoglycémie ?",
-    "opts": [
-      "De l'eau salée",
-      "Du sucre rapide (3 morceaux de sucre, jus de fruit, boisson sucrée)",
-      "Un plat gras",
-      "Rien du tout"
-    ],
-    "c": 1,
-    "e": "Resucrage immédiat par voie orale si la victime est consciente et capable d'avaler."
-  },
-  {
-    "cat": "Malaises & Affections",
-    "q": "Lors d'une intervention dans un environnement bruyant, quel est le premier réflexe du secouriste face à une personne victime d'un malaise ?",
-    "opts": [
-      "Lui faire boire un grand verre d'alcool",
-      "La mettre au repos dans la position où elle se sent le mieux",
-      "La faire courir pour activer le sang",
-      "Lui donner des médicaments de la trousse"
-    ],
-    "c": 1,
-    "e": "Mise au repos immédiate dans la position de confort choisie par la victime."
-  },
-  {
-    "cat": "Malaises & Affections",
-    "q": "Lors d'une intervention dans un environnement bruyant, quels sont les trois signes principaux recherchés dans la suspicion d'avc ?",
-    "opts": [
-      "Fièvre, toux, bouton sur la peau",
-      "Brûlure d'estomac, hoquet, crampe",
-      "Douleur au genou, envie de vomir, vision floue des deux yeux",
-      "Asymétrie du visage, faiblesse d'un bras/jambe, trouble de la parole"
-    ],
-    "c": 3,
-    "e": "Visage paralysé/déformé, bras qui retombe, parole difficile = urgence AVC (15)."
-  },
-  {
-    "cat": "Malaises & Affections",
-    "q": "Lors d'une intervention dans un environnement bruyant, quelle est la position de confort recommandée pour une personne se plaignant d'une douleur thoracique ?",
-    "opts": [
-      "Plat ventre",
-      "Debout en marchant",
-      "Tête en bas et pieds en l'air",
-      "Position semi-assise (ou position de confort choisie)"
-    ],
-    "c": 3,
-    "e": "La position semi-assise diminue le retour veineux et soulage le travail cardiaque."
-  },
-  {
-    "cat": "Malaises & Affections",
-    "q": "Lors d'une intervention dans un environnement bruyant, face à un malaise chez un diabétique connu avec sueurs, tremblements et faim canine, que suspecte-t-on ?",
-    "opts": [
-      "Une hypoglycémie",
-      "Un coup de soleil",
-      "Une crise d'asthme",
-      "Une entorse de cheville"
-    ],
-    "c": 0,
-    "e": "Des sueurs, faim, pâleur et confusion chez un diabétique évoquent fortement l'hypoglycémie."
-  },
-  {
-    "cat": "Malaises & Affections",
-    "q": "Lors d'une intervention dans un environnement bruyant, que donner à une personne consciente présentant les signes évidents d'une hypoglycémie ?",
-    "opts": [
-      "De l'eau salée",
-      "Du sucre rapide (3 morceaux de sucre, jus de fruit, boisson sucrée)",
-      "Un plat gras",
-      "Rien du tout"
-    ],
-    "c": 1,
-    "e": "Resucrage immédiat par voie orale si la victime est consciente et capable d'avaler."
-  },
-  {
-    "cat": "Traumatismes & Brûlures",
-    "q": "combien de temps faut-il refroidir une brûlure thermique venant de se produire ?",
-    "opts": [
-      "Mettre du beurre ou de l'huile",
-      "Rincer à l'eau courante tempérée pendant au moins 15 à 20 minutes",
-      "Appliquer de la glace pilée pendant 1 heure",
-      "Rincer 10 secondes"
-    ],
-    "c": 1,
-    "e": "Règle des 15 : eau à 15°C, à 15 cm, pendant 15 minutes au moins."
-  },
-  {
-    "cat": "Traumatismes & Brûlures",
-    "q": "en cas de brûlure chimique cutanée par acide ou base, que fait-on ?",
-    "opts": [
-      "Mettre un pansement sec immédiatement sans rincer",
-      "Appliquer du vinaigre",
-      "Frotter fort avec une brosse",
-      "Rincer abondamment à l'eau tiède pendant au moins 20 à 30 minutes en retirant les vêtements imbibés"
-    ],
-    "c": 3,
-    "e": "Le rinçage à grande eau dilue et élimine le produit chimique."
-  },
-  {
-    "cat": "Traumatismes & Brûlures",
-    "q": "quelle est la règle face à un corps étranger (couteau, morceau de verre) enfoncé dans une plaie ?",
-    "opts": [
-      "Tourner le corps étranger dans la plaie",
-      "Pousser le corps étranger plus profondément",
-      "Ne JAMAIS retirer le corps étranger et l'immobiliser en place",
-      "Le retirer immédiatement en tirant fort"
-    ],
-    "c": 2,
-    "e": "Retirer le corps étranger risque de provoquer une hémorragie cataclysmique."
-  },
-  {
-    "cat": "Traumatismes & Brûlures",
-    "q": "Lors d'une intervention à domicile, combien de temps faut-il refroidir une brûlure thermique venant de se produire ?",
-    "opts": [
-      "Mettre du beurre ou de l'huile",
-      "Rincer à l'eau courante tempérée pendant au moins 15 à 20 minutes",
-      "Appliquer de la glace pilée pendant 1 heure",
-      "Rincer 10 secondes"
-    ],
-    "c": 1,
-    "e": "Règle des 15 : eau à 15°C, à 15 cm, pendant 15 minutes au moins."
-  },
-  {
-    "cat": "Traumatismes & Brûlures",
-    "q": "Lors d'une intervention à domicile, en cas de brûlure chimique cutanée par acide ou base, que fait-on ?",
-    "opts": [
-      "Mettre un pansement sec immédiatement sans rincer",
-      "Appliquer du vinaigre",
-      "Frotter fort avec une brosse",
-      "Rincer abondamment à l'eau tiède pendant au moins 20 à 30 minutes en retirant les vêtements imbibés"
-    ],
-    "c": 3,
-    "e": "Le rinçage à grande eau dilue et élimine le produit chimique."
-  },
-  {
-    "cat": "Traumatismes & Brûlures",
-    "q": "Lors d'une intervention à domicile, quelle est la règle face à un corps étranger (couteau, morceau de verre) enfoncé dans une plaie ?",
-    "opts": [
-      "Tourner le corps étranger dans la plaie",
-      "Pousser le corps étranger plus profondément",
-      "Ne JAMAIS retirer le corps étranger et l'immobiliser en place",
-      "Le retirer immédiatement en tirant fort"
-    ],
-    "c": 2,
-    "e": "Retirer le corps étranger risque de provoquer une hémorragie cataclysmique."
-  },
-  {
-    "cat": "Traumatismes & Brûlures",
-    "q": "Lors d'une intervention sur la voie publique, combien de temps faut-il refroidir une brûlure thermique venant de se produire ?",
-    "opts": [
-      "Mettre du beurre ou de l'huile",
-      "Rincer à l'eau courante tempérée pendant au moins 15 à 20 minutes",
-      "Appliquer de la glace pilée pendant 1 heure",
-      "Rincer 10 secondes"
-    ],
-    "c": 1,
-    "e": "Règle des 15 : eau à 15°C, à 15 cm, pendant 15 minutes au moins."
-  },
-  {
-    "cat": "Traumatismes & Brûlures",
-    "q": "Lors d'une intervention sur la voie publique, en cas de brûlure chimique cutanée par acide ou base, que fait-on ?",
-    "opts": [
-      "Mettre un pansement sec immédiatement sans rincer",
-      "Appliquer du vinaigre",
-      "Frotter fort avec une brosse",
-      "Rincer abondamment à l'eau tiède pendant au moins 20 à 30 minutes en retirant les vêtements imbibés"
-    ],
-    "c": 3,
-    "e": "Le rinçage à grande eau dilue et élimine le produit chimique."
-  },
-  {
-    "cat": "Traumatismes & Brûlures",
-    "q": "Lors d'une intervention sur la voie publique, quelle est la règle face à un corps étranger (couteau, morceau de verre) enfoncé dans une plaie ?",
-    "opts": [
-      "Tourner le corps étranger dans la plaie",
-      "Pousser le corps étranger plus profondément",
-      "Ne JAMAIS retirer le corps étranger et l'immobiliser en place",
-      "Le retirer immédiatement en tirant fort"
-    ],
-    "c": 2,
-    "e": "Retirer le corps étranger risque de provoquer une hémorragie cataclysmique."
-  },
-  {
-    "cat": "Traumatismes & Brûlures",
-    "q": "Lors d'une intervention dans un lieu public, combien de temps faut-il refroidir une brûlure thermique venant de se produire ?",
-    "opts": [
-      "Mettre du beurre ou de l'huile",
-      "Rincer à l'eau courante tempérée pendant au moins 15 à 20 minutes",
-      "Appliquer de la glace pilée pendant 1 heure",
-      "Rincer 10 secondes"
-    ],
-    "c": 1,
-    "e": "Règle des 15 : eau à 15°C, à 15 cm, pendant 15 minutes au moins."
-  },
-  {
-    "cat": "Traumatismes & Brûlures",
-    "q": "Lors d'une intervention dans un lieu public, en cas de brûlure chimique cutanée par acide ou base, que fait-on ?",
-    "opts": [
-      "Mettre un pansement sec immédiatement sans rincer",
-      "Appliquer du vinaigre",
-      "Frotter fort avec une brosse",
-      "Rincer abondamment à l'eau tiède pendant au moins 20 à 30 minutes en retirant les vêtements imbibés"
-    ],
-    "c": 3,
-    "e": "Le rinçage à grande eau dilue et élimine le produit chimique."
-  },
-  {
-    "cat": "Traumatismes & Brûlures",
-    "q": "Lors d'une intervention dans un lieu public, quelle est la règle face à un corps étranger (couteau, morceau de verre) enfoncé dans une plaie ?",
-    "opts": [
-      "Tourner le corps étranger dans la plaie",
-      "Pousser le corps étranger plus profondément",
-      "Ne JAMAIS retirer le corps étranger et l'immobiliser en place",
-      "Le retirer immédiatement en tirant fort"
-    ],
-    "c": 2,
-    "e": "Retirer le corps étranger risque de provoquer une hémorragie cataclysmique."
-  },
-  {
-    "cat": "Traumatismes & Brûlures",
-    "q": "Lors d'une intervention de nuit, combien de temps faut-il refroidir une brûlure thermique venant de se produire ?",
-    "opts": [
-      "Mettre du beurre ou de l'huile",
-      "Rincer à l'eau courante tempérée pendant au moins 15 à 20 minutes",
-      "Appliquer de la glace pilée pendant 1 heure",
-      "Rincer 10 secondes"
-    ],
-    "c": 1,
-    "e": "Règle des 15 : eau à 15°C, à 15 cm, pendant 15 minutes au moins."
-  },
-  {
-    "cat": "Traumatismes & Brûlures",
-    "q": "Lors d'une intervention de nuit, en cas de brûlure chimique cutanée par acide ou base, que fait-on ?",
-    "opts": [
-      "Mettre un pansement sec immédiatement sans rincer",
-      "Appliquer du vinaigre",
-      "Frotter fort avec une brosse",
-      "Rincer abondamment à l'eau tiède pendant au moins 20 à 30 minutes en retirant les vêtements imbibés"
-    ],
-    "c": 3,
-    "e": "Le rinçage à grande eau dilue et élimine le produit chimique."
-  },
-  {
-    "cat": "Traumatismes & Brûlures",
-    "q": "Lors d'une intervention de nuit, quelle est la règle face à un corps étranger (couteau, morceau de verre) enfoncé dans une plaie ?",
-    "opts": [
-      "Tourner le corps étranger dans la plaie",
-      "Pousser le corps étranger plus profondément",
-      "Ne JAMAIS retirer le corps étranger et l'immobiliser en place",
-      "Le retirer immédiatement en tirant fort"
-    ],
-    "c": 2,
-    "e": "Retirer le corps étranger risque de provoquer une hémorragie cataclysmique."
-  },
-  {
-    "cat": "Traumatismes & Brûlures",
-    "q": "Lors d'une intervention avec plusieurs témoins, combien de temps faut-il refroidir une brûlure thermique venant de se produire ?",
-    "opts": [
-      "Mettre du beurre ou de l'huile",
-      "Rincer à l'eau courante tempérée pendant au moins 15 à 20 minutes",
-      "Appliquer de la glace pilée pendant 1 heure",
-      "Rincer 10 secondes"
-    ],
-    "c": 1,
-    "e": "Règle des 15 : eau à 15°C, à 15 cm, pendant 15 minutes au moins."
-  },
-  {
-    "cat": "Traumatismes & Brûlures",
-    "q": "Lors d'une intervention avec plusieurs témoins, en cas de brûlure chimique cutanée par acide ou base, que fait-on ?",
-    "opts": [
-      "Mettre un pansement sec immédiatement sans rincer",
-      "Appliquer du vinaigre",
-      "Frotter fort avec une brosse",
-      "Rincer abondamment à l'eau tiède pendant au moins 20 à 30 minutes en retirant les vêtements imbibés"
-    ],
-    "c": 3,
-    "e": "Le rinçage à grande eau dilue et élimine le produit chimique."
-  },
-  {
-    "cat": "Traumatismes & Brûlures",
-    "q": "Lors d'une intervention avec plusieurs témoins, quelle est la règle face à un corps étranger (couteau, morceau de verre) enfoncé dans une plaie ?",
-    "opts": [
-      "Tourner le corps étranger dans la plaie",
-      "Pousser le corps étranger plus profondément",
-      "Ne JAMAIS retirer le corps étranger et l'immobiliser en place",
-      "Le retirer immédiatement en tirant fort"
-    ],
-    "c": 2,
-    "e": "Retirer le corps étranger risque de provoquer une hémorragie cataclysmique."
-  },
-  {
-    "cat": "Traumatismes & Brûlures",
-    "q": "Lors d'une intervention en équipe, combien de temps faut-il refroidir une brûlure thermique venant de se produire ?",
-    "opts": [
-      "Mettre du beurre ou de l'huile",
-      "Rincer à l'eau courante tempérée pendant au moins 15 à 20 minutes",
-      "Appliquer de la glace pilée pendant 1 heure",
-      "Rincer 10 secondes"
-    ],
-    "c": 1,
-    "e": "Règle des 15 : eau à 15°C, à 15 cm, pendant 15 minutes au moins."
-  },
-  {
-    "cat": "Traumatismes & Brûlures",
-    "q": "Lors d'une intervention en équipe, en cas de brûlure chimique cutanée par acide ou base, que fait-on ?",
-    "opts": [
-      "Mettre un pansement sec immédiatement sans rincer",
-      "Appliquer du vinaigre",
-      "Frotter fort avec une brosse",
-      "Rincer abondamment à l'eau tiède pendant au moins 20 à 30 minutes en retirant les vêtements imbibés"
-    ],
-    "c": 3,
-    "e": "Le rinçage à grande eau dilue et élimine le produit chimique."
-  },
-  {
-    "cat": "Traumatismes & Brûlures",
-    "q": "Lors d'une intervention en équipe, quelle est la règle face à un corps étranger (couteau, morceau de verre) enfoncé dans une plaie ?",
-    "opts": [
-      "Tourner le corps étranger dans la plaie",
-      "Pousser le corps étranger plus profondément",
-      "Ne JAMAIS retirer le corps étranger et l'immobiliser en place",
-      "Le retirer immédiatement en tirant fort"
-    ],
-    "c": 2,
-    "e": "Retirer le corps étranger risque de provoquer une hémorragie cataclysmique."
-  },
-  {
-    "cat": "Traumatismes & Brûlures",
-    "q": "Lors d'une intervention en milieu sportif, combien de temps faut-il refroidir une brûlure thermique venant de se produire ?",
-    "opts": [
-      "Mettre du beurre ou de l'huile",
-      "Rincer à l'eau courante tempérée pendant au moins 15 à 20 minutes",
-      "Appliquer de la glace pilée pendant 1 heure",
-      "Rincer 10 secondes"
-    ],
-    "c": 1,
-    "e": "Règle des 15 : eau à 15°C, à 15 cm, pendant 15 minutes au moins."
-  },
-  {
-    "cat": "Traumatismes & Brûlures",
-    "q": "Lors d'une intervention en milieu sportif, en cas de brûlure chimique cutanée par acide ou base, que fait-on ?",
-    "opts": [
-      "Mettre un pansement sec immédiatement sans rincer",
-      "Appliquer du vinaigre",
-      "Frotter fort avec une brosse",
-      "Rincer abondamment à l'eau tiède pendant au moins 20 à 30 minutes en retirant les vêtements imbibés"
-    ],
-    "c": 3,
-    "e": "Le rinçage à grande eau dilue et élimine le produit chimique."
-  },
-  {
-    "cat": "Traumatismes & Brûlures",
-    "q": "Lors d'une intervention en milieu sportif, quelle est la règle face à un corps étranger (couteau, morceau de verre) enfoncé dans une plaie ?",
-    "opts": [
-      "Tourner le corps étranger dans la plaie",
-      "Pousser le corps étranger plus profondément",
-      "Ne JAMAIS retirer le corps étranger et l'immobiliser en place",
-      "Le retirer immédiatement en tirant fort"
-    ],
-    "c": 2,
-    "e": "Retirer le corps étranger risque de provoquer une hémorragie cataclysmique."
-  },
-  {
-    "cat": "Traumatismes & Brûlures",
-    "q": "Lors d'une intervention après un accident domestique, combien de temps faut-il refroidir une brûlure thermique venant de se produire ?",
-    "opts": [
-      "Mettre du beurre ou de l'huile",
-      "Rincer à l'eau courante tempérée pendant au moins 15 à 20 minutes",
-      "Appliquer de la glace pilée pendant 1 heure",
-      "Rincer 10 secondes"
-    ],
-    "c": 1,
-    "e": "Règle des 15 : eau à 15°C, à 15 cm, pendant 15 minutes au moins."
-  },
-  {
-    "cat": "Traumatismes & Brûlures",
-    "q": "Lors d'une intervention après un accident domestique, en cas de brûlure chimique cutanée par acide ou base, que fait-on ?",
-    "opts": [
-      "Mettre un pansement sec immédiatement sans rincer",
-      "Appliquer du vinaigre",
-      "Frotter fort avec une brosse",
-      "Rincer abondamment à l'eau tiède pendant au moins 20 à 30 minutes en retirant les vêtements imbibés"
-    ],
-    "c": 3,
-    "e": "Le rinçage à grande eau dilue et élimine le produit chimique."
-  },
-  {
-    "cat": "Traumatismes & Brûlures",
-    "q": "Lors d'une intervention après un accident domestique, quelle est la règle face à un corps étranger (couteau, morceau de verre) enfoncé dans une plaie ?",
-    "opts": [
-      "Tourner le corps étranger dans la plaie",
-      "Pousser le corps étranger plus profondément",
-      "Ne JAMAIS retirer le corps étranger et l'immobiliser en place",
-      "Le retirer immédiatement en tirant fort"
-    ],
-    "c": 2,
-    "e": "Retirer le corps étranger risque de provoquer une hémorragie cataclysmique."
-  },
-  {
-    "cat": "Traumatismes & Brûlures",
-    "q": "Lors d'une intervention après un accident de la circulation, combien de temps faut-il refroidir une brûlure thermique venant de se produire ?",
-    "opts": [
-      "Mettre du beurre ou de l'huile",
-      "Rincer à l'eau courante tempérée pendant au moins 15 à 20 minutes",
-      "Appliquer de la glace pilée pendant 1 heure",
-      "Rincer 10 secondes"
-    ],
-    "c": 1,
-    "e": "Règle des 15 : eau à 15°C, à 15 cm, pendant 15 minutes au moins."
-  },
-  {
-    "cat": "Traumatismes & Brûlures",
-    "q": "Lors d'une intervention après un accident de la circulation, en cas de brûlure chimique cutanée par acide ou base, que fait-on ?",
-    "opts": [
-      "Mettre un pansement sec immédiatement sans rincer",
-      "Appliquer du vinaigre",
-      "Frotter fort avec une brosse",
-      "Rincer abondamment à l'eau tiède pendant au moins 20 à 30 minutes en retirant les vêtements imbibés"
-    ],
-    "c": 3,
-    "e": "Le rinçage à grande eau dilue et élimine le produit chimique."
-  },
-  {
-    "cat": "Traumatismes & Brûlures",
-    "q": "Lors d'une intervention après un accident de la circulation, quelle est la règle face à un corps étranger (couteau, morceau de verre) enfoncé dans une plaie ?",
-    "opts": [
-      "Tourner le corps étranger dans la plaie",
-      "Pousser le corps étranger plus profondément",
-      "Ne JAMAIS retirer le corps étranger et l'immobiliser en place",
-      "Le retirer immédiatement en tirant fort"
-    ],
-    "c": 2,
-    "e": "Retirer le corps étranger risque de provoquer une hémorragie cataclysmique."
-  },
-  {
-    "cat": "Traumatismes & Brûlures",
-    "q": "Lors d'une intervention en entreprise, combien de temps faut-il refroidir une brûlure thermique venant de se produire ?",
-    "opts": [
-      "Mettre du beurre ou de l'huile",
-      "Rincer à l'eau courante tempérée pendant au moins 15 à 20 minutes",
-      "Appliquer de la glace pilée pendant 1 heure",
-      "Rincer 10 secondes"
-    ],
-    "c": 1,
-    "e": "Règle des 15 : eau à 15°C, à 15 cm, pendant 15 minutes au moins."
-  },
-  {
-    "cat": "Traumatismes & Brûlures",
-    "q": "Lors d'une intervention en entreprise, en cas de brûlure chimique cutanée par acide ou base, que fait-on ?",
-    "opts": [
-      "Mettre un pansement sec immédiatement sans rincer",
-      "Appliquer du vinaigre",
-      "Frotter fort avec une brosse",
-      "Rincer abondamment à l'eau tiède pendant au moins 20 à 30 minutes en retirant les vêtements imbibés"
-    ],
-    "c": 3,
-    "e": "Le rinçage à grande eau dilue et élimine le produit chimique."
-  },
-  {
-    "cat": "Traumatismes & Brûlures",
-    "q": "Lors d'une intervention en entreprise, quelle est la règle face à un corps étranger (couteau, morceau de verre) enfoncé dans une plaie ?",
-    "opts": [
-      "Tourner le corps étranger dans la plaie",
-      "Pousser le corps étranger plus profondément",
-      "Ne JAMAIS retirer le corps étranger et l'immobiliser en place",
-      "Le retirer immédiatement en tirant fort"
-    ],
-    "c": 2,
-    "e": "Retirer le corps étranger risque de provoquer une hémorragie cataclysmique."
-  },
-  {
-    "cat": "Traumatisme Rachis & Immobilisation",
-    "q": "quelle est la première manœuvre d'immobilisation de la tête lors d'une suspicion de traumatisme du rachis cervical ?",
-    "opts": [
-      "Tourner la tête à gauche et à droite",
-      "Pose directe du collier cervical sans tenir la tête",
-      "Mettre un oreiller lourd sous le cou",
-      "Maintien de la tête à deux mains en position neutre"
-    ],
-    "c": 3,
-    "e": "Le maintien manuel de la tête en position neutre est le geste initial indispensable."
-  },
-  {
-    "cat": "Traumatisme Rachis & Immobilisation",
-    "q": "le collier cervical élimine-t-il à lui seul 100% des mouvements de la colonne cervicale ?",
-    "opts": [
-      "Non, il ne sert qu'à réchauffer le cou",
-      "Oui, il bloque totalement 100% des mouvements",
-      "Non, il limite les mouvements mais le maintien manuel reste nécessaire",
-      "Oui, s'il est serré au maximum"
-    ],
-    "c": 2,
-    "e": "Le collier est un outil d'immobilisation relative qui n'exempte pas du maintien manuel."
-  },
-  {
-    "cat": "Traumatisme Rachis & Immobilisation",
-    "q": "Lors d'une intervention à domicile, quelle est la première manœuvre d'immobilisation de la tête lors d'une suspicion de traumatisme du rachis cervical ?",
-    "opts": [
-      "Tourner la tête à gauche et à droite",
-      "Pose directe du collier cervical sans tenir la tête",
-      "Mettre un oreiller lourd sous le cou",
-      "Maintien de la tête à deux mains en position neutre"
-    ],
-    "c": 3,
-    "e": "Le maintien manuel de la tête en position neutre est le geste initial indispensable."
-  },
-  {
-    "cat": "Traumatisme Rachis & Immobilisation",
-    "q": "Lors d'une intervention à domicile, le collier cervical élimine-t-il à lui seul 100% des mouvements de la colonne cervicale ?",
-    "opts": [
-      "Non, il ne sert qu'à réchauffer le cou",
-      "Oui, il bloque totalement 100% des mouvements",
-      "Non, il limite les mouvements mais le maintien manuel reste nécessaire",
-      "Oui, s'il est serré au maximum"
-    ],
-    "c": 2,
-    "e": "Le collier est un outil d'immobilisation relative qui n'exempte pas du maintien manuel."
-  },
-  {
-    "cat": "Traumatisme Rachis & Immobilisation",
-    "q": "Lors d'une intervention sur la voie publique, quelle est la première manœuvre d'immobilisation de la tête lors d'une suspicion de traumatisme du rachis cervical ?",
-    "opts": [
-      "Tourner la tête à gauche et à droite",
-      "Pose directe du collier cervical sans tenir la tête",
-      "Mettre un oreiller lourd sous le cou",
-      "Maintien de la tête à deux mains en position neutre"
-    ],
-    "c": 3,
-    "e": "Le maintien manuel de la tête en position neutre est le geste initial indispensable."
-  },
-  {
-    "cat": "Traumatisme Rachis & Immobilisation",
-    "q": "Lors d'une intervention sur la voie publique, le collier cervical élimine-t-il à lui seul 100% des mouvements de la colonne cervicale ?",
-    "opts": [
-      "Non, il ne sert qu'à réchauffer le cou",
-      "Oui, il bloque totalement 100% des mouvements",
-      "Non, il limite les mouvements mais le maintien manuel reste nécessaire",
-      "Oui, s'il est serré au maximum"
-    ],
-    "c": 2,
-    "e": "Le collier est un outil d'immobilisation relative qui n'exempte pas du maintien manuel."
-  },
-  {
-    "cat": "Traumatisme Rachis & Immobilisation",
-    "q": "Lors d'une intervention dans un lieu public, quelle est la première manœuvre d'immobilisation de la tête lors d'une suspicion de traumatisme du rachis cervical ?",
-    "opts": [
-      "Tourner la tête à gauche et à droite",
-      "Pose directe du collier cervical sans tenir la tête",
-      "Mettre un oreiller lourd sous le cou",
-      "Maintien de la tête à deux mains en position neutre"
-    ],
-    "c": 3,
-    "e": "Le maintien manuel de la tête en position neutre est le geste initial indispensable."
-  },
-  {
-    "cat": "Traumatisme Rachis & Immobilisation",
-    "q": "Lors d'une intervention dans un lieu public, le collier cervical élimine-t-il à lui seul 100% des mouvements de la colonne cervicale ?",
-    "opts": [
-      "Non, il ne sert qu'à réchauffer le cou",
-      "Oui, il bloque totalement 100% des mouvements",
-      "Non, il limite les mouvements mais le maintien manuel reste nécessaire",
-      "Oui, s'il est serré au maximum"
-    ],
-    "c": 2,
-    "e": "Le collier est un outil d'immobilisation relative qui n'exempte pas du maintien manuel."
-  },
-  {
-    "cat": "Traumatisme Rachis & Immobilisation",
-    "q": "Lors d'une intervention de nuit, quelle est la première manœuvre d'immobilisation de la tête lors d'une suspicion de traumatisme du rachis cervical ?",
-    "opts": [
-      "Tourner la tête à gauche et à droite",
-      "Pose directe du collier cervical sans tenir la tête",
-      "Mettre un oreiller lourd sous le cou",
-      "Maintien de la tête à deux mains en position neutre"
-    ],
-    "c": 3,
-    "e": "Le maintien manuel de la tête en position neutre est le geste initial indispensable."
-  },
-  {
-    "cat": "Traumatisme Rachis & Immobilisation",
-    "q": "Lors d'une intervention de nuit, le collier cervical élimine-t-il à lui seul 100% des mouvements de la colonne cervicale ?",
-    "opts": [
-      "Non, il ne sert qu'à réchauffer le cou",
-      "Oui, il bloque totalement 100% des mouvements",
-      "Non, il limite les mouvements mais le maintien manuel reste nécessaire",
-      "Oui, s'il est serré au maximum"
-    ],
-    "c": 2,
-    "e": "Le collier est un outil d'immobilisation relative qui n'exempte pas du maintien manuel."
-  },
-  {
-    "cat": "Traumatisme Rachis & Immobilisation",
-    "q": "Lors d'une intervention avec plusieurs témoins, quelle est la première manœuvre d'immobilisation de la tête lors d'une suspicion de traumatisme du rachis cervical ?",
-    "opts": [
-      "Tourner la tête à gauche et à droite",
-      "Pose directe du collier cervical sans tenir la tête",
-      "Mettre un oreiller lourd sous le cou",
-      "Maintien de la tête à deux mains en position neutre"
-    ],
-    "c": 3,
-    "e": "Le maintien manuel de la tête en position neutre est le geste initial indispensable."
-  },
-  {
-    "cat": "Traumatisme Rachis & Immobilisation",
-    "q": "Lors d'une intervention avec plusieurs témoins, le collier cervical élimine-t-il à lui seul 100% des mouvements de la colonne cervicale ?",
-    "opts": [
-      "Non, il ne sert qu'à réchauffer le cou",
-      "Oui, il bloque totalement 100% des mouvements",
-      "Non, il limite les mouvements mais le maintien manuel reste nécessaire",
-      "Oui, s'il est serré au maximum"
-    ],
-    "c": 2,
-    "e": "Le collier est un outil d'immobilisation relative qui n'exempte pas du maintien manuel."
-  },
-  {
-    "cat": "Traumatisme Rachis & Immobilisation",
-    "q": "Lors d'une intervention en équipe, quelle est la première manœuvre d'immobilisation de la tête lors d'une suspicion de traumatisme du rachis cervical ?",
-    "opts": [
-      "Tourner la tête à gauche et à droite",
-      "Pose directe du collier cervical sans tenir la tête",
-      "Mettre un oreiller lourd sous le cou",
-      "Maintien de la tête à deux mains en position neutre"
-    ],
-    "c": 3,
-    "e": "Le maintien manuel de la tête en position neutre est le geste initial indispensable."
-  },
-  {
-    "cat": "Traumatisme Rachis & Immobilisation",
-    "q": "Lors d'une intervention en équipe, le collier cervical élimine-t-il à lui seul 100% des mouvements de la colonne cervicale ?",
-    "opts": [
-      "Non, il ne sert qu'à réchauffer le cou",
-      "Oui, il bloque totalement 100% des mouvements",
-      "Non, il limite les mouvements mais le maintien manuel reste nécessaire",
-      "Oui, s'il est serré au maximum"
-    ],
-    "c": 2,
-    "e": "Le collier est un outil d'immobilisation relative qui n'exempte pas du maintien manuel."
-  },
-  {
-    "cat": "Traumatisme Rachis & Immobilisation",
-    "q": "Lors d'une intervention en milieu sportif, quelle est la première manœuvre d'immobilisation de la tête lors d'une suspicion de traumatisme du rachis cervical ?",
-    "opts": [
-      "Tourner la tête à gauche et à droite",
-      "Pose directe du collier cervical sans tenir la tête",
-      "Mettre un oreiller lourd sous le cou",
-      "Maintien de la tête à deux mains en position neutre"
-    ],
-    "c": 3,
-    "e": "Le maintien manuel de la tête en position neutre est le geste initial indispensable."
-  },
-  {
-    "cat": "Traumatisme Rachis & Immobilisation",
-    "q": "Lors d'une intervention en milieu sportif, le collier cervical élimine-t-il à lui seul 100% des mouvements de la colonne cervicale ?",
-    "opts": [
-      "Non, il ne sert qu'à réchauffer le cou",
-      "Oui, il bloque totalement 100% des mouvements",
-      "Non, il limite les mouvements mais le maintien manuel reste nécessaire",
-      "Oui, s'il est serré au maximum"
-    ],
-    "c": 2,
-    "e": "Le collier est un outil d'immobilisation relative qui n'exempte pas du maintien manuel."
-  },
-  {
-    "cat": "Traumatisme Rachis & Immobilisation",
-    "q": "Lors d'une intervention après un accident domestique, quelle est la première manœuvre d'immobilisation de la tête lors d'une suspicion de traumatisme du rachis cervical ?",
-    "opts": [
-      "Tourner la tête à gauche et à droite",
-      "Pose directe du collier cervical sans tenir la tête",
-      "Mettre un oreiller lourd sous le cou",
-      "Maintien de la tête à deux mains en position neutre"
-    ],
-    "c": 3,
-    "e": "Le maintien manuel de la tête en position neutre est le geste initial indispensable."
-  },
-  {
-    "cat": "Traumatisme Rachis & Immobilisation",
-    "q": "Lors d'une intervention après un accident domestique, le collier cervical élimine-t-il à lui seul 100% des mouvements de la colonne cervicale ?",
-    "opts": [
-      "Non, il ne sert qu'à réchauffer le cou",
-      "Oui, il bloque totalement 100% des mouvements",
-      "Non, il limite les mouvements mais le maintien manuel reste nécessaire",
-      "Oui, s'il est serré au maximum"
-    ],
-    "c": 2,
-    "e": "Le collier est un outil d'immobilisation relative qui n'exempte pas du maintien manuel."
-  },
-  {
-    "cat": "Traumatisme Rachis & Immobilisation",
-    "q": "Lors d'une intervention après un accident de la circulation, quelle est la première manœuvre d'immobilisation de la tête lors d'une suspicion de traumatisme du rachis cervical ?",
-    "opts": [
-      "Tourner la tête à gauche et à droite",
-      "Pose directe du collier cervical sans tenir la tête",
-      "Mettre un oreiller lourd sous le cou",
-      "Maintien de la tête à deux mains en position neutre"
-    ],
-    "c": 3,
-    "e": "Le maintien manuel de la tête en position neutre est le geste initial indispensable."
-  },
-  {
-    "cat": "Traumatisme Rachis & Immobilisation",
-    "q": "Lors d'une intervention après un accident de la circulation, le collier cervical élimine-t-il à lui seul 100% des mouvements de la colonne cervicale ?",
-    "opts": [
-      "Non, il ne sert qu'à réchauffer le cou",
-      "Oui, il bloque totalement 100% des mouvements",
-      "Non, il limite les mouvements mais le maintien manuel reste nécessaire",
-      "Oui, s'il est serré au maximum"
-    ],
-    "c": 2,
-    "e": "Le collier est un outil d'immobilisation relative qui n'exempte pas du maintien manuel."
-  },
-  {
-    "cat": "Traumatisme Rachis & Immobilisation",
-    "q": "Lors d'une intervention en entreprise, quelle est la première manœuvre d'immobilisation de la tête lors d'une suspicion de traumatisme du rachis cervical ?",
-    "opts": [
-      "Tourner la tête à gauche et à droite",
-      "Pose directe du collier cervical sans tenir la tête",
-      "Mettre un oreiller lourd sous le cou",
-      "Maintien de la tête à deux mains en position neutre"
-    ],
-    "c": 3,
-    "e": "Le maintien manuel de la tête en position neutre est le geste initial indispensable."
-  },
-  {
-    "cat": "Traumatisme Rachis & Immobilisation",
-    "q": "Lors d'une intervention en entreprise, le collier cervical élimine-t-il à lui seul 100% des mouvements de la colonne cervicale ?",
-    "opts": [
-      "Non, il ne sert qu'à réchauffer le cou",
-      "Oui, il bloque totalement 100% des mouvements",
-      "Non, il limite les mouvements mais le maintien manuel reste nécessaire",
-      "Oui, s'il est serré au maximum"
-    ],
-    "c": 2,
-    "e": "Le collier est un outil d'immobilisation relative qui n'exempte pas du maintien manuel."
-  },
-  {
-    "cat": "Matériel & Oxygénothérapie",
-    "q": "quel est le débit d'oxygène recommandé chez l'adulte en détresse respiratoire aiguë avec un masque à haute concentration (mhc) ?",
-    "opts": [
-      "1 à 2 litres par minute",
-      "10 à 15 litres par minute",
-      "25 à 30 litres par minute",
-      "3 à 5 litres par minute"
-    ],
-    "c": 1,
-    "e": "Le masque à haute concentration s'utilise avec un débit de 10 à 15 L/min pour remplir le réservoir."
-  },
-  {
-    "cat": "Matériel & Oxygénothérapie",
-    "q": "quelle précaution essentielle faut-il prendre avant d'utiliser une bouteille d'oxygène médical ?",
-    "opts": [
-      "Huiler le filetage de la bouteille",
-      "Approcher une flamme pour tester la sortie",
-      "Purger la bouteille à l'écart avant le branchement et vérifier la pression au manomètre",
-      "Frapper la bouteille avec un marteau"
-    ],
-    "c": 2,
-    "e": "Ne jamais graisser/huiler le matériel d'oxygène (risque d'inflammation spontanée)."
-  },
-  {
-    "cat": "Matériel & Oxygénothérapie",
-    "q": "Lors d'une intervention à domicile, quel est le débit d'oxygène recommandé chez l'adulte en détresse respiratoire aiguë avec un masque à haute concentration (mhc) ?",
-    "opts": [
-      "1 à 2 litres par minute",
-      "10 à 15 litres par minute",
-      "25 à 30 litres par minute",
-      "3 à 5 litres par minute"
-    ],
-    "c": 1,
-    "e": "Le masque à haute concentration s'utilise avec un débit de 10 à 15 L/min pour remplir le réservoir."
-  },
-  {
-    "cat": "Matériel & Oxygénothérapie",
-    "q": "Lors d'une intervention à domicile, quelle précaution essentielle faut-il prendre avant d'utiliser une bouteille d'oxygène médical ?",
-    "opts": [
-      "Huiler le filetage de la bouteille",
-      "Approcher une flamme pour tester la sortie",
-      "Purger la bouteille à l'écart avant le branchement et vérifier la pression au manomètre",
-      "Frapper la bouteille avec un marteau"
-    ],
-    "c": 2,
-    "e": "Ne jamais graisser/huiler le matériel d'oxygène (risque d'inflammation spontanée)."
-  },
-  {
-    "cat": "Matériel & Oxygénothérapie",
-    "q": "Lors d'une intervention sur la voie publique, quel est le débit d'oxygène recommandé chez l'adulte en détresse respiratoire aiguë avec un masque à haute concentration (mhc) ?",
-    "opts": [
-      "1 à 2 litres par minute",
-      "10 à 15 litres par minute",
-      "25 à 30 litres par minute",
-      "3 à 5 litres par minute"
-    ],
-    "c": 1,
-    "e": "Le masque à haute concentration s'utilise avec un débit de 10 à 15 L/min pour remplir le réservoir."
-  },
-  {
-    "cat": "Matériel & Oxygénothérapie",
-    "q": "Lors d'une intervention sur la voie publique, quelle précaution essentielle faut-il prendre avant d'utiliser une bouteille d'oxygène médical ?",
-    "opts": [
-      "Huiler le filetage de la bouteille",
-      "Approcher une flamme pour tester la sortie",
-      "Purger la bouteille à l'écart avant le branchement et vérifier la pression au manomètre",
-      "Frapper la bouteille avec un marteau"
-    ],
-    "c": 2,
-    "e": "Ne jamais graisser/huiler le matériel d'oxygène (risque d'inflammation spontanée)."
-  },
-  {
-    "cat": "Matériel & Oxygénothérapie",
-    "q": "Lors d'une intervention dans un lieu public, quel est le débit d'oxygène recommandé chez l'adulte en détresse respiratoire aiguë avec un masque à haute concentration (mhc) ?",
-    "opts": [
-      "1 à 2 litres par minute",
-      "10 à 15 litres par minute",
-      "25 à 30 litres par minute",
-      "3 à 5 litres par minute"
-    ],
-    "c": 1,
-    "e": "Le masque à haute concentration s'utilise avec un débit de 10 à 15 L/min pour remplir le réservoir."
-  },
-  {
-    "cat": "Matériel & Oxygénothérapie",
-    "q": "Lors d'une intervention dans un lieu public, quelle précaution essentielle faut-il prendre avant d'utiliser une bouteille d'oxygène médical ?",
-    "opts": [
-      "Huiler le filetage de la bouteille",
-      "Approcher une flamme pour tester la sortie",
-      "Purger la bouteille à l'écart avant le branchement et vérifier la pression au manomètre",
-      "Frapper la bouteille avec un marteau"
-    ],
-    "c": 2,
-    "e": "Ne jamais graisser/huiler le matériel d'oxygène (risque d'inflammation spontanée)."
-  },
-  {
-    "cat": "Matériel & Oxygénothérapie",
-    "q": "Lors d'une intervention de nuit, quel est le débit d'oxygène recommandé chez l'adulte en détresse respiratoire aiguë avec un masque à haute concentration (mhc) ?",
-    "opts": [
-      "1 à 2 litres par minute",
-      "10 à 15 litres par minute",
-      "25 à 30 litres par minute",
-      "3 à 5 litres par minute"
-    ],
-    "c": 1,
-    "e": "Le masque à haute concentration s'utilise avec un débit de 10 à 15 L/min pour remplir le réservoir."
-  },
-  {
-    "cat": "Matériel & Oxygénothérapie",
-    "q": "Lors d'une intervention de nuit, quelle précaution essentielle faut-il prendre avant d'utiliser une bouteille d'oxygène médical ?",
-    "opts": [
-      "Huiler le filetage de la bouteille",
-      "Approcher une flamme pour tester la sortie",
-      "Purger la bouteille à l'écart avant le branchement et vérifier la pression au manomètre",
-      "Frapper la bouteille avec un marteau"
-    ],
-    "c": 2,
-    "e": "Ne jamais graisser/huiler le matériel d'oxygène (risque d'inflammation spontanée)."
-  },
-  {
-    "cat": "Matériel & Oxygénothérapie",
-    "q": "Lors d'une intervention avec plusieurs témoins, quel est le débit d'oxygène recommandé chez l'adulte en détresse respiratoire aiguë avec un masque à haute concentration (mhc) ?",
-    "opts": [
-      "1 à 2 litres par minute",
-      "10 à 15 litres par minute",
-      "25 à 30 litres par minute",
-      "3 à 5 litres par minute"
-    ],
-    "c": 1,
-    "e": "Le masque à haute concentration s'utilise avec un débit de 10 à 15 L/min pour remplir le réservoir."
-  },
-  {
-    "cat": "Matériel & Oxygénothérapie",
-    "q": "Lors d'une intervention avec plusieurs témoins, quelle précaution essentielle faut-il prendre avant d'utiliser une bouteille d'oxygène médical ?",
-    "opts": [
-      "Huiler le filetage de la bouteille",
-      "Approcher une flamme pour tester la sortie",
-      "Purger la bouteille à l'écart avant le branchement et vérifier la pression au manomètre",
-      "Frapper la bouteille avec un marteau"
-    ],
-    "c": 2,
-    "e": "Ne jamais graisser/huiler le matériel d'oxygène (risque d'inflammation spontanée)."
-  },
-  {
-    "cat": "Matériel & Oxygénothérapie",
-    "q": "Lors d'une intervention en équipe, quel est le débit d'oxygène recommandé chez l'adulte en détresse respiratoire aiguë avec un masque à haute concentration (mhc) ?",
-    "opts": [
-      "1 à 2 litres par minute",
-      "10 à 15 litres par minute",
-      "25 à 30 litres par minute",
-      "3 à 5 litres par minute"
-    ],
-    "c": 1,
-    "e": "Le masque à haute concentration s'utilise avec un débit de 10 à 15 L/min pour remplir le réservoir."
-  },
-  {
-    "cat": "Matériel & Oxygénothérapie",
-    "q": "Lors d'une intervention en équipe, quelle précaution essentielle faut-il prendre avant d'utiliser une bouteille d'oxygène médical ?",
-    "opts": [
-      "Huiler le filetage de la bouteille",
-      "Approcher une flamme pour tester la sortie",
-      "Purger la bouteille à l'écart avant le branchement et vérifier la pression au manomètre",
-      "Frapper la bouteille avec un marteau"
-    ],
-    "c": 2,
-    "e": "Ne jamais graisser/huiler le matériel d'oxygène (risque d'inflammation spontanée)."
-  },
-  {
-    "cat": "Matériel & Oxygénothérapie",
-    "q": "Lors d'une intervention en milieu sportif, quel est le débit d'oxygène recommandé chez l'adulte en détresse respiratoire aiguë avec un masque à haute concentration (mhc) ?",
-    "opts": [
-      "1 à 2 litres par minute",
-      "10 à 15 litres par minute",
-      "25 à 30 litres par minute",
-      "3 à 5 litres par minute"
-    ],
-    "c": 1,
-    "e": "Le masque à haute concentration s'utilise avec un débit de 10 à 15 L/min pour remplir le réservoir."
-  },
-  {
-    "cat": "Matériel & Oxygénothérapie",
-    "q": "Lors d'une intervention en milieu sportif, quelle précaution essentielle faut-il prendre avant d'utiliser une bouteille d'oxygène médical ?",
-    "opts": [
-      "Huiler le filetage de la bouteille",
-      "Approcher une flamme pour tester la sortie",
-      "Purger la bouteille à l'écart avant le branchement et vérifier la pression au manomètre",
-      "Frapper la bouteille avec un marteau"
-    ],
-    "c": 2,
-    "e": "Ne jamais graisser/huiler le matériel d'oxygène (risque d'inflammation spontanée)."
-  },
-  {
-    "cat": "Matériel & Oxygénothérapie",
-    "q": "Lors d'une intervention après un accident domestique, quel est le débit d'oxygène recommandé chez l'adulte en détresse respiratoire aiguë avec un masque à haute concentration (mhc) ?",
-    "opts": [
-      "1 à 2 litres par minute",
-      "10 à 15 litres par minute",
-      "25 à 30 litres par minute",
-      "3 à 5 litres par minute"
-    ],
-    "c": 1,
-    "e": "Le masque à haute concentration s'utilise avec un débit de 10 à 15 L/min pour remplir le réservoir."
-  },
-  {
-    "cat": "Matériel & Oxygénothérapie",
-    "q": "Lors d'une intervention après un accident domestique, quelle précaution essentielle faut-il prendre avant d'utiliser une bouteille d'oxygène médical ?",
-    "opts": [
-      "Huiler le filetage de la bouteille",
-      "Approcher une flamme pour tester la sortie",
-      "Purger la bouteille à l'écart avant le branchement et vérifier la pression au manomètre",
-      "Frapper la bouteille avec un marteau"
-    ],
-    "c": 2,
-    "e": "Ne jamais graisser/huiler le matériel d'oxygène (risque d'inflammation spontanée)."
-  },
-  {
-    "cat": "Matériel & Oxygénothérapie",
-    "q": "Lors d'une intervention après un accident de la circulation, quel est le débit d'oxygène recommandé chez l'adulte en détresse respiratoire aiguë avec un masque à haute concentration (mhc) ?",
-    "opts": [
-      "1 à 2 litres par minute",
-      "10 à 15 litres par minute",
-      "25 à 30 litres par minute",
-      "3 à 5 litres par minute"
-    ],
-    "c": 1,
-    "e": "Le masque à haute concentration s'utilise avec un débit de 10 à 15 L/min pour remplir le réservoir."
-  },
-  {
-    "cat": "Matériel & Oxygénothérapie",
-    "q": "Lors d'une intervention après un accident de la circulation, quelle précaution essentielle faut-il prendre avant d'utiliser une bouteille d'oxygène médical ?",
-    "opts": [
-      "Huiler le filetage de la bouteille",
-      "Approcher une flamme pour tester la sortie",
-      "Purger la bouteille à l'écart avant le branchement et vérifier la pression au manomètre",
-      "Frapper la bouteille avec un marteau"
-    ],
-    "c": 2,
-    "e": "Ne jamais graisser/huiler le matériel d'oxygène (risque d'inflammation spontanée)."
-  },
-  {
-    "cat": "Matériel & Oxygénothérapie",
-    "q": "Lors d'une intervention en entreprise, quel est le débit d'oxygène recommandé chez l'adulte en détresse respiratoire aiguë avec un masque à haute concentration (mhc) ?",
-    "opts": [
-      "1 à 2 litres par minute",
-      "10 à 15 litres par minute",
-      "25 à 30 litres par minute",
-      "3 à 5 litres par minute"
-    ],
-    "c": 1,
-    "e": "Le masque à haute concentration s'utilise avec un débit de 10 à 15 L/min pour remplir le réservoir."
-  },
-  {
-    "cat": "Matériel & Oxygénothérapie",
-    "q": "Lors d'une intervention en entreprise, quelle précaution essentielle faut-il prendre avant d'utiliser une bouteille d'oxygène médical ?",
-    "opts": [
-      "Huiler le filetage de la bouteille",
-      "Approcher une flamme pour tester la sortie",
-      "Purger la bouteille à l'écart avant le branchement et vérifier la pression au manomètre",
-      "Frapper la bouteille avec un marteau"
-    ],
-    "c": 2,
-    "e": "Ne jamais graisser/huiler le matériel d'oxygène (risque d'inflammation spontanée)."
-  }
+/* Banque de questions — Quiz PSE · Protection Civile du Lot
+ *
+ * Format d'un item :
+ *   { id: "xxx-01", cat: "<thématique>", level: "PSE1" | "PSE2",
+ *     q: "Question ?",
+ *     opts: ["…", "…", "…", "…"],   // 4 propositions
+ *     c: 2,                          // index de la bonne réponse dans opts
+ *     e: "explication pédagogique" }
+ *
+ * Règles : identifiants uniques, 4 options par question, options de
+ * longueur comparable, positions des bonnes réponses équilibrées.
+ * Contrôle automatique : tools/validate_bank.mjs, exécuté par GitHub Actions.
+ *
+ * Fichier généré depuis data/questions.json — ne pas modifier à la main.
+ *
+ * Banque : 266 questions.
+ */
+
+globalThis.QUESTION_BANK = [
+  {
+    id: "att-01", cat: "Attitude & Comportement", level: "PSE1",
+    q: "Que signifie l'acronyme PAS, qui résume la conduite à tenir du secouriste ?",
+    opts: ["Prévenir, Analyser, Soigner", "Protéger, Alerter, Surveiller", "Préparer, Appliquer, Secourir", "Protéger, Alerter, Secourir"],
+    c: 3,
+    e: "La conduite à tenir est toujours la même : d'abord protéger, puis alerter, puis secourir.",
+  },
+  {
+    id: "att-02", cat: "Attitude & Comportement", level: "PSE1",
+    q: "Quelle est la priorité absolue du secouriste qui arrive sur les lieux d'un accident ?",
+    opts: ["Pratiquer sans attendre le bilan vital de la victime", "Recueillir les témoignages des personnes présentes", "Assurer sa propre sécurité et celle des autres personnes présentes", "Prévenir la famille de la victime par téléphone"],
+    c: 2,
+    e: "Un secouriste blessé ne peut plus secourir : la protection passe avant tout le reste.",
+  },
+  {
+    id: "att-03", cat: "Attitude & Comportement", level: "PSE1",
+    q: "Que fait le secouriste quand un danger incontrôlable menace la victime ?",
+    opts: ["Il attend l'arrivée des secours organisés en surveillant la victime à distance", "Il réalise un dégagement d'urgence si c'est possible, sinon il sécurise la zone et alerte", "Il intervient sans protection pour sortir la victime au plus vite", "Il éloigne les témoins de la zone puis quitte les lieux pour alerter"],
+    c: 1,
+    e: "Face à un danger imminent qu'on ne peut pas supprimer, la victime est soustraite au danger (dégagement d'urgence) ou la zone est interdite d'accès en attendant les secours.",
+  },
+  {
+    id: "att-04", cat: "Attitude & Comportement", level: "PSE1",
+    q: "Quel numéro unique permet de joindre les secours depuis n'importe quel pays de l'Union européenne ?",
+    opts: ["112", "115", "118", "196"],
+    c: 0,
+    e: "Le 112 est le numéro d'urgence européen : il oriente vers le service compétent du pays.",
+  },
+  {
+    id: "att-05", cat: "Attitude & Comportement", level: "PSE1",
+    q: "Quel numéro permet de joindre la régulation médicale du SAMU en France ?",
+    opts: ["17", "114", "115", "15"],
+    c: 3,
+    e: "Le 15 met directement en relation avec un médecin régulateur du SAMU.",
+  },
+  {
+    id: "att-06", cat: "Attitude & Comportement", level: "PSE1",
+    q: "À qui le numéro d'urgence 114 est-il réservé ?",
+    opts: ["Aux personnes sourdes ou malentendantes, par SMS ou par application", "Aux urgences vétérinaires pour les animaux blessés", "Aux accidents du travail survenus dans une entreprise", "Aux interventions des secours en mer et sur le littoral"],
+    c: 0,
+    e: "Le 114 est accessible par SMS, visiophonie ou application pour les personnes qui ne peuvent pas téléphoner.",
+  },
+  {
+    id: "att-07", cat: "Attitude & Comportement", level: "PSE1",
+    q: "Que fait le secouriste qui a appelé les secours, avant de raccrocher ?",
+    opts: ["Il raccroche dès qu'il a donné l'adresse", "Il passe le téléphone à un témoin et s'éloigne", "Il rappelle une seconde fois pour confirmer le message", "Il attend d'être invité à raccrocher, l'opérateur pouvant donner des consignes"],
+    c: 3,
+    e: "La régulation peut demander des précisions ou guider la réalisation des gestes : ne jamais couper la communication le premier.",
+  },
+  {
+    id: "att-08", cat: "Attitude & Comportement", level: "PSE1",
+    q: "Quelles informations sont indispensables lors d'un appel aux secours ?",
+    opts: ["Le nom et l'adresse complète de chaque victime", "Le lieu précis, la nature de l'événement et le nombre de victimes", "Le coût prévisible de l'intervention", "Le récit détaillé de l'accident et tous les antécédents médicaux"],
+    c: 1,
+    e: "Le message d'alerte est structuré autour du lieu, de la nature du problème et du nombre de victimes.",
+  },
+  {
+    id: "att-09", cat: "Attitude & Comportement", level: "PSE1",
+    q: "Que doit faire le secouriste avant de débuter la prise en charge d'une victime ?",
+    opts: ["Commencer les gestes sans parler pour ne pas l'inquiéter", "Se présenter, expliquer ce qu'il va faire et s'assurer de l'accord de la victime", "Demander d'abord sa carte d'identité et sa carte Vitale", "Faire sortir tous les témoins de la pièce"],
+    c: 1,
+    e: "Se présenter et annoncer ses gestes rassure la victime et permet d'obtenir son consentement.",
+  },
+  {
+    id: "att-10", cat: "Attitude & Comportement", level: "PSE1",
+    q: "À qui le secouriste peut-il transmettre les informations recueillies sur une victime ?",
+    opts: ["Aux personnes qui participent directement à la prise en charge", "À personne, pas même au médecin régulateur", "À la presse locale si l'identité de la victime est masquée", "À l'entourage de la victime, quelles que soient les circonstances"],
+    c: 0,
+    e: "Les informations recueillies restent confidentielles : elles ne sont transmises qu'aux acteurs de la prise en charge.",
+  },
+  {
+    id: "att-11", cat: "Attitude & Comportement", level: "PSE1",
+    q: "Quand le secouriste doit-il mettre des gants à usage unique ?",
+    opts: ["Uniquement lorsqu'il voit du sang", "Seulement si la victime est porteuse d'une maladie connue", "Avant tout contact avec une victime ou du matériel potentiellement souillé", "Après avoir réalisé le bilan et constaté une plaie"],
+    c: 2,
+    e: "On se protège avant le contact : on ne peut pas savoir à l'avance si la victime est contagieuse.",
+  },
+  {
+    id: "att-12", cat: "Attitude & Comportement", level: "PSE1",
+    q: "Quel geste d'hygiène réduit le plus le risque de transmission manuportée ?",
+    opts: ["Le port d'une blouse propre pendant toute l'intervention", "La friction des mains au gel hydro-alcoolique avant et après le contact", "Le rinçage des mains à l'eau froide en fin d'intervention", "L'application de lingettes désinfectantes sur le matériel"],
+    c: 1,
+    e: "Les mains sont le principal vecteur de transmission : la friction hydro-alcoolique est réalisée avant et après chaque contact.",
+  },
+  {
+    id: "att-13", cat: "Attitude & Comportement", level: "PSE1",
+    q: "Où élimine-t-on les déchets souillés comme les gants ou les pansements usagés ?",
+    opts: ["Dans la poubelle ordinaire la plus proche", "Sur place, dans un sac plastique laissé ouvert", "Dans un sac dédié aux déchets d'activités de soins, fermé et identifié", "Dans la poche du secouriste jusqu'au retour à la base"],
+    c: 2,
+    e: "Les déchets souillés sont collectés séparément pour éviter tout risque de contamination.",
+  },
+  {
+    id: "att-14", cat: "Attitude & Comportement", level: "PSE1",
+    q: "Quelles précautions d'hygiène sont demandées au secouriste en intervention ?",
+    opts: ["Ongles courts, cheveux attachés et bijoux retirés", "Des ongles manucurés et vernis pour protéger les ongles", "Le port de bagues afin de ne pas les perdre", "Des cheveux détachés pour couvrir le visage"],
+    c: 0,
+    e: "Les bijoux et les ongles longs retiennent les micro-organismes et peuvent blesser la victime.",
+  },
+  {
+    id: "att-15", cat: "Attitude & Comportement", level: "PSE1",
+    q: "Quelle est l'attitude adaptée face à une victime agressive ?",
+    opts: ["La maîtriser physiquement pour pouvoir l'examiner", "L'isoler seul avec un secouriste pour la calmer", "Hausser le ton pour montrer son autorité", "Garder une distance de sécurité, rester calme et demander du renfort"],
+    c: 3,
+    e: "La sécurité du secouriste prime : on ne s'expose pas, on ne s'isole pas et on sollicite du renfort.",
+  },
+  {
+    id: "att-16", cat: "Attitude & Comportement", level: "PSE1",
+    q: "Une victime consciente et lucide refuse les soins : que fait le secouriste ?",
+    opts: ["Il la force physiquement à se laisser examiner malgré son refus", "Il la laisse seule sans en informer le médecin régulateur", "Il informe la victime des risques, respecte son refus et contacte le médecin régulateur", "Il décide avec la famille à la place de la victime consciente"],
+    c: 2,
+    e: "Une personne consciente peut refuser les soins : le secouriste informe, n'insiste pas et prend l'avis de la régulation.",
+  },
+  {
+    id: "att-17", cat: "Attitude & Comportement", level: "PSE1",
+    q: "Pourquoi le secouriste préserve-t-il la pudeur de la victime, par exemple en la couvrant ?",
+    opts: ["Pour éviter uniquement qu'elle prenne froid", "Pour cacher la victime aux autres services de secours", "Pour respecter sa dignité, y compris lorsqu'un déshabillage partiel est nécessaire", "Pour éviter que les témoins s'approchent de trop près"],
+    c: 2,
+    e: "Le respect de la dignité fait partie de la déontologie du secouriste, sans jamais retarder un geste urgent.",
+  },
+  {
+    id: "att-18", cat: "Attitude & Comportement", level: "PSE1",
+    q: "Qu'appelle-t-on le bilan circonstanciel ?",
+    opts: ["L'observation de la situation : dangers, circonstances, nombre et état apparent des victimes", "La mesure des paramètres vitaux de la victime, pouls et respiration", "L'examen complet de la victime, de la tête aux pieds, à la recherche de lésions", "L'interrogatoire médical détaillé de la victime et de son entourage"],
+    c: 0,
+    e: "Le bilan circonstanciel précède le bilan vital : il décrit ce qui s'est passé et ce qui menace encore.",
+  },
+  {
+    id: "att-19", cat: "Attitude & Comportement", level: "PSE1",
+    q: "Que fait le secouriste après avoir alerté et transmis son bilan ?",
+    opts: ["Il reste auprès de la victime, la surveille et applique les consignes du régulateur", "Il quitte les lieux dès que les secours confirment leur venue", "Il va accueillir les secours en laissant la victime seule", "Il range son matériel en attendant sur le trottoir"],
+    c: 0,
+    e: "La surveillance est continue et les consignes de la régulation sont appliquées jusqu'à l'arrivée des secours.",
+  },
+  {
+    id: "att-20", cat: "Attitude & Comportement", level: "PSE1",
+    q: "La situation évolue pendant l'attente des secours : que fait le secouriste ?",
+    opts: ["Il attend sans rien changer au plan établi", "Il déplace la victime pour la mettre à l'abri dans son véhicule", "Il arrête la surveillance puisque les secours sont prévenus", "Il réévalue la situation et effectue un appel complémentaire si nécessaire"],
+    c: 3,
+    e: "Le bilan est répété régulièrement : toute aggravation ou apparition d'un nouveau danger justifie un nouvel appel.",
+  },
+  {
+    id: "att-21", cat: "Attitude & Comportement", level: "PSE1",
+    q: "Lors du déplacement d'une victime, quelle zone le secouriste cherche-t-il à protéger en priorité ?",
+    opts: ["Les jambes, pour permettre à la victime de se déplacer", "Les bras, pour que la victime puisse se tenir", "La tête et le rachis, en cherchant à maintenir l'axe tête-cou-tronc", "Le bassin, pour éviter les blessures de la hanche"],
+    c: 2,
+    e: "En cas de déplacement, la tête et la colonne sont protégées en évitant les mouvements de torsion.",
+  },
+  {
+    id: "att-22", cat: "Attitude & Comportement", level: "PSE1",
+    q: "Pourquoi l'équipier secouriste suit-il les consignes du médecin régulateur ?",
+    opts: ["Parce que le régulateur coordonne la prise en charge et peut prescrire des gestes adaptés", "Parce que le régulateur se substitue au secouriste sur les lieux", "Parce qu'il engage la responsabilité du secouriste à sa place", "Parce qu'il remplace l'appel au 18 en toutes circonstances"],
+    c: 0,
+    e: "Le médecin régulateur décide de la suite de la prise en charge et peut demander des gestes supplémentaires.",
+  },
+  {
+    id: "att-23", cat: "Attitude & Comportement", level: "PSE1",
+    q: "Que doit faire un secouriste blessé ou piqué par un objet souillé pendant l'intervention ?",
+    opts: ["Couvrir la plaie d'un simple pansement et continuer à secourir", "Laver et désinfecter la plaie, la protéger puis consulter un médecin en signalant l'exposition", "Rincer la plaie à l'alcool pur puis attendre le lendemain", "Attendre la fin de la garde pour en parler au chef d'équipe"],
+    c: 1,
+    e: "Toute exposition au sang impose une désinfection immédiate et un avis médical, avec déclaration de l'accident.",
+  },
+  {
+    id: "att-24", cat: "Attitude & Comportement", level: "PSE1",
+    q: "Comment l'équipier secouriste maintient-il à jour ses connaissances et sa compétence ?",
+    opts: ["En participant régulièrement aux formations continues et aux recyclages de son association", "En revalidant lui-même son certificat en ligne chaque année", "En renouvelant son diplôme tous les six mois auprès de la préfecture", "En passant une évaluation annuelle devant le médecin régulateur du SAMU"],
+    c: 0,
+    e: "La formation continue maintient à jour les connaissances et les gestes de secours.",
+  },
+  {
+    id: "urg-01", cat: "Urgences Vitales", level: "PSE1",
+    q: "Comment reconnaît-on un arrêt cardiaque ?",
+    opts: ["La victime est inconsciente et respire lentement", "La victime se plaint d'une douleur thoracique intense", "La victime est inconsciente et ne respire pas normalement", "La victime est pâle et a un pouls très rapide"],
+    c: 2,
+    e: "Le double critère inconscience + absence de respiration normale définit l'arrêt cardiaque.",
+  },
+  {
+    id: "urg-02", cat: "Urgences Vitales", level: "PSE1",
+    q: "Combien de temps consacre-t-on au contrôle de la respiration d'une victime inconsciente ?",
+    opts: ["10 secondes au maximum", "3 secondes", "30 secondes", "1 minute complète"],
+    c: 0,
+    e: "Le contrôle dure au maximum 10 secondes : au-delà, la RCP est retardée inutilement.",
+  },
+  {
+    id: "urg-03", cat: "Urgences Vitales", level: "PSE1",
+    q: "Comment contrôle-t-on la respiration d'une victime inconsciente ?",
+    opts: ["En regardant le ventre se soulever, en écoutant et en sentant le souffle", "En posant l'oreille sur la poitrine pour compter les battements", "En pinçant le nez et en soufflant pour voir si l'air ressort", "En posant la main sur le front pour sentir la chaleur"],
+    c: 0,
+    e: "Après la libération des voies aériennes, on regarde, on écoute et on sent pendant 10 secondes.",
+  },
+  {
+    id: "urg-04", cat: "Urgences Vitales", level: "PSE1",
+    q: "Qu'est-ce qu'un gasps, observé chez une victime inconsciente ?",
+    opts: ["Une respiration normale mais bruyante", "Un râle qui annonce la fin de vie et dispense de tout geste", "Une toux réflexe qui protège les voies aériennes", "Une respiration agonique et anormale qui impose de débuter la RCP"],
+    c: 3,
+    e: "Les gasps ne sont pas une respiration efficace : ils doivent être considérés comme une absence de respiration.",
+  },
+  {
+    id: "urg-05", cat: "Urgences Vitales", level: "PSE1",
+    q: "Que fait le secouriste devant une victime inconsciente qui ne respire pas normalement ?",
+    opts: ["Il attend une minute pour vérifier que la respiration reprend", "Il met la victime en PLS et attend les secours", "Il débute immédiatement la RCP et fait chercher un DAE", "Il soulève les jambes de la victime pour améliorer la circulation"],
+    c: 2,
+    e: "Chaque minute sans RCP réduit les chances de survie : les compressions débutent sans délai.",
+  },
+  {
+    id: "urg-06", cat: "Urgences Vitales", level: "PSE1",
+    q: "Faut-il rechercher le pouls avant de débuter la réanimation cardio-pulmonaire ?",
+    opts: ["Oui, il faut compter les battements pendant une minute", "Non, l'absence de respiration normale suffit pour débuter la RCP", "Oui, uniquement au niveau du cou", "Non, mais il faut vérifier la tension artérielle"],
+    c: 1,
+    e: "La recherche du pouls est peu fiable, même pour des professionnels : elle n'est plus recommandée.",
+  },
+  {
+    id: "urg-07", cat: "Urgences Vitales", level: "PSE1",
+    q: "Peut-on secouer une victime inconsciente pour la réveiller ?",
+    opts: ["Non, on lui parle et on la stimule sans la secouer", "Oui, fermement, pour la sortir de l'inconscience", "Oui, en la prenant par les épaules et en la redressant", "Oui, mais seulement si elle ne réagit pas à la voix"],
+    c: 0,
+    e: "Secouer une victime peut aggraver une lésion du rachis : on parle et on stimule sans mobiliser.",
+  },
+  {
+    id: "urg-08", cat: "Urgences Vitales", level: "PSE1",
+    q: "Comment libère-t-on les voies aériennes d'une victime inconsciente ?",
+    opts: ["En glissant les doigts dans la bouche à la recherche d'un corps étranger", "En plaçant un coussin épais sous la nuque", "En basculant prudemment la tête en arrière et en élevant le menton", "En appuyant sur le ventre pour faire remonter l'air"],
+    c: 2,
+    e: "La bascule de la tête associée à l'élévation du menton dégage la langue, principale cause d'obstruction.",
+  },
+  {
+    id: "urg-09", cat: "Urgences Vitales", level: "PSE1",
+    q: "Comment ouvre-t-on les voies aériennes d'une victime chez qui on suspecte un traumatisme du rachis cervical ?",
+    opts: ["En basculant largement la tête en arrière", "Par l'élévation du menton, sans basculer la tête en arrière", "En tournant la tête sur le côté", "En tirant la langue vers l'extérieur"],
+    c: 1,
+    e: "Chez un traumatisé du rachis, l'élévation du menton ouvre les voies aériennes sans mobiliser la colonne cervicale.",
+  },
+  {
+    id: "urg-10", cat: "Urgences Vitales", level: "PSE1",
+    q: "Quels signes font suspecter une détresse respiratoire ?",
+    opts: ["Une toux grasse isolée avec un mal de gorge et un écoulement nasal", "Une pâleur du visage avec des sueurs froides et une peau moite", "Une douleur abdominale avec des nausées et des vomissements", "Une difficulté à parler, un tirage et une respiration rapide ou bruyante"],
+    c: 3,
+    e: "Le tirage, la cyanose, la difficulté à parler ou à tousser sont des signes de détresse respiratoire.",
+  },
+  {
+    id: "urg-11", cat: "Urgences Vitales", level: "PSE1",
+    q: "Quelle position adopte-t-on pour une victime consciente en détresse respiratoire ?",
+    opts: ["Allongée sur le dos, les jambes surélevées", "Allongée sur le ventre, tête tournée sur le côté", "Debout, les bras levés au-dessus de la tête", "Assise ou demi-assise, dans la position où elle respire le mieux"],
+    c: 3,
+    e: "La position assise facilite la ventilation ; on retient la position dans laquelle la victime se sent le mieux.",
+  },
+  {
+    id: "urg-12", cat: "Urgences Vitales", level: "PSE1",
+    q: "Peut-on donner à boire à une victime qui a perdu connaissance ?",
+    opts: ["Oui, si elle réagit à la voix", "Oui, quelques gorgées d'eau fraîche pour la réveiller", "Non, jamais, à cause du risque de fausse route", "Oui, si elle réclame à boire"],
+    c: 2,
+    e: "Une victime qui a perdu connaissance ne peut plus protéger ses voies aériennes : aucune boisson ne doit être donnée.",
+  },
+  {
+    id: "urg-13", cat: "Urgences Vitales", level: "PSE1",
+    q: "Quels signes évoquent un état de choc, ou détresse circulatoire ?",
+    opts: ["Une rougeur du visage et une sensation de chaleur", "Des urines abondantes et une soif intense", "Une somnolence après un repas trop copieux", "Une pâleur avec des sueurs froides, une peau moite et de l'angoisse"],
+    c: 3,
+    e: "La pâleur, les sueurs froides et l'agitation sont des signes d'alerte d'un état de choc.",
+  },
+  {
+    id: "urg-14", cat: "Urgences Vitales", level: "PSE1",
+    q: "Que fait le secouriste après avoir sorti de l'eau une victime de noyade ?",
+    opts: ["Il la secoue pour évacuer l'eau des poumons", "Il la couche sur le ventre pour laisser l'eau s'écouler", "Il vérifie la conscience et la respiration, alerte, puis met en PLS ou débute la RCP", "Il la fait marcher pour stimuler la circulation"],
+    c: 2,
+    e: "La noyade n'est pas traitée par vidange des poumons : on évalue conscience et respiration, puis on agit en conséquence.",
+  },
+  {
+    id: "urg-15", cat: "Urgences Vitales", level: "PSE1",
+    q: "Comment réagir face à une victime intoxiquée au monoxyde de carbone dans un local fermé ?",
+    opts: ["Allumer la lumière pour chercher la fuite de gaz", "Entrer rapidement pour ouvrir les fenêtres du local", "Attendre sur place que la victime se sente mieux", "Ne pas entrer sans protection, aérer, sortir la victime et alerter"],
+    c: 3,
+    e: "Le monoxyde de carbone est inodore et asphyxiant : la zone est dangereuse et seuls des intervenants protégés y accèdent.",
+  },
+  {
+    id: "urg-16", cat: "Urgences Vitales", level: "PSE1",
+    q: "Que fait-on en premier devant une victime encore en contact avec un conducteur électrique ?",
+    opts: ["La tirer par les bras pour l'éloigner du conducteur", "Couper le courant avant tout contact, sans toucher la victime", "Lui jeter de l'eau pour éteindre le contact", "La couvrir d'un tissu sec puis la déplacer"],
+    c: 1,
+    e: "Aucun contact tant que le courant n'est pas coupé : l'électricité se transmet aux personnes qui touchent la victime.",
+  },
+  {
+    id: "urg-17", cat: "Urgences Vitales", level: "PSE1",
+    q: "Une fois le courant coupé, que fait le secouriste pour la victime électrisée ?",
+    opts: ["Il vérifie la conscience et la respiration, puis alerte et agit selon les détresses constatées", "Il vérifie le fonctionnement des appareils électriques", "Il lui fait boire de l'eau sucrée pour la remettre d'aplomb", "Il la masse au niveau du point d'entrée du courant"],
+    c: 0,
+    e: "L'électrisation peut provoquer un arrêt cardiaque et des brûlures : l'évaluation des détresses vitales est prioritaire.",
+  },
+  {
+    id: "urg-18", cat: "Urgences Vitales", level: "PSE1",
+    q: "Que faut-il surtout éviter devant une victime d'intoxication médicamenteuse ?",
+    opts: ["Faire vomir ou faire boire la victime", "Conserver les emballages des produits absorbés", "Alerter le centre antipoison ou le 15", "Surveiller la conscience et la respiration"],
+    c: 0,
+    e: "On ne fait jamais vomir une victime intoxiquée : le produit remonterait dans les voies aériennes.",
+  },
+  {
+    id: "urg-19", cat: "Urgences Vitales", level: "PSE1",
+    q: "Quelles sont les détresses vitales que l'équipier secouriste doit savoir reconnaître ?",
+    opts: ["L'arrêt cardiaque, l'inconscience, la détresse respiratoire et l'hémorragie externe", "La fièvre, la toux et l'écoulement nasal avec un état général conservé", "L'entorse, la contusion et la crampe musculaire après un effort", "La fatigue, le vertige et l'insomnie chez une personne anxieuse"],
+    c: 0,
+    e: "Ces quatre détresses menacent immédiatement la vie et nécessitent des gestes de secours sans délai.",
+  },
+  {
+    id: "urg-20", cat: "Urgences Vitales", level: "PSE1",
+    q: "Pourquoi l'inconscience est-elle considérée comme une détresse vitale ?",
+    opts: ["Parce que la victime risque de se fracturer un membre", "Parce qu'elle ne peut pas répondre aux questions du bilan", "Parce que les voies aériennes peuvent s'obstruer et la respiration s'arrêter", "Parce qu'elle ne pourra pas signer la fiche d'intervention"],
+    c: 2,
+    e: "Une victime inconsciente perd ses réflexes de protection : ses voies aériennes doivent être surveillées en permanence.",
+  },
+  {
+    id: "urg-21", cat: "Urgences Vitales", level: "PSE1",
+    q: "Que risque une victime inconsciente laissée sur le dos ?",
+    opts: ["Une déformation progressive de la colonne vertébrale", "L'inhalation de vomissures ou l'obstruction des voies aériennes", "Une baisse définitive de la température corporelle", "Une augmentation de la pression artérielle"],
+    c: 1,
+    e: "Sur le dos, la langue et les liquides peuvent obstruer les voies aériennes : la PLS y remédie chez la victime qui respire.",
+  },
+  {
+    id: "urg-22", cat: "Urgences Vitales", level: "PSE1",
+    q: "Une victime de malaise est très somnolente mais répond à la voix : que fait le secouriste ?",
+    opts: ["Il la laisse se reposer seule en attendant que ça passe", "Il la met debout pour éviter qu'elle ne s'endorme", "Il alerte, la surveille en permanence et ne la laisse jamais seule", "Il lui donne à boire un café très sucré"],
+    c: 2,
+    e: "Une conscience altérée peut s'aggraver rapidement : la surveillance doit être continue.",
+  },
+  {
+    id: "urg-23", cat: "Urgences Vitales", level: "PSE1",
+    q: "Quel est le meilleur moyen d'augmenter les chances de survie d'une victime en arrêt cardiaque ?",
+    opts: ["L'attente de l'arrivée du médecin avant tout geste", "Une position allongée jambes surélevées", "Une ventilation au bouche-à-bouche prolongée seule", "Une RCP précoce associée à l'utilisation rapide d'un DAE"],
+    c: 3,
+    e: "La chaîne de survie repose sur l'alerte, la RCP immédiate et la défibrillation la plus précoce possible.",
+  },
+  {
+    id: "urg-24", cat: "Urgences Vitales", level: "PSE1",
+    q: "Sur quelle surface faut-il pratiquer les compressions thoraciques ?",
+    opts: ["Sur une surface dure et plane, au sol de préférence", "Sur un matelas mou pour le confort de la victime", "Sur un canapé pour éviter que la victime ait froid", "Sur le plan incliné d'un brancard"],
+    c: 0,
+    e: "Un support mou absorbe l'énergie des compressions : la victime est installée sur un plan dur.",
+  },
+  {
+    id: "urg-25", cat: "Urgences Vitales", level: "PSE1",
+    q: "Pendant qu'un secouriste pratique les compressions, que fait le second secouriste ?",
+    opts: ["Il interroge les témoins sur les antécédents de la victime", "Il prépare le DAE et reste prêt à prendre le relais des compressions", "Il rédige la fiche bilan sans intervenir", "Il cherche la carte Vitale de la victime dans ses affaires"],
+    c: 1,
+    e: "Le travail en équipe permet la mise en place rapide du DAE et le relais régulier des compressions.",
+  },
+  {
+    id: "urg-26", cat: "Urgences Vitales", level: "PSE1",
+    q: "À quelle fréquence le secouriste contrôle-t-il l'état de la victime en attendant les secours ?",
+    opts: ["En permanence et aussi souvent que nécessaire pour détecter une aggravation", "Une seule fois, juste après l'appel aux secours", "Toutes les quinze minutes, montre en main", "Uniquement si la victime se plaint"],
+    c: 0,
+    e: "La surveillance est continue : toute aggravation justifie un appel complémentaire ou un nouveau geste.",
+  },
+  {
+    id: "urg-27", cat: "Urgences Vitales", level: "PSE1",
+    q: "Pourquoi retire-t-on délicatement un corps étranger visible dans la bouche d'une victime inconsciente ?",
+    opts: ["Parce qu'il faut libérer la bouche avant tout examen de la victime", "Parce qu'il peut gêner les insufflations ou obstruer les voies aériennes", "Parce qu'il faut remettre l'objet à la famille de la victime", "Parce que sa présence empêche de vérifier le pouls"],
+    c: 1,
+    e: "Un corps étranger visible est retiré sans le pousser, mais aucun doigté à l'aveugle n'est réalisé.",
+  },
+  {
+    id: "urg-28", cat: "Urgences Vitales", level: "PSE1",
+    q: "Que fait le secouriste devant une personne qui s'effondre devant lui et ne se relève pas ?",
+    opts: ["Il la relève immédiatement pour la mettre sur une chaise", "Il s'assure de l'absence de danger, vérifie la conscience puis la respiration", "Il la retourne sur le ventre pour dégager sa bouche", "Il débute la RCP sans vérifier son état de conscience"],
+    c: 1,
+    e: "La démarche est toujours la même : protéger, vérifier la conscience, vérifier la respiration.",
+  },
+  {
+    id: "urg-29", cat: "Urgences Vitales", level: "PSE1",
+    q: "Pourquoi est-il important de noter l'heure des événements pendant une intervention ?",
+    opts: ["Parce que la fiche bilan doit être signée avant l'arrivée des secours", "Parce que la régulation facture l'intervention à l'heure", "Parce que le secouriste doit respecter une durée maximale de 30 minutes", "Parce que l'heure de début des signes guide la prise en charge médicale"],
+    c: 3,
+    e: "L'heure de survenue est transmise au médecin régulateur : elle oriente les traitements, notamment pour l'AVC.",
+  },
+  {
+    id: "urg-30", cat: "Urgences Vitales", level: "PSE1",
+    q: "Pourquoi une hémorragie externe non traitée peut-elle être mortelle ?",
+    opts: ["Parce qu'elle provoque une infection immédiate", "Parce qu'elle peut entraîner en quelques minutes un état de choc", "Parce qu'elle provoque une fracture du membre atteint", "Parce qu'elle empêche le secouriste d'évaluer la douleur"],
+    c: 1,
+    e: "La perte de sang importante et rapide désamorce la circulation : c'est une détresse vitale majeure.",
+  },
+  {
+    id: "rcp-01", cat: "RCP & DAE", level: "PSE1",
+    q: "Quel est le ratio compressions / insufflations chez l'adulte en arrêt cardiaque ?",
+    opts: ["15 compressions pour 2 insufflations", "30 compressions pour 2 insufflations", "5 compressions pour 1 insufflation", "10 compressions pour 1 insufflation"],
+    c: 1,
+    e: "Chez l'adulte, la RCP associe 30 compressions thoraciques à 2 insufflations, en cycles répétés.",
+  },
+  {
+    id: "rcp-02", cat: "RCP & DAE", level: "PSE1",
+    q: "Quelle est la fréquence recommandée des compressions thoraciques chez l'adulte ?",
+    opts: ["40 à 60 compressions par minute", "100 à 120 compressions par minute", "60 à 80 compressions par minute", "150 à 180 compressions par minute"],
+    c: 1,
+    e: "Le rythme de 100 à 120 compressions par minute optimise le débit sanguin sans fatiguer le secouriste.",
+  },
+  {
+    id: "rcp-03", cat: "RCP & DAE", level: "PSE1",
+    q: "Quelle doit être la profondeur des compressions chez un adulte ?",
+    opts: ["5 à 6 centimètres", "2 à 3 centimètres", "3 à 4 centimètres", "8 à 10 centimètres"],
+    c: 0,
+    e: "Chez l'adulte, le thorax est comprimé de 5 à 6 cm, avec un relâchement complet entre les appuis.",
+  },
+  {
+    id: "rcp-04", cat: "RCP & DAE", level: "PSE1",
+    q: "Où place-t-on les mains pour comprimer le thorax d'un adulte ?",
+    opts: ["Au centre de la poitrine, sur la moitié inférieure du sternum", "Sur la partie haute du thorax, sous la gorge", "À gauche, directement sur le cœur", "Sur le côté droit du thorax, entre les côtes"],
+    c: 0,
+    e: "Les mains sont placées au centre du thorax, sur la moitié inférieure du sternum, pour comprimer efficacement le cœur.",
+  },
+  {
+    id: "rcp-05", cat: "RCP & DAE", level: "PSE1",
+    q: "Quelle position adopte le secouriste qui pratique les compressions thoraciques ?",
+    opts: ["Debout au-dessus de la victime, bras fléchis", "Assis derrière la tête, en tirant vers lui", "À genoux à côté de la victime, bras tendus et épaules au-dessus des mains", "À genoux au niveau des pieds, bras tendus vers l'avant"],
+    c: 2,
+    e: "Bras tendus et épaules à la verticale permettent d'utiliser le poids du corps et de comprimer efficacement.",
+  },
+  {
+    id: "rcp-06", cat: "RCP & DAE", level: "PSE1",
+    q: "Que fait-on juste après chaque série de compressions thoraciques chez l'adulte ?",
+    opts: ["Une pause de trente secondes pour récupérer", "Trois insufflations d'environ trois secondes chacune", "Deux insufflations d'environ une seconde chacune", "Une vérification de la tension artérielle"],
+    c: 2,
+    e: "Après 30 compressions, on délivre 2 insufflations efficaces d'environ 1 seconde.",
+  },
+  {
+    id: "rcp-07", cat: "RCP & DAE", level: "PSE1",
+    q: "À quoi reconnaît-on une insufflation efficace ?",
+    opts: ["Le thorax de la victime se soulève à chaque insufflation", "De l'air s'échappe de la bouche pendant l'insufflation", "Le ventre de la victime se gonfle fortement", "La victime tousse à chaque insufflation"],
+    c: 0,
+    e: "Le soulèvement du thorax confirme que l'air pénètre bien dans les poumons.",
+  },
+  {
+    id: "rcp-08", cat: "RCP & DAE", level: "PSE1",
+    q: "Le thorax ne se soulève pas à l'insufflation : que fait le secouriste ?",
+    opts: ["Il insuffle beaucoup plus fort plusieurs fois de suite", "Il arrête la RCP et attend les secours", "Il comprime l'abdomen pour chasser l'air", "Il reprend la libération des voies aériennes et réessaie une insufflation"],
+    c: 3,
+    e: "Si une insufflation échoue, on vérifie l'ouverture des voies aériennes et on retente ; sinon on reprend les compressions.",
+  },
+  {
+    id: "rcp-09", cat: "RCP & DAE", level: "PSE1",
+    q: "Quand le défibrillateur automatisé externe (DAE) doit-il être utilisé ?",
+    opts: ["Dès qu'il est disponible, sans interrompre durablement les compressions", "Après dix minutes de RCP, pour laisser le cœur se préparer", "Uniquement sur avis du médecin régulateur", "Après l'arrivée des secours organisés"],
+    c: 0,
+    e: "Plus la défibrillation est précoce, plus les chances de survie augmentent : le DAE est mis en œuvre dès qu'il est là.",
+  },
+  {
+    id: "rcp-10", cat: "RCP & DAE", level: "PSE1",
+    q: "Que doivent faire les personnes autour de la victime pendant l'analyse du rythme par le DAE ?",
+    opts: ["Maintenir les compressions pendant l'analyse", "Tenir les bras de la victime pour qu'elle reste immobile", "Ne plus toucher la victime jusqu'à la fin de l'analyse", "Soulever les jambes de la victime"],
+    c: 2,
+    e: "Tout contact perturbe l'analyse du rythme et expose la personne au risque de choc électrique.",
+  },
+  {
+    id: "rcp-11", cat: "RCP & DAE", level: "PSE1",
+    q: "Où colle-t-on les électrodes du DAE chez l'adulte ?",
+    opts: ["Sur les deux cuisses, à mi-hauteur", "Sur le dos, de part et d'autre de la colonne", "Sous la clavicule gauche et sous l'aisselle droite en toutes circonstances", "Sous la clavicule droite et sous l'aisselle gauche"],
+    c: 3,
+    e: "La position sous la clavicule droite et sous l'aisselle gauche fait passer le courant à travers le cœur.",
+  },
+  {
+    id: "rcp-12", cat: "RCP & DAE", level: "PSE1",
+    q: "Que fait le secouriste si la victime est allongée dans une flaque d'eau ?",
+    opts: ["Il attend que la victime sèche seule avant d'utiliser le DAE", "Il l'éloigne de l'eau et essuie son thorax avant de coller les électrodes", "Il utilise le DAE sans précaution, l'eau ne conduisant pas le courant", "Il asperge la victime d'eau propre pour rincer la peau"],
+    c: 1,
+    e: "Un thorax mouillé peut détourner le courant : la victime est déplacée hors de l'eau et essuyée.",
+  },
+  {
+    id: "rcp-13", cat: "RCP & DAE", level: "PSE1",
+    q: "Les électrodes du DAE n'adhèrent pas à cause de poils très abondants : que fait le secouriste ?",
+    opts: ["Il rase ou coupe rapidement les poils, ou colle une seconde paire d'électrodes par-dessus", "Il colle les électrodes avec du ruban adhésif par-dessus les poils", "Il renonce définitivement à utiliser le DAE", "Il applique du gel hydro-alcoolique sur le thorax"],
+    c: 0,
+    e: "Un contact insuffisant empêche l'analyse : on améliore l'adhérence avant de coller les électrodes.",
+  },
+  {
+    id: "rcp-14", cat: "RCP & DAE", level: "PSE1",
+    q: "La victime porte un patch médicamenteux sur le thorax : que fait le secouriste ?",
+    opts: ["Il colle l'électrode par-dessus le patch", "Il le retire et essuie la peau avant de coller l'électrode", "Il interrompt la défibrillation et attend un avis médical", "Il découpe l'électrode autour du patch"],
+    c: 1,
+    e: "Le patch peut détourner l'énergie du choc : il est retiré et la peau essuyée.",
+  },
+  {
+    id: "rcp-15", cat: "RCP & DAE", level: "PSE1",
+    q: "La victime est porteuse d'un stimulateur cardiaque (pacemaker) : que fait le secouriste ?",
+    opts: ["Il pose l'électrode directement sur le boîtier visible", "Il retire le boîtier avec les doigts avant de défibriller", "Il colle l'électrode à plusieurs centimètres du boîtier, sans poser l'électrode dessus", "Il renonce au DAE, un stimulateur interdisant la défibrillation"],
+    c: 2,
+    e: "Un stimulateur n'empêche pas la défibrillation : l'électrode est simplement placée à distance du boîtier.",
+  },
+  {
+    id: "rcp-16", cat: "RCP & DAE", level: "PSE1",
+    q: "Une femme enceinte est en arrêt cardiaque : que fait le secouriste ?",
+    opts: ["Il renonce à la RCP pour ne pas blesser l'enfant", "Il pratique uniquement des insufflations", "Il attend un avis médical avant tout geste", "Il applique la même conduite : RCP et DAE sans modification"],
+    c: 3,
+    e: "La grossesse ne modifie pas la réanimation de la mère : RCP et DAE sont réalisés normalement.",
+  },
+  {
+    id: "rcp-17", cat: "RCP & DAE", level: "PSE1",
+    q: "Chez un enfant ou un nourrisson, quelles précautions prend-on avec le DAE ?",
+    opts: ["On réserve le DAE aux victimes de plus de douze ans", "On colle les électrodes adultes sur la poitrine et le dos", "On utilise les électrodes pédiatriques ou l'atténuateur si l'appareil en dispose", "On divise par deux la puissance de l'appareil en appuyant deux fois"],
+    c: 2,
+    e: "Le DAE est utilisable chez l'enfant et le nourrisson, avec des électrodes pédiatriques ou un atténuateur quand ils existent.",
+  },
+  {
+    id: "rcp-18", cat: "RCP & DAE", level: "PSE1",
+    q: "Le DAE conseille un choc : que fait l'équipe ?",
+    opts: ["Personne ne touche la victime, un secouriste appuie sur le bouton de choc", "Un secouriste maintient les compressions pendant le choc", "On retire les électrodes puis on appuie sur le bouton", "On soulève la victime pour l'isoler du sol"],
+    c: 0,
+    e: "Le choc est délivré sans aucun contact avec la victime pour protéger les sauveteurs.",
+  },
+  {
+    id: "rcp-19", cat: "RCP & DAE", level: "PSE1",
+    q: "Que fait-on immédiatement après la délivrance d'un choc par le DAE ?",
+    opts: ["On vérifie le pouls de la victime pendant une minute", "On attend deux minutes que la victime bouge", "On débranche le DAE pour éviter un second choc", "On reprend les compressions thoraciques sans attendre"],
+    c: 3,
+    e: "Après un choc, la RCP reprend immédiatement : c'est elle qui rétablit une circulation efficace.",
+  },
+  {
+    id: "rcp-20", cat: "RCP & DAE", level: "PSE1",
+    q: "À quelle fréquence les secouristes changent-ils de position pour les compressions ?",
+    opts: ["Toutes les trente secondes, pour vérifier le pouls de la victime", "Uniquement lorsque le DAE le demande ou signale une erreur", "Toutes les dix minutes, pour ne pas désorganiser l'équipe", "Toutes les deux minutes environ, ou plus tôt en cas de fatigue"],
+    c: 3,
+    e: "Le relais tous les 2 minutes maintient la qualité des compressions ; le changement se fait sans interrompre la RCP.",
+  },
+  {
+    id: "rcp-21", cat: "RCP & DAE", level: "PSE1",
+    q: "Chez l'enfant, quel est le ratio compressions / insufflations ?",
+    opts: ["30 compressions pour 2 insufflations", "15 compressions pour 2 insufflations", "5 compressions pour 2 insufflations", "10 compressions pour 1 insufflation"],
+    c: 1,
+    e: "Chez l'enfant et le nourrisson, la RCP se pratique à 15 compressions pour 2 insufflations.",
+  },
+  {
+    id: "rcp-22", cat: "RCP & DAE", level: "PSE1",
+    q: "Par quelle manœuvre débute-t-on la réanimation d'un enfant ou d'un noyé ?",
+    opts: ["Par trente compressions immédiates, sans insufflation", "Par une vérification du pouls carotidien", "Par cinq insufflations, puis la RCP", "Par la position allongée jambes surélevées"],
+    c: 2,
+    e: "En cas d'asphyxie ou de noyade, la cause est respiratoire : cinq insufflations initiales sont réalisées avant les compressions.",
+  },
+  {
+    id: "rcp-23", cat: "RCP & DAE", level: "PSE1",
+    q: "Comment se pratique la RCP chez un nourrisson ?",
+    opts: ["Par des compressions sur le ventre, à un rythme lent", "Par des compressions au centre de la poitrine, à un rythme de 100 à 120 par minute", "Par des compressions sur les côtes, à pleines mains", "Par des percussions dans le dos, en position debout"],
+    c: 1,
+    e: "Chez le nourrisson, le thorax est comprimé au centre, à la même fréquence que chez l'adulte.",
+  },
+  {
+    id: "rcp-24", cat: "RCP & DAE", level: "PSE1",
+    q: "Que fait le secouriste si la victime se remet à respirer normalement après la RCP ?",
+    opts: ["Il interrompt toute surveillance, la victime étant sauvée", "Il la met assise pour faciliter sa respiration", "Il lui donne à boire pour la réhydrater", "Il la place en position latérale de sécurité et poursuit la surveillance"],
+    c: 3,
+    e: "Après une reprise de la respiration, la PLS protège les voies aériennes en attendant les secours.",
+  },
+  {
+    id: "rcp-25", cat: "RCP & DAE", level: "PSE1",
+    q: "Pourquoi relâche-t-on complètement le thorax entre deux compressions ?",
+    opts: ["Pour éviter de casser les côtes de la victime", "Pour laisser le temps au secouriste de respirer", "Pour permettre le retour du sang vers le cœur", "Pour que le DAE puisse analyser le rythme"],
+    c: 2,
+    e: "Le relâchement complet permet au thorax de reprendre sa forme et au cœur de se remplir de sang.",
+  },
+  {
+    id: "rcp-26", cat: "RCP & DAE", level: "PSE1",
+    q: "Dans quels cas le secouriste peut-il interrompre la RCP ?",
+    opts: ["Si la victime se réveille, si un relais est pris, à l'arrivée des secours ou en cas d'épuisement", "Toutes les deux minutes, afin de contrôler le pouls et l'efficacité des compressions", "Dès que le DAE est allumé, afin de laisser l'appareil analyser le rythme seul", "Après dix minutes, la réanimation devenant inutile au-delà de ce délai"],
+    c: 0,
+    e: "Les interruptions doivent rester exceptionnelles et les plus courtes possibles.",
+  },
+  {
+    id: "rcp-27", cat: "RCP & DAE", level: "PSE1",
+    q: "Le DAE demande de ne pas toucher la victime mais un secouriste est seul : que fait-il ?",
+    opts: ["Il maintient les compressions thoraciques pendant toute la durée de l'analyse", "Il s'écarte le temps de l'analyse puis reprend les compressions dès que le DAE le lui indique", "Il quitte la victime pour chercher un second secouriste disponible", "Il éteint le DAE afin de pouvoir continuer les compressions sans interruption"],
+    c: 1,
+    e: "Seul, le secouriste alterne compressions et temps d'analyse du DAE, sans jamais toucher la victime pendant l'analyse.",
+  },
+  {
+    id: "ova-01", cat: "Obstruction des Voies Aériennes", level: "PSE1",
+    q: "À quoi reconnaît-on une obstruction totale des voies aériennes ?",
+    opts: ["La victime tousse énergiquement et parle difficilement", "La victime respire en sifflant mais peut parler", "La victime a du mal à avaler sa salive", "La victime ne peut plus parler, tousser ni respirer"],
+    c: 3,
+    e: "L'obstruction totale empêche tout passage de l'air : la victime ne peut plus émettre de son ni tousser.",
+  },
+  {
+    id: "ova-02", cat: "Obstruction des Voies Aériennes", level: "PSE1",
+    q: "Une victime consciente tousse fortement après avoir avalé de travers : que fait le secouriste ?",
+    opts: ["Il lui donne cinq claques dans le dos immédiatement", "Il l'encourage à tousser et la surveille sans intervenir", "Il pratique aussitôt des compressions abdominales", "Il lui fait boire un verre d'eau pour faire descendre l'aliment"],
+    c: 1,
+    e: "Quand la victime tousse, l'air passe encore : la toux est le meilleur moyen d'expulsion, on ne l'interrompt pas.",
+  },
+  {
+    id: "ova-03", cat: "Obstruction des Voies Aériennes", level: "PSE1",
+    q: "Quelle est la conduite à tenir devant une obstruction totale chez un adulte conscient ?",
+    opts: ["Cinq compressions abdominales, puis cinq claques dans le dos", "Un doigté à l'aveugle dans la bouche, puis des claques dans le dos", "Une position assise, en attendant que l'obstruction se dissolve", "Cinq claques dans le dos, puis cinq compressions abdominales si nécessaire"],
+    c: 3,
+    e: "La séquence recommandée est de 5 claques dans le dos, suivies si besoin de 5 compressions abdominales.",
+  },
+  {
+    id: "ova-04", cat: "Obstruction des Voies Aériennes", level: "PSE1",
+    q: "Comment donne-t-on les claques dans le dos ?",
+    opts: ["Entre les omoplates, la victime penchée en avant", "Sur la nuque, la victime assise bien droite", "Sur les côtes, la victime couchée sur le dos", "Sur le bas du dos, la victime debout penchée en arrière"],
+    c: 0,
+    e: "La victime est penchée vers l'avant, la tête plus basse que le thorax, et les claques sont portées entre les omoplates.",
+  },
+  {
+    id: "ova-05", cat: "Obstruction des Voies Aériennes", level: "PSE1",
+    q: "Comment réalise-t-on une compression abdominale (manœuvre de Heimlich) ?",
+    opts: ["Poing placé sous le nombril, puis poussée vers le bas", "Main ouverte appuyée sur le sternum, puis poussée vers l'arrière", "Poing placé entre le nombril et le sternum, puis traction vers soi et vers le haut", "Deux mains croisées sur le bas-ventre, puis pression continue"],
+    c: 2,
+    e: "Les compressions abdominales créent une surpression qui expulse le corps étranger.",
+  },
+  {
+    id: "ova-06", cat: "Obstruction des Voies Aériennes", level: "PSE1",
+    q: "Chez une femme enceinte ou une personne obèse, quelles compressions réalise-t-on ?",
+    opts: ["Des compressions thoraciques, au niveau du sternum", "Des compressions abdominales, comme chez l'adulte", "Des compressions sur le bas du dos uniquement", "Aucune compression, seules les claques dans le dos sont autorisées"],
+    c: 0,
+    e: "Quand les compressions abdominales sont impossibles, on comprime le thorax pour créer la même surpression.",
+  },
+  {
+    id: "ova-07", cat: "Obstruction des Voies Aériennes", level: "PSE1",
+    q: "La victime perd connaissance pendant les manœuvres de désobstruction : que fait le secouriste ?",
+    opts: ["Il la relève et poursuit les compressions abdominales debout", "Il la met en position latérale de sécurité et attend", "Il poursuit les claques dans le dos, allongée sur le ventre", "Il l'accompagne au sol, alerte et débute la RCP"],
+    c: 3,
+    e: "La perte de connaissance signale l'arrêt de la respiration efficace : la RCP débute immédiatement.",
+  },
+  {
+    id: "ova-08", cat: "Obstruction des Voies Aériennes", level: "PSE1",
+    q: "Comment agit-on devant un nourrisson qui s'étouffe et ne peut plus respirer ?",
+    opts: ["Cinq compressions abdominales, puis cinq claques dans le dos", "Cinq claques dans le dos, tête plus basse que le thorax, puis cinq compressions thoraciques", "Un doigté dans la bouche pour retirer le corps étranger", "Une position assise bien droite en attendant les secours"],
+    c: 1,
+    e: "Chez le nourrisson, on alterne 5 claques dans le dos et 5 compressions thoraciques, jamais de compressions abdominales.",
+  },
+  {
+    id: "ova-09", cat: "Obstruction des Voies Aériennes", level: "PSE1",
+    q: "Après chaque série de manœuvres de désobstruction, que fait le secouriste ?",
+    opts: ["Il vérifie si le corps étranger a été expulsé et si la victime respire", "Il enchaîne immédiatement la série suivante sans contrôle", "Il fait boire la victime pour vérifier que le passage est libre", "Il arrête les manœuvres au bout de deux séries"],
+    c: 0,
+    e: "Chaque série est suivie d'une vérification : si le corps étranger est expulsé, les manœuvres cessent.",
+  },
+  {
+    id: "ova-10", cat: "Obstruction des Voies Aériennes", level: "PSE1",
+    q: "À quoi reconnaît-on une obstruction partielle des voies aériennes ?",
+    opts: ["La victime parle, tousse ou respire, même difficilement", "La victime ne peut plus émettre aucun son", "La victime devient immédiatement inconsciente", "La victime a les lèvres bleues sans pouvoir tousser"],
+    c: 0,
+    e: "La persistance de la toux, de la parole ou de la respiration signe une obstruction partielle.",
+  },
+  {
+    id: "ova-11", cat: "Obstruction des Voies Aériennes", level: "PSE1",
+    q: "Pourquoi ne faut-il jamais faire un doigté à l'aveugle dans la bouche ?",
+    opts: ["Parce que cela provoque un vomissement qui gêne la respiration", "Parce qu'on risque d'enfoncer le corps étranger plus profondément", "Parce que c'est inutile après une obstruction totale", "Parce que cela abîme les gants du secouriste"],
+    c: 1,
+    e: "Un doigté à l'aveugle peut aggraver l'obstruction : on ne retire que ce qui est visible.",
+  },
+  {
+    id: "ova-12", cat: "Obstruction des Voies Aériennes", level: "PSE1",
+    q: "Que doit-on répondre à une victime qui demande à boire pour faire descendre l'aliment coincé ?",
+    opts: ["On refuse toute boisson, qui aggraverait l'obstruction", "On accepte si la victime parle normalement", "On propose de l'eau tiède pour détendre l'œsophage", "On accepte, mais seulement par petites gorgées"],
+    c: 0,
+    e: "Boire ne fait pas descendre un corps étranger : le liquide risque d'obstruer complètement les voies aériennes.",
+  },
+  {
+    id: "ova-13", cat: "Obstruction des Voies Aériennes", level: "PSE1",
+    q: "Que se passe-t-il si une obstruction totale n'est pas levée ?",
+    opts: ["L'obstruction se résorbe d'elle-même en quelques minutes", "La victime perd connaissance par manque d'oxygène et la RCP devient nécessaire", "La victime développe une infection pulmonaire immédiate", "La victime s'endort puis respire normalement"],
+    c: 1,
+    e: "L'absence d'oxygène conduit rapidement à la perte de connaissance puis à l'arrêt cardiaque.",
+  },
+  {
+    id: "ova-14", cat: "Obstruction des Voies Aériennes", level: "PSE1",
+    q: "Que fait le secouriste après l'expulsion réussie du corps étranger ?",
+    opts: ["Il la laisse partir immédiatement sans autre consigne", "Il lui fait boire un verre d'eau et une tasse de café", "Il surveille la victime et lui conseille une consultation médicale", "Il lui pratique une série de compressions abdominales de contrôle"],
+    c: 2,
+    e: "Les manœuvres peuvent avoir provoqué des lésions internes : un avis médical est recommandé.",
+  },
+  {
+    id: "ova-15", cat: "Obstruction des Voies Aériennes", level: "PSE1",
+    q: "La victime est déjà inconsciente à l'arrivée du secouriste et l'obstruction est suspectée : que fait-il ?",
+    opts: ["Il réalise cinq claques dans le dos sur la victime allongée", "Il la met en position latérale de sécurité et attend", "Il alerte, libère les voies aériennes et débute la RCP", "Il cherche un corps étranger avec ses doigts au fond de la gorge"],
+    c: 2,
+    e: "Chez une victime inconsciente, la désobstruction passe par la RCP et la ventilation.",
+  },
+  {
+    id: "ova-16", cat: "Obstruction des Voies Aériennes", level: "PSE1",
+    q: "Chaque année, quelle est la cause la plus fréquente d'obstruction des voies aériennes chez l'adulte ?",
+    opts: ["Une pièce de monnaie avalée par jeu", "Un chewing-gum collé au palais", "Une bouchée alimentaire mal mâchée", "Une dent cassée tombée dans la gorge"],
+    c: 2,
+    e: "L'obstruction alimentaire lors des repas est la situation la plus rencontrée chez l'adulte.",
+  },
+  {
+    id: "ova-17", cat: "Obstruction des Voies Aériennes", level: "PSE1",
+    q: "Un témoin s'apprête à taper dans le dos d'une victime debout qui s'étouffe : quelle consigne lui donne-t-on ?",
+    opts: ["Pencher d'abord la victime vers l'avant avant de porter les claques", "Faire asseoir la victime bien droite avant les claques", "Allonger la victime sur le dos avant les claques", "Frapper fortement au milieu du dos, victime couchée"],
+    c: 0,
+    e: "La position penchée en avant utilise la gravité pour favoriser l'expulsion du corps étranger.",
+  },
+  {
+    id: "ova-18", cat: "Obstruction des Voies Aériennes", level: "PSE1",
+    q: "Combien de personnes sont nécessaires pour gérer une obstruction totale avec alerte ?",
+    opts: ["Une seule, qui alterne gestes et appel téléphonique", "Trois, une pour tenir la victime et deux pour les gestes", "Deux au minimum : une qui effectue les gestes et une qui alerte", "Quatre, avec un secouriste par membre"],
+    c: 2,
+    e: "Faire alerter par un tiers permet de poursuivre les manœuvres sans interruption.",
+  },
+  {
+    id: "ova-19", cat: "Obstruction des Voies Aériennes", level: "PSE1",
+    q: "Un enfant de huit ans s'étouffe et ne peut plus respirer : quels gestes réalise-t-on ?",
+    opts: ["Uniquement des compressions thoraciques, sans claques", "Les mêmes gestes que chez l'adulte : claques dans le dos puis compressions abdominales", "Un doigté dans la bouche, puis des claques dans le dos", "Le porter tête en bas et le secouer"],
+    c: 1,
+    e: "Chez l'enfant, la conduite est identique à celle de l'adulte ; seules les techniques du nourrisson diffèrent.",
+  },
+  {
+    id: "ova-20", cat: "Obstruction des Voies Aériennes", level: "PSE1",
+    q: "Pourquoi la toux est-elle efficace pour expulser un corps étranger ?",
+    opts: ["Parce qu'elle dilate le larynx et laisse passer l'objet", "Parce qu'elle mobilise l'air des poumons à grande vitesse", "Parce qu'elle fait remonter l'objet par le nez", "Parce qu'elle provoque une déglutition réflexe"],
+    c: 1,
+    e: "L'air expulsé lors d'une toux forte déplace le corps étranger vers l'extérieur.",
+  },
+  {
+    id: "ova-21", cat: "Obstruction des Voies Aériennes", level: "PSE1",
+    q: "Que risque une victime qui présente une obstruction partielle avec une respiration sifflante persistante ?",
+    opts: ["Une guérison spontanée sans surveillance particulière", "Une infection des voies respiratoires dans les heures qui suivent", "Une perte de la voix pendant plusieurs jours sans gravité", "Une aggravation vers l'obstruction totale, nécessitant une surveillance rapprochée"],
+    c: 3,
+    e: "Toute obstruction partielle peut se compliquer : la victime est surveillée et un avis médical est demandé.",
+  },
+  {
+    id: "ova-22", cat: "Obstruction des Voies Aériennes", level: "PSE1",
+    q: "Après une désobstruction chez une victime qui respire de nouveau normalement, que surveille-t-on ?",
+    opts: ["La couleur des ongles et la température des pieds", "La fréquence cardiaque au repos pendant une heure", "La saturation en oxygène jusqu'à l'arrivée des secours", "La respiration et l'apparition de douleurs ou de difficultés à avaler"],
+    c: 3,
+    e: "Après des manœuvres, on reste attentif à la respiration et à toute douleur pouvant signaler une lésion.",
+  },
+  {
+    id: "neu-01", cat: "Évaluation Neurologique", level: "PSE1",
+    q: "À quoi sert l'échelle AVPU ?",
+    opts: ["À mesurer la douleur ressentie par la victime", "À évaluer le niveau de conscience d'une victime", "À estimer l'âge apparent d'une victime", "À contrôler la motricité des quatre membres"],
+    c: 1,
+    e: "AVPU décrit la réaction de la victime : Alert (éveillée), Voix, Douleur, aucune réaction.",
+  },
+  {
+    id: "neu-02", cat: "Évaluation Neurologique", level: "PSE1",
+    q: "Que signifie la lettre A de l'échelle AVPU ?",
+    opts: ["La victime est éveillée et répond correctement", "La victime est agitée et confuse", "La victime répond uniquement à la douleur", "La victime est inconsciente et ne réagit pas"],
+    c: 0,
+    e: "A signifie « Alert » : la victime est éveillée, orientée et répond de façon adaptée.",
+  },
+  {
+    id: "neu-03", cat: "Évaluation Neurologique", level: "PSE1",
+    q: "Que signifie la lettre V de l'échelle AVPU ?",
+    opts: ["La victime voit correctement son environnement", "La victime réagit uniquement à la douleur", "La victime ne réagit que si on lui parle", "La victime verbalise ses douleurs spontanément"],
+    c: 2,
+    e: "V signifie « Verbal » : la victime ouvre les yeux ou répond quand on l'appelle.",
+  },
+  {
+    id: "neu-04", cat: "Évaluation Neurologique", level: "PSE1",
+    q: "Que signifie la lettre P de l'échelle AVPU ?",
+    opts: ["La victime ne réagit qu'à la stimulation douloureuse", "La victime répond parfaitement aux questions", "La victime est paralysée d'un côté du corps", "La victime a les pupilles serrées"],
+    c: 0,
+    e: "P signifie « Pain » : seule une stimulation douloureuse déclenche une réaction.",
+  },
+  {
+    id: "neu-05", cat: "Évaluation Neurologique", level: "PSE1",
+    q: "Que signifie la lettre U de l'échelle AVPU ?",
+    opts: ["La victime répond uniquement à la voix", "La victime est un peu somnolente", "La victime est inconsciente mais réagit à la douleur", "La victime ne réagit à aucune stimulation"],
+    c: 3,
+    e: "U signifie « Unresponsive » : aucune réaction, même à la douleur, la victime est inconsciente.",
+  },
+  {
+    id: "neu-06", cat: "Évaluation Neurologique", level: "PSE1",
+    q: "Comment évalue-t-on l'orientation d'une victime consciente ?",
+    opts: ["En lui demandant de compter de cent à zéro", "En lui posant des questions simples sur son identité, le lieu et la date", "En l'interrogeant sur ses antécédents médicaux familiaux", "En lui faisant répéter trois mots puis les rappeler"],
+    c: 1,
+    e: "L'orientation dans le temps, l'espace et par rapport à elle-même est évaluée par des questions simples.",
+  },
+  {
+    id: "neu-07", cat: "Évaluation Neurologique", level: "PSE1",
+    q: "Qu'est-ce qu'une victime obnubilée ?",
+    opts: ["Une victime parfaitement éveillée mais de mauvaise humeur", "Une victime anormalement somnolente, qui répond difficilement", "Une victime inconsciente qui ne réagit plus", "Une victime qui a perdu la mémoire des faits récents"],
+    c: 1,
+    e: "L'obnubilation est un trouble de la conscience : la victime est somnolente et réagit lentement.",
+  },
+  {
+    id: "neu-08", cat: "Évaluation Neurologique", level: "PSE1",
+    q: "Quels sont les trois signes principaux à rechercher devant une suspicion d'AVC ?",
+    opts: ["Une fièvre, une toux et un mal de gorge", "Une asymétrie du visage, une faiblesse d'un bras et un trouble de la parole", "Une douleur du genou, une pâleur et des sueurs", "Une soif intense, des urines fréquentes et une fatigue"],
+    c: 1,
+    e: "Visage asymétrique, bras qui retombe, parole troublée : ces signes doivent conduire à une alerte immédiate.",
+  },
+  {
+    id: "neu-09", cat: "Évaluation Neurologique", level: "PSE1",
+    q: "Comment recherche-t-on une paralysie du visage ?",
+    opts: ["En appuyant sur les pommettes pour sentir la douleur", "En demandant à la victime de sourire et de montrer les dents", "En lui demandant de fermer les yeux très fort dix secondes", "En palpant les deux mâchoires simultanément"],
+    c: 1,
+    e: "L'asymétrie apparaît lorsqu'on demande à la victime de sourire : un côté de la bouche ne se relève pas.",
+  },
+  {
+    id: "neu-10", cat: "Évaluation Neurologique", level: "PSE1",
+    q: "Comment évalue-t-on la motricité des bras ?",
+    opts: ["En demandant à la victime de lever les deux bras et de fermer les yeux", "En demandant à la victime de serrer une balle dans chaque main", "En mesurant la force des deux mains au dynamomètre", "En levant soi-même les deux bras de la victime"],
+    c: 0,
+    e: "Un bras qui retombe signe une faiblesse musculaire d'un côté, signe d'atteinte neurologique.",
+  },
+  {
+    id: "neu-11", cat: "Évaluation Neurologique", level: "PSE1",
+    q: "Devant une suspicion d'AVC, que fait le secouriste en priorité ?",
+    opts: ["Il installe la victime allongée sur le dos jambes surélevées", "Il lui donne un verre d'eau sucrée pour la stimuler", "Il attend une heure pour voir si les signes disparaissent", "Il note l'heure de début des symptômes et alerte immédiatement le 15"],
+    c: 3,
+    e: "Le traitement de l'AVC dépend du délai écoulé : l'heure de début des signes est indispensable au médecin.",
+  },
+  {
+    id: "neu-12", cat: "Évaluation Neurologique", level: "PSE1",
+    q: "Pourquoi ne jamais donner à boire à une victime suspecte d'AVC ?",
+    opts: ["Parce que la boisson augmenterait la pression artérielle", "Parce que la victime pourrait refuser de la boire", "Parce que les troubles de la déglutition exposent à la fausse route", "Parce que cela masquerait les signes neurologiques"],
+    c: 2,
+    e: "L'AVC peut altérer la capacité à avaler : boire expose à l'inhalation dans les voies aériennes.",
+  },
+  {
+    id: "neu-13", cat: "Évaluation Neurologique", level: "PSE1",
+    q: "Quelle position adopte-t-on pour une victime consciente victime d'un AVC ?",
+    opts: ["Une position de confort, plutôt demi-assise, en surveillant la conscience", "Allongée sur le ventre pour éviter la fausse route", "Allongée sur le dos avec les jambes surélevées", "Debout, en la faisant marcher pour tester ses jambes"],
+    c: 0,
+    e: "La position demi-assise est confortable et facilite la respiration ; la victime ne doit pas être mobilisée inutilement.",
+  },
+  {
+    id: "neu-14", cat: "Évaluation Neurologique", level: "PSE1",
+    q: "Que recherche-t-on en observant les pupilles d'une victime ?",
+    opts: ["Leur couleur exacte et la teinte du blanc de l'œil", "La capacité de la victime à loucher volontairement", "La présence de larmes et la fréquence des clignements", "Leur taille, leur symétrie et leur réaction à la lumière"],
+    c: 3,
+    e: "Une pupille dilatée ou non réactive d'un seul côté est un signe d'atteinte cérébrale à signaler.",
+  },
+  {
+    id: "neu-15", cat: "Évaluation Neurologique", level: "PSE1",
+    q: "Une victime présente une pupille dilatée d'un seul côté après un traumatisme crânien : que faut-il faire ?",
+    opts: ["Mettre une compresse froide sur l'œil atteint", "Alerter en urgence et surveiller la conscience et la respiration", "Faire fermer l'autre œil pour équilibrer la vision", "Attendre que la pupille reprenne sa taille"],
+    c: 1,
+    e: "Ce signe évoque une atteinte cérébrale grave : il est transmis au médecin et la surveillance s'intensifie.",
+  },
+  {
+    id: "neu-16", cat: "Évaluation Neurologique", level: "PSE1",
+    q: "Une victime est confuse et agitée après un choc à la tête : que faut-il en penser ?",
+    opts: ["Ils traduisent simplement la peur de la victime", "Ils disparaissent en quelques minutes après le choc", "Ils signifient que la victime n'a pas d'atteinte cérébrale", "Ces signes peuvent annoncer une aggravation : alerte et surveillance rapprochée"],
+    c: 3,
+    e: "Une confusion ou une agitation après un traumatisme crânien est un signe d'alerte neurologique.",
+  },
+  {
+    id: "neu-17", cat: "Évaluation Neurologique", level: "PSE1",
+    q: "Après un traumatisme crânien, quel élément surveille-t-on en priorité ?",
+    opts: ["La couleur des vêtements de la victime", "La force de serrage de la main droite uniquement", "Le niveau de conscience de la victime", "La présence d'hématomes sur les jambes"],
+    c: 2,
+    e: "Le niveau de conscience est le reflet le plus fiable de la gravité d'une atteinte cérébrale.",
+  },
+  {
+    id: "neu-18", cat: "Évaluation Neurologique", level: "PSE1",
+    q: "Une victime perd connaissance après un choc à la tête : que fait le secouriste ?",
+    opts: ["Il lui relève la tête avec un oreiller en attendant les secours", "Il la laisse sur le dos en attendant qu'elle se réveille", "Il alerte, libère les voies aériennes, vérifie la respiration et met en PLS si elle respire", "Il lui donne à boire pour faciliter son réveil"],
+    c: 2,
+    e: "Toute perte de connaissance après un traumatisme crânien impose l'alerte et la protection des voies aériennes.",
+  },
+  {
+    id: "neu-19", cat: "Évaluation Neurologique", level: "PSE1",
+    q: "Comment recherche-t-on une atteinte motrice ou sensitive des membres ?",
+    opts: ["En pinçant fortement l'ongle des orteils sans prévenir la victime", "En soulevant les jambes de la victime pour évaluer leur poids et leur tonus", "En frappant doucement les genoux pour vérifier les réflexes ostéotendineux", "En demandant à la victime de bouger les pieds et les mains et en l'interrogeant sur les fourmillements"],
+    c: 3,
+    e: "On compare la mobilité et la sensibilité des quatre membres, et toute différence est signalée.",
+  },
+  {
+    id: "neu-20", cat: "Évaluation Neurologique", level: "PSE1",
+    q: "Que fait le secouriste devant une victime dont les réponses sont incohérentes ?",
+    opts: ["Il répète les questions plus fort pour obtenir une réponse claire", "Il conclut à une plaisanterie et arrête son intervention", "Il considère son état comme une atteinte de la conscience, alerte et surveille", "Il lui donne à boire pour rétablir sa lucidité"],
+    c: 2,
+    e: "Une réponse incohérente traduit une conscience altérée : c'est un signe d'urgence à transmettre.",
+  },
+  {
+    id: "neu-21", cat: "Évaluation Neurologique", level: "PSE1",
+    q: "Peut-on laisser seule une victime ayant subi un traumatisme crânien ?",
+    opts: ["Oui, si elle affirme se sentir bien", "Oui, le temps d'aller chercher les secours sur la route", "Non, elle doit être surveillée en permanence", "Oui, si les signes vitaux sont normaux au premier bilan"],
+    c: 2,
+    e: "Une atteinte cérébrale peut s'aggraver brutalement : la surveillance doit être continue.",
+  },
+  {
+    id: "neu-22", cat: "Évaluation Neurologique", level: "PSE1",
+    q: "Pourquoi réévalue-t-on régulièrement le niveau de conscience d'une victime ?",
+    opts: ["Parce qu'une aggravation rapide est un signe d'urgence à transmettre", "Parce que la régulation exige cinq bilans par intervention", "Parce que la victime doit rester éveillée à tout prix", "Parce que cela évite d'utiliser un DAE"],
+    c: 0,
+    e: "L'évolution de la conscience oriente la conduite à tenir : toute dégradation impose une alerte immédiate.",
+  },
+  {
+    id: "neu-23", cat: "Évaluation Neurologique", level: "PSE1",
+    q: "Quelles informations neurologiques transmettre au médecin régulateur ?",
+    opts: ["L'heure de début des signes, leur évolution et l'état de conscience de la victime", "Uniquement l'âge et le sexe de la victime", "Le diagnostic présumé et le traitement à administrer", "La tension artérielle si le tensiomètre est disponible"],
+    c: 0,
+    e: "Le médecin a besoin de l'heure de début, des signes constatés et de leur évolution pour décider de la prise en charge.",
+  },
+  {
+    id: "hem-01", cat: "Hémorragie & Pansements", level: "PSE1",
+    q: "Quel est le premier geste devant une hémorragie externe abondante ?",
+    opts: ["Une compression directe de la plaie, avec la main protégée", "La pose immédiate d'un garrot tourniquet", "Le rinçage de la plaie à grande eau", "L'élévation du membre sans compression"],
+    c: 0,
+    e: "La compression directe arrête ou limite rapidement le saignement : c'est le geste de référence.",
+  },
+  {
+    id: "hem-02", cat: "Hémorragie & Pansements", level: "PSE1",
+    q: "Pourquoi pose-t-on un pansement compressif sur une plaie qui saigne ?",
+    opts: ["Pour éviter de salir les vêtements et le linge de la victime", "Pour désinfecter la plaie en profondeur et prévenir l'infection", "Pour permettre au secouriste de poursuivre son bilan sans attendre", "Pour prendre le relais de la compression manuelle, que l'on ne peut pas maintenir indéfiniment"],
+    c: 3,
+    e: "Le pansement compressif maintient la pression sur la plaie et libère le secouriste pour d'autres gestes.",
+  },
+  {
+    id: "hem-03", cat: "Hémorragie & Pansements", level: "PSE1",
+    q: "Dans quels cas pose-t-on un garrot d'emblée ?",
+    opts: ["En cas d'amputation, ou quand la compression directe est inefficace ou impossible", "Pour toute plaie qui saigne, dès la première minute", "Uniquement sur décision du médecin régulateur, après son appel", "Pour les saignements de nez importants"],
+    c: 0,
+    e: "Le garrot est réservé aux situations où la compression ne peut pas contrôler l'hémorragie.",
+  },
+  {
+    id: "hem-04", cat: "Hémorragie & Pansements", level: "PSE1",
+    q: "Où pose-t-on un garrot tourniquet ?",
+    opts: ["Directement sur la plaie pour la comprimer", "En aval de la plaie, pour freiner le retour veineux", "En amont de la plaie, à distance, sans le placer sur une articulation", "Au niveau de l'articulation la plus proche"],
+    c: 2,
+    e: "Le garrot est serré entre la plaie et la racine du membre, en évitant les articulations.",
+  },
+  {
+    id: "hem-05", cat: "Hémorragie & Pansements", level: "PSE1",
+    q: "Que note-t-on impérativement lorsqu'un garrot est posé ?",
+    opts: ["Le nom du secouriste qui l'a posé uniquement", "La longueur du garrot utilisé", "Le nombre de tours effectués", "L'heure exacte de sa pose, visible sur la victime ou la fiche bilan"],
+    c: 3,
+    e: "L'heure de pose est indispensable à l'équipe médicale pour surveiller la tolérance du garrot.",
+  },
+  {
+    id: "hem-06", cat: "Hémorragie & Pansements", level: "PSE1",
+    q: "Qui peut retirer un garrot posé par un secouriste ?",
+    opts: ["Le secouriste lui-même, au bout de trente minutes", "Un médecin, dans le cadre de la prise en charge médicale", "La victime, si la douleur devient trop forte", "Le chef d'équipe, dès l'arrivée à l'hôpital"],
+    c: 1,
+    e: "Le garrot ne doit jamais être desserré ou retiré par le secouriste : seul un médecin le fait.",
+  },
+  {
+    id: "hem-07", cat: "Hémorragie & Pansements", level: "PSE1",
+    q: "Comment savoir qu'un garrot est efficace ?",
+    opts: ["Le saignement s'arrête au niveau de la plaie", "La victime ne ressent plus aucune douleur", "Le membre devient chaud et rosé", "Le pouls du membre augmente en aval"],
+    c: 0,
+    e: "Le garrot est serré jusqu'à l'arrêt complet du saignement.",
+  },
+  {
+    id: "hem-08", cat: "Hémorragie & Pansements", level: "PSE1",
+    q: "Une personne saigne abondamment du nez : que fait le secouriste ?",
+    opts: ["Il l'allonge sur le dos, tête en arrière", "Il l'assoit, la fait pencher en avant et lui fait pincer le nez pendant dix minutes", "Il lui fait renifler fort pour évacuer le sang", "Il lui enfonce une compresse au fond de la narine avec un coton-tige"],
+    c: 1,
+    e: "Tête penchée en avant pour éviter la déglutition du sang, avec une compression continue de dix minutes.",
+  },
+  {
+    id: "hem-09", cat: "Hémorragie & Pansements", level: "PSE1",
+    q: "Le saignement de nez persiste après vingt minutes de compression : que fait-on ?",
+    opts: ["On attend encore une heure avant de commencer à s'inquiéter", "On lui fait boire un verre d'eau glacée pour arrêter le saignement", "On lui bouche les deux narines avec du coton sec pendant une heure", "On alerte les secours ou on accompagne la personne vers une consultation médicale"],
+    c: 3,
+    e: "Un saignement qui ne cède pas nécessite un avis médical, surtout s'il est important ou répété.",
+  },
+  {
+    id: "hem-10", cat: "Hémorragie & Pansements", level: "PSE1",
+    q: "Un corps étranger est planté dans une plaie : que fait le secouriste ?",
+    opts: ["Il le retire délicatement pour évaluer la profondeur", "Il le retire puis comprime la plaie", "Il ne le retire pas et l'immobilise en place", "Il l'enfonce légèrement pour boucher le saignement"],
+    c: 2,
+    e: "Retirer le corps étranger risque de déclencher une hémorragie impossible à contrôler.",
+  },
+  {
+    id: "hem-11", cat: "Hémorragie & Pansements", level: "PSE1",
+    q: "Que fait-on pour une plaie simple et peu profonde ?",
+    opts: ["La laisser à l'air libre pour qu'elle sèche et forme une croûte", "Appliquer de l'alcool pur puis couvrir avec une compresse sèche", "La recouvrir de pommade cicatrisante puis d'un pansement serré", "La nettoyer à l'eau et au savon, la désinfecter puis la protéger par un pansement"],
+    c: 3,
+    e: "Une plaie simple se nettoie, se désinfecte et se protège : c'est la prévention de l'infection.",
+  },
+  {
+    id: "hem-12", cat: "Hémorragie & Pansements", level: "PSE1",
+    q: "Que ne fait-on jamais sur une plaie grave ?",
+    opts: ["La protéger par un pansement stérile", "Alerter les secours et surveiller la victime", "La nettoyer, la désinfecter ou appliquer un produit dessus", "Couvrir la victime pour éviter qu'elle prenne froid"],
+    c: 2,
+    e: "Une plaie grave est seulement couverte d'un pansement stérile : aucun produit n'y est appliqué.",
+  },
+  {
+    id: "hem-13", cat: "Hémorragie & Pansements", level: "PSE1",
+    q: "Comment protège-t-on une plaie grave en attendant les secours ?",
+    opts: ["Par une compresse imbibée d'antiseptique changée régulièrement", "Par un pansement stérile posé sans serrer, laissé en place", "Par une bande très serrée pour arrêter tout suintement", "Par un linge non propre maintenu par un lien"],
+    c: 1,
+    e: "Le pansement stérile protège la plaie de la contamination sans la comprimer inutilement.",
+  },
+  {
+    id: "hem-14", cat: "Hémorragie & Pansements", level: "PSE1",
+    q: "Que fait-on devant une plaie de l'abdomen avec sortie des anses intestinales ?",
+    opts: ["On repousse les intestins à l'intérieur avant de panser", "On applique un pansement sec très compressif", "On couvre les viscères d'un pansement stérile humide sans chercher à les réintégrer", "On fait boire la victime pour compenser la perte de liquides"],
+    c: 2,
+    e: "On ne réintègre jamais les viscères : ils sont protégés par un pansement stérile humidifié.",
+  },
+  {
+    id: "hem-15", cat: "Hémorragie & Pansements", level: "PSE2",
+    q: "Que fait-on devant une plaie du thorax qui laisse échapper de l'air ?",
+    opts: ["On pose un pansement occlusif sur trois côtés et on alerte", "On bouche hermétiquement la plaie sur les quatre côtés", "On laisse la plaie à l'air libre sans pansement", "On appuie fortement pour empêcher l'air de sortir"],
+    c: 0,
+    e: "Le pansement laissé libre sur un côté permet à l'air de s'échapper sans rentrer dans la cavité thoracique.",
+  },
+  {
+    id: "hem-16", cat: "Hémorragie & Pansements", level: "PSE1",
+    q: "Comment protège-t-on une plaie de l'œil ?",
+    opts: ["Par un pansement compressif serré sur les deux yeux", "Par une protection rigide posée sans comprimer le globe oculaire", "Par des gouttes antiseptiques puis un bandeau sec", "Par une compresse directement appuyée sur l'œil"],
+    c: 1,
+    e: "Le globe oculaire ne doit jamais être comprimé : on utilise une coque ou une protection rigide.",
+  },
+  {
+    id: "hem-17", cat: "Hémorragie & Pansements", level: "PSE1",
+    q: "Une personne vient d'être amputée d'un doigt : que fait-on du segment amputé ?",
+    opts: ["On le plonge directement dans la glace pilée pour le refroidir", "On le récupère, on l'enveloppe dans un linge propre puis dans un sac placé au frais", "On le place dans l'eau tiède pour le conserver jusqu'à l'hôpital", "On le laisse sur place, il ne peut plus être réimplanté"],
+    c: 1,
+    e: "Le segment est conservé au frais, sans contact direct avec la glace, et remis à l'équipe médicale.",
+  },
+  {
+    id: "hem-18", cat: "Hémorragie & Pansements", level: "PSE1",
+    q: "Un pansement compressif est imbibé de sang : que fait le secouriste ?",
+    opts: ["Il ajoute un pansement par-dessus et reprend la compression, sans retirer le premier", "Il retire le pansement pour évaluer la plaie", "Il arrose le pansement d'antiseptique", "Il desserre le pansement pour laisser le sang s'écouler"],
+    c: 0,
+    e: "On ne retire jamais un pansement imbibé, car cela arrache le caillot en formation : on renforce la compression.",
+  },
+  {
+    id: "hem-19", cat: "Hémorragie & Pansements", level: "PSE1",
+    q: "Quelles sont les précautions après une morsure ?",
+    opts: ["Appliquer immédiatement une compression forte et refermer la plaie", "Laisser la plaie à l'air libre sans nettoyage", "Désinfecter à l'alcool pur et attendre trois jours", "Nettoyer la plaie, la protéger et consulter un médecin pour évaluer les risques infectieux"],
+    c: 3,
+    e: "Les morsures exposent à des infections : un avis médical est nécessaire pour le tétanos et la rage.",
+  },
+  {
+    id: "hem-20", cat: "Hémorragie & Pansements", level: "PSE1",
+    q: "Une personne a été piquée par une abeille, le dard est visible : que fait-on ?",
+    opts: ["On presse le dard entre deux doigts pour l'extraire rapidement", "On retire le dard par grattage, on lave et on surveille une éventuelle réaction allergique", "On applique directement un glaçon sur la piqûre pour la calmer", "On laisse le dard en place pour qu'il tombe tout seul"],
+    c: 1,
+    e: "Le dard est retiré en grattant la peau, sans presser la glande qui contient le venin.",
+  },
+  {
+    id: "hem-21", cat: "Hémorragie & Pansements", level: "PSE1",
+    q: "Pourquoi se protéger les mains avec des gants avant de comprimer une plaie qui saigne ?",
+    opts: ["Parce que le sang peut transmettre des maladies infectieuses", "Parce que le contact avec le sang fragilise la peau", "Parce que la victime pourrait avoir peur des mains nues", "Parce que les gants augmentent la force de compression"],
+    c: 0,
+    e: "Toute exposition au sang présente un risque infectieux : les gants sont un équipement de protection obligatoire.",
+  },
+  {
+    id: "hem-22", cat: "Hémorragie & Pansements", level: "PSE1",
+    q: "Une victime sous traitement anticoagulant saigne du nez : quelle différence de conduite ?",
+    opts: ["Aucune : on applique la même conduite, avec une vigilance accrue et un avis médical rapide", "On renonce à la compression, dangereuse avec ce traitement", "On comprime pendant une minute seulement, puis on arrête", "On lui fait reprendre immédiatement son traitement"],
+    c: 0,
+    e: "Le saignement est plus difficile à contrôler, mais la conduite reste identique avec un avis médical plus rapide.",
+  },
+  {
+    id: "hem-23", cat: "Hémorragie & Pansements", level: "PSE1",
+    q: "Quel est le risque principal d'une hémorragie externe importante non contrôlée ?",
+    opts: ["L'infection de la plaie en quelques minutes", "L'état de choc par perte de sang importante", "La fracture du membre atteint", "Une réaction allergique au sang"],
+    c: 1,
+    e: "La perte de sang réduit le volume circulant et provoque un état de choc, potentiellement mortel.",
+  },
+  {
+    id: "hem-24", cat: "Hémorragie & Pansements", level: "PSE1",
+    q: "Que doit-on faire pendant la compression d'une hémorragie ?",
+    opts: ["Relâcher la compression toutes les deux minutes", "Élever le membre sans maintenir la compression", "Faire boire la victime pour compenser la perte de sang", "Alerter les secours et surveiller l'état de la victime"],
+    c: 3,
+    e: "La compression est maintenue sans interruption pendant l'alerte et la surveillance de l'état général.",
+  },
+  {
+    id: "hem-25", cat: "Hémorragie & Pansements", level: "PSE1",
+    q: "Comment comprime-t-on une plaie si aucun pansement n'est disponible ?",
+    opts: ["Avec deux doigts seulement, appuyés au bord de la plaie", "Avec un tissu fin posé sans pression", "Avec la paume de la main, protégée si possible, directement sur la plaie", "Avec la main fermée, en pressant du bout des doigts"],
+    c: 2,
+    e: "En l'absence de matériel, la compression directe manuelle reste le geste de référence.",
+  },
+  {
+    id: "hem-26", cat: "Hémorragie & Pansements", level: "PSE1",
+    q: "Quel objet peut servir de garrot de fortune en dernier recours ?",
+    opts: ["Une corde fine, qui pénètre dans la peau et serre mieux", "Une ceinture métallique, plus facile à serrer", "Un lien large et résistant, en attendant le matériel adapté", "Un fil électrique, qui résiste à la tension"],
+    c: 2,
+    e: "Un garrot de fortune doit être le plus large possible pour limiter les lésions, en attendant un garrot tourniquet.",
+  },
+  {
+    id: "pls-01", cat: "Position Latérale de Secours", level: "PSE1",
+    q: "Que signifie l'abréviation PLS ?",
+    opts: ["Position longue et stable", "Position de lutte contre le choc", "Protection latérale du secouriste", "Position latérale de sécurité"],
+    c: 3,
+    e: "La PLS est la position latérale de sécurité, destinée à la victime inconsciente qui respire.",
+  },
+  {
+    id: "pls-02", cat: "Position Latérale de Secours", level: "PSE1",
+    q: "Quelle est l'indication principale de la mise en position latérale de sécurité ?",
+    opts: ["Une victime en arrêt cardiaque", "Une victime consciente qui se plaint d'une douleur au dos", "Une victime consciente qui présente une crise d'asthme", "Une victime inconsciente qui respire normalement"],
+    c: 3,
+    e: "La PLS concerne la victime inconsciente qui respire : elle protège ses voies aériennes.",
+  },
+  {
+    id: "pls-03", cat: "Position Latérale de Secours", level: "PSE1",
+    q: "Pourquoi met-on une victime inconsciente qui respire en position latérale de sécurité ?",
+    opts: ["Pour faire remonter la tension artérielle de la victime", "Pour éviter que la victime ne se réveille trop rapidement", "Pour permettre de mesurer plus facilement le pouls au cou", "Pour maintenir la liberté des voies aériennes et éviter l'inhalation de vomissures"],
+    c: 3,
+    e: "La position latérale permet aux liquides de s'écouler vers l'extérieur et limite l'obstruction par la langue.",
+  },
+  {
+    id: "pls-04", cat: "Position Latérale de Secours", level: "PSE1",
+    q: "Que vérifie-t-on avant de mettre une victime en position latérale de sécurité ?",
+    opts: ["Qu'elle est inconsciente et qu'elle respire normalement", "Qu'elle n'a pas de fracture du bras", "Qu'elle a bien été vaccinée contre le tétanos", "Qu'elle n'a pas mangé dans l'heure précédente"],
+    c: 0,
+    e: "La PLS suppose deux conditions : inconscience et respiration présente ; sinon, la conduite change.",
+  },
+  {
+    id: "pls-05", cat: "Position Latérale de Secours", level: "PSE1",
+    q: "Pourquoi la main de la victime est-elle placée sous sa joue lors de la PLS ?",
+    opts: ["Pour reposer le bras de la victime pendant l'attente", "Pour maintenir la tête dans une position qui conserve les voies aériennes ouvertes", "Pour vérifier que la victime est bien inconsciente", "Pour éviter que la victime ne se gratte le visage"],
+    c: 1,
+    e: "La main sous la joue maintient la tête en rotation douce, bouche dirigée vers le sol.",
+  },
+  {
+    id: "pls-06", cat: "Position Latérale de Secours", level: "PSE1",
+    q: "Sur quel côté installe-t-on préférentiellement une femme enceinte en position latérale de sécurité ?",
+    opts: ["Sur le côté droit", "Sur le ventre", "Sur le dos, jambes surélevées", "Sur le côté gauche"],
+    c: 3,
+    e: "Le décubitus latéral gauche évite la compression de la veine cave inférieure par l'utérus.",
+  },
+  {
+    id: "pls-07", cat: "Position Latérale de Secours", level: "PSE1",
+    q: "Une victime inconsciente respire mais est soupçonnée d'une atteinte du rachis : que fait le secouriste ?",
+    opts: ["Il la laisse sur le dos sans surveillance particulière", "Il la met en PLS en respectant l'axe tête-cou-tronc, si son état l'exige", "Il la met en PLS en tournant la tête en premier", "Il la place assise pour protéger sa colonne"],
+    c: 1,
+    e: "La PLS reste réalisée si elle est nécessaire, en maintenant l'axe tête-cou-tronc à plusieurs secouristes.",
+  },
+  {
+    id: "pls-08", cat: "Position Latérale de Secours", level: "PSE1",
+    q: "Dans quels cas doit-on tourner une victime suspectée d'atteinte du rachis ?",
+    opts: ["Dès que la victime se plaint d'une douleur dans le bas du dos", "Pour lui permettre de mieux respirer une fois assise", "En cas de vomissements ou d'obstruction des voies aériennes, en maintenant l'axe du corps", "Pour vérifier l'état de son dos et la mobilité de ses jambes"],
+    c: 2,
+    e: "La liberté des voies aériennes prime : le retournement se fait alors en respectant l'axe tête-cou-tronc.",
+  },
+  {
+    id: "pls-09", cat: "Position Latérale de Secours", level: "PSE1",
+    q: "La PLS dispense-t-elle de surveiller la respiration de la victime ?",
+    opts: ["Oui, la position garantit la liberté des voies aériennes", "Oui, pendant les dix premières minutes", "Non, mais la surveillance peut être espacée de quinze minutes", "Non, la respiration est surveillée en permanence"],
+    c: 3,
+    e: "La PLS protège sans garantir : toute dégradation de la respiration impose une nouvelle évaluation.",
+  },
+  {
+    id: "pls-10", cat: "Position Latérale de Secours", level: "PSE1",
+    q: "La victime placée en PLS se met à mal respirer : que fait le secouriste ?",
+    opts: ["Il la laisse en PLS en attendant que cela passe", "Il lui tourne la tête vers le sol sans changer de position", "Il la remet sur le dos, libère les voies aériennes et vérifie la respiration", "Il lui comprime le thorax pour l'aider à respirer"],
+    c: 2,
+    e: "On réévalue la situation : si la respiration est absente, la RCP débute immédiatement.",
+  },
+  {
+    id: "pls-11", cat: "Position Latérale de Secours", level: "PSE1",
+    q: "Que fait le secouriste juste après avoir installé la victime en PLS ?",
+    opts: ["Il laisse la victime seule pour accueillir les secours", "Il retire la PLS au bout de cinq minutes", "Il la couvre et poursuit la surveillance en attendant les secours", "Il lui fait boire un peu d'eau"],
+    c: 2,
+    e: "La victime est protégée du froid et surveillée jusqu'à l'arrivée des secours.",
+  },
+  {
+    id: "pls-12", cat: "Position Latérale de Secours", level: "PSE1",
+    q: "La PLS est-elle adaptée à une victime consciente qui se sent mal ?",
+    opts: ["Oui, c'est la position de confort de référence", "Non, elle est réservée à la victime inconsciente qui respire", "Oui, si la victime se plaint de nausées", "Oui, pour éviter tout risque de chute"],
+    c: 1,
+    e: "Une victime consciente choisit elle-même sa position de confort ; la PLS répond à une autre situation.",
+  },
+  {
+    id: "pls-13", cat: "Position Latérale de Secours", level: "PSE1",
+    q: "Peut-on mettre en PLS une victime en arrêt cardiaque ?",
+    opts: ["Oui, en attendant le DAE", "Oui, pendant les deux premières minutes", "Non, elle doit être allongée sur le dos pour la RCP", "Oui, si le secouriste est seul"],
+    c: 2,
+    e: "En arrêt cardiaque, la victime reste sur le dos, sur un plan dur, pour permettre les compressions.",
+  },
+  {
+    id: "pls-14", cat: "Position Latérale de Secours", level: "PSE1",
+    q: "Que fait la position latérale de sécurité vis-à-vis de la langue de la victime ?",
+    opts: ["Elle limite la chute de la langue en arrière qui obstruerait les voies aériennes", "Elle empêche totalement la langue de bouger dans la bouche", "Elle pousse la langue vers le fond de la gorge et la bloque", "Elle n'a aucun effet sur la position de la langue dans la bouche"],
+    c: 0,
+    e: "La rotation de la tête et la position latérale limitent l'obstruction par la langue.",
+  },
+  {
+    id: "pls-15", cat: "Position Latérale de Secours", level: "PSE1",
+    q: "La victime en PLS vomit : que fait le secouriste ?",
+    opts: ["Il vérifie que l'écoulement se fait vers l'extérieur et essuie la bouche si nécessaire", "Il redresse immédiatement la victime en position assise", "Il la remet sur le dos pour éviter l'étouffement", "Il lui fait pencher la tête vers l'arrière"],
+    c: 0,
+    e: "La PLS favorise l'écoulement des liquides vers le sol : on vérifie que rien n'obstrue la bouche.",
+  },
+  {
+    id: "pls-16", cat: "Position Latérale de Secours", level: "PSE1",
+    q: "Quelle partie du corps surveille-t-on en priorité chez une victime en PLS ?",
+    opts: ["Les pieds et leur température, pour dépister une hypothermie", "La respiration et la liberté des voies aériennes", "Les mains et leur couleur, pour vérifier la circulation", "Le ventre et sa sensibilité, pour rechercher une douleur"],
+    c: 1,
+    e: "En PLS, l'objectif est de préserver la respiration : c'est le point de surveillance principal.",
+  },
+  {
+    id: "pls-17", cat: "Position Latérale de Secours", level: "PSE1",
+    q: "Pourquoi ne laisse-t-on jamais une victime inconsciente qui respire sur le dos ?",
+    opts: ["Parce qu'elle risque de se fracturer les côtes", "Parce que ses voies aériennes peuvent s'obstruer à tout moment", "Parce que la position sur le dos empêche la digestion", "Parce que la surveillance de la respiration y est moins efficace"],
+    c: 1,
+    e: "Sur le dos, la langue et les vomissements peuvent obstruer les voies aériennes : la PLS prévient ce risque.",
+  },
+  {
+    id: "pls-18", cat: "Position Latérale de Secours", level: "PSE1",
+    q: "Quelle jambe place-t-on pliée lors de la mise en PLS ?",
+    opts: ["La jambe la plus éloignée du sol, tendue vers l'arrière et calée", "Les deux jambes, tendues et serrées l'une contre l'autre", "La jambe située du côté vers lequel la victime est tournée, pliée pour stabiliser la position", "La jambe du dessus, tendue au maximum vers l'avant"],
+    c: 2,
+    e: "La jambe pliée sert de cale et empêche la victime de basculer sur le ventre.",
+  },
+  {
+    id: "pls-19", cat: "Position Latérale de Secours", level: "PSE2",
+    q: "Faut-il retirer le casque d'un motard inconscient ?",
+    opts: ["Non, sauf si les voies aériennes sont obstruées ; le retrait se fait alors à deux, dans l'axe", "Oui, dès qu'un traumatisme du rachis est suspecté", "Oui, en le tirant d'un coup sec vers le haut pour le dégager", "Non, même en cas de vomissements ou d'encombrement des voies aériennes"],
+    c: 0,
+    e: "Le casque est laissé en place autant que possible ; son retrait nécessite une technique à deux dans l'axe.",
+  },
+  {
+    id: "pls-20", cat: "Position Latérale de Secours", level: "PSE1",
+    q: "Une victime inconsciente qui respire est allongée sur le ventre : que fait le secouriste ?",
+    opts: ["Il la retourne délicatement en position latérale de sécurité", "Il la laisse sur le ventre, la position étant satisfaisante", "Il la remet sur le dos puis attend les secours", "Il lui relève la tête pour dégager son nez"],
+    c: 0,
+    e: "La position latérale est celle qui protège le mieux les voies aériennes, quel que soit le côté.",
+  },
+  {
+    id: "mal-01", cat: "Malaises & Affections", level: "PSE1",
+    q: "Qu'est-ce qu'un malaise pour le secouriste ?",
+    opts: ["Une perte de connaissance prolongée avec arrêt de la respiration", "Une sensation pénible et mal définie ressentie par la victime, d'origine variable", "Une blessure visible provoquée par un choc", "Une maladie contagieuse nécessitant un isolement"],
+    c: 1,
+    e: "Le malaise est une plainte subjective : le secouriste recherche les signes et l'origine possible.",
+  },
+  {
+    id: "mal-02", cat: "Malaises & Affections", level: "PSE1",
+    q: "Quelle est la première conduite à tenir devant une personne victime d'un malaise ?",
+    opts: ["L'installer au repos dans la position où elle se sent le mieux et l'interroger", "La mettre allongée sur le dos, jambes surélevées", "La faire marcher pour stimuler sa circulation", "Lui donner un médicament de la trousse de secours"],
+    c: 0,
+    e: "Le repos et la position choisie par la victime sont les premiers gestes, avant l'évaluation et l'alerte.",
+  },
+  {
+    id: "mal-03", cat: "Malaises & Affections", level: "PSE1",
+    q: "Peut-on donner un médicament à une personne victime d'un malaise ?",
+    opts: ["Non, le secouriste ne donne jamais de médicament", "Oui, si le médicament vient de la trousse de secours", "Oui, si la victime le réclame", "Oui, si un témoin affirme qu'elle en prend d'habitude"],
+    c: 0,
+    e: "Seul un médecin peut prescrire un médicament ; le secouriste n'en administre jamais de sa propre initiative.",
+  },
+  {
+    id: "mal-04", cat: "Malaises & Affections", level: "PSE1",
+    q: "Quelle position adopte-t-on pour une victime consciente qui se plaint d'une douleur thoracique ?",
+    opts: ["Allongée sur le ventre, tête tournée", "Debout, en marchant lentement", "Allongée sur le dos, jambes surélevées", "Une position de confort, généralement demi-assise"],
+    c: 3,
+    e: "La position demi-assise soulage le travail cardiaque ; la victime ne doit pas faire d'effort.",
+  },
+  {
+    id: "mal-05", cat: "Malaises & Affections", level: "PSE1",
+    q: "Une victime se plaint d'une douleur thoracique intense et serre son poing sur sa poitrine : que fait le secouriste ?",
+    opts: ["Il alerte immédiatement le 15 et la maintient au repos", "Il lui conseille de marcher pour faire passer la douleur", "Il lui donne un verre d'eau froide", "Il attend trente minutes pour voir l'évolution"],
+    c: 0,
+    e: "Une douleur thoracique intense évoque une urgence cardiaque : alerte immédiate et repos strict.",
+  },
+  {
+    id: "mal-06", cat: "Malaises & Affections", level: "PSE1",
+    q: "Quels signes évoquent une hypoglycémie chez une personne diabétique ?",
+    opts: ["Des sueurs, des tremblements, une pâleur et une sensation de faim", "Une soif intense et des urines fréquentes", "Une rougeur du visage et une peau sèche", "Une fièvre élevée et des frissons"],
+    c: 0,
+    e: "L'hypoglycémie associe sueurs, tremblements, pâleur, faim et parfois confusion.",
+  },
+  {
+    id: "mal-07", cat: "Malaises & Affections", level: "PSE1",
+    q: "Une personne diabétique consciente présente les signes d'une hypoglycémie : que fait le secouriste ?",
+    opts: ["Il lui donne un aliment gras pour une énergie durable", "Il lui donne du sucre rapide et la surveille", "Il lui fait boire de l'eau salée", "Il attend que les signes disparaissent seuls"],
+    c: 1,
+    e: "Si la victime est consciente et capable d'avaler, un sucre rapide corrige l'hypoglycémie.",
+  },
+  {
+    id: "mal-08", cat: "Malaises & Affections", level: "PSE1",
+    q: "Une personne diabétique est inconsciente avec des signes d'hypoglycémie : que fait le secouriste ?",
+    opts: ["Il lui fait boire un jus de fruit sucré", "Il lui place un morceau de sucre entre la joue et la gencive", "Il la laisse sur le dos et attend les secours", "Il ne donne rien par la bouche, alerte et met en PLS si elle respire"],
+    c: 3,
+    e: "Une victime inconsciente ne peut pas avaler : aucune boisson ni aliment par la bouche, alerte immédiate.",
+  },
+  {
+    id: "mal-09", cat: "Malaises & Affections", level: "PSE1",
+    q: "Quels signes évoquent une crise d'asthme ?",
+    opts: ["Une douleur du bas-ventre avec des nausées et des vomissements", "Une respiration sifflante avec une difficulté à expirer et à parler", "Une pâleur avec des sueurs froides", "Une fièvre élevée avec une toux grasse et un écoulement nasal"],
+    c: 1,
+    e: "L'asthme provoque un bronchospasme : sifflements, oppression et difficulté à parler.",
+  },
+  {
+    id: "mal-10", cat: "Malaises & Affections", level: "PSE1",
+    q: "Que fait le secouriste devant une crise d'asthme ?",
+    opts: ["Il l'allonge sur le dos pour faciliter sa respiration", "Il installe la victime assise et l'aide à prendre son traitement", "Il lui fait respirer dans un sac en papier", "Il lui fait boire de l'eau glacée"],
+    c: 1,
+    e: "La position assise facilite la ventilation et le traitement de la victime doit être accessible.",
+  },
+  {
+    id: "mal-11", cat: "Malaises & Affections", level: "PSE1",
+    q: "Quels signes évoquent une réaction allergique grave (anaphylaxie) ?",
+    opts: ["Des éternuements répétés avec un nez qui coule et des yeux larmoyants", "Une douleur articulaire avec une raideur du cou et des vertiges", "Une toux sèche isolée sans gêne respiratoire ni gonflement", "Une urticaire, un gonflement du visage ou de la gorge et une gêne respiratoire"],
+    c: 3,
+    e: "L'atteinte respiratoire et le gonflement des voies aériennes font de l'anaphylaxie une urgence vitale.",
+  },
+  {
+    id: "mal-12", cat: "Malaises & Affections", level: "PSE1",
+    q: "Que fait le secouriste devant une réaction allergique grave ?",
+    opts: ["Il lui fait boire beaucoup d'eau pour diluer l'allergène absorbé", "Il la fait marcher pour éviter le gonflement du visage", "Il alerte le 15, installe la victime et l'aide à utiliser son auto-injecteur si elle en a un", "Il attend une heure avant d'alerter, le temps de voir l'évolution"],
+    c: 2,
+    e: "L'alerte est immédiate et le traitement d'urgence de la victime doit être utilisé sans délai.",
+  },
+  {
+    id: "mal-13", cat: "Malaises & Affections", level: "PSE1",
+    q: "Pendant une crise convulsive, que fait le secouriste ?",
+    opts: ["Il maintient fermement les bras et les jambes pour limiter les mouvements", "Il protège la tête de la victime et écarte les objets dangereux autour d'elle", "Il place un objet entre les dents pour protéger la langue", "Il la met debout pour interrompre la crise"],
+    c: 1,
+    e: "On ne contient pas une convulsion : on protège la victime des chocs pendant les mouvements involontaires.",
+  },
+  {
+    id: "mal-14", cat: "Malaises & Affections", level: "PSE1",
+    q: "Pourquoi ne rien mettre dans la bouche d'une personne qui convulse ?",
+    opts: ["Parce que cela empêche la crise de se terminer d'elle-même", "Parce que cela déclenche souvent un vomissement pendant la crise", "Parce que cela peut casser les dents, obstruer les voies aériennes ou blesser le secouriste", "Parce que la langue est insensible pendant la crise convulsive"],
+    c: 2,
+    e: "Aucun objet ne doit être introduit dans la bouche : la langue ne peut pas être avalée.",
+  },
+  {
+    id: "mal-15", cat: "Malaises & Affections", level: "PSE1",
+    q: "Que fait le secouriste après la fin d'une crise convulsive ?",
+    opts: ["Il redresse immédiatement la victime et lui donne à boire", "Il la laisse sur le dos et attend qu'elle reprenne ses esprits", "Il la fait marcher pour évacuer le stress", "Il vérifie la conscience et la respiration, met en PLS si nécessaire et alerte"],
+    c: 3,
+    e: "Après la crise, la victime est souvent inconsciente ou confuse : PLS et surveillance s'imposent.",
+  },
+  {
+    id: "mal-16", cat: "Malaises & Affections", level: "PSE1",
+    q: "Un enfant convulse avec de la fièvre : quelle est la conduite à tenir ?",
+    opts: ["L'emmitoufler dans une couverture pour le réchauffer", "Le plonger dans un bain glacé immédiatement", "Protéger l'enfant, écarter les objets, alerter et le découvrir", "Lui donner un médicament contre la fièvre pendant la crise"],
+    c: 2,
+    e: "Les convulsions fébriles nécessitent protection, alerte et lutte contre la fièvre excessive.",
+  },
+  {
+    id: "mal-17", cat: "Malaises & Affections", level: "PSE1",
+    q: "Que fait le secouriste devant une victime en hyperventilation (crise de spasmophilie) ?",
+    opts: ["Il lui fait respirer dans un sac en papier", "Il l'allonge sur le ventre pour limiter la respiration", "Il la rassure, l'installe assise et l'aide à respirer calmement", "Il lui fait retenir sa respiration le plus longtemps possible"],
+    c: 2,
+    e: "La respiration dans un sac est dangereuse : la surveillance et la réassurance sont privilégiées.",
+  },
+  {
+    id: "mal-18", cat: "Malaises & Affections", level: "PSE1",
+    q: "Devant une personne qui a été piquée par une guêpe et qui est allergique connue, que surveille-t-on ?",
+    opts: ["La couleur de la piqûre et sa taille exacte", "La température corporelle toutes les dix minutes", "La fréquence des urines", "L'apparition d'un gonflement du visage ou d'une gêne respiratoire"],
+    c: 3,
+    e: "L'aggravation vers l'anaphylaxie est le risque principal : l'apparition de signes respiratoires impose l'alerte.",
+  },
+  {
+    id: "mal-19", cat: "Malaises & Affections", level: "PSE1",
+    q: "Peut-on transporter soi-même une victime de malaise dans son véhicule ?",
+    opts: ["Non, sauf danger immédiat : on attend les secours en surveillance", "Oui, pour gagner du temps aux urgences", "Oui, si la victime le demande", "Oui, si l'hôpital est à moins de dix minutes"],
+    c: 0,
+    e: "Le transport d'une victime peut aggraver son état : il relève d'un avis médical.",
+  },
+  {
+    id: "mal-20", cat: "Malaises & Affections", level: "PSE1",
+    q: "Une victime a fait un malaise avec une perte de connaissance brève puis se sent mieux : que fait le secouriste ?",
+    opts: ["Il la laisse repartir seule immédiatement", "Il lui donne un sucre et la raccompagne à pied", "Il conclut à une simulation et quitte les lieux", "Il reste auprès d'elle, surveille et conseille une consultation médicale"],
+    c: 3,
+    e: "Toute perte de connaissance, même brève, nécessite une surveillance et un avis médical.",
+  },
+  {
+    id: "mal-21", cat: "Malaises & Affections", level: "PSE1",
+    q: "Quels éléments interroge-t-on chez une victime de malaise ?",
+    opts: ["La profession, la situation familiale et le niveau de revenus", "Les signes ressentis, l'heure de début, les antécédents et les traitements en cours", "Les vaccinations réalisées dans l'enfance et les allergies connues", "Le groupe sanguin, le poids et la taille de la victime"],
+    c: 1,
+    e: "Ces informations orientent le médecin régulateur sur l'origine du malaise et sa gravité.",
+  },
+  {
+    id: "mal-22", cat: "Malaises & Affections", level: "PSE1",
+    q: "Peut-on donner à boire à une victime de malaise ?",
+    opts: ["Non, une victime de malaise ne doit rien absorber", "Oui, pour la réhydrater et éviter la déshydratation", "Oui, si elle est parfaitement consciente et capable d'avaler", "Oui, mais uniquement de l'eau glacée pour la réveiller"],
+    c: 2,
+    e: "La boisson est possible seulement si la conscience et la déglutition sont intactes.",
+  },
+  {
+    id: "mal-23", cat: "Malaises & Affections", level: "PSE1",
+    q: "Une victime de malaise est brûlante, a la peau sèche et a été exposée au soleil : que fait le secouriste ?",
+    opts: ["Il la met à l'ombre, la rafraîchit et l'hydrate si elle est consciente", "Il l'enveloppe dans une couverture pour la réchauffer", "Il la fait marcher au soleil pour l'activer", "Il attend la fin de la journée pour agir"],
+    c: 0,
+    e: "Le coup de chaleur impose un refroidissement immédiat, une mise au repos et une alerte si des troubles de conscience apparaissent.",
+  },
+  {
+    id: "mal-24", cat: "Malaises & Affections", level: "PSE1",
+    q: "Une victime se plaint de vertiges et de faiblesse après être restée debout longtemps : quelle position adopter ?",
+    opts: ["L'allonger avec les jambes surélevées", "La faire asseoir la tête entre les genoux", "La faire marcher rapidement pour stimuler sa circulation", "La placer sur le ventre"],
+    c: 0,
+    e: "L'élévation des jambes facilite le retour veineux en cas de malaise vagal.",
+  },
+  {
+    id: "mal-25", cat: "Malaises & Affections", level: "PSE1",
+    q: "Quand le secouriste doit-il alerter le 15 pour un malaise ?",
+    opts: ["Uniquement si la victime le demande elle-même après avoir été rassurée", "Dès qu'il existe des signes de gravité : douleur thoracique, trouble de la parole, perte de connaissance", "Seulement après trois malaises successifs dans la même journée", "Après avoir vérifié que le repos n'améliore pas l'état de la victime"],
+    c: 1,
+    e: "La présence d'un signe de gravité transforme le malaise en urgence médicale.",
+  },
+  {
+    id: "mal-26", cat: "Malaises & Affections", level: "PSE1",
+    q: "Que signifie un trouble de la parole associé à une faiblesse d'un seul bras chez une personne âgée ?",
+    opts: ["Un simple état de fatigue à surveiller", "Une baisse de la glycémie à traiter par du sucre", "Une crise d'asthme débutante", "Une suspicion d'AVC, à alerter en urgence absolue"],
+    c: 3,
+    e: "Ces signes associés évoquent un AVC : l'alerte est immédiate et l'heure de début est notée.",
+  },
+  {
+    id: "mal-27", cat: "Malaises & Affections", level: "PSE1",
+    q: "Une victime de malaise convulse puis reste inconsciente mais respire : que fait le secouriste ?",
+    opts: ["Il la laisse sur le dos jusqu'à son réveil complet", "Il lui ouvre la bouche pour vérifier qu'il n'y a rien", "Il la met en position latérale de sécurité, alerte et surveille sa respiration", "Il lui administre un verre d'eau sucrée"],
+    c: 2,
+    e: "Après une crise, la victime inconsciente n'est pas protégée sur le dos : la PLS s'impose avec surveillance.",
+  },
+  {
+    id: "mal-28", cat: "Malaises & Affections", level: "PSE1",
+    q: "Peut-on faire une fausse route en donnant à boire à une victime qui a été victime d'un AVC ?",
+    opts: ["Non, la déglutition reste préservée après un AVC, la boisson est sans danger", "Oui, mais uniquement avec une paille pour éviter la fausse route", "Oui, l'AVC peut altérer la déglutition : on ne fait jamais boire cette victime", "Non, si la victime est capable de parler, elle peut boire normalement"],
+    c: 2,
+    e: "Les troubles de la déglutition sont fréquents après un AVC : toute boisson doit être évitée.",
+  },
+  {
+    id: "tra-01", cat: "Traumatismes & Brûlures", level: "PSE1",
+    q: "Combien de temps faut-il refroidir une brûlure thermique récente ?",
+    opts: ["Au moins quinze à vingt minutes, à l'eau tempérée", "Quelques secondes, juste pour calmer la douleur", "Une minute, puis appliquer un corps gras", "Une heure complète, à l'eau glacée"],
+    c: 0,
+    e: "Le refroidissement prolongé limite l'extension de la brûlure et soulage la douleur.",
+  },
+  {
+    id: "tra-02", cat: "Traumatismes & Brûlures", level: "PSE1",
+    q: "Comment refroidit-on une brûlure thermique ?",
+    opts: ["Avec de l'eau glacée, au plus près de la brûlure", "À l'eau tempérée, à environ quinze à vingt centimètres de la lésion", "Avec des glaçons posés directement sur la peau", "Avec un jet d'air froid pulsé"],
+    c: 1,
+    e: "L'eau tempérée (15 à 20 °C) évite une brûlure par le froid qui aggraverait la lésion.",
+  },
+  {
+    id: "tra-03", cat: "Traumatismes & Brûlures", level: "PSE1",
+    q: "Pourquoi ne pose-t-on pas de glace directement sur une brûlure ?",
+    opts: ["Parce que la glace empêche la douleur de diminuer", "Parce que la glace colle à la peau brûlée", "Parce que le froid intense peut provoquer une lésion supplémentaire", "Parce que la glace augmente le risque d'infection"],
+    c: 2,
+    e: "La glace appliquée directement sur la peau peut créer une brûlure par le froid.",
+  },
+  {
+    id: "tra-04", cat: "Traumatismes & Brûlures", level: "PSE1",
+    q: "Que ne faut-il jamais appliquer sur une brûlure ?",
+    opts: ["De l'eau tempérée en abondance", "Un corps gras, une crème ou un produit maison", "Un pansement stérile après refroidissement", "Un linge propre non pelucheux"],
+    c: 1,
+    e: "Les corps gras et produits divers aggravent la lésion et compliquent la prise en charge médicale.",
+  },
+  {
+    id: "tra-05", cat: "Traumatismes & Brûlures", level: "PSE1",
+    q: "Faut-il percer les cloques d'une brûlure ?",
+    opts: ["Non, elles ne doivent jamais être percées", "Oui, pour évacuer le liquide et éviter l'infection", "Oui, si elles sont très tendues et douloureuses", "Oui, avec une aiguille stérile uniquement"],
+    c: 0,
+    e: "Les cloques forment une barrière protectrice : les percer expose à l'infection.",
+  },
+  {
+    id: "tra-06", cat: "Traumatismes & Brûlures", level: "PSE1",
+    q: "Un vêtement est collé à une brûlure : que fait le secouriste ?",
+    opts: ["Il le retire rapidement avant que la peau ne gonfle", "Il le découpe au plus près de la peau", "Il le mouille d'antiseptique puis le retire", "Il ne le retire pas et refroidit la brûlure par-dessus"],
+    c: 3,
+    e: "Arracher un vêtement collé aggrave la lésion : il reste en place et la brûlure est refroidie.",
+  },
+  {
+    id: "tra-07", cat: "Traumatismes & Brûlures", level: "PSE1",
+    q: "En cas de brûlure chimique de la peau, que fait-on ?",
+    opts: ["On applique immédiatement un pansement sec", "On neutralise le produit avec un autre produit chimique", "On frotte la peau avec une brosse pour éliminer le produit", "On retire les vêtements imbibés puis on rince abondamment à l'eau tempérée"],
+    c: 3,
+    e: "Le rinçage prolongé dilue et élimine le produit chimique ; les vêtements imbibés sont retirés.",
+  },
+  {
+    id: "tra-08", cat: "Traumatismes & Brûlures", level: "PSE1",
+    q: "Combien de temps rince-t-on une brûlure chimique ?",
+    opts: ["Une seule minute, le produit étant déjà neutralisé", "Au moins vingt à trente minutes, en insistant sur la zone atteinte", "Cinq minutes, puis on couvre la plaie", "Deux heures, jusqu'à disparition de toute douleur"],
+    c: 1,
+    e: "Les brûlures chimiques nécessitent un rinçage plus long que les brûlures thermiques.",
+  },
+  {
+    id: "tra-09", cat: "Traumatismes & Brûlures", level: "PSE1",
+    q: "Une personne a reçu un produit chimique dans l'œil : que fait le secouriste ?",
+    opts: ["Il applique une pommade ophtalmique puis un bandeau", "Il fait fermer l'œil et attend les secours sans rincer", "Il rince avec du sérum physiologique gazeux uniquement", "Il rince abondamment à l'eau tempérée, sans forcer, en maintenant l'œil ouvert"],
+    c: 3,
+    e: "Le rinçage immédiat et prolongé limite les lésions oculaires ; on ne comprime jamais l'œil.",
+  },
+  {
+    id: "tra-10", cat: "Traumatismes & Brûlures", level: "PSE1",
+    q: "En cas d'atteinte des deux yeux, par quel œil commence-t-on le rinçage ?",
+    opts: ["Par l'œil le plus atteint, pour soulager la douleur", "Par les deux en même temps, sous un seul jet", "Par l'œil le moins atteint, pour éviter de contaminer l'autre", "Par aucun, il faut attendre les secours"],
+    c: 2,
+    e: "Rincer d'abord l'œil le moins atteint évite de projeter le produit vers l'œil sain.",
+  },
+  {
+    id: "tra-11", cat: "Traumatismes & Brûlures", level: "PSE1",
+    q: "Une personne a été victime d'une brûlure électrique : que recherche le secouriste en priorité ?",
+    opts: ["Une détresse vitale : arrêt cardiaque, détresse respiratoire ou brûlures étendues", "La marque exacte du point de contact avec le conducteur électrique", "Le type de prise électrique et la puissance de l'installation", "La température corporelle et la couleur de la peau au point de contact"],
+    c: 0,
+    e: "L'électrisation peut provoquer des troubles du rythme cardiaque : les détresses vitales sont recherchées en premier.",
+  },
+  {
+    id: "tra-12", cat: "Traumatismes & Brûlures", level: "PSE1",
+    q: "Quelles situations font considérer une brûlure comme grave ?",
+    opts: ["Une brûlure étendue, profonde ou située au visage, aux mains ou aux articulations", "Une brûlure de la paume de la main de moins de deux centimètres", "Une brûlure superficielle du bras refroidie immédiatement", "Une brûlure de l'avant-bras qui n'a pas fait de cloque"],
+    c: 0,
+    e: "La localisation, l'étendue et la profondeur déterminent la gravité et la nécessité d'une prise en charge médicale.",
+  },
+  {
+    id: "tra-13", cat: "Traumatismes & Brûlures", level: "PSE1",
+    q: "Pourquoi une brûlure du visage ou des voies aériennes est-elle particulièrement grave ?",
+    opts: ["Parce qu'elle peut provoquer un œdème qui obstruera les voies aériennes", "Parce qu'elle est indolore et passe souvent inaperçue", "Parce qu'elle empêche la victime de parler définitivement", "Parce qu'elle ne peut pas être refroidie"],
+    c: 0,
+    e: "Le gonflement des tissus du visage et du cou peut obstruer la respiration : l'alerte est urgente.",
+  },
+  {
+    id: "tra-14", cat: "Traumatismes & Brûlures", level: "PSE1",
+    q: "Que faire devant une personne qui a inhalé des fumées et se plaint d'une gêne pour respirer ?",
+    opts: ["Lui faire respirer de l'air froid devant une fenêtre", "Alerter immédiatement et l'installer en position demi-assise au repos", "Lui donner à boire de l'eau fraîche", "La faire tousser pour évacuer les suies"],
+    c: 1,
+    e: "Les fumées irritent les voies aériennes et peuvent provoquer un œdème : l'alerte est prioritaire.",
+  },
+  {
+    id: "tra-15", cat: "Traumatismes & Brûlures", level: "PSE1",
+    q: "Comment évaluer rapidement l'étendue d'une brûlure ?",
+    opts: ["En mesurant la brûlure au centimètre avec un mètre ruban souple", "En comptant le nombre de cloques présentes sur la zone brûlée", "En utilisant la paume de la main de la victime comme référence d'environ 1 % de la surface corporelle", "En comparant la brûlure avec la paume du secouriste photographiée"],
+    c: 2,
+    e: "La paume de la main de la victime représente environ 1 % de sa surface corporelle, ce qui permet d'estimer l'étendue.",
+  },
+  {
+    id: "tra-16", cat: "Traumatismes & Brûlures", level: "PSE1",
+    q: "Que fait-on après avoir refroidi une brûlure ?",
+    opts: ["On applique une crème grasse pour hydrater la peau", "On la protège par un pansement stérile ou un linge propre, sans serrer", "On perce les cloques pour éviter qu'elles grossissent", "On laisse la brûlure à l'air libre pour qu'elle sèche"],
+    c: 1,
+    e: "Après refroidissement, la brûlure est protégée de la contamination par un pansement stérile non serré.",
+  },
+  {
+    id: "tra-17", cat: "Traumatismes & Brûlures", level: "PSE1",
+    q: "Que fait le secouriste devant une contusion avec gonflement ?",
+    opts: ["Il applique de la chaleur pour détendre les muscles", "Il masse énergiquement la zone contusionnée", "Il fait bouger l'articulation pour tester sa mobilité", "Il applique du froid enveloppé dans un linge et met le membre au repos"],
+    c: 3,
+    e: "Le froid limite l'œdème et la douleur ; la mobilisation est évitée.",
+  },
+  {
+    id: "tra-18", cat: "Traumatismes & Brûlures", level: "PSE1",
+    q: "Que fait-on devant une entorse de la cheville ?",
+    opts: ["On remet l'articulation en place par une traction", "On fait marcher la victime pour vérifier que tout va bien", "On applique un cataplasme chaud", "On immobilise la cheville dans la position trouvée, on applique du froid et on consulte"],
+    c: 3,
+    e: "Une entorse ne doit pas être mobilisée : repos, froid, et avis médical pour éliminer une fracture.",
+  },
+  {
+    id: "tra-19", cat: "Traumatismes & Brûlures", level: "PSE1",
+    q: "Comment agit-on devant une fracture de jambe ?",
+    opts: ["On redresse le membre pour le remettre dans l'axe", "On masse le muscle pour éviter les crampes", "On fait marcher la victime pour évaluer la douleur", "On immobilise le membre dans la position où il se trouve et on alerte"],
+    c: 3,
+    e: "Toute tentative de réduction risque d'aggraver les lésions : le membre est immobilisé en l'état.",
+  },
+  {
+    id: "tra-20", cat: "Traumatismes & Brûlures", level: "PSE1",
+    q: "Faut-il tenter de réduire une fracture visiblement déformée ?",
+    opts: ["Oui, pour rétablir la circulation sanguine", "Oui, si la victime le demande expressément", "Non, jamais : le membre est immobilisé dans la position trouvée", "Oui, avant l'arrivée des secours pour limiter la douleur"],
+    c: 2,
+    e: "La réduction d'une fracture est un geste médical : le secouriste immobilise sans redresser.",
+  },
+  {
+    id: "tra-21", cat: "Traumatismes & Brûlures", level: "PSE1",
+    q: "Que fait-on devant une fracture ouverte ?",
+    opts: ["On rince abondamment la plaie avec de l'antiseptique", "On couvre la plaie d'un pansement stérile et on immobilise le membre avant d'alerter", "On repousse les fragments osseux à l'intérieur", "On comprime fortement la plaie pour arrêter le saignement"],
+    c: 1,
+    e: "La plaie est protégée de la contamination, le membre immobilisé et l'alerte transmise.",
+  },
+  {
+    id: "tra-22", cat: "Traumatismes & Brûlures", level: "PSE1",
+    q: "Comment immobilise-t-on une fracture du bras ou de l'avant-bras ?",
+    opts: ["En immobilisant le bras contre le thorax, par exemple avec une écharpe", "En étirant le bras pour le maintenir droit", "En attachant la main au pied du même côté", "En laissant le bras libre pour éviter la douleur"],
+    c: 0,
+    e: "L'immobilisation contre le thorax limite les mouvements et la douleur en attendant les secours.",
+  },
+  {
+    id: "tra-23", cat: "Traumatismes & Brûlures", level: "PSE1",
+    q: "Un choc à la tête est suivi de vomissements : que faut-il en penser ?",
+    opts: ["C'est une réaction banale après un choc", "C'est le signe d'une intoxication alimentaire associée", "C'est un signe d'alerte qui nécessite un avis médical urgent", "C'est le signe que la victime doit manger"],
+    c: 2,
+    e: "Les vomissements après un traumatisme crânien évoquent une atteinte cérébrale : avis médical urgent.",
+  },
+  {
+    id: "tra-24", cat: "Traumatismes & Brûlures", level: "PSE1",
+    q: "Pourquoi faut-il mettre de la glace dans un linge plutôt que directement sur la peau ?",
+    opts: ["Pour que le froid agisse plus lentement", "Pour éviter que la glace fonde trop vite", "Pour éviter de provoquer une lésion par le froid", "Pour désinfecter la zone contusionnée"],
+    c: 2,
+    e: "Un linge interposé protège la peau d'une brûlure par le froid.",
+  },
+  {
+    id: "tra-25", cat: "Traumatismes & Brûlures", level: "PSE1",
+    q: "Pourquoi surveille-t-on une victime après un traumatisme même si elle se sent bien ?",
+    opts: ["Parce que des complications peuvent apparaître secondairement", "Parce que la victime doit rester éveillée à tout prix", "Parce que les secours exigent un bilan toutes les cinq minutes", "Parce que la douleur disparaît en une heure environ"],
+    c: 0,
+    e: "Un hématome, un choc interne ou une atteinte neurologique peuvent se manifester avec retard.",
+  },
+  {
+    id: "tra-26", cat: "Traumatismes & Brûlures", level: "PSE1",
+    q: "Que fait-on d'un corps étranger planté dans une plaie lors d'un traumatisme ?",
+    opts: ["On le retire pour mesurer sa taille", "On le laisse en place et on l'immobilise pour éviter qu'il ne bouge", "On l'enfonce pour arrêter le saignement", "On le retire et on comprime fortement la plaie"],
+    c: 1,
+    e: "Le corps étranger est maintenu en place : son retrait pourrait déclencher une hémorragie ou aggraver la lésion.",
+  },
+  {
+    id: "rac-01", cat: "Traumatisme Rachis & Immobilisation", level: "PSE1",
+    q: "Quelle est la première manœuvre devant une suspicion de traumatisme du rachis cervical ?",
+    opts: ["La pose immédiate d'un collier cervical avant tout maintien", "Le redressement de la victime en position assise", "Le maintien de la tête à deux mains, en position neutre", "L'immobilisation des jambes de la victime en premier"],
+    c: 2,
+    e: "Le maintien manuel de la tête dans l'axe, à deux mains, précède toute autre immobilisation.",
+  },
+  {
+    id: "rac-02", cat: "Traumatisme Rachis & Immobilisation", level: "PSE1",
+    q: "Pourquoi maintient-on la tête d'une victime suspecte d'atteinte du rachis ?",
+    opts: ["Pour éviter tout mouvement du rachis cervical en attendant l'immobilisation", "Pour empêcher la victime de parler pendant l'examen", "Pour maintenir la victime éveillée jusqu'à l'arrivée des secours", "Pour mesurer la température du front de la victime"],
+    c: 0,
+    e: "Le maintien supprime les mouvements d'inclinaison et de rotation qui pourraient aggraver une lésion médullaire.",
+  },
+  {
+    id: "rac-03", cat: "Traumatisme Rachis & Immobilisation", level: "PSE1",
+    q: "Le collier cervical suffit-il à immobiliser totalement le rachis ?",
+    opts: ["Oui, il bloque totalement les mouvements du rachis cervical", "Non, il limite les mouvements mais le maintien manuel reste nécessaire", "Oui, s'il est posé très serré", "Non, il sert uniquement à signaler la lésion aux soignants"],
+    c: 1,
+    e: "Un collier limite les mouvements sans les supprimer : le maintien manuel de la tête reste indispensable.",
+  },
+  {
+    id: "rac-04", cat: "Traumatisme Rachis & Immobilisation", level: "PSE2",
+    q: "Quand pose-t-on un collier cervical ?",
+    opts: ["Après avoir installé un maintien manuel de la tête, sans mobiliser la victime", "Avant tout maintien de la tête, pour gagner du temps", "En soulevant la tête pour glisser le collier sous la nuque", "Uniquement à l'hôpital, sur prescription médicale"],
+    c: 0,
+    e: "La pose du collier se fait en conservant l'axe tête-cou-tronc, après un maintien manuel efficace.",
+  },
+  {
+    id: "rac-05", cat: "Traumatisme Rachis & Immobilisation", level: "PSE1",
+    q: "Peut-on asseoir ou redresser une victime suspecte d'atteinte du rachis ?",
+    opts: ["Oui, pour la rassurer et faciliter sa respiration", "Oui, si elle se sent capable de s'asseoir", "Non, sauf nécessité vitale ou danger immédiat", "Oui, pour éviter qu'elle ne perde connaissance"],
+    c: 2,
+    e: "Toute mobilisation est évitée : la victime est maintenue dans la position où elle se trouve.",
+  },
+  {
+    id: "rac-06", cat: "Traumatisme Rachis & Immobilisation", level: "PSE1",
+    q: "Que fait le secouriste si une victime suspecte d'atteinte du rachis ne respire pas ?",
+    opts: ["Il renonce aux compressions pour ne pas déplacer la colonne", "Il immobilise d'abord le rachis puis débute la RCP", "Il débute la RCP : la priorité vitale prime sur le rachis", "Il attend les secours médicaux avant tout geste"],
+    c: 2,
+    e: "En arrêt cardiaque, aucune autre considération ne prime : la RCP est débutée immédiatement.",
+  },
+  {
+    id: "rac-07", cat: "Traumatisme Rachis & Immobilisation", level: "PSE1",
+    q: "Que fait-on d'une victime suspecte d'atteinte du rachis, inconsciente et qui respire ?",
+    opts: ["On la laisse sur le dos, sans surveillance particulière", "On la met en PLS en respectant l'axe tête-cou-tronc, à plusieurs secouristes", "On lui tourne la tête sur le côté pour dégager la bouche", "On l'assied pour éviter l'encombrement des voies aériennes"],
+    c: 1,
+    e: "Quand la PLS est nécessaire, elle se réalise en conservant l'axe du corps, avec plusieurs sauveteurs.",
+  },
+  {
+    id: "rac-08", cat: "Traumatisme Rachis & Immobilisation", level: "PSE1",
+    q: "Quels signes peuvent évoquer une atteinte de la moelle épinière ?",
+    opts: ["Une douleur musculaire diffuse après un effort sportif intense", "Une toux sèche avec un mal de gorge et une voix enrouée", "Une rougeur de la peau sur la zone du choc, sans autre signe", "Des fourmillements, une perte de sensibilité ou l'impossibilité de bouger un membre"],
+    c: 3,
+    e: "Une perte motrice ou sensitive sous le niveau de la lésion est un signe d'atteinte médullaire.",
+  },
+  {
+    id: "rac-09", cat: "Traumatisme Rachis & Immobilisation", level: "PSE1",
+    q: "Quels mécanismes doivent faire suspecter une atteinte du rachis ?",
+    opts: ["Un choc léger contre une porte", "Une chute de sa hauteur sur les fesses sans douleur", "Un faux mouvement en soulevant un objet léger", "Une chute de hauteur, un accident de la route, un plongeon ou une chute de cheval"],
+    c: 3,
+    e: "Les mécanismes violents avec accélération ou décélération exposent particulièrement au rachis.",
+  },
+  {
+    id: "rac-10", cat: "Traumatisme Rachis & Immobilisation", level: "PSE1",
+    q: "Que faire devant une victime qui a plongé dans une eau peu profonde et ne peut plus bouger les jambes ?",
+    opts: ["La sortir rapidement de l'eau en la tirant par les bras et en la portant", "L'asseoir dans l'eau pour évaluer la force de ses jambes et de ses bras", "La faire nager lentement jusqu'à la berge la plus proche en la soutenant", "Maintenir la tête hors de l'eau dans l'axe et alerter sans la sortir de l'eau sans nécessité"],
+    c: 3,
+    e: "Toute traction peut aggraver une atteinte médullaire : la victime est maintenue dans l'axe en attendant les secours.",
+  },
+  {
+    id: "rac-11", cat: "Traumatisme Rachis & Immobilisation", level: "PSE1",
+    q: "Que dit-on à une victime suspecte d'atteinte du rachis ?",
+    opts: ["On lui demande de tester elle-même ses membres pour se rassurer", "On lui demande de se retourner doucement sur le dos", "On lui demande de s'asseoir pour mieux respirer", "On lui demande de ne pas bouger, on lui explique qu'on reste avec elle"],
+    c: 3,
+    e: "Rassurer et obtenir l'immobilité volontaire participent à la protection du rachis.",
+  },
+  {
+    id: "rac-12", cat: "Traumatisme Rachis & Immobilisation", level: "PSE1",
+    q: "Dans quelles conditions déplace-t-on une victime suspecte d'atteinte du rachis ?",
+    opts: ["Dès que la victime se plaint de douleurs dorsales importantes", "Pour l'allonger sur un plan dur avant tout examen complémentaire", "Pour la mettre en position latérale de sécurité sans attendre", "Uniquement en cas de danger vital immédiat ou pour des gestes vitaux indispensables"],
+    c: 3,
+    e: "Le déplacement est exceptionnel et motivé par une détresse vitale ou un danger incontrôlable.",
+  },
+  {
+    id: "rac-13", cat: "Traumatisme Rachis & Immobilisation", level: "PSE2",
+    q: "Combien de secouristes faut-il pour retourner une victime en bloc ?",
+    opts: ["Trois ou quatre, dont un qui maintient la tête en permanence", "Deux, un secouriste aux épaules et un autre aux pieds", "Un seul, s'il utilise un plan dur pour le retournement", "Cinq au minimum, un secouriste par membre de la victime"],
+    c: 0,
+    e: "Le retournement en bloc nécessite une coordination : un secouriste guide la tête, les autres suivent le mouvement.",
+  },
+  {
+    id: "rac-14", cat: "Traumatisme Rachis & Immobilisation", level: "PSE2",
+    q: "Faut-il retirer le casque d'un motard conscient et suspect d'atteinte du rachis ?",
+    opts: ["Oui, il gêne la surveillance des voies aériennes", "Non, on le laisse en place et on le maintient avec la tête", "Oui, en le retirant rapidement par l'arrière", "Non, mais on le découpe immédiatement sur place"],
+    c: 1,
+    e: "Le casque est laissé en place : il peut même servir de maintien de la tête en attendant les secours.",
+  },
+  {
+    id: "rac-15", cat: "Traumatisme Rachis & Immobilisation", level: "PSE2",
+    q: "À quoi sert un plan dur ou une civière à coquille ?",
+    opts: ["À immobiliser la colonne vertébrale pendant le déplacement de la victime", "À transporter plus rapidement une victime consciente", "À maintenir la victime éveillée pendant le transport", "À éviter que la victime ne prenne froid"],
+    c: 0,
+    e: "Le matériel d'immobilisation rigide limite les mouvements de la colonne durant le relevage et le transport.",
+  },
+  {
+    id: "rac-16", cat: "Traumatisme Rachis & Immobilisation", level: "PSE1",
+    q: "Que surveille-t-on chez une victime suspecte d'atteinte du rachis ?",
+    opts: ["La température des extrémités et la couleur des ongles", "La conscience, la respiration et la mobilité ou sensibilité des membres", "La fréquence des battements de cœur sur dix minutes", "La taille des pupilles uniquement"],
+    c: 1,
+    e: "Toute modification de la conscience, de la respiration ou de la motricité doit être transmise au médecin.",
+  },
+  {
+    id: "rac-17", cat: "Traumatisme Rachis & Immobilisation", level: "PSE1",
+    q: "Une victime assise au sol après une chute se plaint du dos : peut-elle se relever seule ?",
+    opts: ["Non, elle ne doit pas se lever avant l'avis des secours", "Oui, si elle se sent capable de le faire", "Oui, pour éviter de rester au sol", "Oui, à condition de rester penchée en avant"],
+    c: 0,
+    e: "Le relevé d'une victime suspecte d'atteinte du rachis relève d'une technique d'immobilisation.",
+  },
+  {
+    id: "rac-18", cat: "Traumatisme Rachis & Immobilisation", level: "PSE1",
+    q: "Pourquoi ne pas caler la tête d'une victime avec un oreiller épais ?",
+    opts: ["Parce que l'oreiller n'est pas stérile", "Parce que cela empêche la victime de respirer", "Parce que cela peut fléchir ou tourner la tête et aggraver la lésion", "Parce que la tête doit rester en hyperextension contrôlée"],
+    c: 2,
+    e: "Le maintien manuel dans l'axe garantit bien mieux la neutralité que l'installation d'un simple oreiller.",
+  },
+  {
+    id: "rac-19", cat: "Traumatisme Rachis & Immobilisation", level: "PSE1",
+    q: "Pourquoi répète-t-on le bilan d'une victime suspecte d'atteinte du rachis ?",
+    opts: ["Pour occuper la victime pendant l'attente", "Pour respecter un intervalle réglementaire de trois minutes", "Pour dépister une aggravation neurologique et adapter la conduite à tenir", "Pour décider seul d'un transport immédiat"],
+    c: 2,
+    e: "L'apparition de troubles moteurs ou sensitifs modifie la conduite à tenir et doit être signalée sans délai.",
+  },
+  {
+    id: "rac-20", cat: "Traumatisme Rachis & Immobilisation", level: "PSE1",
+    q: "Une victime présente une douleur du cou et des fourmillements dans les deux mains : que fait le secouriste ?",
+    opts: ["Il fait bouger les mains à la victime pour préciser les signes", "Il immobilise la tête en position neutre, alerte et surveille l'évolution des signes", "Il lui fait tourner la tête pour localiser la douleur", "Il surveille sans rien faire, les signes étant sans gravité"],
+    c: 1,
+    e: "Douleur cervicale et paresthésies évoquent une atteinte du rachis : immobilisation et alerte s'imposent.",
+  },
+  {
+    id: "mat-01", cat: "Matériel & Oxygénothérapie", level: "PSE2",
+    q: "Quel débit d'oxygène utilise-t-on avec un masque à haute concentration chez l'adulte ?",
+    opts: ["10 à 15 litres par minute", "1 à 2 litres par minute", "3 à 5 litres par minute", "20 à 25 litres par minute"],
+    c: 0,
+    e: "Le masque à haute concentration fonctionne avec un débit de 10 à 15 L/min pour que le réservoir se remplisse.",
+  },
+  {
+    id: "mat-02", cat: "Matériel & Oxygénothérapie", level: "PSE2",
+    q: "Quel débit d'oxygène utilise-t-on avec des lunettes à oxygène chez l'adulte ?",
+    opts: ["8 à 10 litres par minute", "10 à 15 litres par minute", "Moins d'un litre par minute", "2 à 6 litres par minute"],
+    c: 3,
+    e: "Les lunettes à oxygène délivrent un débit faible, de 2 à 6 L/min.",
+  },
+  {
+    id: "mat-03", cat: "Matériel & Oxygénothérapie", level: "PSE2",
+    q: "Que vérifie-t-on avant de brancher un patient sur une bouteille d'oxygène ?",
+    opts: ["La pression au manomètre et le bon fonctionnement du détendeur après une brève purge", "La couleur du tuyau et la longueur totale du circuit d'oxygène", "La température extérieure de la bouteille et la date de fabrication", "L'ancienneté de la dernière révision du véhicule de secours"],
+    c: 0,
+    e: "La purge évacue les poussières et vérifie la sortie de gaz, avant tout branchement sur la victime.",
+  },
+  {
+    id: "mat-04", cat: "Matériel & Oxygénothérapie", level: "PSE2",
+    q: "Pourquoi ne faut-il jamais graisser ou huiler le matériel d'oxygène ?",
+    opts: ["Parce que la graisse encrasse le détendeur et fausse le débit affiché", "Parce que cela modifie le débit d'oxygène administré à la victime", "Parce que le contact entre l'oxygène et un corps gras peut provoquer une inflammation brutale", "Parce que cela rend le masque glissant et difficile à maintenir"],
+    c: 2,
+    e: "L'oxygène pur en contact avec un corps gras s'enflamme très facilement : aucun produit gras ne doit être utilisé.",
+  },
+  {
+    id: "mat-05", cat: "Matériel & Oxygénothérapie", level: "PSE2",
+    q: "Quelles précautions prend-on avec une bouteille d'oxygène entre deux interventions ?",
+    opts: ["Elle est couchée dans le coffre pour ne pas tomber", "Elle est laissée dans le véhicule au soleil pour être prête", "Elle est stockée debout, arrimée, à l'abri de la chaleur et des chocs", "Elle est attachée avec les autres matériels dans un sac"],
+    c: 2,
+    e: "Une bouteille sous pression est un risque majeur : elle reste verticale, fixée et à l'abri de la chaleur.",
+  },
+  {
+    id: "mat-06", cat: "Matériel & Oxygénothérapie", level: "PSE2",
+    q: "Que fait-on si le manomètre indique une pression très faible ?",
+    opts: ["On augmente le débit pour compenser la baisse", "On remplace la bouteille, en signalant le besoin de réapprovisionnement", "On secoue la bouteille pour faire remonter la pression", "On poursuit l'administration, la pression n'ayant pas d'importance"],
+    c: 1,
+    e: "Une bouteille presque vide ne permettra pas d'assurer le débit nécessaire : elle doit être remplacée.",
+  },
+  {
+    id: "mat-07", cat: "Matériel & Oxygénothérapie", level: "PSE2",
+    q: "À quoi sert un insufflateur manuel (BAVU) ?",
+    opts: ["À aspirer les sécrétions et les liquides présents dans la bouche", "À mesurer la saturation en oxygène du sang au bout du doigt", "À ventiler une victime en insufflant de l'air ou de l'oxygène à l'aide d'un masque", "À comprimer le thorax pendant les insufflations de secours"],
+    c: 2,
+    e: "Le BAVU permet une ventilation artificielle efficace, avec une prise en main à deux mains et un masque adapté.",
+  },
+  {
+    id: "mat-08", cat: "Matériel & Oxygénothérapie", level: "PSE2",
+    q: "Pourquoi le BAVU est-il préféré au bouche-à-bouche en équipe ?",
+    opts: ["Parce qu'il est obligatoire pour l'adulte uniquement", "Parce qu'il permet de comprimer le thorax en même temps", "Parce qu'il est plus rapide à installer qu'un masque de poche", "Parce qu'il évite le contact direct avec la victime et permet une ventilation plus efficace"],
+    c: 3,
+    e: "Le BAVU protège le secouriste et délivre une ventilation plus riche en oxygène.",
+  },
+  {
+    id: "mat-09", cat: "Matériel & Oxygénothérapie", level: "PSE2",
+    q: "Que permet une canule d'aspiration ?",
+    opts: ["De ventiler la victime en oxygène pur à haut débit", "De maintenir la langue en position haute dans la bouche", "De mesurer la saturation en oxygène du sang", "De dégager les voies aériennes encombrées de liquides ou de sécrétions"],
+    c: 3,
+    e: "L'aspiration évacue les encombrements qui ne peuvent pas l'être par la simple libération des voies aériennes.",
+  },
+  {
+    id: "mat-10", cat: "Matériel & Oxygénothérapie", level: "PSE2",
+    q: "Quand administre-t-on de l'oxygène à une victime ?",
+    opts: ["Sur consigne du médecin régulateur, devant une détresse ou selon le protocole", "À toute victime consciente qui se plaint d'une douleur", "Dès qu'une victime présente une pâleur inhabituelle", "Uniquement après un arrêt cardiaque de plus de dix minutes"],
+    c: 0,
+    e: "L'oxygénothérapie est un acte sur prescription ou appliqué selon le protocole de l'équipe.",
+  },
+  {
+    id: "mat-11", cat: "Matériel & Oxygénothérapie", level: "PSE2",
+    q: "Que mesure un oxymètre de pouls ?",
+    opts: ["La saturation en oxygène du sang (SpO2) et le pouls", "La pression artérielle et la fréquence cardiaque", "La température corporelle et la glycémie", "Le débit respiratoire et le volume courant"],
+    c: 0,
+    e: "L'oxymètre de pouls mesure la saturation en oxygène et le pouls.",
+  },
+  {
+    id: "mat-12", cat: "Matériel & Oxygénothérapie", level: "PSE2",
+    q: "Que fait-on si l'oxymètre affiche une valeur inattendue ?",
+    opts: ["On augmente immédiatement le débit d'oxygène au maximum", "On conclut à une détresse et on alerte sans autre vérification", "On vérifie la position du capteur, la qualité du signal, une éventuelle source de lumière, puis on réévalue", "On note la valeur affichée et on poursuit la surveillance sans autre contrôle"],
+    c: 2,
+    e: "Un signal perturbé (mouvement, ongles vernis, lumière) fausse la mesure : on vérifie avant d'interpréter.",
+  },
+  {
+    id: "mat-13", cat: "Matériel & Oxygénothérapie", level: "PSE2",
+    q: "À quoi sert un masque de barrière (ou masque de poche) ?",
+    opts: ["À protéger la victime du froid pendant le transport", "À ventiler une victime en protégeant le secouriste du contact buccal", "À remplacer le BAVU lorsque l'oxygène est indisponible", "À administrer l'oxygène à haut débit"],
+    c: 1,
+    e: "Le masque de barrière protège le secouriste lors de la ventilation de secours.",
+  },
+  {
+    id: "mat-14", cat: "Matériel & Oxygénothérapie", level: "PSE2",
+    q: "À quoi sert une couverture de survie ?",
+    opts: ["À immobiliser les fractures des membres", "À protéger la victime des irradiations", "À servir de plan dur pour la RCP", "À limiter la déperdition thermique de la victime"],
+    c: 3,
+    e: "La couverture de survie protège du froid comme du chaud en réduisant les pertes thermiques.",
+  },
+  {
+    id: "mat-15", cat: "Matériel & Oxygénothérapie", level: "PSE2",
+    q: "Quand vérifie-t-on la dotation et la péremption du matériel de secours ?",
+    opts: ["Une fois par an, lors de l'assemblée générale des équipiers", "Avant et après chaque intervention, et lors des vérifications périodiques prévues", "Uniquement lorsqu'un matériel tombe en panne pendant une intervention", "Après chaque formation continue des équipiers de l'équipe locale"],
+    c: 1,
+    e: "Le matériel est contrôlé régulièrement : consommables utilisés, dates de péremption, bon fonctionnement.",
+  },
+  {
+    id: "mat-16", cat: "Matériel & Oxygénothérapie", level: "PSE2",
+    q: "Après utilisation, que fait-on du matériel souillé ?",
+    opts: ["Il est rangé tel quel, il sera nettoyé plus tard", "Il est nettoyé et désinfecté, les consommables remplacés et la dotation reconstituée", "Il est jeté même s'il est réutilisable", "Il est rangé avec le matériel propre dans le même sac"],
+    c: 1,
+    e: "Le matériel souillé ne doit jamais être remisé avec le matériel propre : nettoyage et désinfection sont systématiques.",
+  },
+  {
+    id: "mat-17", cat: "Matériel & Oxygénothérapie", level: "PSE2",
+    q: "Que faut-il vérifier sur un DAE avant de le remettre en service après usage ?",
+    opts: ["Le nombre de chocs délivrés depuis sa mise en service", "La couleur des témoins lumineux uniquement", "Le poids de l'appareil et de sa sacoche", "La batterie, la date de péremption des électrodes et le bon fonctionnement général"],
+    c: 3,
+    e: "Un DAE se contrôle après chaque usage et périodiquement : batterie, électrodes neuves et autotest.",
+  },
+  {
+    id: "mat-18", cat: "Matériel & Oxygénothérapie", level: "PSE2",
+    q: "Après usage, que fait-on des électrodes du DAE ?",
+    opts: ["Elles sont nettoyées et réutilisées", "Elles sont conservées dans la sacoche, collées sur un support", "Elles sont remplacées : elles sont à usage unique", "Elles sont désinfectées puis réutilisées trois fois"],
+    c: 2,
+    e: "Les électrodes sont à usage unique : elles doivent être remplacées immédiatement après utilisation.",
+  },
+  {
+    id: "mat-19", cat: "Matériel & Oxygénothérapie", level: "PSE2",
+    q: "Pourquoi le DAE doit-il être facilement accessible dans son véhicule ou son local ?",
+    opts: ["Pour permettre sa mise en œuvre en quelques secondes en cas d'arrêt cardiaque", "Pour être vérifié chaque matin par l'équipier", "Pour éviter de le perdre pendant le transport", "Pour permettre son utilisation comme moniteur cardiaque"],
+    c: 0,
+    e: "Chaque minute compte dans l'arrêt cardiaque : le DAE doit être immédiatement disponible, signalé et prêt.",
+  },
+  {
+    id: "mat-20", cat: "Matériel & Oxygénothérapie", level: "PSE1",
+    q: "Que fait un défibrillateur automatisé externe (DAE) ?",
+    opts: ["Mesure la pression artérielle et le pouls", "Il analyse le rythme cardiaque et conseille ou délivre un choc", "Ventile la victime en oxygène pur", "Remplace les compressions thoraciques"],
+    c: 1,
+    e: "Le DAE analyse le rythme et indique au secouriste la conduite à tenir, sans jamais remplacer la RCP.",
+  },
 ];
 if (typeof window !== "undefined") { window.QUESTION_BANK = QUESTION_BANK; }

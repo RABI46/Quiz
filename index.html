@@ -1,166 +1,180 @@
 <!doctype html>
-<html lang="fr"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#f4f7fb"><meta name="mobile-web-app-capable" content="yes">
-<link rel="manifest" href="./manifest.webmanifest"><link rel="icon" href="./icon.svg">
-<title>Quiz PSE — Protection Civile du Lot</title>
-<style>
-:root{--o:#e85d04;--n:#16324f;--m:#64748b;--g:#0f9d69;--r:#d92d4f;--bg:#f4f7fb;--card:#ffffff;--line:#dbe3ec;--text:#142033}*{box-sizing:border-box}body{margin:0;min-height:100vh;font-family:system-ui,sans-serif;color:var(--text);background:linear-gradient(180deg,#ffffff 0%,var(--bg) 55%,#eef3f8 100%)}button{font:inherit}.app{width:min(760px,100%);margin:auto;padding:14px}.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}.brand{display:flex;align-items:center;gap:10px}.cross{display:grid;place-items:center;width:40px;height:40px;border-radius:11px;background:var(--o);font-size:22px}.brand small{display:block;color:var(--m);font-size:10px;text-transform:uppercase;letter-spacing:1px}.brand b{font-size:14px}.home{border:1px solid var(--line);background:#ffffff;color:var(--text);border-radius:12px;padding:9px 12px}.hero{text-align:center;padding:18px 4px}.hero h1{margin:0;font-size:clamp(42px,13vw,70px);line-height:.95}.hero h1 span{color:var(--o)}.hero p{color:var(--m);font-size:14px}.card{background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:0 12px 35px #183b5d18}.start{padding:20px}.themes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;margin-top:16px}.themeBtn{width:100%;display:flex;align-items:center;gap:12px;min-height:82px;padding:13px;text-align:left;border:1px solid var(--line);border-radius:17px;background:#fff;color:var(--text);cursor:pointer;transition:.18s transform,.18s border-color,.18s background}.themeBtn:hover,.themeBtn:active{transform:translateY(-2px);border-color:#e85d0480;background:#fff7f0}.themeIcon{flex:0 0 44px;width:44px;height:44px;display:grid;place-items:center;border-radius:13px;background:#fff0e5;font-size:23px}.themeText{min-width:0}.themeName{display:block;font-weight:800;font-size:13px;line-height:1.25}.themeCount{display:block;color:var(--m);font-size:10px;margin-top:5px}.themeCount strong{color:#c44b00}.themeBtn.seen{border-color:#e6ebf1}.themeBtn.seen .themeCount strong{color:#087a53}.themeArrow{margin-left:auto;color:#c44b00;font-size:18px}.homeActions{display:grid;grid-template-columns:1fr;gap:10px;margin-top:14px}.storageNote{text-align:center;color:#64748b;font-size:10px;margin:10px 0 0}.secondary{width:100%;border:1px solid var(--line);border-radius:15px;padding:13px;background:#fff;color:var(--text);font-weight:800;cursor:pointer}.sectionTitle{margin:22px 2px 8px;font-size:16px}.sectionSub{margin:0 2px;color:var(--m);font-size:12px}.revisionList{display:grid;gap:10px;margin-top:14px}.revisionCard{padding:15px;border:1px solid #ffffff16;border-radius:16px;background:#ffffff08}.revisionCard .rtheme{color:#c44b00;font-size:10px;font-weight:800;text-transform:uppercase}.revisionCard h3{margin:7px 0;font-size:15px;line-height:1.4}.revisionCard p{margin:0;color:#475569;font-size:13px;line-height:1.5}.revisionCard .ranswer{margin-top:10px;padding:10px;border-radius:11px;background:#ecfdf5;border:1px solid #a7e5cb}.revisionCard .ranswer b{color:#087a53}.backBtn{margin-bottom:12px}.done .themeAgain{margin-top:10px}@media(max-width:520px){.themes{grid-template-columns:1fr}.themeBtn{min-height:74px}}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:16px}.stat{text-align:center;padding:14px 5px;background:#ffffff0d;border-radius:14px}.stat b{display:block;font-size:24px}.stat span{color:var(--m);font-size:10px;text-transform:uppercase}.primary{width:100%;border:0;border-radius:15px;padding:15px;background:linear-gradient(135deg,#f97316,#d94b00);color:#fff;font-weight:800;cursor:pointer}.hidden{display:none!important}.progress{height:7px;background:#e5ebf2;border-radius:99px;overflow:hidden}.progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--o),#ff8a3d)}.meta{display:flex;justify-content:space-between;align-items:center;color:var(--m);font-size:12px;margin:9px 2px 12px}.timer{display:grid;place-items:center;width:44px;height:44px;border:3px solid var(--o);border-radius:50%;font-weight:800}.warn{border-color:var(--r);color:#ff9aa5}.question{padding:20px 18px;margin-bottom:10px;border-left:4px solid var(--o)}.tag{display:inline-block;padding:5px 9px;border-radius:8px;background:#fff0e5;color:#ffad7b;font-size:10px;font-weight:800;text-transform:uppercase}.question h2{font-size:clamp(19px,5vw,25px);line-height:1.4;margin:10px 0 0}.qillustration{margin:-20px -18px 16px;overflow:hidden;border-radius:20px 20px 0 0;background:linear-gradient(135deg,#edf4fa,#dfeaf4);border-bottom:1px solid #d5e0ea}.qillustration svg{display:block;width:100%;height:170px}.qillustration .ill-label{font:700 11px system-ui,sans-serif;letter-spacing:1.5px;text-transform:uppercase;fill:#b8c8dc}.qillustration .ill-main{font:800 54px system-ui,sans-serif}.answers{display:grid;gap:9px}.answer{display:flex;align-items:center;gap:11px;width:100%;min-height:60px;padding:11px 13px;text-align:left;border:1px solid var(--line);border-radius:15px;background:#fff;color:var(--text);cursor:pointer}.letter{flex:0 0 35px;height:35px;display:grid;place-items:center;border-radius:9px;background:#eef3f8;color:var(--n);font-weight:800}.answer.correct{border-color:var(--g);background:#ecfdf5}.answer.correct .letter{background:var(--g);color:#06251c}.answer.wrong{border-color:var(--r);background:#fff1f3}.answer:disabled{cursor:default}.feedback{margin:11px 0;padding:14px 15px;border-radius:14px;background:#f7f9fc;line-height:1.45;font-size:14px}.feedback.good{border:1px solid #8bd8b9}.feedback.bad{border:1px solid #f0a2b2}.next{margin-top:10px}.done{text-align:center;padding:32px 20px}.done h2{font-size:28px}.done p{color:var(--m);line-height:1.5}.foot{text-align:center;color:var(--m);font-size:11px;margin-top:18px}
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Quiz PSE1 · Protection Civile du Lot</title>
+<meta name="description" content="Quiz d'entraînement PSE1 (Premiers Secours en Équipe) : 266 questions corrigées, sans aucune répétition, réparties en 11 thématiques. Protection Civile du Lot.">
+<meta name="theme-color" content="#f4f7fb">
+<meta name="color-scheme" content="light">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Quiz PSE">
+<link rel="canonical" href="https://rabi46.github.io/Quiz/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Quiz PSE — Protection Civile du Lot">
+<meta property="og:title" content="Quiz PSE1 · Protection Civile du Lot">
+<meta property="og:description" content="266 questions corrigées pour réviser le PSE1 : lots de 7 à 10 questions sans aucune répétition, mode révision, fiche mémo.">
+<meta property="og:url" content="https://rabi46.github.io/Quiz/">
+<meta property="og:image" content="https://rabi46.github.io/Quiz/icons/icon-512.png">
+<meta name="twitter:card" content="summary">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" href="./icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
+<link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<a class="visually-hidden" href="#contenu">Aller au contenu principal</a>
+<div id="live" class="visually-hidden" role="status" aria-live="polite"></div>
 
-body{position:relative;overflow-x:hidden}
-body::before{content:"";position:fixed;inset:0;background-image:url("https://www.milton-innovation.com/themes/milton/assets/img/partenaires/protection-civile.png");background-repeat:no-repeat;background-position:center center;background-size:min(560px,78vw);opacity:.055;pointer-events:none;z-index:0;filter:saturate(.85)}
-body>*{position:relative;z-index:1}
-</style></head><body><main class="app">
-<header class="top"><div class="brand"><div class="cross">✚</div><div><small>Protection Civile</small><b>du Lot · PSE1</b></div></div><button class="home" onclick="goHome()">⌂ Accueil</button></header>
-<section id="home">
-<div class="hero"><h1>QUIZ <span>PSE</span></h1><p>Entraînement PSE1 · choisissez votre thématique</p></div>
-<div class="card start">
-<div class="stats"><div class="stat"><b>10</b><span>Questions</span></div><div class="stat"><b>30s</b><span>Par question</span></div><div class="stat"><b>✓</b><span>Correction immédiate</span></div></div>
-<h3 class="sectionTitle">🎯 Choisissez votre lot</h3>
-<p class="sectionSub">Chaque thématique contient 10 questions différentes.</p>
-<div id="themes" class="themes">
-<button type="button" class="themeBtn" data-theme="Attitude &amp; Comportement"><span class="themeIcon">🛡️</span><span class="themeText"><span class="themeName">Attitude &amp; Comportement</span><span class="themeCount">10 questions</span></span><span class="themeArrow">›</span></button>
-<button class="themeBtn" data-theme="Urgences Vitales"><span class="themeIcon">🚨</span><span class="themeText"><span class="themeName">Urgences Vitales</span><span class="themeCount">10 questions</span></span><span class="themeArrow">›</span></button>
-<button class="themeBtn" data-theme="RCP &amp; DAE"><span class="themeIcon">❤️</span><span class="themeText"><span class="themeName">RCP &amp; DAE</span><span class="themeCount">10 questions</span></span><span class="themeArrow">›</span></button>
-<button class="themeBtn" data-theme="Obstruction des Voies Aériennes"><span class="themeIcon">🫁</span><span class="themeText"><span class="themeName">Obstruction des Voies Aériennes</span><span class="themeCount">10 questions</span></span><span class="themeArrow">›</span></button>
-<button class="themeBtn" data-theme="Évaluation Neurologique"><span class="themeIcon">🧠</span><span class="themeText"><span class="themeName">Évaluation Neurologique</span><span class="themeCount">10 questions</span></span><span class="themeArrow">›</span></button>
-<button class="themeBtn" data-theme="Hémorragie &amp; Pansements"><span class="themeIcon">🩸</span><span class="themeText"><span class="themeName">Hémorragie &amp; Pansements</span><span class="themeCount">10 questions</span></span><span class="themeArrow">›</span></button>
-<button class="themeBtn" data-theme="Position Latérale de Secours"><span class="themeIcon">↪️</span><span class="themeText"><span class="themeName">Position Latérale de Secours</span><span class="themeCount">10 questions</span></span><span class="themeArrow">›</span></button>
-<button class="themeBtn" data-theme="Malaises &amp; Affections"><span class="themeIcon">⚕️</span><span class="themeText"><span class="themeName">Malaises &amp; Affections</span><span class="themeCount">10 questions</span></span><span class="themeArrow">›</span></button>
-<button class="themeBtn" data-theme="Traumatismes &amp; Brûlures"><span class="themeIcon">🔥</span><span class="themeText"><span class="themeName">Traumatismes &amp; Brûlures</span><span class="themeCount">10 questions</span></span><span class="themeArrow">›</span></button>
-<button class="themeBtn" data-theme="Traumatisme Rachis &amp; Immobilisation"><span class="themeIcon">🦴</span><span class="themeText"><span class="themeName">Traumatisme Rachis &amp; Immobilisation</span><span class="themeCount">10 questions</span></span><span class="themeArrow">›</span></button>
-<button class="themeBtn" data-theme="Matériel &amp; Oxygénothérapie"><span class="themeIcon">🧰</span><span class="themeText"><span class="themeName">Matériel &amp; Oxygénothérapie</span><span class="themeCount">10 questions</span></span><span class="themeArrow">›</span></button>
-</div>
-<div class="homeActions"><button type="button" class="secondary" onclick="showRevision()">📖 Mode révision — apprendre sans chronomètre</button><button class="secondary" onclick="resetHistory()">♻️ Réinitialiser les questions déjà vues</button></div><p id="storageNote" class="storageNote">La progression des lots est mémorisée sur cet appareil.</p>
-</div></section>
-<section id="revision" class="hidden"><button class="secondary backBtn" onclick="goHome()">← Retour aux thématiques</button><div class="hero"><h2 style="margin:0;font-size:30px">📖 Mode révision</h2><p>Questions, bonnes réponses et explications.</p></div><div id="revisionList" class="revisionList"></div></section><section id="quiz" class="hidden"><div class="progress"><i id="bar"></i></div><div class="meta"><span><b id="lot">Lot</b> · <span id="num">Question 1 / 10</span></span><span class="timer" id="timer" aria-label="Temps restant">30</span></div><div class="card question"><div class="tag" id="cat">PSE1</div><div id="illustration" class="qillustration" aria-hidden="true"></div><h2 id="q"></h2></div><div class="answers" id="answers"></div><div id="feedback" class="feedback hidden"></div><button id="next" class="primary next hidden" onclick="nextQuestion()">Question suivante →</button></section>
-<section id="done" class="hidden"><div class="card done"><div style="font-size:54px">🎉</div><h2>Lot terminé</h2><p>Les 10 questions de <b id="doneTheme"></b> sont terminées.</p><button class="primary themeAgain" onclick="startQuiz(currentTheme)">🔁 Refaire ce lot</button><button class="secondary themeAgain" onclick="goHome()">← Choisir une autre thématique</button></div></section>
-<div class="foot">Quiz PSE1 · Protection Civile du Lot</div></main>
-<script src="./questions.js"></script><script>
-const TOTAL=10,TIME=30,L=["A","B","C","D"];let qs=[],cur=0,timer=null,left=TIME,currentTheme="",answered=false;
-function shuffle(a){for(let i=a.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
-function esc(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
-function show(id){["home","quiz","done","revision"].forEach(x=>document.getElementById(x).classList.toggle("hidden",x!==id))}
-function goHome(){clearInterval(timer);show("home");buildThemes();scrollTo(0,0)}
-function showRevision(){clearInterval(timer);const bank=(typeof QUESTION_BANK!=="undefined"&&Array.isArray(QUESTION_BANK))?QUESTION_BANK:[];const list=document.getElementById("revisionList");list.innerHTML="";const groups={};bank.forEach(x=>{const k=x.cat||"PSE1";(groups[k]??=[]).push(x)});Object.keys(groups).sort((a,b)=>a.localeCompare(b,"fr")).forEach(theme=>{groups[theme].forEach((x,i)=>{const answer=Array.isArray(x.opts)?x.opts[x.c]:"";const d=document.createElement("article");d.className="revisionCard";d.innerHTML="<div class=\"rtheme\">"+esc(theme)+" · Question "+(i+1)+"</div><h3>"+esc(x.q)+"</h3><div class=\"ranswer\"><b>✅ Bonne réponse :</b> "+esc(answer)+"</div><p>"+esc(x.e||"")+" </p>";list.appendChild(d)})});show("revision");scrollTo(0,0)}
-function getBank(){return (typeof QUESTION_BANK!=="undefined"&&Array.isArray(QUESTION_BANK))?QUESTION_BANK:(Array.isArray(window.QUESTION_BANK)?window.QUESTION_BANK:[])}
-function readPool(theme){
-  try{const raw=JSON.parse(localStorage.getItem("quizPSEPool_"+theme)||"null");return Array.isArray(raw)?raw:[]}
-  catch(e){return []}
-}
-function writePool(theme,pool,previous){
-  try{
-    localStorage.setItem("quizPSEPool_"+theme,JSON.stringify(pool));
-    localStorage.setItem("quizPSEPrevious_"+theme,JSON.stringify(previous||[]));
-  }catch(e){}
-}
-function resetHistory(){
-  const themes=[...new Set(getBank().map(x=>x.cat).filter(Boolean))];
-  themes.forEach(t=>{try{localStorage.removeItem("quizPSEPool_"+t);localStorage.removeItem("quizPSEPrevious_"+t)}catch(e){}});
-  buildThemes();
-  alert("Historique des questions réinitialisé.");
-}
-function buildThemes(){
-  const bank=getBank(), counts={};
-  bank.forEach(x=>{const k=x.cat||"PSE1";counts[k]=(counts[k]||0)+1});
-  document.querySelectorAll("#themes .themeBtn").forEach(b=>{
-    const theme=b.dataset.theme||"", total=counts[theme]||0;
-    let remaining=0; try{remaining=readPool(theme).length}catch(e){}
-    const countEl=b.querySelector(".themeCount");
-    if(countEl) countEl.innerHTML="<strong>"+total+" questions</strong> · "+(remaining?remaining+" restantes":"nouveau cycle");
-    b.classList.toggle("seen",total>remaining);
-    b.setAttribute("aria-label",theme+" — "+total+" questions");
-  });
-}
-function startQuiz(theme){
-  const bank=getBank(), groups=bank.filter(x=>String(x.cat||"PSE1")===String(theme));
-  if(!groups.length){alert("Aucune question trouvée pour cette thématique.");return}if(groups.length<TOTAL){alert("Cette thématique ne contient pas assez de questions.");return}
-  currentTheme=theme;
+<main class="app" id="contenu">
+  <header class="top">
+    <div class="brand">
+      <div class="cross" aria-hidden="true">✚</div>
+      <div>
+        <small>Protection Civile</small>
+        <b>du Lot · PSE1</b>
+      </div>
+    </div>
+    <button type="button" class="home-btn hidden" id="top-home">⌂ Accueil</button>
+  </header>
 
-  let pool=readPool(theme).filter(q=>groups.some(x=>x.q===q));
-  let previous=[];
-  try{
-    const p=JSON.parse(localStorage.getItem("quizPSEPrevious_"+theme)||"[]");
-    previous=Array.isArray(p)?p:[];
-  }catch(e){}
+  <!-- ======================= ACCUEIL ======================= -->
+  <section id="home" aria-labelledby="home-title">
+    <div class="hero">
+      <h1 id="home-title">QUIZ <span>PSE</span></h1>
+      <p>Entraînement PSE1 · Protection Civile du Lot</p>
+    </div>
 
-  // A cycle contains every question exactly once. When a cycle is exhausted,
-  // start a new one while avoiding the questions from the immediately
-  // previous quiz whenever the theme contains enough alternatives.
-  if(pool.length<TOTAL){
-    const previousSet=new Set(previous);
-    let fresh=shuffle(groups.filter(x=>!previousSet.has(x.q)).map(x=>x.q));
-    if(fresh.length<TOTAL) fresh=shuffle(groups.map(x=>x.q));
-    const currentSet=new Set(pool);
-    const merged=[...pool,...fresh.filter(q=>!currentSet.has(q))];
-    pool=merged;
-  }
+    <div class="card start">
+      <div class="stats">
+        <div class="stat"><b id="bank-total">266</b><span>Questions</span></div>
+        <div class="stat"><b id="bank-themes">11</b><span>Thématiques</span></div>
+        <div class="stat"><b>30 s</b><span>Par question</span></div>
+      </div>
 
-  pool=shuffle(pool);
-  const chosenIds=pool.slice(0,TOTAL);
-  const chosen=chosenIds.map(id=>groups.find(x=>x.q===id)).filter(Boolean);
+      <h2 class="section-title">🎯 Choisissez votre thématique</h2>
+      <p class="section-sub">Chaque cycle parcourt <b>toutes</b> les questions de la thématique une seule fois, par lots de 7 à 10 questions. Aucune question n'est reposée avant la fin du cycle.</p>
 
-  // If an interrupted/legacy pool ever produces fewer than 10 questions,
-  // fill without duplicates before saving.
-  if(chosen.length<TOTAL){
-    const used=new Set(chosen.map(x=>x.q));
-    const fill=shuffle(groups.filter(x=>!used.has(x.q)));
-    chosen.push(...fill.slice(0,TOTAL-chosen.length));
-  }
+      <div class="home-actions">
+        <button type="button" class="secondary" id="classic-btn">
+          🏁 Mode classique — les 9 thèmes de base<br>
+          <span class="theme-count" id="classic-count"></span>
+        </button>
+      </div>
 
-  const used=new Set(chosen.map(x=>x.q));
-  pool=pool.filter(q=>!used.has(q));
-  if(pool.length===0){
-    // Keep the cycle marker empty; the next launch will build a fresh cycle
-    // and explicitly avoid the previous quiz.
-    pool=[];
-  }
-  writePool(theme,pool,chosen.map(x=>x.q));
+      <div id="themes" class="themes"></div>
 
-  qs=chosen.map(x=>{
-    const o=(Array.isArray(x.opts)?x.opts:[]).map((v,i)=>({v,ok:i===x.c}));
-    shuffle(o);
-    return {cat:x.cat||"PSE1",q:x.q,opts:o.map(z=>z.v),c:o.findIndex(z=>z.ok),e:x.e||""};
-  });
-  cur=0;show("quiz");render();
-}
-function illustrationFor(x){
-  const c=String(x.cat||"").toLowerCase(), q=String(x.q||"").toLowerCase();
-  let icon="✚", title="SECOURS", sub="PSE1";
-  if(c.includes("hémorrag")||q.includes("saign")||q.includes("garrot")||q.includes("pansement")){icon="🩸";title="HÉMORRAGIE";sub="PROTÉGER · COMPRIMER · ALERTER"}
-  else if(c.includes("rcp")||c.includes("dae")||q.includes("arrêt cardiaque")||q.includes("défibr")){icon="♥";title="RÉANIMATION";sub="RCP · DAE"}
-  else if(c.includes("obstruction")||q.includes("étouff")||q.includes("heimlich")){icon="🫁";title="VOIES AÉRIENNES";sub="DÉSOBSTRUCTION"}
-  else if(c.includes("neurolog")||q.includes("avpu")||q.includes("pupille")){icon="🧠";title="NEUROLOGIE";sub="ÉVALUATION"}
-  else if(c.includes("position latérale")||q.includes("pls")){icon="↻";title="PLS";sub="POSITION DE SÉCURITÉ"}
-  else if(c.includes("malaise")||q.includes("avc")||q.includes("hypoglyc")){icon="⚕";title="MALAISE";sub="RECONNAÎTRE · ALERTER"}
-  else if(c.includes("traumatisme")||c.includes("immobilisation")||q.includes("fracture")||q.includes("rachis")){icon="🦴";title="TRAUMATISME";sub="IMMOBILISATION"}
-  else if(c.includes("brûl")||q.includes("brûl")){icon="🔥";title="BRÛLURE";sub="REFROIDIR · PROTÉGER"}
-  else if(c.includes("intox")||q.includes("poison")||q.includes("toxique")){icon="⚠";title="INTOXICATION";sub="ÉLOIGNER · ALERTER"}
-  else if(c.includes("matériel")||q.includes("oxyg")){icon="O₂";title="MATÉRIEL";sub="OXYGÉNOTHÉRAPIE"}
-  else if(c.includes("attitude")||q.includes("danger")||q.includes("balisage")||q.includes("epi")){icon="🛡";title="PROTECTION";sub="SÉCURISER · ALERTER"}
-  const escSvg=v=>String(v).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
-  return '<svg viewBox="0 0 760 170" role="img" aria-label="'+escSvg(title)+'"><defs><linearGradient id="ig" x1="0" x2="1"><stop offset="0" stop-color="#ff6600"/><stop offset="1" stop-color="#ff9a58"/></linearGradient><radialGradient id="rg"><stop stop-color="#ffffff22"/><stop offset="1" stop-color="#ffffff00"/></radialGradient></defs><rect width="760" height="170" fill="#0b1b33"/><circle cx="650" cy="30" r="145" fill="url(#rg)"/><circle cx="120" cy="150" r="110" fill="#ff660012"/><rect x="28" y="28" width="114" height="114" rx="28" fill="url(#ig)" opacity=".95"/><text x="85" y="103" text-anchor="middle" class="ill-main">'+escSvg(icon)+'</text><text x="175" y="72" class="ill-label">'+escSvg(title)+'</text><text x="175" y="102" fill="#fff" font-size="24" font-weight="800" font-family="system-ui,sans-serif">'+escSvg(sub)+'</text><path d="M175 121h430" stroke="#ffffff22"/><circle cx="625" cy="121" r="5" fill="#ff6600"/><circle cx="645" cy="121" r="5" fill="#ff6600" opacity=".55"/><circle cx="665" cy="121" r="5" fill="#ff6600" opacity=".25"/></svg>';
-}
-function render(){if(!qs.length||!qs[cur]){goHome();return}answered=false;clearInterval(timer);let x=qs[cur];document.getElementById("num").textContent="Question "+(cur+1)+" / "+qs.length;document.getElementById("lot").textContent="Lot · "+currentTheme;document.getElementById("bar").style.width=((cur+1)/qs.length*100)+"%";document.getElementById("cat").textContent=x.cat||"PSE1";try{document.getElementById("illustration").innerHTML=illustrationFor(x)}catch(e){document.getElementById("illustration").innerHTML="";}document.getElementById("q").textContent=x.q||"";document.getElementById("feedback").className="feedback hidden";document.getElementById("next").classList.add("hidden");let a=document.getElementById("answers");a.innerHTML="";x.opts.forEach((v,i)=>{let b=document.createElement("button");b.className="answer";b.innerHTML='<span class="letter">'+L[i]+'</span><span>'+esc(v)+'</span>';b.onclick=()=>answer(i);a.appendChild(b)});left=TIME;tick();timer=setInterval(()=>{left--;tick();if(left<=0){clearInterval(timer);answer(-1)}},1000)}
-function tick(){let t=document.getElementById("timer");t.textContent=left;t.classList.toggle("warn",left<=10)}
-function answer(i){if(answered)return;answered=true;clearInterval(timer);let x=qs[cur];document.querySelectorAll(".answer").forEach((b,k)=>{b.disabled=true;if(k===x.c)b.classList.add("correct");else if(k===i)b.classList.add("wrong")});let f=document.getElementById("feedback");if(i===x.c){f.className="feedback good";f.innerHTML="<b>✅ Bonne réponse.</b> "+esc(x.e)}else if(i===-1){f.className="feedback bad";f.innerHTML="<b>⏰ Temps écoulé.</b> Bonne réponse : <b>"+esc(x.opts[x.c])+"</b><br>"+esc(x.e)}else{f.className="feedback bad";f.innerHTML="<b>❌ Mauvaise réponse.</b> Bonne réponse : <b>"+esc(x.opts[x.c])+"</b><br>"+esc(x.e)}f.classList.remove("hidden");let n=document.getElementById("next");n.textContent=cur<qs.length-1?"Question suivante →":"🏁 Terminer";n.classList.remove("hidden")}
-function nextQuestion(){cur++;if(cur>=qs.length){document.getElementById("doneTheme").textContent=currentTheme;show("done");document.getElementById("bar").style.width="100%"}else render();scrollTo(0,0)}
-document.addEventListener("click",e=>{
-  const b=e.target.closest("#themes .themeBtn");
-  if(!b)return;
-  e.preventDefault();
-  try{startQuiz(b.dataset.theme||"")}
-  catch(err){
-    console.error(err);
-    alert("Erreur lors du lancement du quiz : "+(err&&err.message?err.message:"erreur JavaScript"));
-  }
-});
-window.addEventListener("DOMContentLoaded",()=>{
-  buildThemes();
-  // Désactive les anciens service workers pour éviter qu'une ancienne version du quiz reste en cache.
-  if("serviceWorker" in navigator){
-    navigator.serviceWorker.getRegistrations().then(rs=>rs.forEach(r=>r.unregister())).catch(()=>{});
-    if("caches" in window)caches.keys().then(keys=>keys.filter(k=>k.startsWith("quiz-pse-")).forEach(k=>caches.delete(k))).catch(()=>{});
-  }
-});
-</script></body></html>
+      <div class="home-actions">
+        <button type="button" class="secondary" id="memo-btn">🧾 Fiche mémo — les chiffres et conduites clés</button>
+        <button type="button" class="secondary" id="revision-btn">📖 Mode révision — apprendre sans chronomètre</button>
+        <button type="button" class="secondary" id="reset-btn">♻️ Réinitialiser les questions déjà vues</button>
+      </div>
+
+      <p class="storage-note">La progression est mémorisée sur cet appareil uniquement (aucune donnée envoyée).</p>
+      <p class="storage-note hidden" id="update-note">Une nouvelle version de l'application est disponible : rechargez la page pour en profiter.</p>
+    </div>
+  </section>
+
+  <!-- ======================= FICHE MÉMO ======================= -->
+  <section id="memo" class="hidden" aria-labelledby="memo-title">
+    <button type="button" class="secondary back-btn" id="memo-back">← Retour à l'accueil</button>
+    <div class="hero">
+      <h2 id="memo-title" style="margin:0;font-size:30px">🧾 Fiche mémo</h2>
+      <p>Les repères à connaître par cœur.</p>
+    </div>
+    <div class="card start">
+      <h3 class="section-title">🔢 Numéros d'urgence</h3>
+      <ul class="memo-list">
+        <li><b>15</b> — SAMU (régulation médicale)</li>
+        <li><b>18</b> — Sapeurs-pompiers</li>
+        <li><b>112</b> — Numéro d'urgence européen, depuis tout pays de l'Union</li>
+        <li><b>114</b> — Personnes sourdes ou malentendantes, par SMS ou application</li>
+        <li><b>101</b> — Urgences vétérinaires · <b>119</b> — Enfance en danger</li>
+      </ul>
+
+      <h3 class="section-title">🛡️ Protéger, alerter, secourir</h3>
+      <ul class="memo-list">
+        <li>Analyser la situation, supprimer ou écarter le danger, protéger sans s'exposer.</li>
+        <li>Alerter avec un message structuré : <b>lieu, nature, nombre de victimes</b> ; ne raccrocher que sur invitation du régulateur.</li>
+        <li>Effectuer un <b>bilan</b> et transmettre les informations au médecin régulateur.</li>
+      </ul>
+
+      <h3 class="section-title">🚨 Détresses vitales</h3>
+      <ul class="memo-list">
+        <li><b>Inconscience :</b> libérer les voies aériennes, contrôler la respiration 10 s ; si elle respire : <b>PLS</b>.</li>
+        <li><b>Arrêt cardiaque :</b> RCP immédiate — <b>30 compressions / 2 insufflations</b>, <b>100 à 120/min</b>, <b>5 à 6 cm</b> — et <b>DAE dès qu'il est disponible</b>.</li>
+        <li><b>Enfant :</b> 15 compressions / 2 insufflations. <b>Début par 5 insufflations</b> si noyade ou asphyxie.</li>
+        <li><b>Hémorragie :</b> compression directe ; garrot si l'amputation ou l'échec de la compression ; <b>noter l'heure du garrot</b>.</li>
+        <li><b>AVC :</b> visage asymétrique, bras qui retombe, parole troublée → <b>noter l'heure de début</b> et alerter le 15.</li>
+        <li><b>Brûlure :</b> refroidir <b>15 à 20 min</b> à l'eau tempérée, jamais de corps gras ni de glace directe. Chimique : rincer <b>20 à 30 min</b>.</li>
+        <li><b>Obstruction totale :</b> 5 claques dans le dos puis 5 compressions abdominales (thoraciques chez la femme enceinte).</li>
+      </ul>
+
+      <h3 class="section-title">🧰 Oxygénothérapie</h3>
+      <ul class="memo-list">
+        <li>Masque à haute concentration : <b>10 à 15 L/min</b>. Lunettes : <b>2 à 6 L/min</b>.</li>
+        <li>Jamais de graisse ni d'huile sur le matériel d'oxygène.</li>
+      </ul>
+
+      <p class="section-sub">Fiche de repères pédagogiques : elle ne remplace pas le référentiel officiel ni les recommandations du médecin régulateur.</p>
+    </div>
+  </section>
+
+  <!-- ======================= MODE RÉVISION ======================= -->
+  <section id="revision" class="hidden" aria-labelledby="revision-title">
+    <button type="button" class="secondary back-btn" id="revision-back">← Retour à l'accueil</button>
+    <div class="hero">
+      <h2 id="revision-title" style="margin:0;font-size:30px">📖 Mode révision</h2>
+      <p>Les <b id="revision-count">266</b> questions, leurs bonnes réponses et les explications.</p>
+    </div>
+    <div id="revision-list" class="revision-list"></div>
+  </section>
+
+  <!-- ======================= QUIZ ======================= -->
+  <section id="quiz" class="hidden" aria-labelledby="q">
+    <div class="progress" id="bar-wrap" role="progressbar" aria-valuemin="1" aria-valuemax="10" aria-valuenow="1" aria-label="Progression du lot">
+      <i id="bar"></i>
+    </div>
+    <div class="meta">
+      <span><b id="lot">Lot</b> · <span id="num">Question 1 / 10</span></span>
+      <span class="timer" id="timer" aria-label="Temps restant : 30 secondes">30</span>
+    </div>
+
+    <div class="card question">
+      <p>
+        <span class="tag" id="cat">PSE1</span>
+        <span class="tag level" id="level">Niveau PSE1</span>
+      </p>
+      <div id="illustration" class="q-illustration" aria-hidden="true"></div>
+      <h2 id="q">Chargement…</h2>
+    </div>
+
+    <div class="answers" id="answers" role="group" aria-labelledby="q"></div>
+    <div id="feedback" class="feedback hidden" tabindex="-1"></div>
+    <button type="button" id="next" class="primary next hidden">Question suivante →</button>
+  </section>
+
+  <!-- ======================= FIN DE LOT ======================= -->
+  <section id="done" class="hidden" aria-labelledby="done-title">
+    <div class="card done">
+      <div style="font-size:54px" aria-hidden="true">🎉</div>
+      <h2 id="done-title">Lot terminé</h2>
+      <p>Thématique : <b id="done-theme"></b></p>
+      <p class="score"><span id="done-score"></span><br><span id="done-percent"></span></p>
+      <div id="done-recap"></div>
+      <button type="button" class="primary theme-again" id="done-again">🔁 Refaire un lot de cette thématique</button>
+      <button type="button" class="secondary theme-again hidden" id="done-review-wrong">🎯 Rejouer mes erreurs</button>
+      <button type="button" class="secondary theme-again" id="done-home">← Choisir une autre thématique</button>
+    </div>
+  </section>
+
+  <p class="foot">Quiz PSE1 · Protection Civile du Lot — outil d'entraînement, ne remplace pas une formation validée.</p>
+</main>
+
+<script src="./questions.js"></script>
+<script src="./app.js"></script>
+</body>
+</html>

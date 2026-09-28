@@ -1,0 +1,18 @@
+{
+  "name": "quiz-pse",
+  "version": "16.0.0",
+  "private": true,
+  "description": "Quiz d'entraînement PSE1 — Protection Civile du Lot",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "validate": "node tools/validate_bank.mjs",
+    "test:lot": "node tools/test_lot.mjs",
+    "test:ui": "node tools/check_ui.mjs",
+    "test:e2e": "node tools/e2e.mjs",
+    "test": "npm run validate && npm run test:lot && npm run test:ui"
+  },
+  "devDependencies": {
+    "jsdom": "^26.1.0"
+  }
+}

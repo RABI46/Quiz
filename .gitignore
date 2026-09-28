@@ -1,0 +1,20 @@
+# Systèmes d'exploitation
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Éditeurs
+.vscode/
+.idea/
+*.swp
+
+# Python (outillage tools/)
+__pycache__/
+*.pyc
+
+# Node (outillage éventuel)
+node_modules/
+npm-debug.log*
+
+# Publication locale
+_site/

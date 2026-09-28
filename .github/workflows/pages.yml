@@ -1,8 +1,9 @@
-name: Deploy Quiz PSE to GitHub Pages
+name: Valider et déployer le Quiz PSE
 
 on:
   push:
     branches: ["main"]
+  pull_request:
   workflow_dispatch:
 
 permissions:
@@ -11,27 +12,73 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages"
+  group: "pages-${{ github.ref }}"
   cancel-in-progress: true
 
 jobs:
+  # Contrôles automatiques : banque de questions valide et lots sans répétition.
+  # Une branche ou une PR qui échoue ici n'est jamais publiée.
+  validate:
+    name: Contrôler la banque de questions
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupérer le dépôt
+        uses: actions/checkout@v4
+
+      - name: Installer Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Installer les dépendances de test
+        run: npm install --no-audit --no-fund
+
+      - name: Contrôler la banque de questions
+        run: npm run validate
+
+      - name: Vérifier l'absence de répétition dans les lots
+        run: npm run test:lot
+
+      - name: Vérifier la cohérence de l'interface
+        run: npm run test:ui
+
+      - name: Vérifier que questions.js correspond à data/questions.json
+        run: python3 tools/generate_questions_js.py --check
+
+      - name: Test de bout en bout dans un navigateur simulé
+        run: |
+          python3 -m http.server 8080 --bind 127.0.0.1 >/dev/null 2>&1 &
+          sleep 2
+          node tools/e2e.mjs http://127.0.0.1:8080/
+
   deploy:
+    name: Publier sur GitHub Pages
+    needs: validate
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Récupérer le dépôt
         uses: actions/checkout@v4
 
-      - name: Setup Pages
+      - name: Configurer Pages
         uses: actions/configure-pages@v5
 
-      - name: Upload site
+      # Seuls les fichiers utiles au site sont publiés : l'outillage
+      # (tools/, data/) et l'historique restent dans le dépôt.
+      - name: Préparer le site
+        run: |
+          mkdir -p _site
+          cp index.html styles.css app.js questions.js sw.js manifest.webmanifest icon.svg _site/
+          cp -r icons assets _site/
+
+      - name: Envoyer l'artefact du site
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: _site
 
-      - name: Deploy to GitHub Pages
+      - name: Déployer sur GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

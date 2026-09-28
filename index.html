@@ -39,6 +39,23 @@ function esc(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&l
 function show(id){["home","quiz","done","revision"].forEach(x=>document.getElementById(x).classList.toggle("hidden",x!==id))}
 function goHome(){clearInterval(timer);show("home");buildThemes();scrollTo(0,0)}
 function showRevision(){clearInterval(timer);const bank=(typeof QUESTION_BANK!=="undefined"&&Array.isArray(QUESTION_BANK))?QUESTION_BANK:[];const list=document.getElementById("revisionList");list.innerHTML="";const groups={};bank.forEach(x=>{const k=x.cat||"PSE1";(groups[k]??=[]).push(x)});Object.keys(groups).sort((a,b)=>a.localeCompare(b,"fr")).forEach(theme=>{groups[theme].forEach((x,i)=>{const answer=Array.isArray(x.opts)?x.opts[x.c]:"";const d=document.createElement("article");d.className="revisionCard";d.innerHTML="<div class=\"rtheme\">"+esc(theme)+" · Question "+(i+1)+"</div><h3>"+esc(x.q)+"</h3><div class=\"ranswer\"><b>✅ Bonne réponse :</b> "+esc(answer)+"</div><p>"+esc(x.e||"")+" </p>";list.appendChild(d)})});show("revision");scrollTo(0,0)}
+function getBank(){return (typeof QUESTION_BANK!=="undefined"&&Array.isArray(QUESTION_BANK))?QUESTION_BANK:(Array.isArray(window.QUESTION_BANK)?window.QUESTION_BANK:[])}
+function readPool(theme){
+  try{const raw=JSON.parse(localStorage.getItem("quizPSEPool_"+theme)||"null");return Array.isArray(raw)?raw:[]}
+  catch(e){return []}
+}
+function writePool(theme,pool,previous){
+  try{
+    localStorage.setItem("quizPSEPool_"+theme,JSON.stringify(pool));
+    localStorage.setItem("quizPSEPrevious_"+theme,JSON.stringify(previous||[]));
+  }catch(e){}
+}
+function resetHistory(){
+  const themes=[...new Set(getBank().map(x=>x.cat).filter(Boolean))];
+  themes.forEach(t=>{try{localStorage.removeItem("quizPSEPool_"+t);localStorage.removeItem("quizPSEPrevious_"+t)}catch(e){}});
+  buildThemes();
+  alert("Historique des questions réinitialisé.");
+}
 function buildThemes(){
   const bank=getBank(), counts={};
   bank.forEach(x=>{const k=x.cat||"PSE1";counts[k]=(counts[k]||0)+1});

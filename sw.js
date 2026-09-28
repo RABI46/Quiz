@@ -1,4 +1,4 @@
-const CACHE="quiz-pse-v12-fix1";
+const CACHE="quiz-pse-v12-fix2";
 const CORE=["./","./index.html","./questions.js","./manifest.webmanifest","./icon.svg"];
 self.addEventListener("install",e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(CORE)).then(()=>self.skipWaiting())));
 self.addEventListener("activate",e=>e.waitUntil(

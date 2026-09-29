@@ -20,6 +20,11 @@ mode révision et fiche mémo.
 - **Progression locale** : les questions déjà vues sont mémorisées sur l'appareil
   (localStorage), aucune donnée n'est envoyée.
 - **PWA** : installation sur mobile et fonctionnement hors ligne via service worker.
+- **Animation de démarrage** : au lancement, l'emblème de la Protection Civile
+  (disque orange, triangle blanc, triangle bleu) se dessine, des ondes de
+  protection s'en échappent et le nom de l'association apparaît, puis l'écran
+  s'efface tout seul (nettoyage garanti par un minuteur, appui ou touche pour
+  passer, désactivée si « réduire les animations » est demandé).
 - **Accessibilité** : navigation au clavier (touches `1`-`4` ou `A`-`D`), annonces
   lecteur d'écran, contrastes conformes AA, respect de `prefers-reduced-motion`.
 

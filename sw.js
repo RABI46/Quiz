@@ -8,7 +8,7 @@
  * IMPORTANT : toute modification des fichiers de l'application doit s'accompagner
  * d'une incrémentation de VERSION, sinon les visiteurs garderont l'ancienne copie.
  */
-const VERSION = "16";
+const VERSION = "17";
 const CACHE = `quiz-pse-v${VERSION}`;
 
 const CORE = [

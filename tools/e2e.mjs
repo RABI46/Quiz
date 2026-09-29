@@ -33,6 +33,18 @@ await new Promise((resolve) => {
 });
 await wait(300);
 
+/* ---------- 0. animation de démarrage ---------- */
+const splash = $("splash");
+if (!splash) problems.push("splash : l'animation de démarrage est absente au chargement");
+else {
+  if (!splash.querySelector(".sp-disc")) problems.push("splash : le disque orange de l'emblème est absent");
+  if (!splash.querySelector(".sp-tri-white")) problems.push("splash : le triangle blanc de l'emblème est absent");
+  if (!splash.querySelector(".sp-tri-blue")) problems.push("splash : le triangle bleu de l'emblème est absent");
+  if (!/Protection Civile/i.test(splash.textContent)) problems.push("splash : le nom de l'association n'apparaît pas");
+  if (!/du Lot/i.test(splash.textContent)) problems.push("splash : la mention « du Lot » n'apparaît pas");
+  if (!window.document.body.classList.contains("booting")) problems.push("splash : la page n'est pas signalée en cours de démarrage");
+}
+
 /* ---------- 1. écran d'accueil ---------- */
 const buttons = [...window.document.querySelectorAll("#themes .theme-btn")];
 if (buttons.length !== 11) problems.push(`accueil : ${buttons.length} thématiques affichées au lieu de 11`);
@@ -159,6 +171,16 @@ if (!Array.isArray(stored) || !stored.every((id) => /^[a-z]{3}-\d{2}$/.test(id))
 const seenCard = window.document.querySelector("#themes .theme-btn.seen");
 if (!seenCard) problems.push("accueil : la thématique entamée n'est pas signalée comme telle");
 
+/* ---------- 8. l'animation de démarrage rend la main ---------- */
+await wait(2000);
+const leftover = $("splash");
+if (leftover && !leftover.classList.contains("off")) {
+  problems.push("splash : l'animation de démarrage est encore affichée après le démarrage");
+}
+if (window.document.body.classList.contains("booting")) {
+  problems.push("splash : la page reste bloquée en mode démarrage");
+}
+
 /* ---------- résultat ---------- */
 errors.forEach((e) => problems.push(e));
 if (problems.length) {
@@ -166,5 +188,5 @@ if (problems.length) {
   problems.forEach((p) => console.error("   - " + p));
   process.exit(1);
 }
-console.log("✅ Parcours complet validé : accueil, lot sans répétition, corrections, score, erreurs, classique, clavier, mémo, révision, stockage.");
+console.log("✅ Parcours complet validé : animation de démarrage, accueil, lot sans répétition, corrections, score, erreurs, classique, clavier, mémo, révision, stockage.");
 dom.window.close();

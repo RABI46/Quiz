@@ -57,12 +57,20 @@ const elements = new Map();
 const storage = new Map();
 const context = {
   console,
-  setTimeout,
+  /* Les minuteurs du DOM simulé (animation de démarrage) ne doivent pas
+   * retenir le processus : ce test est synchrone et n'attend aucun rendu. */
+  setTimeout: (fn, ms, ...args) => {
+    const timer = setTimeout(fn, ms, ...args);
+    if (typeof timer.unref === "function") timer.unref();
+    return timer;
+  },
   clearTimeout,
   setInterval: () => 0,
   clearInterval: () => {},
   alert: () => {},
   scrollTo: () => {},
+  addEventListener: () => {},
+  removeEventListener: () => {},
   localStorage: {
     get length() { return storage.size; },
     key: (i) => [...storage.keys()][i] ?? null,
@@ -73,6 +81,7 @@ const context = {
   navigator: {},
   document: {
     readyState: "complete",
+    body: makeElement(),
     getElementById: (id) => {
       if (!elements.has(id)) elements.set(id, makeElement());
       return elements.get(id);

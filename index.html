@@ -26,6 +26,31 @@
 <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
+<!-- ================= ANIMATION DE DÉMARRAGE (PWA) =================
+     Reprise de l'emblème de la Protection Civile : le disque orange
+     apparaît, le triangle blanc puis le triangle bleu se tracent, le nom
+     de l'association s'affiche, puis l'écran s'efface tout seul.
+     Purement décoratif : la page reste utilisable et l'animation est
+     retirée par app.js (showSplash / hideSplash). -->
+<div class="splash" id="splash" aria-hidden="true">
+  <div class="splash-stage">
+    <svg class="splash-logo" viewBox="-30 -30 260 260" focusable="false">
+      <defs>
+        <clipPath id="splash-clip"><circle cx="100" cy="100" r="95"/></clipPath>
+      </defs>
+      <circle class="sp-disc" cx="100" cy="100" r="95"/>
+      <g clip-path="url(#splash-clip)">
+        <path class="sp-trace sp-tri-white" d="M100 2 186 155 14 155Z"/>
+        <path class="sp-trace sp-tri-blue" d="M100 39 151 136 49 136Z"/>
+      </g>
+      <circle class="sp-ring" cx="100" cy="100" r="95"/>
+      <circle class="sp-ring sp-ring-2" cx="100" cy="100" r="95"/>
+    </svg>
+    <p class="splash-title">Protection Civile</p>
+    <p class="splash-sub">du Lot · Quiz PSE</p>
+  </div>
+</div>
+
 <a class="visually-hidden" href="#contenu">Aller au contenu principal</a>
 <div id="live" class="visually-hidden" role="status" aria-live="polite"></div>
 

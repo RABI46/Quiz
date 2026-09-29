@@ -14,6 +14,90 @@
     "e": "La conduite à tenir est toujours la même : d'abord protéger, puis alerter, puis secourir."
   },
   {
+    "id": "att-25",
+    "cat": "Attitude & Comportement",
+    "level": "PSE1",
+    "q": "Qu'est-ce que l'écoute active dans l'abord d'une victime ?",
+    "opts": [
+      "Une technique qui consiste à poser le plus de questions possible",
+      "Une attitude qui reformule les propos et accueille sans juger",
+      "Une méthode pour faire parler la victime le plus longtemps possible",
+      "Une façon de rassurer en minimisant ce que ressent la victime"
+    ],
+    "c": 1,
+    "e": "L'écoute active consiste à laisser la victime s'exprimer, à reformuler ses propos pour vérifier qu'on les a compris et à accueillir ses émotions sans les juger ni les minimiser."
+  },
+  {
+    "id": "att-26",
+    "cat": "Attitude & Comportement",
+    "level": "PSE1",
+    "q": "Que doit évaluer le secouriste face à une victime choquée ?",
+    "opts": [
+      "La part de responsabilité de la victime dans l'accident",
+      "La nécessité de faire parler la victime de ses émotions",
+      "L'impact psychologique de l'événement sur la victime",
+      "Le temps qu'il faudra pour que la victime oublie l'événement"
+    ],
+    "c": 2,
+    "e": "Un événement grave peut provoquer une réaction psychologique immédiate. Le secouriste en évalue l'impact, adapte son abord et transmet l'information au médecin régulateur."
+  },
+  {
+    "id": "att-27",
+    "cat": "Attitude & Comportement",
+    "level": "PSE1",
+    "q": "Quelle technique simple aide à stabiliser l'état psycho-physiologique d'une victime ?",
+    "opts": [
+      "Lui demander de retenir sa respiration le plus longtemps possible",
+      "Lui faire respirer dans un sac en papier fermement maintenu",
+      "La faire parler longuement de l'événement pour évacuer ses émotions",
+      "Lui faire respirer calmement, en comptant avec elle"
+    ],
+    "c": 3,
+    "e": "Guider la victime vers une respiration lente et régulière, en comptant avec elle, aide à faire baisser l'activation physiologique. La respiration dans un sac est dangereuse et doit être proscrite."
+  },
+  {
+    "id": "att-28",
+    "cat": "Attitude & Comportement",
+    "level": "PSE1",
+    "q": "Comment aborder un enfant blessé et conscient ?",
+    "opts": [
+      "S'adresser aux parents, l'enfant ne pouvant pas comprendre",
+      "Se mettre à sa hauteur et lui parler avec des mots simples",
+      "Écarter les parents pour ne pas être dérangé pendant les soins",
+      "Le rassurer en lui cachant la gravité réelle de son état"
+    ],
+    "c": 1,
+    "e": "L'enfant a besoin d'être rassuré et compris : on se met à sa hauteur, on lui explique avec des mots simples ce qu'on va faire, et on garde ses parents près de lui autant que possible."
+  },
+  {
+    "id": "att-29",
+    "cat": "Attitude & Comportement",
+    "level": "PSE1",
+    "q": "Pourquoi le secouriste doit-il préserver son propre potentiel mental ?",
+    "opts": [
+      "Parce qu'un secouriste ému ne peut plus être autorisé à intervenir",
+      "Parce que la réglementation impose un examen psychologique annuel",
+      "Parce qu'il doit rester capable d'agir et de décider efficacement",
+      "Parce que ses émotions nuisent à l'image de son association"
+    ],
+    "c": 2,
+    "e": "Les interventions difficiles éprouvent le secouriste et altèrent sa capacité de jugement. Préserver son potentiel mental, c'est garantir la qualité et la sécurité de la prise en charge qu'il assure."
+  },
+  {
+    "id": "att-30",
+    "cat": "Attitude & Comportement",
+    "level": "PSE1",
+    "q": "Que fait un secouriste après une intervention particulièrement éprouvante ?",
+    "opts": [
+      "Il se change les idées en évitant d'en parler à quiconque",
+      "Il reprend immédiatement une garde pour oublier la précédente",
+      "Il attend que les symptômes disparaissent d'eux-mêmes",
+      "Il en parle à son équipe ou à un professionnel si nécessaire"
+    ],
+    "c": 3,
+    "e": "Parler de ce qui a été vécu, au sein de l'équipe ou avec un professionnel, fait partie de la prévention de l'épuisement et du stress post-traumatique du secouriste."
+  },
+  {
     "id": "att-02",
     "cat": "Attitude & Comportement",
     "level": "PSE1",
@@ -73,15 +157,15 @@
     "id": "att-06",
     "cat": "Attitude & Comportement",
     "level": "PSE1",
-    "q": "À qui le numéro d'urgence 114 est-il réservé ?",
+    "q": "À qui le numéro d'urgence 114 est-il destiné ?",
     "opts": [
-      "Aux personnes sourdes ou malentendantes, par SMS ou par application",
-      "Aux urgences vétérinaires pour les animaux blessés",
-      "Aux accidents du travail survenus dans une entreprise",
-      "Aux interventions des secours en mer et sur le littoral"
+      "Aux personnes sourdes, malentendantes ou aphasiques",
+      "Aux urgences vétérinaires, pour les animaux blessés en pleine rue",
+      "Aux accidents du travail survenus dans les entreprises du bâtiment",
+      "Aux interventions des secours en mer et sur le littoral français"
     ],
     "c": 0,
-    "e": "Le 114 est accessible par SMS, visiophonie ou application pour les personnes qui ne peuvent pas téléphoner."
+    "e": "Le 114 est accessible par SMS, visiophonie, tchat ou images. Il est destiné aux personnes sourdes, sourdaveugles, malentendantes ou aphasiques, et peut aussi être utilisé en situation de violences intrafamiliales lorsque l'appelant ne peut pas parler à voix haute."
   },
   {
     "id": "att-07",
@@ -106,7 +190,7 @@
       "Le nom et l'adresse complète de chaque victime",
       "Le lieu précis, la nature de l'événement et le nombre de victimes",
       "Le coût prévisible de l'intervention",
-      "Le récit détaillé de l'accident et tous les antécédents médicaux"
+      "Le récit détaillé de l'accident et les antécédents médicaux"
     ],
     "c": 1,
     "e": "Le message d'alerte est structuré autour du lieu, de la nature du problème et du nombre de victimes."
@@ -120,7 +204,7 @@
       "Commencer les gestes sans parler pour ne pas l'inquiéter",
       "Se présenter, expliquer ce qu'il va faire et s'assurer de l'accord de la victime",
       "Demander d'abord sa carte d'identité et sa carte Vitale",
-      "Faire sortir tous les témoins de la pièce"
+      "Faire sortir les témoins de la pièce"
     ],
     "c": 1,
     "e": "Se présenter et annoncer ses gestes rassure la victime et permet d'obtenir son consentement."
@@ -145,7 +229,7 @@
     "level": "PSE1",
     "q": "Quand le secouriste doit-il mettre des gants à usage unique ?",
     "opts": [
-      "Uniquement lorsqu'il voit du sang",
+      "Lorsqu'il constate la présence de sang",
       "Seulement si la victime est porteuse d'une maladie connue",
       "Avant tout contact avec une victime ou du matériel potentiellement souillé",
       "Après avoir réalisé le bilan et constaté une plaie"
@@ -229,7 +313,7 @@
     "level": "PSE1",
     "q": "Pourquoi le secouriste préserve-t-il la pudeur de la victime, par exemple en la couvrant ?",
     "opts": [
-      "Pour éviter uniquement qu'elle prenne froid",
+      "Pour lui éviter de prendre froid pendant les soins",
       "Pour cacher la victime aux autres services de secours",
       "Pour respecter sa dignité, y compris lorsqu'un déshabillage partiel est nécessaire",
       "Pour éviter que les témoins s'approchent de trop près"
@@ -329,7 +413,7 @@
     "opts": [
       "En participant régulièrement aux formations continues et aux recyclages de son association",
       "En revalidant lui-même son certificat en ligne chaque année",
-      "En renouvelant son diplôme tous les six mois auprès de la préfecture",
+      "En renouvelant son diplôme chaque semestre auprès de la préfecture",
       "En passant une évaluation annuelle devant le médecin régulateur du SAMU"
     ],
     "c": 0,
@@ -348,6 +432,20 @@
     ],
     "c": 2,
     "e": "Le double critère inconscience + absence de respiration normale définit l'arrêt cardiaque."
+  },
+  {
+    "id": "urg-31",
+    "cat": "Urgences Vitales",
+    "level": "PSE1",
+    "q": "Une victime souffre de froid, frissonne et a la peau froide : que fait le secouriste ?",
+    "opts": [
+      "Il la masse vigoureusement pour relancer la circulation",
+      "Il lui donne un bain chaud dès l'apparition des frissons",
+      "Il la fait marcher pour produire de la chaleur musculaire",
+      "Il la retire du froid et isole son corps du sol"
+    ],
+    "c": 3,
+    "e": "La lutte contre le refroidissement repose sur le retrait des vêtements mouillés, l'isolation du corps par rapport au sol et la couverture de la victime. Le massage des membres est proscrit : il ramène du sang froid vers le cœur."
   },
   {
     "id": "urg-02",
@@ -413,7 +511,7 @@
     "opts": [
       "Oui, il faut compter les battements pendant une minute",
       "Non, l'absence de respiration normale suffit pour débuter la RCP",
-      "Oui, uniquement au niveau du cou",
+      "Oui, en ne palpant que le cou",
       "Non, mais il faut vérifier la tension artérielle"
     ],
     "c": 1,
@@ -467,13 +565,13 @@
     "level": "PSE1",
     "q": "Quels signes font suspecter une détresse respiratoire ?",
     "opts": [
-      "Une toux grasse isolée avec un mal de gorge et un écoulement nasal",
+      "Une toux grasse isolée, avec un mal de gorge et un écoulement nasal",
       "Une pâleur du visage avec des sueurs froides et une peau moite",
       "Une douleur abdominale avec des nausées et des vomissements",
-      "Une difficulté à parler, un tirage et une respiration rapide ou bruyante"
+      "Un balancement thoraco-abdominal, un tirage et une cyanose"
     ],
     "c": 3,
-    "e": "Le tirage, la cyanose, la difficulté à parler ou à tousser sont des signes de détresse respiratoire."
+    "e": "Le balancement thoraco-abdominal est un signe à rechercher depuis juillet 2026 : le thorax et l'abdomen se déplacent en sens opposé, à l'inverse d'une respiration normale. S'y ajoutent la cyanose, le tirage, la difficulté à parler ou à tousser et une respiration rapide ou bruyante."
   },
   {
     "id": "urg-11",
@@ -523,18 +621,18 @@
     "level": "PSE1",
     "q": "Que fait le secouriste après avoir sorti de l'eau une victime de noyade ?",
     "opts": [
-      "Il la secoue pour évacuer l'eau des poumons",
-      "Il la couche sur le ventre pour laisser l'eau s'écouler",
-      "Il vérifie la conscience et la respiration, alerte, puis met en PLS ou débute la RCP",
-      "Il la fait marcher pour stimuler la circulation"
+      "Il la secoue vigoureusement pour faire sortir toute l'eau contenue dans les poumons",
+      "Il la couche sur le ventre pour laisser toute l'eau s'écouler des poumons",
+      "Il contrôle la conscience et la respiration, puis met en PLS ou démarre la RCP",
+      "Il la fait marcher pour stimuler la circulation et éviter l'hypothermie"
     ],
     "c": 2,
-    "e": "La noyade n'est pas traitée par vidange des poumons : on évalue conscience et respiration, puis on agit en conséquence."
+    "e": "La noyade n'est pas traitée par vidange des poumons : on évalue la conscience et la respiration, puis on agit en conséquence. Depuis juillet 2026, la RCP débute par les compressions thoraciques, y compris chez le noyé : les cinq insufflations initiales ont été supprimées."
   },
   {
     "id": "urg-15",
     "cat": "Urgences Vitales",
-    "level": "PSE1",
+    "level": "PSE2",
     "q": "Comment réagir face à une victime intoxiquée au monoxyde de carbone dans un local fermé ?",
     "opts": [
       "Allumer la lumière pour chercher la fuite de gaz",
@@ -548,7 +646,7 @@
   {
     "id": "urg-16",
     "cat": "Urgences Vitales",
-    "level": "PSE1",
+    "level": "PSE2",
     "q": "Que fait-on en premier devant une victime encore en contact avec un conducteur électrique ?",
     "opts": [
       "La tirer par les bras pour l'éloigner du conducteur",
@@ -562,7 +660,7 @@
   {
     "id": "urg-17",
     "cat": "Urgences Vitales",
-    "level": "PSE1",
+    "level": "PSE2",
     "q": "Une fois le courant coupé, que fait le secouriste pour la victime électrisée ?",
     "opts": [
       "Il vérifie la conscience et la respiration, puis alerte et agit selon les détresses constatées",
@@ -576,7 +674,7 @@
   {
     "id": "urg-18",
     "cat": "Urgences Vitales",
-    "level": "PSE1",
+    "level": "PSE2",
     "q": "Que faut-il surtout éviter devant une victime d'intoxication médicamenteuse ?",
     "opts": [
       "Faire vomir ou faire boire la victime",
@@ -591,15 +689,15 @@
     "id": "urg-19",
     "cat": "Urgences Vitales",
     "level": "PSE1",
-    "q": "Quelles sont les détresses vitales que l'équipier secouriste doit savoir reconnaître ?",
+    "q": "Quelles détresses vitales le référentiel demande-t-il au secouriste de reconnaître ?",
     "opts": [
-      "L'arrêt cardiaque, l'inconscience, la détresse respiratoire et l'hémorragie externe",
+      "Les détresses respiratoire, circulatoire et neurologique",
+      "L'arrêt cardiaque, l'inconscience et l'hémorragie externe seuls",
       "La fièvre, la toux et l'écoulement nasal avec un état général conservé",
-      "L'entorse, la contusion et la crampe musculaire après un effort",
-      "La fatigue, le vertige et l'insomnie chez une personne anxieuse"
+      "L'entorse, la contusion et la crampe musculaire après un effort physique"
     ],
     "c": 0,
-    "e": "Ces quatre détresses menacent immédiatement la vie et nécessitent des gestes de secours sans délai."
+    "e": "Le chapitre « Urgences vitales » distingue trois détresses — respiratoire, circulatoire et neurologique — auxquelles s'ajoutent, traitées séparément, l'obstruction des voies aériennes, l'hémorragie externe, l'arrêt cardiaque et la perte de connaissance."
   },
   {
     "id": "urg-20",
@@ -663,13 +761,13 @@
     "level": "PSE1",
     "q": "Sur quelle surface faut-il pratiquer les compressions thoraciques ?",
     "opts": [
-      "Sur une surface dure et plane, au sol de préférence",
-      "Sur un matelas mou pour le confort de la victime",
-      "Sur un canapé pour éviter que la victime ait froid",
-      "Sur le plan incliné d'un brancard"
+      "Sur un plan dur, de préférence le sol, sans retarder la réanimation",
+      "Sur un matelas mou, plus confortable pour la victime et pour le secouriste",
+      "Sur un canapé, pour éviter que la victime ne prenne froid pendant la RCP",
+      "Sur le plan incliné d'un brancard, pour améliorer le retour veineux"
     ],
     "c": 0,
-    "e": "Un support mou absorbe l'énergie des compressions : la victime est installée sur un plan dur."
+    "e": "Un support mou absorbe l'énergie des compressions : la victime est installée sur un plan dur. Le référentiel de juillet 2026 précise toutefois que l'installation sur un plan dur ne doit pas retarder la réanimation cardio-pulmonaire."
   },
   {
     "id": "urg-25",
@@ -693,8 +791,8 @@
     "opts": [
       "En permanence et aussi souvent que nécessaire pour détecter une aggravation",
       "Une seule fois, juste après l'appel aux secours",
-      "Toutes les quinze minutes, montre en main",
-      "Uniquement si la victime se plaint"
+      "À intervalle fixe de quinze minutes, montre en main",
+      "Si la victime se plaint spontanément"
     ],
     "c": 0,
     "e": "La surveillance est continue : toute aggravation justifie un appel complémentaire ou un nouveau geste."
@@ -768,6 +866,20 @@
     ],
     "c": 1,
     "e": "Chez l'adulte, la RCP associe 30 compressions thoraciques à 2 insufflations, en cycles répétés."
+  },
+  {
+    "id": "rcp-28",
+    "cat": "RCP & DAE",
+    "level": "PSE1",
+    "q": "Après plusieurs chocs inefficaces chez un adulte, comment le secouriste peut-il repositionner les électrodes ?",
+    "opts": [
+      "Il les remplace par des électrodes pédiatriques moins puissantes",
+      "Il les bascule en position antéro-postérieure",
+      "Il les déplace sur les cuisses pour élargir le trajet du courant",
+      "Il les superpose au niveau du sternum pour concentrer l'énergie"
+    ],
+    "c": 1,
+    "e": "La section « Position des électrodes » de la fiche DAE est nouvelle en 2026 : après plusieurs défibrillations successives sans efficacité, les électrodes peuvent être basculées en position antéro-postérieure. La double défibrillation relève, elle, de l'équipe médicale."
   },
   {
     "id": "rcp-02",
@@ -875,7 +987,7 @@
     "opts": [
       "Dès qu'il est disponible, sans interrompre durablement les compressions",
       "Après dix minutes de RCP, pour laisser le cœur se préparer",
-      "Uniquement sur avis du médecin régulateur",
+      "Sur avis préalable du médecin régulateur",
       "Après l'arrivée des secours organisés"
     ],
     "c": 0,
@@ -901,13 +1013,13 @@
     "level": "PSE1",
     "q": "Où colle-t-on les électrodes du DAE chez l'adulte ?",
     "opts": [
-      "Sur les deux cuisses, à mi-hauteur",
-      "Sur le dos, de part et d'autre de la colonne",
-      "Sous la clavicule gauche et sous l'aisselle droite en toutes circonstances",
-      "Sous la clavicule droite et sous l'aisselle gauche"
+      "Sur les deux cuisses, à mi-hauteur, de part et d'autre",
+      "Sous la clavicule droite et sous l'aisselle gauche",
+      "Sous la clavicule gauche et sous l'aisselle droite",
+      "Sur le dos, de part et d'autre de la colonne vertébrale"
     ],
-    "c": 3,
-    "e": "La position sous la clavicule droite et sous l'aisselle gauche fait passer le courant à travers le cœur."
+    "c": 1,
+    "e": "La position antéro-latérale — sous la clavicule droite et sous l'aisselle gauche — est utilisée chez l'adulte et chez l'enfant de plus de 25 kg : le courant traverse alors le cœur. Chez le nourrisson et l'enfant de moins de 25 kg, les électrodes sont placées en position antéro-postérieure, une devant et une dans le dos."
   },
   {
     "id": "rcp-12",
@@ -931,7 +1043,7 @@
     "opts": [
       "Il rase ou coupe rapidement les poils, ou colle une seconde paire d'électrodes par-dessus",
       "Il colle les électrodes avec du ruban adhésif par-dessus les poils",
-      "Il renonce définitivement à utiliser le DAE",
+      "Il renonce à utiliser le DAE",
       "Il applique du gel hydro-alcoolique sur le thorax"
     ],
     "c": 0,
@@ -972,7 +1084,7 @@
     "q": "Une femme enceinte est en arrêt cardiaque : que fait le secouriste ?",
     "opts": [
       "Il renonce à la RCP pour ne pas blesser l'enfant",
-      "Il pratique uniquement des insufflations",
+      "Il se limite à des insufflations",
       "Il attend un avis médical avant tout geste",
       "Il applique la même conduite : RCP et DAE sans modification"
     ],
@@ -983,15 +1095,15 @@
     "id": "rcp-17",
     "cat": "RCP & DAE",
     "level": "PSE1",
-    "q": "Chez un enfant ou un nourrisson, quelles précautions prend-on avec le DAE ?",
+    "q": "Chez un nourrisson ou un enfant de moins de 25 kg, où place-t-on les électrodes du DAE ?",
     "opts": [
-      "On réserve le DAE aux victimes de plus de douze ans",
-      "On colle les électrodes adultes sur la poitrine et le dos",
-      "On utilise les électrodes pédiatriques ou l'atténuateur si l'appareil en dispose",
-      "On divise par deux la puissance de l'appareil en appuyant deux fois"
+      "En position antéro-postérieure, une électrode devant et une dans le dos",
+      "En position antéro-latérale, sous la clavicule droite et sous l'aisselle gauche",
+      "Sur les deux cuisses, en divisant la puissance de l'appareil par deux",
+      "Sur la poitrine, le DAE étant réservé aux plus de 25 kg"
     ],
-    "c": 2,
-    "e": "Le DAE est utilisable chez l'enfant et le nourrisson, avec des électrodes pédiatriques ou un atténuateur quand ils existent."
+    "c": 0,
+    "e": "La bascule se fait à 25 kg : position antéro-latérale chez l'adulte et l'enfant de plus de 25 kg, position antéro-postérieure chez le nourrisson et l'enfant de moins de 25 kg, ou selon le schéma du fabricant. Les électrodes pédiatriques ou l'atténuateur sont utilisés quand l'appareil en dispose."
   },
   {
     "id": "rcp-18",
@@ -1027,9 +1139,9 @@
     "level": "PSE1",
     "q": "À quelle fréquence les secouristes changent-ils de position pour les compressions ?",
     "opts": [
-      "Toutes les trente secondes, pour vérifier le pouls de la victime",
-      "Uniquement lorsque le DAE le demande ou signale une erreur",
-      "Toutes les dix minutes, pour ne pas désorganiser l'équipe",
+      "Au bout de trente secondes, pour vérifier le pouls de la victime",
+      "Lorsque le DAE le demande ou signale une erreur",
+      "Au bout de dix minutes, pour ne pas désorganiser l'équipe",
       "Toutes les deux minutes environ, ou plus tôt en cas de fatigue"
     ],
     "c": 3,
@@ -1053,15 +1165,15 @@
     "id": "rcp-22",
     "cat": "RCP & DAE",
     "level": "PSE1",
-    "q": "Par quelle manœuvre débute-t-on la réanimation d'un enfant ou d'un noyé ?",
+    "q": "Par quelle manœuvre débute-t-on la réanimation d'un enfant ou d'un nourrisson ?",
     "opts": [
-      "Par trente compressions immédiates, sans insufflation",
-      "Par une vérification du pouls carotidien",
-      "Par cinq insufflations, puis la RCP",
-      "Par la position allongée jambes surélevées"
+      "Par cinq insufflations initiales, puis par les compressions thoraciques",
+      "Par une recherche du pouls carotidien avant toute compression",
+      "Par des insufflations seules, jusqu'à l'arrivée des secours",
+      "Par quinze compressions thoraciques, puis deux insufflations"
     ],
-    "c": 2,
-    "e": "En cas d'asphyxie ou de noyade, la cause est respiratoire : cinq insufflations initiales sont réalisées avant les compressions."
+    "c": 3,
+    "e": "Depuis l'édition juillet 2026 du référentiel, la réanimation débute directement par les compressions thoraciques, quel que soit l'âge et quelle que soit la cause, y compris la noyade. Les cinq insufflations initiales ont été supprimées ; le ratio est de 15 compressions pour 2 insufflations chez l'enfant et le nourrisson."
   },
   {
     "id": "rcp-23",
@@ -1069,13 +1181,13 @@
     "level": "PSE1",
     "q": "Comment se pratique la RCP chez un nourrisson ?",
     "opts": [
-      "Par des compressions sur le ventre, à un rythme lent",
-      "Par des compressions au centre de la poitrine, à un rythme de 100 à 120 par minute",
-      "Par des compressions sur les côtes, à pleines mains",
-      "Par des percussions dans le dos, en position debout"
+      "Par des compressions sur le ventre, à un rythme lent et régulier",
+      "Par des compressions au centre de la poitrine, à 100 à 120 par minute",
+      "Par des compressions sur les côtes, à pleines mains, à deux secouristes",
+      "Par des percussions dans le dos, en position debout puis allongée"
     ],
     "c": 1,
-    "e": "Chez le nourrisson, le thorax est comprimé au centre, à la même fréquence que chez l'adulte."
+    "e": "Les compressions se font au centre de la poitrine, à 100 à 120 par minute, sur une profondeur supérieure à un tiers de la hauteur du thorax. Depuis juillet 2026, la technique est unifiée : deux pouces l'un sur l'autre, en encerclant le thorax avec les mains, quel que soit le nombre de secouristes."
   },
   {
     "id": "rcp-24",
@@ -1112,7 +1224,7 @@
     "q": "Dans quels cas le secouriste peut-il interrompre la RCP ?",
     "opts": [
       "Si la victime se réveille, si un relais est pris, à l'arrivée des secours ou en cas d'épuisement",
-      "Toutes les deux minutes, afin de contrôler le pouls et l'efficacité des compressions",
+      "Au bout de deux minutes, afin de contrôler le pouls et l'efficacité des compressions",
       "Dès que le DAE est allumé, afin de laisser l'appareil analyser le rythme seul",
       "Après dix minutes, la réanimation devenant inutile au-delà de ce délai"
     ],
@@ -1151,15 +1263,15 @@
     "id": "ova-02",
     "cat": "Obstruction des Voies Aériennes",
     "level": "PSE1",
-    "q": "Une victime consciente tousse fortement après avoir avalé de travers : que fait le secouriste ?",
+    "q": "Une victime a avalé de travers et tousse énergiquement : que fait le secouriste ?",
     "opts": [
-      "Il lui donne cinq claques dans le dos immédiatement",
       "Il l'encourage à tousser et la surveille sans intervenir",
-      "Il pratique aussitôt des compressions abdominales",
+      "Il lui donne cinq claques dans le dos sans attendre",
+      "Il pratique aussitôt cinq compressions abdominales",
       "Il lui fait boire un verre d'eau pour faire descendre l'aliment"
     ],
-    "c": 1,
-    "e": "Quand la victime tousse, l'air passe encore : la toux est le meilleur moyen d'expulsion, on ne l'interrompt pas."
+    "c": 0,
+    "e": "Tant que la toux reste efficace, l'air passe : la toux est le meilleur moyen d'expulsion. Depuis juillet 2026, les claques dans le dos sont indiquées dès que la victime est incapable de parler ou de tousser, ou dès que la toux devient inefficace."
   },
   {
     "id": "ova-03",
@@ -1211,7 +1323,7 @@
     "opts": [
       "Des compressions thoraciques, au niveau du sternum",
       "Des compressions abdominales, comme chez l'adulte",
-      "Des compressions sur le bas du dos uniquement",
+      "Des compressions limitées au bas du dos",
       "Aucune compression, seules les claques dans le dos sont autorisées"
     ],
     "c": 0,
@@ -1237,13 +1349,13 @@
     "level": "PSE1",
     "q": "Comment agit-on devant un nourrisson qui s'étouffe et ne peut plus respirer ?",
     "opts": [
+      "Cinq claques dans le dos, puis cinq compressions thoraciques",
       "Cinq compressions abdominales, puis cinq claques dans le dos",
-      "Cinq claques dans le dos, tête plus basse que le thorax, puis cinq compressions thoraciques",
       "Un doigté dans la bouche pour retirer le corps étranger",
-      "Une position assise bien droite en attendant les secours"
+      "Une position assise bien droite, en attendant l'arrivée des secours"
     ],
-    "c": 1,
-    "e": "Chez le nourrisson, on alterne 5 claques dans le dos et 5 compressions thoraciques, jamais de compressions abdominales."
+    "c": 0,
+    "e": "Chez le nourrisson, on alterne 5 claques dans le dos — tête plus basse que le thorax — et 5 compressions thoraciques, sans jamais pratiquer de compressions abdominales. Depuis juillet 2026, ces compressions se font avec les deux pouces l'un sur l'autre, en encerclant le thorax, sur une profondeur supérieure à un tiers du thorax."
   },
   {
     "id": "ova-09",
@@ -1266,7 +1378,7 @@
     "q": "À quoi reconnaît-on une obstruction partielle des voies aériennes ?",
     "opts": [
       "La victime parle, tousse ou respire, même difficilement",
-      "La victime ne peut plus émettre aucun son",
+      "La victime ne peut plus émettre de son",
       "La victime devient immédiatement inconsciente",
       "La victime a les lèvres bleues sans pouvoir tousser"
     ],
@@ -1391,7 +1503,7 @@
     "level": "PSE1",
     "q": "Un enfant de huit ans s'étouffe et ne peut plus respirer : quels gestes réalise-t-on ?",
     "opts": [
-      "Uniquement des compressions thoraciques, sans claques",
+      "Des compressions thoraciques seules, sans claques",
       "Les mêmes gestes que chez l'adulte : claques dans le dos puis compressions abdominales",
       "Un doigté dans la bouche, puis des claques dans le dos",
       "Le porter tête en bas et le secouer"
@@ -1463,7 +1575,7 @@
     "opts": [
       "La victime est éveillée et répond correctement",
       "La victime est agitée et confuse",
-      "La victime répond uniquement à la douleur",
+      "La victime ne répond qu'à la douleur",
       "La victime est inconsciente et ne réagit pas"
     ],
     "c": 0,
@@ -1476,7 +1588,7 @@
     "q": "Que signifie la lettre V de l'échelle AVPU ?",
     "opts": [
       "La victime voit correctement son environnement",
-      "La victime réagit uniquement à la douleur",
+      "La victime ne réagit qu'à la douleur",
       "La victime ne réagit que si on lui parle",
       "La victime verbalise ses douleurs spontanément"
     ],
@@ -1503,7 +1615,7 @@
     "level": "PSE1",
     "q": "Que signifie la lettre U de l'échelle AVPU ?",
     "opts": [
-      "La victime répond uniquement à la voix",
+      "La victime ne répond qu'à la voix",
       "La victime est un peu somnolente",
       "La victime est inconsciente mais réagit à la douleur",
       "La victime ne réagit à aucune stimulation"
@@ -1542,7 +1654,7 @@
   {
     "id": "neu-08",
     "cat": "Évaluation Neurologique",
-    "level": "PSE1",
+    "level": "PSE2",
     "q": "Quels sont les trois signes principaux à rechercher devant une suspicion d'AVC ?",
     "opts": [
       "Une fièvre, une toux et un mal de gorge",
@@ -1584,7 +1696,7 @@
   {
     "id": "neu-11",
     "cat": "Évaluation Neurologique",
-    "level": "PSE1",
+    "level": "PSE2",
     "q": "Devant une suspicion d'AVC, que fait le secouriste en priorité ?",
     "opts": [
       "Il installe la victime allongée sur le dos jambes surélevées",
@@ -1598,7 +1710,7 @@
   {
     "id": "neu-12",
     "cat": "Évaluation Neurologique",
-    "level": "PSE1",
+    "level": "PSE2",
     "q": "Pourquoi ne jamais donner à boire à une victime suspecte d'AVC ?",
     "opts": [
       "Parce que la boisson augmenterait la pression artérielle",
@@ -1612,7 +1724,7 @@
   {
     "id": "neu-13",
     "cat": "Évaluation Neurologique",
-    "level": "PSE1",
+    "level": "PSE2",
     "q": "Quelle position adopte-t-on pour une victime consciente victime d'un AVC ?",
     "opts": [
       "Une position de confort, plutôt demi-assise, en surveillant la conscience",
@@ -1640,7 +1752,7 @@
   {
     "id": "neu-15",
     "cat": "Évaluation Neurologique",
-    "level": "PSE1",
+    "level": "PSE2",
     "q": "Une victime présente une pupille dilatée d'un seul côté après un traumatisme crânien : que faut-il faire ?",
     "opts": [
       "Mettre une compresse froide sur l'œil atteint",
@@ -1654,7 +1766,7 @@
   {
     "id": "neu-16",
     "cat": "Évaluation Neurologique",
-    "level": "PSE1",
+    "level": "PSE2",
     "q": "Une victime est confuse et agitée après un choc à la tête : que faut-il en penser ?",
     "opts": [
       "Ils traduisent simplement la peur de la victime",
@@ -1668,11 +1780,11 @@
   {
     "id": "neu-17",
     "cat": "Évaluation Neurologique",
-    "level": "PSE1",
+    "level": "PSE2",
     "q": "Après un traumatisme crânien, quel élément surveille-t-on en priorité ?",
     "opts": [
       "La couleur des vêtements de la victime",
-      "La force de serrage de la main droite uniquement",
+      "La force de serrage de la main droite",
       "Le niveau de conscience de la victime",
       "La présence d'hématomes sur les jambes"
     ],
@@ -1682,7 +1794,7 @@
   {
     "id": "neu-18",
     "cat": "Évaluation Neurologique",
-    "level": "PSE1",
+    "level": "PSE2",
     "q": "Une victime perd connaissance après un choc à la tête : que fait le secouriste ?",
     "opts": [
       "Il lui relève la tête avec un oreiller en attendant les secours",
@@ -1724,7 +1836,7 @@
   {
     "id": "neu-21",
     "cat": "Évaluation Neurologique",
-    "level": "PSE1",
+    "level": "PSE2",
     "q": "Peut-on laisser seule une victime ayant subi un traumatisme crânien ?",
     "opts": [
       "Oui, si elle affirme se sentir bien",
@@ -1752,11 +1864,11 @@
   {
     "id": "neu-23",
     "cat": "Évaluation Neurologique",
-    "level": "PSE1",
+    "level": "PSE2",
     "q": "Quelles informations neurologiques transmettre au médecin régulateur ?",
     "opts": [
       "L'heure de début des signes, leur évolution et l'état de conscience de la victime",
-      "Uniquement l'âge et le sexe de la victime",
+      "L'âge et le sexe de la victime",
       "Le diagnostic présumé et le traitement à administrer",
       "La tension artérielle si le tensiomètre est disponible"
     ],
@@ -1767,15 +1879,43 @@
     "id": "hem-01",
     "cat": "Hémorragie & Pansements",
     "level": "PSE1",
-    "q": "Quel est le premier geste devant une hémorragie externe abondante ?",
+    "q": "Devant une hémorragie externe abondante, quel est le geste de référence ?",
     "opts": [
-      "Une compression directe de la plaie, avec la main protégée",
-      "La pose immédiate d'un garrot tourniquet",
-      "Le rinçage de la plaie à grande eau",
-      "L'élévation du membre sans compression"
+      "Faire comprimer la plaie directement, la main protégée",
+      "Poser d'emblée un garrot tourniquet au-dessus de la plaie",
+      "Rincer soigneusement la plaie à grande eau avant toute compression",
+      "Surélever le membre atteint sans comprimer la plaie qui saigne"
     ],
     "c": 0,
-    "e": "La compression directe arrête ou limite rapidement le saignement : c'est le geste de référence."
+    "e": "La compression directe — par la victime elle-même si elle en est capable, sinon par le secouriste — est le geste de référence. Le référentiel de juillet 2026 privilégie ensuite le pansement compressif, puis le garrot industriel."
+  },
+  {
+    "id": "hem-27",
+    "cat": "Hémorragie & Pansements",
+    "level": "PSE1",
+    "q": "À quoi sert une gaze imbibée de substance hémostatique ?",
+    "opts": [
+      "À désinfecter une plaie souillée avant de poser un pansement",
+      "À favoriser la coagulation dans une plaie qui saigne",
+      "À protéger la plaie de tout frottement pendant le transport",
+      "À humidifier une plaie cavitaire avant de la refermer"
+    ],
+    "c": 1,
+    "e": "La gaze imbibée de substance hémostatique est utilisée sur les plaies qui saignent abondamment, en particulier les plaies cavitaires, pour accélérer la coagulation en complément de la compression."
+  },
+  {
+    "id": "hem-28",
+    "cat": "Hémorragie & Pansements",
+    "level": "PSE1",
+    "q": "Quel moyen d'hémostase est utilisé en priorité devant une amputation ?",
+    "opts": [
+      "Un pansement stérile simplement posé sur la plaie, sans compression",
+      "Un linge propre maintenu par un simple lien large",
+      "Un pansement compressif, posé directement sur la plaie",
+      "Une compresse imbibée d'antiseptique coloré"
+    ],
+    "c": 2,
+    "e": "Devant une amputation ou un arrachement, le référentiel de juillet 2026 rend le pansement compressif systématique. Le garrot — industriel de préférence — n'est utilisé que lorsque la compression est inefficace ou impossible."
   },
   {
     "id": "hem-02",
@@ -1799,7 +1939,7 @@
     "opts": [
       "En cas d'amputation, ou quand la compression directe est inefficace ou impossible",
       "Pour toute plaie qui saigne, dès la première minute",
-      "Uniquement sur décision du médecin régulateur, après son appel",
+      "Sur décision du médecin régulateur, après son appel",
       "Pour les saignements de nez importants"
     ],
     "c": 0,
@@ -1825,7 +1965,7 @@
     "level": "PSE1",
     "q": "Que note-t-on impérativement lorsqu'un garrot est posé ?",
     "opts": [
-      "Le nom du secouriste qui l'a posé uniquement",
+      "Le nom du secouriste qui l'a posé",
       "La longueur du garrot utilisé",
       "Le nombre de tours effectués",
       "L'heure exacte de sa pose, visible sur la victime ou la fiche bilan"
@@ -1948,7 +2088,7 @@
   {
     "id": "hem-14",
     "cat": "Hémorragie & Pansements",
-    "level": "PSE1",
+    "level": "PSE2",
     "q": "Que fait-on devant une plaie de l'abdomen avec sortie des anses intestinales ?",
     "opts": [
       "On repousse les intestins à l'intérieur avant de panser",
@@ -2018,7 +2158,7 @@
   {
     "id": "hem-19",
     "cat": "Hémorragie & Pansements",
-    "level": "PSE1",
+    "level": "PSE2",
     "q": "Quelles sont les précautions après une morsure ?",
     "opts": [
       "Appliquer immédiatement une compression forte et refermer la plaie",
@@ -2032,7 +2172,7 @@
   {
     "id": "hem-20",
     "cat": "Hémorragie & Pansements",
-    "level": "PSE1",
+    "level": "PSE2",
     "q": "Une personne a été piquée par une abeille, le dard est visible : que fait-on ?",
     "opts": [
       "On presse le dard entre deux doigts pour l'extraire rapidement",
@@ -2091,7 +2231,7 @@
     "level": "PSE1",
     "q": "Que doit-on faire pendant la compression d'une hémorragie ?",
     "opts": [
-      "Relâcher la compression toutes les deux minutes",
+      "Relâcher la compression au bout de deux minutes",
       "Élever le membre sans maintenir la compression",
       "Faire boire la victime pour compenser la perte de sang",
       "Alerter les secours et surveiller l'état de la victime"
@@ -2119,13 +2259,13 @@
     "level": "PSE1",
     "q": "Quel objet peut servir de garrot de fortune en dernier recours ?",
     "opts": [
-      "Une corde fine, qui pénètre dans la peau et serre mieux",
-      "Une ceinture métallique, plus facile à serrer",
       "Un lien large et résistant, en attendant le matériel adapté",
-      "Un fil électrique, qui résiste à la tension"
+      "Une corde fine, qui s'enfonce dans la peau et serre donc mieux",
+      "Une ceinture métallique, plus facile à serrer autour du membre",
+      "Un fil électrique, qui résiste mieux à la tension exercée"
     ],
-    "c": 2,
-    "e": "Un garrot de fortune doit être le plus large possible pour limiter les lésions, en attendant un garrot tourniquet."
+    "c": 0,
+    "e": "Le garrot de fortune doit être le plus large possible pour limiter les lésions. Le référentiel de juillet 2026 privilégie le garrot industriel, intègre les garrots pneumatiques et la gaze imbibée de substance hémostatique."
   },
   {
     "id": "pls-01",
@@ -2318,7 +2458,7 @@
       "Elle limite la chute de la langue en arrière qui obstruerait les voies aériennes",
       "Elle empêche totalement la langue de bouger dans la bouche",
       "Elle pousse la langue vers le fond de la gorge et la bloque",
-      "Elle n'a aucun effet sur la position de la langue dans la bouche"
+      "Elle n'a pas d'effet sur la position de la langue dans la bouche"
     ],
     "c": 0,
     "e": "La rotation de la tête et la position latérale limitent l'obstruction par la langue."
@@ -2382,7 +2522,7 @@
   {
     "id": "pls-19",
     "cat": "Position Latérale de Secours",
-    "level": "PSE2",
+    "level": "PSE1",
     "q": "Faut-il retirer le casque d'un motard inconscient ?",
     "opts": [
       "Non, sauf si les voies aériennes sont obstruées ; le retrait se fait alors à deux, dans l'axe",
@@ -2422,6 +2562,20 @@
     "e": "Le malaise est une plainte subjective : le secouriste recherche les signes et l'origine possible."
   },
   {
+    "id": "mal-29",
+    "cat": "Malaises & Affections",
+    "level": "PSE1",
+    "q": "En l'absence d'amélioration après une première auto-injection d'adrénaline, dans quel délai la seconde est-elle réalisée ?",
+    "opts": [
+      "Au bout de 10 à 15 minutes",
+      "Au bout de 30 minutes",
+      "Au bout de 5 minutes",
+      "Au bout d'une heure"
+    ],
+    "c": 2,
+    "e": "L'édition juillet 2026 du référentiel ramène à 5 minutes le délai avant une seconde auto-injection d'adrénaline, contre 10 à 15 minutes auparavant, en l'absence d'amélioration ou en cas de récidive."
+  },
+  {
     "id": "mal-02",
     "cat": "Malaises & Affections",
     "level": "PSE1",
@@ -2452,7 +2606,7 @@
   {
     "id": "mal-04",
     "cat": "Malaises & Affections",
-    "level": "PSE1",
+    "level": "PSE2",
     "q": "Quelle position adopte-t-on pour une victime consciente qui se plaint d'une douleur thoracique ?",
     "opts": [
       "Allongée sur le ventre, tête tournée",
@@ -2466,7 +2620,7 @@
   {
     "id": "mal-05",
     "cat": "Malaises & Affections",
-    "level": "PSE1",
+    "level": "PSE2",
     "q": "Une victime se plaint d'une douleur thoracique intense et serre son poing sur sa poitrine : que fait le secouriste ?",
     "opts": [
       "Il alerte immédiatement le 15 et la maintient au repos",
@@ -2567,13 +2721,13 @@
     "level": "PSE1",
     "q": "Que fait le secouriste devant une réaction allergique grave ?",
     "opts": [
-      "Il lui fait boire beaucoup d'eau pour diluer l'allergène absorbé",
-      "Il la fait marcher pour éviter le gonflement du visage",
-      "Il alerte le 15, installe la victime et l'aide à utiliser son auto-injecteur si elle en a un",
+      "Il alerte le 15 et l'aide à utiliser son auto-injecteur",
+      "Il lui fait boire beaucoup d'eau fraîche pour diluer l'allergène",
+      "Il la fait marcher pour faire diminuer le gonflement du visage",
       "Il attend une heure avant d'alerter, le temps de voir l'évolution"
     ],
-    "c": 2,
-    "e": "L'alerte est immédiate et le traitement d'urgence de la victime doit être utilisé sans délai."
+    "c": 0,
+    "e": "L'alerte est immédiate et le traitement d'urgence de la victime doit être utilisé sans délai. Depuis juillet 2026, une seconde auto-injection d'adrénaline est réalisée dès 5 minutes après la première en l'absence d'amélioration."
   },
   {
     "id": "mal-13",
@@ -2652,7 +2806,7 @@
     "q": "Devant une personne qui a été piquée par une guêpe et qui est allergique connue, que surveille-t-on ?",
     "opts": [
       "La couleur de la piqûre et sa taille exacte",
-      "La température corporelle toutes les dix minutes",
+      "La température corporelle au bout de dix minutes",
       "La fréquence des urines",
       "L'apparition d'un gonflement du visage ou d'une gêne respiratoire"
     ],
@@ -2710,7 +2864,7 @@
       "Non, une victime de malaise ne doit rien absorber",
       "Oui, pour la réhydrater et éviter la déshydratation",
       "Oui, si elle est parfaitement consciente et capable d'avaler",
-      "Oui, mais uniquement de l'eau glacée pour la réveiller"
+      "Oui, mais de l'eau glacée pour la réveiller"
     ],
     "c": 2,
     "e": "La boisson est possible seulement si la conscience et la déglutition sont intactes."
@@ -2718,16 +2872,16 @@
   {
     "id": "mal-23",
     "cat": "Malaises & Affections",
-    "level": "PSE1",
-    "q": "Une victime de malaise est brûlante, a la peau sèche et a été exposée au soleil : que fait le secouriste ?",
+    "level": "PSE2",
+    "q": "Une victime de coup de chaleur est brûlante et a la peau sèche : que fait le secouriste ?",
     "opts": [
-      "Il la met à l'ombre, la rafraîchit et l'hydrate si elle est consciente",
-      "Il l'enveloppe dans une couverture pour la réchauffer",
-      "Il la fait marcher au soleil pour l'activer",
-      "Il attend la fin de la journée pour agir"
+      "Il débute un refroidissement actif par immersion du corps entier",
+      "Il l'installe à l'ombre et attend la baisse naturelle de la température",
+      "Il l'enveloppe dans une couverture pour lutter contre les frissons",
+      "Il la fait boire très frais sans refroidir activement la peau"
     ],
     "c": 0,
-    "e": "Le coup de chaleur impose un refroidissement immédiat, une mise au repos et une alerte si des troubles de conscience apparaissent."
+    "e": "L'édition juillet 2026 fait du refroidissement actif la méthode de référence : immersion du corps entier, ou variante par bâche et eau glacée. Il se poursuit jusqu'à une température corporelle inférieure à 39 °C — ou pendant 15 minutes si la température ne peut pas être mesurée — et jusqu'à la disparition des signes neurologiques. Seuls l'arrêt cardiaque et les convulsions excluent l'immersion."
   },
   {
     "id": "mal-24",
@@ -2749,7 +2903,7 @@
     "level": "PSE1",
     "q": "Quand le secouriste doit-il alerter le 15 pour un malaise ?",
     "opts": [
-      "Uniquement si la victime le demande elle-même après avoir été rassurée",
+      "Si la victime le demande elle-même après avoir été rassurée",
       "Dès qu'il existe des signes de gravité : douleur thoracique, trouble de la parole, perte de connaissance",
       "Seulement après trois malaises successifs dans la même journée",
       "Après avoir vérifié que le repos n'améliore pas l'état de la victime"
@@ -2760,7 +2914,7 @@
   {
     "id": "mal-26",
     "cat": "Malaises & Affections",
-    "level": "PSE1",
+    "level": "PSE2",
     "q": "Que signifie un trouble de la parole associé à une faiblesse d'un seul bras chez une personne âgée ?",
     "opts": [
       "Un simple état de fatigue à surveiller",
@@ -2788,11 +2942,11 @@
   {
     "id": "mal-28",
     "cat": "Malaises & Affections",
-    "level": "PSE1",
+    "level": "PSE2",
     "q": "Peut-on faire une fausse route en donnant à boire à une victime qui a été victime d'un AVC ?",
     "opts": [
       "Non, la déglutition reste préservée après un AVC, la boisson est sans danger",
-      "Oui, mais uniquement avec une paille pour éviter la fausse route",
+      "Oui, mais avec une paille pour éviter la fausse route",
       "Oui, l'AVC peut altérer la déglutition : on ne fait jamais boire cette victime",
       "Non, si la victime est capable de parler, elle peut boire normalement"
     ],
@@ -2864,7 +3018,7 @@
       "Non, elles ne doivent jamais être percées",
       "Oui, pour évacuer le liquide et éviter l'infection",
       "Oui, si elles sont très tendues et douloureuses",
-      "Oui, avec une aiguille stérile uniquement"
+      "Oui, avec une aiguille stérile"
     ],
     "c": 0,
     "e": "Les cloques forment une barrière protectrice : les percer expose à l'infection."
@@ -2919,7 +3073,7 @@
     "opts": [
       "Il applique une pommade ophtalmique puis un bandeau",
       "Il fait fermer l'œil et attend les secours sans rincer",
-      "Il rince avec du sérum physiologique gazeux uniquement",
+      "Il rince avec du sérum physiologique gazeux",
       "Il rince abondamment à l'eau tempérée, sans forcer, en maintenant l'œil ouvert"
     ],
     "c": 3,
@@ -2934,7 +3088,7 @@
       "Par l'œil le plus atteint, pour soulager la douleur",
       "Par les deux en même temps, sous un seul jet",
       "Par l'œil le moins atteint, pour éviter de contaminer l'autre",
-      "Par aucun, il faut attendre les secours"
+      "Il ne rince aucun œil et attend les secours"
     ],
     "c": 2,
     "e": "Rincer d'abord l'œil le moins atteint évite de projeter le produit vers l'œil sain."
@@ -2942,7 +3096,7 @@
   {
     "id": "tra-11",
     "cat": "Traumatismes & Brûlures",
-    "level": "PSE1",
+    "level": "PSE2",
     "q": "Une personne a été victime d'une brûlure électrique : que recherche le secouriste en priorité ?",
     "opts": [
       "Une détresse vitale : arrêt cardiaque, détresse respiratoire ou brûlures étendues",
@@ -2975,7 +3129,7 @@
     "opts": [
       "Parce qu'elle peut provoquer un œdème qui obstruera les voies aériennes",
       "Parce qu'elle est indolore et passe souvent inaperçue",
-      "Parce qu'elle empêche la victime de parler définitivement",
+      "Parce qu'elle empêche la victime de parler durablement",
       "Parce qu'elle ne peut pas être refroidie"
     ],
     "c": 0,
@@ -3110,7 +3264,7 @@
   {
     "id": "tra-23",
     "cat": "Traumatismes & Brûlures",
-    "level": "PSE1",
+    "level": "PSE2",
     "q": "Un choc à la tête est suivi de vomissements : que faut-il en penser ?",
     "opts": [
       "C'est une réaction banale après un choc",
@@ -3143,7 +3297,7 @@
     "opts": [
       "Parce que des complications peuvent apparaître secondairement",
       "Parce que la victime doit rester éveillée à tout prix",
-      "Parce que les secours exigent un bilan toutes les cinq minutes",
+      "Parce que les secours exigent un bilan au bout de cinq minutes",
       "Parce que la douleur disparaît en une heure environ"
     ],
     "c": 0,
@@ -3200,7 +3354,7 @@
       "Oui, il bloque totalement les mouvements du rachis cervical",
       "Non, il limite les mouvements mais le maintien manuel reste nécessaire",
       "Oui, s'il est posé très serré",
-      "Non, il sert uniquement à signaler la lésion aux soignants"
+      "Non, il sert à signaler la lésion aux soignants"
     ],
     "c": 1,
     "e": "Un collier limite les mouvements sans les supprimer : le maintien manuel de la tête reste indispensable."
@@ -3208,13 +3362,13 @@
   {
     "id": "rac-04",
     "cat": "Traumatisme Rachis & Immobilisation",
-    "level": "PSE2",
+    "level": "PSE1",
     "q": "Quand pose-t-on un collier cervical ?",
     "opts": [
       "Après avoir installé un maintien manuel de la tête, sans mobiliser la victime",
       "Avant tout maintien de la tête, pour gagner du temps",
       "En soulevant la tête pour glisser le collier sous la nuque",
-      "Uniquement à l'hôpital, sur prescription médicale"
+      "À l'hôpital, sur prescription médicale"
     ],
     "c": 0,
     "e": "La pose du collier se fait en conservant l'axe tête-cou-tronc, après un maintien manuel efficace."
@@ -3222,7 +3376,7 @@
   {
     "id": "rac-05",
     "cat": "Traumatisme Rachis & Immobilisation",
-    "level": "PSE1",
+    "level": "PSE2",
     "q": "Peut-on asseoir ou redresser une victime suspecte d'atteinte du rachis ?",
     "opts": [
       "Oui, pour la rassurer et faciliter sa respiration",
@@ -3264,7 +3418,7 @@
   {
     "id": "rac-08",
     "cat": "Traumatisme Rachis & Immobilisation",
-    "level": "PSE1",
+    "level": "PSE2",
     "q": "Quels signes peuvent évoquer une atteinte de la moelle épinière ?",
     "opts": [
       "Une douleur musculaire diffuse après un effort sportif intense",
@@ -3278,7 +3432,7 @@
   {
     "id": "rac-09",
     "cat": "Traumatisme Rachis & Immobilisation",
-    "level": "PSE1",
+    "level": "PSE2",
     "q": "Quels mécanismes doivent faire suspecter une atteinte du rachis ?",
     "opts": [
       "Un choc léger contre une porte",
@@ -3292,7 +3446,7 @@
   {
     "id": "rac-10",
     "cat": "Traumatisme Rachis & Immobilisation",
-    "level": "PSE1",
+    "level": "PSE2",
     "q": "Que faire devant une victime qui a plongé dans une eau peu profonde et ne peut plus bouger les jambes ?",
     "opts": [
       "La sortir rapidement de l'eau en la tirant par les bras et en la portant",
@@ -3348,7 +3502,7 @@
   {
     "id": "rac-14",
     "cat": "Traumatisme Rachis & Immobilisation",
-    "level": "PSE2",
+    "level": "PSE1",
     "q": "Faut-il retirer le casque d'un motard conscient et suspect d'atteinte du rachis ?",
     "opts": [
       "Oui, il gêne la surveillance des voies aériennes",
@@ -3382,7 +3536,7 @@
       "La température des extrémités et la couleur des ongles",
       "La conscience, la respiration et la mobilité ou sensibilité des membres",
       "La fréquence des battements de cœur sur dix minutes",
-      "La taille des pupilles uniquement"
+      "La taille des pupilles"
     ],
     "c": 1,
     "e": "Toute modification de la conscience, de la respiration ou de la motricité doit être transmise au médecin."
@@ -3390,7 +3544,7 @@
   {
     "id": "rac-17",
     "cat": "Traumatisme Rachis & Immobilisation",
-    "level": "PSE1",
+    "level": "PSE2",
     "q": "Une victime assise au sol après une chute se plaint du dos : peut-elle se relever seule ?",
     "opts": [
       "Non, elle ne doit pas se lever avant l'avis des secours",
@@ -3432,7 +3586,7 @@
   {
     "id": "rac-20",
     "cat": "Traumatisme Rachis & Immobilisation",
-    "level": "PSE1",
+    "level": "PSE2",
     "q": "Une victime présente une douleur du cou et des fourmillements dans les deux mains : que fait le secouriste ?",
     "opts": [
       "Il fait bouger les mains à la victime pour préciser les signes",
@@ -3446,7 +3600,7 @@
   {
     "id": "mat-01",
     "cat": "Matériel & Oxygénothérapie",
-    "level": "PSE2",
+    "level": "PSE1",
     "q": "Quel débit d'oxygène utilise-t-on avec un masque à haute concentration chez l'adulte ?",
     "opts": [
       "10 à 15 litres par minute",
@@ -3460,7 +3614,7 @@
   {
     "id": "mat-02",
     "cat": "Matériel & Oxygénothérapie",
-    "level": "PSE2",
+    "level": "PSE1",
     "q": "Quel débit d'oxygène utilise-t-on avec des lunettes à oxygène chez l'adulte ?",
     "opts": [
       "8 à 10 litres par minute",
@@ -3474,7 +3628,7 @@
   {
     "id": "mat-03",
     "cat": "Matériel & Oxygénothérapie",
-    "level": "PSE2",
+    "level": "PSE1",
     "q": "Que vérifie-t-on avant de brancher un patient sur une bouteille d'oxygène ?",
     "opts": [
       "La pression au manomètre et le bon fonctionnement du détendeur après une brève purge",
@@ -3488,7 +3642,7 @@
   {
     "id": "mat-04",
     "cat": "Matériel & Oxygénothérapie",
-    "level": "PSE2",
+    "level": "PSE1",
     "q": "Pourquoi ne faut-il jamais graisser ou huiler le matériel d'oxygène ?",
     "opts": [
       "Parce que la graisse encrasse le détendeur et fausse le débit affiché",
@@ -3502,7 +3656,7 @@
   {
     "id": "mat-05",
     "cat": "Matériel & Oxygénothérapie",
-    "level": "PSE2",
+    "level": "PSE1",
     "q": "Quelles précautions prend-on avec une bouteille d'oxygène entre deux interventions ?",
     "opts": [
       "Elle est couchée dans le coffre pour ne pas tomber",
@@ -3516,7 +3670,7 @@
   {
     "id": "mat-06",
     "cat": "Matériel & Oxygénothérapie",
-    "level": "PSE2",
+    "level": "PSE1",
     "q": "Que fait-on si le manomètre indique une pression très faible ?",
     "opts": [
       "On augmente le débit pour compenser la baisse",
@@ -3530,7 +3684,7 @@
   {
     "id": "mat-07",
     "cat": "Matériel & Oxygénothérapie",
-    "level": "PSE2",
+    "level": "PSE1",
     "q": "À quoi sert un insufflateur manuel (BAVU) ?",
     "opts": [
       "À aspirer les sécrétions et les liquides présents dans la bouche",
@@ -3544,10 +3698,10 @@
   {
     "id": "mat-08",
     "cat": "Matériel & Oxygénothérapie",
-    "level": "PSE2",
+    "level": "PSE1",
     "q": "Pourquoi le BAVU est-il préféré au bouche-à-bouche en équipe ?",
     "opts": [
-      "Parce qu'il est obligatoire pour l'adulte uniquement",
+      "Parce qu'il est réservé à l'adulte",
       "Parce qu'il permet de comprimer le thorax en même temps",
       "Parce qu'il est plus rapide à installer qu'un masque de poche",
       "Parce qu'il évite le contact direct avec la victime et permet une ventilation plus efficace"
@@ -3558,7 +3712,7 @@
   {
     "id": "mat-09",
     "cat": "Matériel & Oxygénothérapie",
-    "level": "PSE2",
+    "level": "PSE1",
     "q": "Que permet une canule d'aspiration ?",
     "opts": [
       "De ventiler la victime en oxygène pur à haut débit",
@@ -3572,13 +3726,13 @@
   {
     "id": "mat-10",
     "cat": "Matériel & Oxygénothérapie",
-    "level": "PSE2",
+    "level": "PSE1",
     "q": "Quand administre-t-on de l'oxygène à une victime ?",
     "opts": [
       "Sur consigne du médecin régulateur, devant une détresse ou selon le protocole",
       "À toute victime consciente qui se plaint d'une douleur",
       "Dès qu'une victime présente une pâleur inhabituelle",
-      "Uniquement après un arrêt cardiaque de plus de dix minutes"
+      "Après un arrêt cardiaque de plus de dix minutes"
     ],
     "c": 0,
     "e": "L'oxygénothérapie est un acte sur prescription ou appliqué selon le protocole de l'équipe."
@@ -3586,7 +3740,7 @@
   {
     "id": "mat-11",
     "cat": "Matériel & Oxygénothérapie",
-    "level": "PSE2",
+    "level": "PSE1",
     "q": "Que mesure un oxymètre de pouls ?",
     "opts": [
       "La saturation en oxygène du sang (SpO2) et le pouls",
@@ -3600,7 +3754,7 @@
   {
     "id": "mat-12",
     "cat": "Matériel & Oxygénothérapie",
-    "level": "PSE2",
+    "level": "PSE1",
     "q": "Que fait-on si l'oxymètre affiche une valeur inattendue ?",
     "opts": [
       "On augmente immédiatement le débit d'oxygène au maximum",
@@ -3614,7 +3768,7 @@
   {
     "id": "mat-13",
     "cat": "Matériel & Oxygénothérapie",
-    "level": "PSE2",
+    "level": "PSE1",
     "q": "À quoi sert un masque de barrière (ou masque de poche) ?",
     "opts": [
       "À protéger la victime du froid pendant le transport",
@@ -3628,7 +3782,7 @@
   {
     "id": "mat-14",
     "cat": "Matériel & Oxygénothérapie",
-    "level": "PSE2",
+    "level": "PSE1",
     "q": "À quoi sert une couverture de survie ?",
     "opts": [
       "À immobiliser les fractures des membres",
@@ -3642,12 +3796,12 @@
   {
     "id": "mat-15",
     "cat": "Matériel & Oxygénothérapie",
-    "level": "PSE2",
+    "level": "PSE1",
     "q": "Quand vérifie-t-on la dotation et la péremption du matériel de secours ?",
     "opts": [
       "Une fois par an, lors de l'assemblée générale des équipiers",
       "Avant et après chaque intervention, et lors des vérifications périodiques prévues",
-      "Uniquement lorsqu'un matériel tombe en panne pendant une intervention",
+      "Lorsqu'un matériel tombe en panne pendant une intervention",
       "Après chaque formation continue des équipiers de l'équipe locale"
     ],
     "c": 1,
@@ -3656,7 +3810,7 @@
   {
     "id": "mat-16",
     "cat": "Matériel & Oxygénothérapie",
-    "level": "PSE2",
+    "level": "PSE1",
     "q": "Après utilisation, que fait-on du matériel souillé ?",
     "opts": [
       "Il est rangé tel quel, il sera nettoyé plus tard",
@@ -3670,11 +3824,11 @@
   {
     "id": "mat-17",
     "cat": "Matériel & Oxygénothérapie",
-    "level": "PSE2",
+    "level": "PSE1",
     "q": "Que faut-il vérifier sur un DAE avant de le remettre en service après usage ?",
     "opts": [
       "Le nombre de chocs délivrés depuis sa mise en service",
-      "La couleur des témoins lumineux uniquement",
+      "La couleur des témoins lumineux",
       "Le poids de l'appareil et de sa sacoche",
       "La batterie, la date de péremption des électrodes et le bon fonctionnement général"
     ],
@@ -3684,7 +3838,7 @@
   {
     "id": "mat-18",
     "cat": "Matériel & Oxygénothérapie",
-    "level": "PSE2",
+    "level": "PSE1",
     "q": "Après usage, que fait-on des électrodes du DAE ?",
     "opts": [
       "Elles sont nettoyées et réutilisées",
@@ -3698,7 +3852,7 @@
   {
     "id": "mat-19",
     "cat": "Matériel & Oxygénothérapie",
-    "level": "PSE2",
+    "level": "PSE1",
     "q": "Pourquoi le DAE doit-il être facilement accessible dans son véhicule ou son local ?",
     "opts": [
       "Pour permettre sa mise en œuvre en quelques secondes en cas d'arrêt cardiaque",
@@ -3722,5 +3876,397 @@
     ],
     "c": 1,
     "e": "Le DAE analyse le rythme et indique au secouriste la conduite à tenir, sans jamais remplacer la RCP."
+  },
+  {
+    "id": "bil-01",
+    "cat": "Bilans & Surveillance",
+    "level": "PSE1",
+    "q": "Quelle est la fréquence respiratoire normale d'un adulte au repos ?",
+    "opts": [
+      "De 4 à 8 cycles par minute",
+      "De 12 à 20 cycles par minute",
+      "De 30 à 40 cycles par minute",
+      "De 60 à 100 cycles par minute"
+    ],
+    "c": 1,
+    "e": "Au repos, un adulte respire environ 12 à 20 fois par minute. En dessous de 12 cycles, la respiration est trop lente ; au-dessus de 20, elle est trop rapide : ces valeurs doivent être notées et transmises."
+  },
+  {
+    "id": "bil-02",
+    "cat": "Bilans & Surveillance",
+    "level": "PSE1",
+    "q": "Quelle est la fréquence cardiaque normale d'un adulte au repos ?",
+    "opts": [
+      "De 30 à 50 battements par minute",
+      "De 100 à 140 battements par minute",
+      "De 60 à 100 battements par minute",
+      "De 150 à 180 battements par minute"
+    ],
+    "c": 2,
+    "e": "La fréquence cardiaque de repos d'un adulte se situe entre 60 et 100 battements par minute. Une valeur très éloignée de cette fourchette est un signe à signaler au médecin régulateur."
+  },
+  {
+    "id": "bil-03",
+    "cat": "Bilans & Surveillance",
+    "level": "PSE1",
+    "q": "À partir de quelle température parle-t-on de fièvre chez l'adulte ?",
+    "opts": [
+      "À partir de 37 °C",
+      "À partir de 39,5 °C",
+      "À partir de 40 °C",
+      "À partir de 38 °C"
+    ],
+    "c": 3,
+    "e": "La température corporelle normale est proche de 37 °C. On parle de fièvre à partir de 38 °C chez l'adulte ; cette mesure fait partie des constantes transmises au médecin régulateur."
+  },
+  {
+    "id": "bil-04",
+    "cat": "Bilans & Surveillance",
+    "level": "PSE1",
+    "q": "Que permet la mesure de la glycémie capillaire ?",
+    "opts": [
+      "De mesurer la saturation pulsée en oxygène du sang au bout du doigt",
+      "De connaître le taux de sucre dans le sang, au bout d'un doigt",
+      "De mesurer la pression artérielle au moyen d'un brassard",
+      "De connaître le taux de gaz carbonique présent dans le sang"
+    ],
+    "c": 1,
+    "e": "La glycémie capillaire se mesure au bout d'un doigt, avec un lecteur et une bandelette. Elle oriente la conduite à tenir devant un malaise, notamment chez une personne diabétique."
+  },
+  {
+    "id": "bil-05",
+    "cat": "Bilans & Surveillance",
+    "level": "PSE1",
+    "q": "Comment mesure-t-on la pression artérielle d'une victime ?",
+    "opts": [
+      "Avec un capteur optique pincé au bout d'un doigt de la victime",
+      "En comptant les battements perçus au poignet pendant une minute",
+      "Avec un brassard placé autour du bras, gonflé puis relâché",
+      "Avec un boîtier posé sur le thorax de la victime allongée"
+    ],
+    "c": 2,
+    "e": "La pression artérielle se mesure au bras, à l'aide d'un brassard gonflé puis relâché progressivement. Elle comporte deux valeurs, systolique et diastolique, qui sont transmises au médecin régulateur."
+  },
+  {
+    "id": "bil-06",
+    "cat": "Bilans & Surveillance",
+    "level": "PSE1",
+    "q": "Comment le secouriste recherche-t-il les lésions d'une victime ?",
+    "opts": [
+      "En examinant la zone que la victime désigne elle-même",
+      "En déshabillant la victime pour photographier chaque hématome",
+      "En demandant à la victime de bouger chaque partie de son corps",
+      "De la tête aux pieds, en comparant les deux côtés du corps"
+    ],
+    "c": 3,
+    "e": "La recherche de lésions se fait méthodiquement, de la tête aux pieds et en comparant les deux côtés. Elle ne doit jamais retarder le traitement d'une détresse vitale."
+  },
+  {
+    "id": "bil-07",
+    "cat": "Bilans & Surveillance",
+    "level": "PSE1",
+    "q": "Comment évalue-t-on l'intensité de la douleur d'une victime consciente ?",
+    "opts": [
+      "En observant ses grimaces sans lui poser de question directe",
+      "En lui demandant de chiffrer sa douleur sur une échelle de 0 à 10",
+      "En se fiant à la pression artérielle, qui augmente avec la douleur",
+      "En lui demandant simplement si la douleur est supportable"
+    ],
+    "c": 1,
+    "e": "La douleur est une donnée subjective : on demande à la victime de la chiffrer, par exemple sur une échelle de 0 à 10. La valeur obtenue et son évolution sont transmises au médecin régulateur."
+  },
+  {
+    "id": "bil-08",
+    "cat": "Bilans & Surveillance",
+    "level": "PSE1",
+    "q": "Comment le secouriste transmet-il son bilan au médecin régulateur ?",
+    "opts": [
+      "Il donne son avis sur le diagnostic probable pour gagner du temps",
+      "Il raconte tout ce qu'il a observé, dans l'ordre de son souvenir",
+      "Il expose des faits structurés, concis et chronologiques",
+      "Il se contente de répondre aux questions, sans initiative"
+    ],
+    "c": 2,
+    "e": "Le bilan est un message structuré, concis et chronologique : ce qui s'est passé, l'état de la victime, les gestes réalisés et leur évolution. Le secouriste attend d'être invité à parler et ne raccroche pas le premier."
+  },
+  {
+    "id": "bil-09",
+    "cat": "Bilans & Surveillance",
+    "level": "PSE1",
+    "q": "Pourquoi réévalue-t-on régulièrement une victime en attendant les secours ?",
+    "opts": [
+      "Pour occuper le secouriste et rassurer la victime et ses proches",
+      "Pour remplir la fiche bilan avec le plus de mesures possible",
+      "Pour décider seul de transporter la victime vers l'hôpital",
+      "Pour détecter une aggravation et adapter la conduite à tenir"
+    ],
+    "c": 3,
+    "e": "L'état d'une victime peut s'aggraver rapidement. La surveillance est continue et toute modification — conscience, respiration, douleur — impose une nouvelle évaluation et, si besoin, un appel complémentaire."
+  },
+  {
+    "id": "bil-10",
+    "cat": "Bilans & Surveillance",
+    "level": "PSE1",
+    "q": "Quand le secouriste doit-il retourner une victime ?",
+    "opts": [
+      "Pour examiner son dos après le relevé du bilan complet",
+      "Pour libérer ses voies aériennes ou la mettre en PLS",
+      "Pour la rendre plus confortable en attendant les secours",
+      "Pour vérifier la présence de lésions sur le thorax"
+    ],
+    "c": 1,
+    "e": "Le retournement n'est jamais un geste de confort : il se justifie pour libérer les voies aériennes, mettre la victime en position latérale de sécurité ou pratiquer la réanimation. Il est réalisé en respectant l'axe tête-cou-tronc."
+  },
+  {
+    "id": "bil-11",
+    "cat": "Bilans & Surveillance",
+    "level": "PSE1",
+    "q": "Dans quel ordre le secouriste réalise-t-il le bilan d'une victime ?",
+    "opts": [
+      "Il recherche d'abord chaque lésion, puis traite la plus grave",
+      "Il interroge d'abord l'entourage, puis examine la victime",
+      "Il traite d'abord ce qui tue, puis recherche les lésions",
+      "Il examine la victime de la tête aux pieds avant d'alerter"
+    ],
+    "c": 2,
+    "e": "Le bilan suit la logique « traiter en priorité ce qui tue en premier » : les détresses vitales sont recherchées et traitées d'abord, la recherche des lésions et l'interrogatoire viennent ensuite."
+  },
+  {
+    "id": "bil-12",
+    "cat": "Bilans & Surveillance",
+    "level": "PSE1",
+    "q": "Quand le secouriste transmet-il son bilan au médecin régulateur ?",
+    "opts": [
+      "Après avoir rempli la fiche bilan et rangé le matériel",
+      "Dès son arrivée, avant même d'avoir examiné la victime sur les lieux",
+      "Seulement à l'arrivée des secours organisés sur les lieux",
+      "Après avoir traité les détresses vitales et fait le bilan"
+    ],
+    "c": 3,
+    "e": "Aucun bilan ne doit retarder un geste vital. Une fois les détresses traitées et le bilan réalisé, le secouriste transmet son message au médecin régulateur et applique ses consignes."
+  },
+  {
+    "id": "bil-13",
+    "cat": "Bilans & Surveillance",
+    "level": "PSE1",
+    "q": "Chez un adulte en bonne santé, quelle saturation pulsée en oxygène est attendue ?",
+    "opts": [
+      "Une SpO2 comprise entre 85 et 90 %",
+      "Une SpO2 supérieure ou égale à 95 %",
+      "Une SpO2 supérieure ou égale à 100 %",
+      "Une SpO2 comprise entre 70 et 80 %"
+    ],
+    "c": 1,
+    "e": "La saturation pulsée en oxygène se mesure au bout d'un doigt. Chez un adulte en bonne santé, elle est supérieure ou égale à 95 %. Une valeur nettement plus basse traduit une détresse respiratoire et doit être signalée."
+  },
+  {
+    "id": "bil-14",
+    "cat": "Bilans & Surveillance",
+    "level": "PSE1",
+    "q": "Que faut-il penser d'une fréquence respiratoire de 30 cycles par minute chez un adulte ?",
+    "opts": [
+      "Elle est trop lente : ce signe doit être signalé",
+      "Elle est tout à fait normale pour un adulte au repos",
+      "Elle est trop rapide : ce signe doit être signalé",
+      "Elle est normale après un effort physique"
+    ],
+    "c": 2,
+    "e": "La fréquence respiratoire normale d'un adulte au repos est de 12 à 20 cycles par minute. À 30 cycles, la respiration est trop rapide : c'est un signe de détresse respiratoire à transmettre au médecin régulateur."
+  },
+  {
+    "id": "sit-01",
+    "cat": "Situations Particulières",
+    "level": "PSE1",
+    "q": "Qu'appelle-t-on une situation à nombreuses victimes ?",
+    "opts": [
+      "Une situation où plus de trois personnes sont blessées sur la voie publique",
+      "Une intervention nécessitant l'engagement de plus de deux équipes",
+      "Un accident survenu dans un lieu public particulièrement fréquenté",
+      "Une situation où le nombre de victimes dépasse les moyens disponibles"
+    ],
+    "c": 3,
+    "e": "Une situation est dite « à nombreuses victimes » lorsque le nombre de victimes ou la nature de l'événement dépassent les moyens immédiatement disponibles : l'organisation doit alors être adaptée et coordonnée."
+  },
+  {
+    "id": "sit-11",
+    "cat": "Situations Particulières",
+    "level": "PSE1",
+    "q": "Quels moyens les autorités utilisent-elles pour alerter la population ?",
+    "opts": [
+      "Les réseaux sociaux des associations locales de secourisme",
+      "Les sirènes, les notifications mobiles et les médias officiels",
+      "Les panneaux lumineux des autoroutes, des gares et des aéroports",
+      "Le bouche-à-oreille entre les habitants du quartier"
+    ],
+    "c": 1,
+    "e": "L'alerte à la population repose sur le signal national d'alerte diffusé par les sirènes, les notifications géolocalisées FR-Alert sur les téléphones mobiles et les messages diffusés par les médias officiels."
+  },
+  {
+    "id": "sit-12",
+    "cat": "Situations Particulières",
+    "level": "PSE1",
+    "q": "Pourquoi le repérage doit-il être réalisé rapidement ?",
+    "opts": [
+      "Pour terminer l'intervention avant la relève de l'équipe",
+      "Pour libérer la zone le plus vite possible aux véhicules",
+      "Pour permettre une prise en charge sans délai inutile",
+      "Pour établir un rapport écrit détaillé de l'événement"
+    ],
+    "c": 2,
+    "e": "Le repérage conditionne l'organisation des secours : plus les informations sur les victimes remontent vite, plus tôt elles sont prises en charge de façon coordonnée."
+  },
+  {
+    "id": "sit-13",
+    "cat": "Situations Particulières",
+    "level": "PSE1",
+    "q": "Un secouriste découvre une victime consciente en situation à nombreuses victimes : que fait-il ?",
+    "opts": [
+      "Il reste auprès d'elle jusqu'à l'arrivée des équipes de renfort",
+      "Il l'évacue lui-même vers l'hôpital le plus proche dans son véhicule",
+      "Il cesse le repérage et attend les instructions du commandement",
+      "Il la rassure et l'installe en sécurité, puis poursuit le repérage"
+    ],
+    "c": 3,
+    "e": "En situation à nombreuses victimes, le secouriste ne s'attache pas à une victime unique : il la met en sécurité si nécessaire et poursuit le repérage, afin que l'ensemble des victimes soit recensé puis pris en charge de façon organisée."
+  },
+  {
+    "id": "sit-14",
+    "cat": "Situations Particulières",
+    "level": "PSE1",
+    "q": "Que fait le secouriste qui constate un danger nouveau pendant l'intervention ?",
+    "opts": [
+      "Il poursuit sa tâche pour ne pas interrompre l'intervention",
+      "Il se met en sécurité et signale le danger au commandement",
+      "Il prévient les victimes en criant pour qu'elles s'écartent",
+      "Il juge seul si le danger impose une évacuation de la zone"
+    ],
+    "c": 1,
+    "e": "Tout danger nouveau est signalé sans délai au commandement, qui décide de la suite. La mise en sécurité des intervenants reste la priorité : elle précède toute autre action."
+  },
+  {
+    "id": "sit-02",
+    "cat": "Situations Particulières",
+    "level": "PSE1",
+    "q": "Quel est le rôle du secouriste face à une situation à nombreuses victimes ?",
+    "opts": [
+      "Prendre en charge seul la victime la plus grave en priorité",
+      "Sécuriser, alerter et effectuer un repérage des victimes",
+      "Répartir les victimes entre les secouristes présents",
+      "Évacuer les victimes vers l'hôpital le plus proche"
+    ],
+    "c": 1,
+    "e": "En situation à nombreuses victimes, le secouriste agit dans le cadre d'une organisation coordonnée : il sécurise, alerte, puis participe au repérage des victimes sous l'autorité du commandement."
+  },
+  {
+    "id": "sit-03",
+    "cat": "Situations Particulières",
+    "level": "PSE1",
+    "q": "Qu'est-ce que le repérage en cas de nombreuses victimes ?",
+    "opts": [
+      "Le transport des victimes vers un poste médical avancé",
+      "Le classement des victimes selon l'urgence de leur état de santé",
+      "Un relevé d'informations sur les victimes, à transmettre",
+      "Le marquage au sol des différentes zones de l'intervention"
+    ],
+    "c": 2,
+    "e": "Le repérage consiste à recueillir et transmettre des informations sur les victimes — localisation, état apparent, nombre — afin de permettre au commandement d'organiser les secours. Ce n'est ni un tri médical, ni un transport."
+  },
+  {
+    "id": "sit-04",
+    "cat": "Situations Particulières",
+    "level": "PSE1",
+    "q": "Quel dispositif permet d'alerter les populations directement sur leur téléphone mobile ?",
+    "opts": [
+      "Le signal national d'alerte, diffusé par les sirènes du réseau",
+      "Le numéro d'urgence 114, accessible par SMS et visiophonie",
+      "La radio FM, seul canal encore opérationnel en situation de crise",
+      "Le dispositif FR-Alert, par notification sur les mobiles"
+    ],
+    "c": 3,
+    "e": "FR-Alert diffuse une notification géolocalisée sur les téléphones mobiles présents dans la zone concernée. Il complète le signal national d'alerte par sirènes et les messages diffusés par les médias."
+  },
+  {
+    "id": "sit-05",
+    "cat": "Situations Particulières",
+    "level": "PSE1",
+    "q": "Que doit faire un secouriste qui entend le signal national d'alerte pendant une intervention ?",
+    "opts": [
+      "Il déclenche immédiatement l'évacuation générale de la zone",
+      "Il met les victimes à l'abri et suit les consignes diffusées",
+      "Il poursuit sa prise en charge tant qu'il ne voit pas de danger",
+      "Il appelle le 15 pour signaler la diffusion de la sirène"
+    ],
+    "c": 1,
+    "e": "Le signal national d'alerte prévient la population d'un danger. Le secouriste met les victimes à l'abri, écoute les consignes diffusées par les médias officiels et les applique, en lien avec le commandement."
+  },
+  {
+    "id": "sit-06",
+    "cat": "Situations Particulières",
+    "level": "PSE1",
+    "q": "Que fait le secouriste qui reçoit une notification FR-Alert sur son téléphone ?",
+    "opts": [
+      "Il relaie immédiatement l'alerte à tous ses contacts personnels",
+      "Il se rend sans délai sur la zone pour porter secours aux victimes",
+      "Il en prend connaissance et applique les consignes de protection",
+      "Il ignore ce message, qui est réservé aux services de secours"
+    ],
+    "c": 2,
+    "e": "Une notification FR-Alert indique la nature du danger et les consignes à appliquer. Le secouriste en prend connaissance, applique ces consignes et se met à disposition de son autorité d'emploi."
+  },
+  {
+    "id": "sit-07",
+    "cat": "Situations Particulières",
+    "level": "PSE1",
+    "q": "Que contient un message d'alerte destiné à la population ?",
+    "opts": [
+      "Le nom des victimes et la liste des hôpitaux qui les accueillent",
+      "La cause exacte de l'événement et les responsables identifiés",
+      "Le nombre définitif de victimes établi par les services de secours",
+      "La nature du danger et les consignes à appliquer"
+    ],
+    "c": 3,
+    "e": "Un message d'alerte à la population est court et opérationnel : il décrit la nature du danger, la zone concernée et les consignes de protection à appliquer immédiatement."
+  },
+  {
+    "id": "sit-08",
+    "cat": "Situations Particulières",
+    "level": "PSE1",
+    "q": "À qui le secouriste transmet-il le résultat de son repérage ?",
+    "opts": [
+      "Directement au médecin régulateur du SAMU, par téléphone",
+      "Au commandement des opérations de secours",
+      "Aux familles des victimes présentes sur les lieux",
+      "À chaque équipe de secours arrivant successivement sur place"
+    ],
+    "c": 1,
+    "e": "Les informations recueillies lors du repérage sont transmises au commandement des opérations de secours, qui organise la suite de l'intervention et évite les doublons entre les équipes."
+  },
+  {
+    "id": "sit-09",
+    "cat": "Situations Particulières",
+    "level": "PSE1",
+    "q": "Pourquoi le secouriste ne se précipite-t-il pas seul vers les victimes ?",
+    "opts": [
+      "Parce que la réglementation interdit toute action avant l'arrivée du commandement",
+      "Parce que les victimes doivent d'abord être recensées avant de recevoir des soins",
+      "Parce qu'un intervenant isolé et non coordonné risque d'aggraver la situation",
+      "Parce qu'un seul secouriste ne peut porter secours à plus d'une victime à la fois"
+    ],
+    "c": 2,
+    "e": "Agir seul et sans coordination en situation à nombreuses victimes expose le secouriste et désorganise les secours : il faut d'abord sécuriser, alerter, puis s'intégrer à l'organisation mise en place."
+  },
+  {
+    "id": "sit-10",
+    "cat": "Situations Particulières",
+    "level": "PSE1",
+    "q": "Quelle est la priorité du secouriste à son arrivée sur une situation à nombreuses victimes ?",
+    "opts": [
+      "Le dégagement de la victime qui crie le plus fort",
+      "Le comptage précis du nombre total de victimes",
+      "Le transport de la victime la plus grave vers l'hôpital",
+      "Sa propre sécurité et celle des autres intervenants"
+    ],
+    "c": 3,
+    "e": "La protection reste la première étape de toute action de secours, et elle est encore plus déterminante en situation à nombreuses victimes : un intervenant blessé devient une victime supplémentaire."
   }
 ]

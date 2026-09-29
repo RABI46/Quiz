@@ -35,9 +35,9 @@ await wait(300);
 
 /* ---------- 1. écran d'accueil ---------- */
 const buttons = [...window.document.querySelectorAll("#themes .theme-btn")];
-if (buttons.length !== 11) problems.push(`accueil : ${buttons.length} thématiques affichées au lieu de 11`);
+if (buttons.length !== 13) problems.push(`accueil : ${buttons.length} thématiques affichées au lieu de 13`);
 if (!visible("home")) problems.push("accueil : l'écran d'accueil n'est pas visible");
-if ($("bank-total").textContent !== "266") problems.push(`accueil : total affiché « ${$("bank-total").textContent} » au lieu de 266`);
+if ($("bank-total").textContent !== "305") problems.push(`accueil : total affiché « ${$("bank-total").textContent} » au lieu de 305`);
 if (/\bnouveau cycle\b/.test(buttons[0].textContent) === false) problems.push("accueil : compteur de cycle absent");
 
 /* ---------- 2. lancer un lot ---------- */
@@ -142,7 +142,7 @@ $("revision-btn").dispatchEvent(new window.MouseEvent("click", { bubbles: true }
 await wait(50);
 if (!visible("revision")) problems.push("révision : l'écran révision ne s'affiche pas");
 const cards = [...window.document.querySelectorAll("#revision-list .revision-card")];
-if (cards.length !== 266) problems.push(`révision : ${cards.length} fiches affichées au lieu de 266`);
+if (cards.length !== 305) problems.push(`révision : ${cards.length} fiches affichées au lieu de 305`);
 const firstCard = cards[0] && cards[0].textContent;
 if (!firstCard || !/Bonne réponse/.test(firstCard)) problems.push("révision : la bonne réponse n'apparaît pas");
 $("revision-back").dispatchEvent(new window.MouseEvent("click", { bubbles: true }));

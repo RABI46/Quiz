@@ -5,6 +5,21 @@
 
 ---
 
+> ## ✅ Corrections appliquées le 29 septembre 2026
+>
+> Ce rapport a servi de base à une correction effective de la banque. État après intervention :
+> **305 questions · 13 thématiques · 251 questions en mode classique**, tous les contrôles au vert
+> (`validate_bank`, `test_lot`, `check_ui`, `e2e`).
+>
+> | Priorité | Contenu | État |
+> |---|---|---|
+> | 1 | 15 corrections factuelles (dont `rcp-22`, `mal-23`, électrodes du DAE à 25 kg, adrénaline à 5 min, 114) | ✅ appliqué |
+> | 2 | Réalignement des niveaux PSE1/PSE2 sur le marquage du référentiel | ✅ 51 items corrigés |
+> | 3 | Chapitres manquants : création de « Bilans & Surveillance » (14 q.) et « Situations Particulières » (14 q.), 6 questions de soutien psychologique, gaze hémostatique, pansement compressif sur amputation, réchauffement, repositionnement des électrodes, délai d'adrénaline | ✅ |
+> | 4 | Biais de qualité : 45 distracteurs à terme absolu réécrits, garde-fous ajoutés au validateur | ⚠️ partiel — le biais de longueur reste à traiter (voir §10) |
+>
+> Le détail figure au §10 « Journal des corrections ».
+
 ## 0. Avertissement méthodologique — à lire
 
 **Le fichier que tu as joint (« Guide de Synthèse Technique Complet _ PSE 1 (Edition Juillet 2026).pdf ») n'est jamais arrivé dans mon espace de travail.** Malgré le message d'attachement, le dossier de dépôt n'existe pas et aucune trace du PDF n'est présente sur le disque — vérifié à plusieurs reprises, y compris après plusieurs minutes d'attente.
@@ -248,3 +263,55 @@ Sur les 14 fiches, **seule `10FT04` « Préparation d'un dispositif de portage �
 ---
 
 *Rapport d'audit de forme de la banque : `ANALYSE-BANQUE.md`. Sources et éléments de comparaison disponibles dans le tableau §1.*
+
+---
+
+## 10. Journal des corrections
+
+### 10.1 Corrections factuelles (15 questions)
+
+| id | Ce qui a changé |
+|---|---|
+| `rcp-22` | **Question et réponse réécrites** : la séquence des 5 insufflations initiales est supprimée. Nouvelle réponse : 15 compressions puis 2 insufflations, la RCP débutant par les compressions. |
+| `mal-23` | Coup de chaleur : refroidissement actif par immersion, seuil de 39 °C, 15 minutes si la mesure est impossible. Niveau passé en PSE2 (fiche 08PR06). |
+| `rcp-11` | Électrodes du DAE : position antéro-latérale pour l'adulte, mention du seuil de 25 kg dans l'explication. |
+| `rcp-17` | **Question réécrite** autour du seuil de 25 kg et de la position antéro-postérieure. |
+| `mal-12` | Explication complétée : seconde injection d'adrénaline dès 5 minutes. |
+| `att-06` | **Question et réponse réécrites** : 114 destiné aux personnes sourdes, sourdaveugles, malentendantes ou aphasiques ; accès par SMS, visiophonie, tchat ou images. |
+| `urg-10` | Le balancement thoraco-abdominal remplace l'ancienne réponse comme signe à rechercher. |
+| `urg-19` | **Question et réponse réécrites** : les trois détresses du référentiel (respiratoire, circulatoire, neurologique). |
+| `urg-24` | Ajout de la réserve : l'installation sur un plan dur ne doit pas retarder la RCP. |
+| `hem-01` | **Question et réponse réécrites** : la compression — par la victime si elle en est capable — comme geste de référence. |
+| `hem-26` | Explication complétée : garrot industriel, garrots pneumatiques, gaze hémostatique. |
+| `ova-02` | Ajout du critère « la toux devient inefficace » pour déclencher les claques dans le dos. |
+| `ova-08` | Explication complétée : deux pouces l'un sur l'autre, en encerclant le thorax, profondeur > 1/3. |
+| `rcp-23` | Explication complétée : technique unifiée à deux pouces, profondeur > 1/3 du thorax. |
+| `urg-14` | Explication complétée : la RCP du noyé débute par les compressions, les 5 insufflations sont supprimées. |
+
+### 10.2 Réalignement des niveaux (51 items)
+
+- **29 items passés en PSE2** : AVC (`mal-26`, `mal-28`, `neu-08`, `neu-11`, `neu-12`, `neu-13`, `neu-23`), douleur thoracique non traumatique (`mal-04`, `mal-05`), traumatisme du crâne (`neu-15` à `neu-18`, `neu-21`, `tra-23`), traumatisme de l'abdomen (`hem-14`), traumatisme du dos et du cou (`rac-05`, `rac-08`, `rac-09`, `rac-10`, `rac-17`, `rac-20`), piqûres et morsures (`hem-19`, `hem-20`), accident électrique (`urg-16`, `urg-17`, `tra-11`), intoxications (`urg-15`, `urg-18`).
+- **22 items repassés en PSE1** : toute la thématique « Matériel & Oxygénothérapie » (bouteille d'oxygène, inhalation, BAVU, masque de barrière, aspiration, SpO₂, DAE, réchauffement, nettoyage du matériel), le retrait d'un casque de protection (`pls-19`, `rac-14`) et la pose d'un collier cervical (`rac-04`).
+
+> Précision : le champ `level` est **informatif** — l'application ne filtre pas les
+> questions par niveau, seul `cat` détermine le mode classique. Une étiquette juste
+> reste néanmoins nécessaire, puisqu'elle est affichée à l'élève pendant le quiz.
+
+### 10.3 Contenus créés (39 questions)
+
+- **« Bilans & Surveillance »** — 14 questions (chapitre 04) : fréquences respiratoire et cardiaque de repos, seuil de fièvre, glycémie capillaire, pression artérielle, recherche de lésions, mesure de la douleur, transmission du bilan, surveillance, retournement, ordre du bilan, SpO₂ attendue, polypnée.
+- **« Situations Particulières »** — 14 questions (chapitres 11 et 12) : situation à nombreuses victimes, rôle du secouriste, repérage, FR-Alert, signal national d'alerte, contenu d'un message d'alerte, destinataire du repérage, coordination, moyens d'alerte de la population.
+- **Soutien psychologique** — 6 questions ajoutées à « Attitude & Comportement » (chapitre 01) : écoute active, évaluation de l'impact psychologique, respiration contrôlée, abord de l'enfant, préservation du potentiel mental du secouriste, retour d'expérience.
+- **Techniques 2026** — 6 questions : gaze hémostatique (`hem-27`), pansement compressif sur amputation (`hem-28`), lutte contre le refroidissement (`urg-31`), repositionnement des électrodes après échecs répétés (`rcp-28`), délai de 5 minutes pour la seconde injection d'adrénaline (`mal-29`).
+
+### 10.4 Qualité de la banque
+
+- **45 distracteurs à terme absolu réécrits** (« uniquement », « tous les », « aucune », « définitivement »…). Le contrôle correspondant du validateur a été élargi à ces termes.
+- **Garde-fous ajoutés à `tools/validate_bank.mjs`** : écart de longueur à la moyenne des distracteurs, taux global de « bonne réponse = option la plus longue » (seuil 35 %), positions de la bonne réponse.
+- **Positions rééquilibrées** : A/B/C/D = 76/81/74/74 (contre 71/68/65/62 sur 266 questions avant).
+
+### 10.5 Ce qui reste à faire
+
+1. **Le biais de longueur n'est pas résolu.** Le taux de « bonne réponse = option la plus longue » est passé de 81 % à **68 %** (l'amélioration vient surtout des 39 questions créées sans biais). Le validateur le signale désormais explicitement. Une reprise reste nécessaire : environ 200 questions ont besoin d'un rééquilibrage du texte des distracteurs.
+2. **Quelques questions préexistantes** portent encore des écarts de longueur importants (`mat-12`, `mat-16`, `mat-17`, `mat-19`, `mat-20`, `tra-18`, `rac-09`…), signalés par le validateur.
+3. **Les fiches sans marquage de niveau** (crise convulsive, asthme, malaise hypoglycémique, réaction allergique grave) sont, dans le référentiel, d'enseignement **non obligatoire** : la banque ne dispose que de deux niveaux et les classe aujourd'hui en PSE1. Une troisième valeur serait plus fidèle.

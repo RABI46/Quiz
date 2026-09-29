@@ -1,14 +1,18 @@
 # Quiz PSE — Protection Civile du Lot
 
-Application web d'entraînement au **PSE1** (Premiers Secours en Équipe) : 266 questions
-corrigées, réparties en 11 thématiques, avec correction immédiate, explications,
+Application web d'entraînement au **PSE1** (Premiers Secours en Équipe) : 305 questions
+corrigées, réparties en 13 thématiques, avec correction immédiate, explications,
 mode révision et fiche mémo.
+
+Le contenu est aligné sur les **Références techniques nationales — Premiers Secours en
+Équipe, édition juillet 2026** (DGSCGC, annexe 3 de l'arrêté du 7 juillet 2026), qui
+constituent le référentiel opposable des formations PSE1 et PSE2.
 
 **Site en ligne :** <https://rabi46.github.io/Quiz/>
 
 ## Fonctionnalités
 
-- **11 thématiques** + un **mode classique** (les 9 thèmes de base, 226 questions).
+- **13 thématiques** + un **mode classique** (les 10 thèmes socle, 251 questions).
 - **Lots sans aucune répétition** : un cycle parcourt toutes les questions d'une
   thématique une seule fois, par lots de 7 à 10 questions ; les questions déjà
   posées ne reviennent qu'au cycle suivant.
@@ -62,13 +66,18 @@ Règles à respecter :
 
 - `id` unique et stable : **ne jamais le changer**, c'est lui qui mémorise la
   progression des utilisateurs (modifier le texte d'une question ne casse rien) ;
-- `cat` : l'une des 11 thématiques existantes ;
-- `level` : `PSE1` ou `PSE2` ;
+- `cat` : l'une des 13 thématiques existantes ;
+- `level` : `PSE1` ou `PSE2`, à accorder au marquage PSE① / PSE② de la fiche du
+  référentiel dont la question traite ;
 - exactement 4 propositions, toutes distinctes et de longueur comparable
   (la bonne réponse ne doit pas être repérable par sa longueur) ;
-- pas de distracteur contenant « jamais », « toujours », « 100 % »… qui le rend
-  éliminable d'office ;
-- l'explication (`e`) est obligatoire.
+- pas de distracteur contenant « jamais », « toujours », « uniquement », « tous
+  les », « 100 % »… qui le rend éliminable d'office ;
+- l'explication (`e`) est obligatoire ;
+- le contenu doit être conforme au référentiel en vigueur (voir la section
+  « Conformité au référentiel » ci-dessous) ;
+- une thématique compte **au moins 11 questions**, sans quoi le tirage ne peut pas
+  éviter de reproposer les questions du lot précédent au changement de cycle.
 
 2. Régénérer et vérifier :
 
@@ -77,6 +86,39 @@ python3 tools/generate_questions_js.py   # met à jour questions.js
 node tools/validate_bank.mjs             # doit afficher « Banque valide »
 node tools/test_lot.mjs                  # doit afficher « 0 répétition »
 ```
+
+`validate_bank.mjs` contrôle désormais aussi la **qualité pédagogique** et
+avertit lorsque :
+
+- la bonne réponse est nettement plus longue que les distracteurs (au-delà de
+  ×1,6 par rapport au plus long, ou de 25 caractères d'écart à leur moyenne) ;
+- la bonne réponse est l'option la plus longue dans plus de **35 %** des
+  questions — au-delà, l'élève peut réussir en cochant systématiquement la
+  proposition la plus détaillée ;
+- un distracteur contient un terme absolu qui le rend éliminable d'office ;
+- les positions de la bonne réponse sont déséquilibrées.
+
+Ces avertissements ne bloquent pas la publication : ils signalent le travail de
+réécriture restant.
+
+## Conformité au référentiel
+
+Le contenu suit les **Références techniques nationales — Premiers Secours en
+Équipe, édition juillet 2026** (DGSCGC) : 198 fiches réparties en 13 chapitres,
+applicables depuis le 11 juillet 2026.
+
+- Chaque question dont le niveau est renseigné respecte le marquage **PSE① /
+  PSE②** de la fiche correspondante.
+- Les évolutions de juillet 2026 intégrées : suppression des cinq insufflations
+  initiales chez l'enfant, du nourrisson et du noyé ; refroidissement actif par
+  immersion avec un seuil de 39 °C ; seuil de 25 kg et position antéro-postérieure
+  des électrodes du DAE ; seconde injection d'adrénaline à 5 minutes ; balancement
+  thoraco-abdominal ; nouveau périmètre du 114 ; compression par la victime, gaze
+  hémostatique et garrot industriel.
+- Deux thématiques couvrent des chapitres jusque-là absents : « Bilans &
+  Surveillance » (chapitre 04) et « Situations Particulières » (chapitres 11 et 12).
+
+Toute évolution de contenu doit être **relue par un formateur PSE habilité**.
 
 3. Si des fichiers de l'application changent, incrémenter `VERSION` dans `sw.js`
    (sinon les visiteurs gardent l'ancienne version en cache).

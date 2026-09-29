@@ -27,10 +27,16 @@ const THEMES = [
   "Traumatismes & Brûlures",
   "Traumatisme Rachis & Immobilisation",
   "Matériel & Oxygénothérapie",
+  "Bilans & Surveillance",
+  "Situations Particulières",
 ];
 const LEVELS = ["PSE1", "PSE2"];
 const LOT_SIZE = 10;
-const MAX_OPTION_RATIO = 1.6;
+/* Seuils de qualité pédagogique (avertissements, non bloquants). */
+const MAX_OPTION_RATIO = 1.6;      // bonne réponse / meilleur distracteur
+const MAX_GAP_TO_MEAN = 25;        // écart en caractères à la moyenne des distracteurs
+const MAX_LONGEST_SHARE = 0.35;    // part maximale de « bonne réponse = la plus longue »
+const ABSOLUTE_WORDS = /\b(jamais|toujours|100\s?%|impossible|systématiquement|uniquement|exclusivement|aucun|tous les|toutes les|définitivement)\b/i;
 
 const errors = [];
 const warnings = [];
@@ -103,9 +109,13 @@ bank.forEach((item, index) => {
     if (ratio >= MAX_OPTION_RATIO) {
       warnings.push(`${where} : bonne réponse beaucoup plus longue que les distracteurs (×${ratio.toFixed(2)})`);
     }
+    const moyenne = others.reduce((n, o) => n + o.length, 0) / others.length;
+    if (good.length - moyenne >= MAX_GAP_TO_MEAN) {
+      warnings.push(`${where} : bonne réponse ${Math.round(good.length - moyenne)} caractères plus longue en moyenne que les distracteurs`);
+    }
   }
   others.forEach((option) => {
-    if (/\b(jamais|toujours|100\s?%|impossible|systématiquement)\b/i.test(option)) {
+    if (ABSOLUTE_WORDS.test(option)) {
       warnings.push(`${where} : distracteur éliminable d'office — « ${option.slice(0, 70)} »`);
     }
   });
@@ -131,6 +141,26 @@ const minPos = Math.min(...positions);
 console.log("\nPosition de la bonne réponse : " + positions.map((n, i) => `${"ABCD"[i]}=${n}`).join("  "));
 if (minPos === 0) errors.push("certaines positions ne contiennent jamais la bonne réponse");
 else if (maxPos > 1.8 * minPos) warnings.push(`positions de la bonne réponse déséquilibrées (${positions.join("/")})`);
+
+/* --- longueur : la bonne réponse doit-elle être la plus longue ? --------- *
+ * Un taux élevé signifie que l'élève peut réussir en cochant systématiquement
+ * la proposition la plus détaillée, sans connaître le programme. */
+let plusLongue = 0;
+let ecartTotal = 0;
+bank.forEach((item) => {
+  if (!Array.isArray(item.opts) || item.opts.length !== 4) return;
+  const longueurs = item.opts.map((o) => o.length);
+  const bonne = longueurs[item.c];
+  if (bonne === Math.max(...longueurs)) plusLongue++;
+  const autres = longueurs.filter((_, i) => i !== item.c);
+  ecartTotal += bonne - autres.reduce((n, l) => n + l, 0) / autres.length;
+});
+const part = plusLongue / bank.length;
+const ecartMoyen = ecartTotal / bank.length;
+console.log(`Longueur : bonne réponse la plus longue dans ${plusLongue}/${bank.length} cas (${Math.round(part * 100)} %) · écart moyen aux distracteurs ${ecartMoyen.toFixed(1)} car.`);
+if (part > MAX_LONGEST_SHARE) {
+  warnings.push(`biais de longueur : la bonne réponse est la plus longue dans ${Math.round(part * 100)} % des questions (seuil ${Math.round(MAX_LONGEST_SHARE * 100)} %) — réécrire les distracteurs concernés`);
+}
 
 /* --- résultat ----------------------------------------------------------- */
 if (warnings.length) {

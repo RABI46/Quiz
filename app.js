@@ -14,7 +14,7 @@
   var TIME = 30;
   var LETTERS = ["A", "B", "C", "D"];
 
-  /* Les 9 thématiques « socle » : elles forment aussi le mode classique (90 questions). */
+  /* Les 10 thématiques « socle » : elles forment aussi le mode classique. */
   var CLASSIC = [
     "Attitude & Comportement",
     "Urgences Vitales",
@@ -24,7 +24,8 @@
     "Hémorragie & Pansements",
     "Position Latérale de Secours",
     "Malaises & Affections",
-    "Traumatismes & Brûlures"
+    "Traumatismes & Brûlures",
+    "Bilans & Surveillance"
   ];
 
   var THEMES = [
@@ -38,7 +39,9 @@
     { cat: "Malaises & Affections", icon: "⚕️" },
     { cat: "Traumatismes & Brûlures", icon: "🔥" },
     { cat: "Traumatisme Rachis & Immobilisation", icon: "🦴" },
-    { cat: "Matériel & Oxygénothérapie", icon: "🧰" }
+    { cat: "Matériel & Oxygénothérapie", icon: "🧰" },
+    { cat: "Bilans & Surveillance", icon: "📋" },
+    { cat: "Situations Particulières", icon: "⚠️" }
   ];
 
   /* ---------- état ---------- */
@@ -309,6 +312,10 @@
       icon = "🩹"; title = "TRAUMATISME"; sub = "PROTÉGER · IMMOBILISER";
     } else if (cat.indexOf("matériel") !== -1 || text.indexOf("oxyg") !== -1) {
       icon = "O₂"; title = "MATÉRIEL"; sub = "OXYGÉNOTHÉRAPIE";
+    } else if (cat.indexOf("bilan") !== -1) {
+      icon = "📋"; title = "BILANS"; sub = "MESURER · TRANSMETTRE";
+    } else if (cat.indexOf("situations particulières") !== -1) {
+      icon = "⚠"; title = "SITUATIONS"; sub = "ALERTER · COORDONNER";
     } else if (cat.indexOf("attitude") !== -1 || text.indexOf("danger") !== -1 || text.indexOf("balisage") !== -1) {
       icon = "🛡"; title = "PROTECTION"; sub = "SÉCURISER · ALERTER";
     }

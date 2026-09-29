@@ -16,6 +16,9 @@
   --focus: #0b62c4;
   --radius: 16px;
   --shadow: 0 12px 35px #183b5d18;
+  /* Couleurs de l'emblème de la Protection Civile (relevées sur le logo). */
+  --pc-orange: #ee8720;
+  --pc-blue: #014181;
 }
 
 * { box-sizing: border-box; }
@@ -348,6 +351,136 @@ button { font: inherit; }
 
 .foot { text-align: center; color: var(--muted); font-size: 11px; margin-top: 18px; }
 
+/* ---------- animation de démarrage (PWA) ----------
+   Découpe de l'emblème de la Protection Civile : le disque orange se pose,
+   les tracés du triangle blanc et du triangle bleu se dessinent, des ondes
+   de protection s'en échappent et le nom de l'association apparaît.
+   app.js retire l'écran dès la fin de l'animation (et tout de suite si
+   l'utilisateur a demandé à réduire les animations). */
+.splash {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: radial-gradient(125% 90% at 50% 8%, #ffffff 0%, var(--bg) 46%, #e5eef7 100%);
+  cursor: pointer;
+  opacity: 1;
+  transition: opacity .42s ease, visibility .42s ease;
+  -webkit-tap-highlight-color: transparent;
+  /* filet de sécurité : sans JavaScript, l'écran s'efface tout seul */
+  animation: sp-splash-fallback 3s ease 2.2s both;
+}
+.splash.off {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  animation: none;                 /* le retrait est piloté par app.js */
+}
+body.booting { overflow: hidden; }
+@keyframes sp-splash-fallback { to { opacity: 0; visibility: hidden; } }
+
+.splash-stage { display: grid; justify-items: center; gap: 16px; width: min(430px, 100%); }
+.splash-logo {
+  display: block;
+  width: min(232px, 58vw);
+  height: auto;
+  overflow: visible;                    /* les ondes dépassent du cadre */
+  filter: drop-shadow(0 16px 28px #16324f2e);
+}
+
+/* le disque orange de l'emblème */
+.sp-disc {
+  fill: var(--pc-orange);
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: sp-disc-in .58s cubic-bezier(.2, 1.05, .35, 1) both;
+}
+@keyframes sp-disc-in {
+  from { opacity: 0; transform: scale(.3) rotate(-16deg); }
+  60% { opacity: 1; }
+  to { opacity: 1; transform: none; }
+}
+
+/* les triangles, tracés puis remplis ; --trace (longueur du tracé) est
+   mesurée par app.js, la valeur de repli suffit si ce n'est pas possible */
+.sp-trace {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: var(--trace);
+  stroke-dashoffset: var(--trace);
+}
+.sp-tri-white {
+  --trace: 520;
+  fill: #ffffff;
+  stroke: #ffffff;
+  stroke-width: 7;
+  animation: sp-trace-draw .64s cubic-bezier(.45, .05, .35, 1) .1s both;
+}
+.sp-tri-blue {
+  --trace: 330;
+  fill: var(--pc-blue);
+  stroke: var(--pc-blue);
+  stroke-width: 5;
+  animation: sp-trace-draw .58s cubic-bezier(.45, .05, .35, 1) .42s both;
+}
+@keyframes sp-trace-draw {
+  0% { stroke-dashoffset: var(--trace); fill-opacity: 0; }
+  62% { stroke-dashoffset: 0; fill-opacity: 0; }
+  100% { stroke-dashoffset: 0; fill-opacity: 1; }
+}
+
+/* ondes de protection qui s'échappent de l'emblème */
+.sp-ring {
+  fill: none;
+  stroke: var(--pc-orange);
+  stroke-width: 2.4;
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: sp-ring-out 1.9s cubic-bezier(.25, .6, .4, 1) .98s infinite;
+}
+.sp-ring-2 { animation-delay: 1.45s; }
+@keyframes sp-ring-out {
+  0% { opacity: 0; transform: scale(.98); }
+  22% { opacity: .5; }
+  100% { opacity: 0; transform: scale(1.3); }
+}
+
+/* signature de l'association */
+.splash-title {
+  margin: 0;
+  text-align: center;
+  color: var(--navy);
+  font-size: clamp(14px, 4.4vw, 18px);
+  font-weight: 800;
+  letter-spacing: .26em;
+  text-transform: uppercase;
+  animation: sp-text-in .42s ease .72s both;
+}
+.splash-sub {
+  margin: -6px 0 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: clamp(11px, 3.6vw, 13px);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  animation: sp-text-in .42s ease .84s both;
+}
+@keyframes sp-text-in {
+  from { opacity: 0; transform: translateY(9px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* l'application apparaît en douceur quand l'écran de démarrage s'efface */
+body.reveal .app { animation: sp-app-in .48s ease .12s both; }
+@keyframes sp-app-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+
 @media (max-width: 520px) {
   .themes { grid-template-columns: 1fr; }
   .theme-btn { min-height: 74px; }
@@ -359,6 +492,8 @@ button { font: inherit; }
     transition-duration: .001ms !important;
   }
   .theme-btn:hover, .theme-btn:active { transform: none; }
+  /* pas d'écran de démarrage animé : on va droit au contenu */
+  .splash { display: none; }
 }
 
 @media (prefers-contrast: more) {

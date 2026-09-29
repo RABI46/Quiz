@@ -561,6 +561,74 @@
     };
   }
 
+  /* ---------- animation de démarrage ---------- *
+   * L'écran de démarrage reprend l'emblème de la Protection Civile : le
+   * disque orange se pose, les triangles se tracent, le nom s'affiche, puis
+   * la page reprend la main. L'animation est purement décorative : elle ne
+   * bloque jamais l'application (durée maximale garantie) et disparaît d'un
+   * simple appui, d'une touche ou dès que « réduire les animations » est
+   * demandé par l'utilisateur.
+   */
+  var SPLASH_MIN = 1400;   /* durée minimale à l'écran, en ms */
+  var SPLASH_MAX = 2400;   /* au-delà, l'application reprend la main */
+  var splashStart = 0;
+  var splashTimers = [];
+
+  function hideSplash() {
+    var splash = $("splash");
+    if (!splash || splash.classList.contains("off")) return;
+    splashTimers.forEach(clearTimeout);
+    splashTimers = [];
+    splash.classList.add("off");
+    window.removeEventListener("keydown", hideSplash);
+    document.body.classList.remove("booting");
+    document.body.classList.add("reveal");
+    setTimeout(function () {
+      if (splash.parentNode) splash.parentNode.removeChild(splash);
+    }, 460);
+  }
+
+  function showSplash() {
+    var splash = $("splash");
+    if (!splash) return;
+
+    var reduce = false;
+    try {
+      reduce = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+    } catch (e) { /* pas de matchMedia : on garde l'animation */ }
+    if (reduce) {
+      if (splash.parentNode) splash.parentNode.removeChild(splash);
+      return;
+    }
+
+    /* Les tracés se dessinent à la longueur réelle du trait : on la mesure
+     * quand le navigateur sait le faire (repli dans styles.css sinon). */
+    Array.prototype.forEach.call(splash.querySelectorAll(".sp-trace"), function (path) {
+      try {
+        if (typeof path.getTotalLength !== "function") return;
+        var len = Math.ceil(path.getTotalLength());
+        if (len > 0) path.style.setProperty("--trace", len);
+      } catch (e) { /* longueur de repli */ }
+    });
+
+    splashStart = Date.now();
+    document.body.classList.add("booting");
+    splash.addEventListener("click", hideSplash);
+    splash.addEventListener("touchstart", hideSplash, { passive: true });
+    window.addEventListener("keydown", hideSplash);
+    splashTimers.push(setTimeout(hideSplash, SPLASH_MAX));   /* filet de sécurité */
+
+    /* L'animation se termine, puis on laisse la place : au plus tôt après
+     * SPLASH_MIN, au plus tard à SPLASH_MAX. */
+    if (document.readyState === "complete") {
+      splashTimers.push(setTimeout(hideSplash, SPLASH_MIN));
+    } else {
+      window.addEventListener("load", function () {
+        splashTimers.push(setTimeout(hideSplash, Math.max(0, SPLASH_MIN - (Date.now() - splashStart))));
+      }, { once: true });
+    }
+  }
+
   /* ---------- initialisation ---------- */
   function migrateOldStorage() {
     /* Les versions précédentes mémorisaient des textes de questions (clés non
@@ -611,6 +679,7 @@
   }
 
   function init() {
+    showSplash();
     migrateOldStorage();
     buildThemes();
     bindEvents();

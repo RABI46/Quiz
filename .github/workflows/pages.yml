@@ -97,3 +97,28 @@ jobs:
       - name: Déployer sur GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  # ⚠️ Job TEMPORAIRE de diagnostic : à retirer avant la fusion.
+  diag-pages:
+    name: Diagnostic Pages (temporaire)
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    steps:
+      - name: Interroger l'API Pages
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: |
+          emit() { echo "::error title=DIAG::$1"; }
+          emit "ref=${{ github.ref }}"
+          if command -v gh >/dev/null 2>&1; then emit "gh=$(gh --version | head -1)"; else emit "gh=ABSENT"; fi
+          perms="$(gh api "repos/$REPO/actions/permissions/workflow" 2>&1 | tr '\n' '~' | cut -c1-300 || true)"
+          emit "workflow-perms|$perms"
+          get_out="$(gh api "repos/$REPO/pages" --include 2>&1 | tr '\n' '~' | cut -c1-900 || true)"
+          emit "GET|$get_out"
+          put_out="$(gh api -X PUT "repos/$REPO/pages" -f build_type=workflow --include 2>&1 | tr '\n' '~' | cut -c1-900 || true)"
+          emit "PUT|$put_out"

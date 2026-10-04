@@ -1,8 +1,8 @@
 {
   "name": "quiz-pse",
-  "version": "17.0.0",
+  "version": "18.0.0",
   "private": true,
-  "description": "Quiz d'entraînement PSE1 — Protection Civile du Lot",
+  "description": "Quiz d'entraînement PSC, PSE1 et PSE2 — Protection Civile du Lot",
   "license": "MIT",
   "type": "module",
   "scripts": {

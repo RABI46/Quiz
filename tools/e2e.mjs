@@ -49,7 +49,7 @@ else {
 const buttons = [...window.document.querySelectorAll("#themes .theme-btn")];
 if (buttons.length !== 11) problems.push(`accueil : ${buttons.length} thématiques affichées au lieu de 11`);
 if (!visible("home")) problems.push("accueil : l'écran d'accueil n'est pas visible");
-if ($("bank-total").textContent !== "266") problems.push(`accueil : total affiché « ${$("bank-total").textContent} » au lieu de 266`);
+if ($("bank-total").textContent !== "330") problems.push(`accueil : total affiché « ${$("bank-total").textContent} » au lieu de 330`);
 if (/\bnouveau cycle\b/.test(buttons[0].textContent) === false) problems.push("accueil : compteur de cycle absent");
 
 /* ---------- 2. lancer un lot ---------- */
@@ -61,8 +61,8 @@ if (!visible("quiz")) problems.push("quiz : l'écran de quiz ne s'affiche pas ap
 const question = $("q").textContent;
 if (!question || question === "Chargement…") problems.push("quiz : aucune question affichée");
 if (!/^Question 1 \/ \d+$/.test($("num").textContent)) problems.push(`quiz : entête inattendue « ${$("num").textContent} »`);
-if (!/Niveau (PSE1|PSE2)/.test($("level").textContent)) problems.push("quiz : niveau non affiché");
-if ($("cat").textContent !== "RCP & DAE") problems.push(`quiz : catégorie affichée « ${$("cat").textContent} »`);
+if (!/Niveau (PSC|PSE1|PSE2)/.test($("level").textContent)) problems.push("quiz : niveau non affiché");
+if ($("cat").textContent !== "RCP et DAE") problems.push(`quiz : catégorie affichée « ${$("cat").textContent} »`);
 if ($("bar-wrap").getAttribute("aria-valuenow") !== "1") problems.push("quiz : barre de progression non mise à jour");
 
 const lotSize = Number($("num").textContent.split("/")[1].trim());
@@ -154,7 +154,7 @@ $("revision-btn").dispatchEvent(new window.MouseEvent("click", { bubbles: true }
 await wait(50);
 if (!visible("revision")) problems.push("révision : l'écran révision ne s'affiche pas");
 const cards = [...window.document.querySelectorAll("#revision-list .revision-card")];
-if (cards.length !== 266) problems.push(`révision : ${cards.length} fiches affichées au lieu de 266`);
+if (cards.length !== 330) problems.push(`révision : ${cards.length} fiches affichées au lieu de 330`);
 const firstCard = cards[0] && cards[0].textContent;
 if (!firstCard || !/Bonne réponse/.test(firstCard)) problems.push("révision : la bonne réponse n'apparaît pas");
 $("revision-back").dispatchEvent(new window.MouseEvent("click", { bubbles: true }));
@@ -165,7 +165,7 @@ const keys = Object.keys(window.localStorage).filter((k) => k.startsWith("quizPS
 if (!keys.length) problems.push("stockage : aucune progression mémorisée");
 if (!keys.every((k) => /_v2_/.test(k))) problems.push("stockage : clés non versionnées " + keys.join(", "));
 const stored = JSON.parse(window.localStorage.getItem(keys.find((k) => k.includes("Pool"))));
-if (!Array.isArray(stored) || !stored.every((id) => /^[a-z]{3}-\d{2}$/.test(id))) {
+if (!Array.isArray(stored) || !stored.every((id) => /^[a-z]{3}(?:-[a-z]{3})?-\d{2}$/.test(id))) {
   problems.push("stockage : le cycle ne mémorise pas des identifiants de question");
 }
 const seenCard = window.document.querySelector("#themes .theme-btn.seen");

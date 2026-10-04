@@ -15,20 +15,19 @@ import vm from "node:vm";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const THEMES = [
-  "Attitude & Comportement",
-  "Urgences Vitales",
-  "RCP & DAE",
-  "Obstruction des Voies Aériennes",
-  "Évaluation Neurologique",
-  "Hémorragie & Pansements",
-  "Position Latérale de Sécurité",
-  "Position Latérale de Secours",
-  "Malaises & Affections",
-  "Traumatismes & Brûlures",
-  "Traumatisme Rachis & Immobilisation",
-  "Matériel & Oxygénothérapie",
+  "Attitude et comportement",
+  "Urgences vitales",
+  "RCP et DAE",
+  "Obstruction des voies aériennes",
+  "Évaluation neurologique",
+  "Hémorragies et pansements",
+  "Position latérale de sécurité",
+  "Malaises et affections",
+  "Traumatismes et brûlures",
+  "Traumatisme du rachis et immobilisation",
+  "Matériel et oxygénothérapie",
 ];
-const LEVELS = ["PSE1", "PSE2"];
+const LEVELS = ["PSC", "PSE1", "PSE2"];
 const LOT_SIZE = 10;
 const MAX_OPTION_RATIO = 1.6;
 

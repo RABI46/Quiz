@@ -18,7 +18,7 @@ JS_PATH = os.path.join(ROOT, "questions.js")
 HEADER = """/* Banque de questions — Quiz PSE · Protection Civile du Lot
  *
  * Format d'un item :
- *   { id: "xxx-01", cat: "<thématique>", level: "PSE1" | "PSE2",
+ *   { id: "xxx-01", cat: "<thématique>", level: "PSC" | "PSE1" | "PSE2",
  *     q: "Question ?",
  *     opts: ["…", "…", "…", "…"],   // 4 propositions
  *     c: 2,                          // index de la bonne réponse dans opts

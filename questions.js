@@ -412,9 +412,9 @@ globalThis.QUESTION_BANK = [
   {
     id: "rcp-03", cat: "RCP et DAE", level: "PSE1",
     q: "Quelle doit être la profondeur des compressions chez un adulte ?",
-    opts: ["5 à 6 centimètres", "2 à 3 centimètres", "3 à 4 centimètres", "8 à 10 centimètres"],
+    opts: ["Environ 5 cm, sans dépasser 6 cm", "De 2 à 3 centimètres", "De 3 à 4 centimètres", "De 8 à 10 centimètres"],
     c: 0,
-    e: "Chez l'adulte, le thorax est comprimé de 5 à 6 cm, avec un relâchement complet entre les appuis.",
+    e: "Chez l'adulte, les compressions thoraciques sont réalisées à une profondeur d'environ 5 cm, sans dépasser 6 cm, avec un relâchement complet entre les appuis.",
   },
   {
     id: "rcp-04", cat: "RCP et DAE", level: "PSE1",
@@ -601,9 +601,9 @@ globalThis.QUESTION_BANK = [
   {
     id: "ova-03", cat: "Obstruction des voies aériennes", level: "PSE1",
     q: "Quelle est la conduite à tenir devant une obstruction totale chez un adulte conscient ?",
-    opts: ["Cinq compressions abdominales, puis cinq claques dans le dos", "Un doigté à l'aveugle dans la bouche, puis des claques dans le dos", "Une position assise, en attendant que l'obstruction se dissolve", "Cinq claques dans le dos, puis cinq compressions abdominales si nécessaire"],
+    opts: ["Cinq compressions abdominales, puis cinq claques dans le dos", "Un doigté à l'aveugle dans la bouche, puis des claques dans le dos", "Une position assise, en attendant que l'obstruction se dissolve", "De 1 à 5 claques dans le dos, puis de 1 à 5 compressions abdominales si nécessaire"],
     c: 3,
-    e: "La séquence recommandée est de 5 claques dans le dos, suivies si besoin de 5 compressions abdominales.",
+    e: "La séquence recommandée est de 1 à 5 claques dans le dos, suivies de 1 à 5 compressions abdominales si les claques sont inefficaces.",
   },
   {
     id: "ova-04", cat: "Obstruction des voies aériennes", level: "PSE1",
@@ -636,9 +636,9 @@ globalThis.QUESTION_BANK = [
   {
     id: "ova-08", cat: "Obstruction des voies aériennes", level: "PSE1",
     q: "Comment agit-on devant un nourrisson qui s'étouffe et ne peut plus respirer ?",
-    opts: ["Cinq compressions abdominales, puis cinq claques dans le dos", "Cinq claques dans le dos, tête plus basse que le thorax, puis cinq compressions thoraciques", "Un doigté dans la bouche pour retirer le corps étranger", "Une position assise bien droite en attendant les secours"],
+    opts: ["Cinq compressions abdominales, puis cinq claques dans le dos", "De 1 à 5 claques dans le dos, puis de 1 à 5 compressions thoraciques", "Un doigté dans la bouche pour retirer le corps étranger", "Une position assise bien droite en attendant les secours"],
     c: 1,
-    e: "Chez le nourrisson, on alterne 5 claques dans le dos et 5 compressions thoraciques, jamais de compressions abdominales.",
+    e: "Chez le nourrisson, la tête est maintenue plus basse que le thorax et on alterne 1 à 5 claques dans le dos et 1 à 5 compressions thoraciques, jamais de compressions abdominales.",
   },
   {
     id: "ova-09", cat: "Obstruction des voies aériennes", level: "PSE1",
@@ -957,10 +957,10 @@ globalThis.QUESTION_BANK = [
   },
   {
     id: "hem-09", cat: "Hémorragies et pansements", level: "PSE1",
-    q: "Le saignement de nez persiste après vingt minutes de compression : que fait-on ?",
+    q: "Le saignement de nez persiste après dix minutes de compression : que fait-on ?",
     opts: ["On attend encore une heure avant de commencer à s'inquiéter", "On lui fait boire un verre d'eau glacée pour arrêter le saignement", "On lui bouche les deux narines avec du coton sec pendant une heure", "On alerte les secours ou on accompagne la personne vers une consultation médicale"],
     c: 3,
-    e: "Un saignement qui ne cède pas nécessite un avis médical, surtout s'il est important ou répété.",
+    e: "Si le saignement ne s'arrête pas ou se reproduit après 10 minutes de compression des narines, il faut demander un avis médical.",
   },
   {
     id: "hem-10", cat: "Hémorragies et pansements", level: "PSE1",
@@ -1420,9 +1420,9 @@ globalThis.QUESTION_BANK = [
   {
     id: "tra-01", cat: "Traumatismes et brûlures", level: "PSE1",
     q: "Combien de temps faut-il refroidir une brûlure thermique récente ?",
-    opts: ["Au moins quinze à vingt minutes, à l'eau tempérée", "Quelques secondes, juste pour calmer la douleur", "Une minute, puis appliquer un corps gras", "Une heure complète, à l'eau glacée"],
+    opts: ["Au moins dix minutes, idéalement vingt minutes, à l'eau tempérée", "Quelques secondes, juste pour calmer la douleur", "Une minute, puis appliquer un corps gras", "Une heure complète, à l'eau glacée"],
     c: 0,
-    e: "Le refroidissement prolongé limite l'extension de la brûlure et soulage la douleur.",
+    e: "Le refroidissement à l'eau courante tempérée dure au moins 10 minutes, idéalement 20 minutes : il limite l'extension de la brûlure et soulage la douleur. Débuter l'arrosage après 30 minutes n'a plus d'intérêt.",
   },
   {
     id: "tra-02", cat: "Traumatismes et brûlures", level: "PSE1",
@@ -1462,9 +1462,9 @@ globalThis.QUESTION_BANK = [
   {
     id: "tra-07", cat: "Traumatismes et brûlures", level: "PSE1",
     q: "En cas de brûlure chimique de la peau, que fait-on ?",
-    opts: ["On applique immédiatement un pansement sec", "On neutralise le produit avec un autre produit chimique", "On frotte la peau avec une brosse pour éliminer le produit", "On retire les vêtements imbibés puis on rince abondamment à l'eau tempérée"],
+    opts: ["On applique immédiatement un pansement sec", "On neutralise le produit avec un autre produit chimique", "On frotte la peau avec une brosse pour éliminer le produit", "On rince immédiatement et abondamment à l'eau courante tempérée"],
     c: 3,
-    e: "Le rinçage prolongé dilue et élimine le produit chimique ; les vêtements imbibés sont retirés.",
+    e: "Le rinçage immédiat et abondant à l'eau courante tempérée dilue et élimine le produit chimique ; les vêtements imbibés sont retirés sous l'eau.",
   },
   {
     id: "tra-08", cat: "Traumatismes et brûlures", level: "PSE1",
@@ -1742,16 +1742,16 @@ globalThis.QUESTION_BANK = [
   {
     id: "mat-01", cat: "Matériel et oxygénothérapie", level: "PSE2",
     q: "Quel débit d'oxygène utilise-t-on avec un masque à haute concentration chez l'adulte ?",
-    opts: ["10 à 15 litres par minute", "1 à 2 litres par minute", "3 à 5 litres par minute", "20 à 25 litres par minute"],
+    opts: ["9 à 15 litres par minute", "1 à 2 litres par minute", "3 à 5 litres par minute", "20 à 25 litres par minute"],
     c: 0,
-    e: "Le masque à haute concentration fonctionne avec un débit de 10 à 15 L/min pour que le réservoir se remplisse.",
+    e: "Le masque à inhalation à haute concentration fonctionne avec un débit de 9 à 15 L/min pour que le réservoir se remplisse.",
   },
   {
     id: "mat-02", cat: "Matériel et oxygénothérapie", level: "PSE2",
     q: "Quel débit d'oxygène utilise-t-on avec des lunettes à oxygène chez l'adulte ?",
-    opts: ["8 à 10 litres par minute", "10 à 15 litres par minute", "Moins d'un litre par minute", "2 à 6 litres par minute"],
+    opts: ["8 à 10 litres par minute", "6 à 9 litres par minute", "Moins d'un litre par minute", "1 à 6 litres par minute"],
     c: 3,
-    e: "Les lunettes à oxygène délivrent un débit faible, de 2 à 6 L/min.",
+    e: "Les lunettes à oxygène délivrent un débit faible, de 1 à 6 L/min.",
   },
   {
     id: "mat-03", cat: "Matériel et oxygénothérapie", level: "PSE2",

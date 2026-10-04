@@ -63,21 +63,6 @@ jobs:
       - name: Récupérer le dépôt
         uses: actions/checkout@v4
 
-      # Le site est publié par ce workflow et non par l'ancienne source
-      # « branche » (arena/01a0e8b9-quiz). On aligne le réglage s'il a été
-      # modifié à la main : l'appel ne fait rien une fois le réglage en place.
-      - name: Aligner la source Pages sur GitHub Actions
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          build_type="$(gh api "repos/${{ github.repository }}/pages" --jq .build_type)"
-          if [ "$build_type" != "workflow" ]; then
-            echo "Source Pages actuelle : $build_type → bascule sur « GitHub Actions »"
-            gh api -X PUT "repos/${{ github.repository }}/pages" -f build_type=workflow
-          else
-            echo "Source Pages déjà réglée sur « GitHub Actions »"
-          fi
-
       - name: Configurer Pages
         uses: actions/configure-pages@v5
 

@@ -101,7 +101,7 @@ jobs:
   # ⚠️ Job TEMPORAIRE de diagnostic : à retirer avant la fusion.
   diag-pages:
     name: Diagnostic Pages (temporaire)
-    if: github.event_name == 'workflow_dispatch'
+    if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     permissions:
       contents: read

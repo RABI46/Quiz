@@ -63,21 +63,6 @@ jobs:
       - name: Récupérer le dépôt
         uses: actions/checkout@v4
 
-      # Le site est publié par ce workflow et non par l'ancienne source
-      # « branche » (arena/01a0e8b9-quiz). On aligne le réglage s'il a été
-      # modifié à la main : l'appel ne fait rien une fois le réglage en place.
-      - name: Aligner la source Pages sur GitHub Actions
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          build_type="$(gh api "repos/${{ github.repository }}/pages" --jq .build_type)"
-          if [ "$build_type" != "workflow" ]; then
-            echo "Source Pages actuelle : $build_type → bascule sur « GitHub Actions »"
-            gh api -X PUT "repos/${{ github.repository }}/pages" -f build_type=workflow
-          else
-            echo "Source Pages déjà réglée sur « GitHub Actions »"
-          fi
-
       - name: Configurer Pages
         uses: actions/configure-pages@v5
 
@@ -97,28 +82,3 @@ jobs:
       - name: Déployer sur GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
-  # ⚠️ Job TEMPORAIRE de diagnostic : à retirer avant la fusion.
-  diag-pages:
-    name: Diagnostic Pages (temporaire)
-    if: github.event_name == 'pull_request'
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      pages: write
-      id-token: write
-    steps:
-      - name: Interroger l'API Pages
-        env:
-          GH_TOKEN: ${{ github.token }}
-          REPO: ${{ github.repository }}
-        run: |
-          emit() { echo "::error title=DIAG::$1"; }
-          emit "ref=${{ github.ref }}"
-          if command -v gh >/dev/null 2>&1; then emit "gh=$(gh --version | head -1)"; else emit "gh=ABSENT"; fi
-          perms="$(gh api "repos/$REPO/actions/permissions/workflow" 2>&1 | tr '\n' '~' | cut -c1-300 || true)"
-          emit "workflow-perms|$perms"
-          get_out="$(gh api "repos/$REPO/pages" --include 2>&1 | tr '\n' '~' | cut -c1-900 || true)"
-          emit "GET|$get_out"
-          put_out="$(gh api -X PUT "repos/$REPO/pages" -f build_type=workflow --include 2>&1 | tr '\n' '~' | cut -c1-900 || true)"
-          emit "PUT|$put_out"

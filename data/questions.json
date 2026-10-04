@@ -1153,7 +1153,7 @@
     "level": "PSE1",
     "q": "Une victime consciente tousse fortement après avoir avalé de travers : que fait le secouriste ?",
     "opts": [
-      "Il lui donne cinq claques dans le dos immédiatement",
+      "Il lui donne des claques dans le dos immédiatement",
       "Il l'encourage à tousser et la surveille sans intervenir",
       "Il pratique aussitôt des compressions abdominales",
       "Il lui fait boire un verre d'eau pour faire descendre l'aliment"
@@ -1167,7 +1167,7 @@
     "level": "PSE1",
     "q": "Quelle est la conduite à tenir devant une obstruction totale chez un adulte conscient ?",
     "opts": [
-      "Cinq compressions abdominales, puis cinq claques dans le dos",
+      "De 1 à 5 compressions abdominales, puis de 1 à 5 claques dans le dos",
       "Un doigté à l'aveugle dans la bouche, puis des claques dans le dos",
       "Une position assise, en attendant que l'obstruction se dissolve",
       "De 1 à 5 claques dans le dos, puis de 1 à 5 compressions abdominales si nécessaire"
@@ -1237,7 +1237,7 @@
     "level": "PSE1",
     "q": "Comment agit-on devant un nourrisson qui s'étouffe et ne peut plus respirer ?",
     "opts": [
-      "Cinq compressions abdominales, puis cinq claques dans le dos",
+      "De 1 à 5 compressions abdominales, puis de 1 à 5 claques dans le dos",
       "De 1 à 5 claques dans le dos, puis de 1 à 5 compressions thoraciques",
       "Un doigté dans la bouche pour retirer le corps étranger",
       "Une position assise bien droite en attendant les secours"
@@ -1335,7 +1335,7 @@
     "level": "PSE1",
     "q": "La victime ne répond déjà pas et ne réagit pas à l'arrivée du secouriste et une obstruction des voies aériennes est suspectée : que fait-il ?",
     "opts": [
-      "Il réalise cinq claques dans le dos sur la victime allongée",
+      "Il réalise des claques dans le dos sur la victime allongée",
       "Il la met en position latérale de sécurité et attend",
       "Il alerte, libère les voies aériennes et débute la RCP",
       "Il cherche un corps étranger avec ses doigts au fond de la gorge"
@@ -2805,7 +2805,7 @@
     "level": "PSE1",
     "q": "Combien de temps faut-il refroidir une brûlure thermique récente ?",
     "opts": [
-      "Au moins dix minutes, idéalement vingt minutes, à l'eau tempérée",
+      "Au moins dix minutes, idéalement vingt minutes, à l'eau courante tempérée",
       "Quelques secondes, juste pour calmer la douleur",
       "Une minute, puis appliquer un corps gras",
       "Une heure complète, à l'eau glacée"
@@ -2901,15 +2901,15 @@
     "id": "tra-08",
     "cat": "Traumatismes et brûlures",
     "level": "PSE1",
-    "q": "Combien de temps rince-t-on une brûlure chimique ?",
+    "q": "Que fait-on des vêtements imbibés de produit chimique lors du rinçage ?",
     "opts": [
-      "Une seule minute, le produit étant déjà neutralisé",
-      "Au moins vingt à trente minutes, en insistant sur la zone atteinte",
-      "Cinq minutes, puis on couvre la plaie",
-      "Deux heures, jusqu'à disparition de toute douleur"
+      "On les laisse en place pour protéger la peau brûlée",
+      "On les retire à sec avant de commencer le rinçage",
+      "On les découpe et on laisse les parties collées à la peau",
+      "On les retire pendant le rinçage, sous l'eau courante"
     ],
-    "c": 1,
-    "e": "Les brûlures chimiques nécessitent un rinçage plus long que les brûlures thermiques."
+    "c": 3,
+    "e": "Les vêtements imbibés de produit chimique sont retirés sous l'eau pendant le rinçage, afin de ne pas prolonger le contact du produit avec la peau ni exposer le secouriste."
   },
   {
     "id": "tra-09",
@@ -4010,7 +4010,7 @@
     "q": "En cas d'obstruction totale chez un adulte ou un enfant conscient, quel enchaînement la fiche PSC recommande-t-elle ?",
     "opts": [
       "De 1 à 5 claques dans le dos puis de 1 à 5 compressions abdominales si nécessaire",
-      "Deux insufflations puis cinq claques dans le dos",
+      "Deux insufflations puis des claques dans le dos",
       "Des compressions thoraciques immédiates sans autre manœuvre",
       "Une mise en position latérale de sécurité"
     ],

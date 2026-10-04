@@ -594,14 +594,14 @@ globalThis.QUESTION_BANK = [
   {
     id: "ova-02", cat: "Obstruction des voies aériennes", level: "PSE1",
     q: "Une victime consciente tousse fortement après avoir avalé de travers : que fait le secouriste ?",
-    opts: ["Il lui donne cinq claques dans le dos immédiatement", "Il l'encourage à tousser et la surveille sans intervenir", "Il pratique aussitôt des compressions abdominales", "Il lui fait boire un verre d'eau pour faire descendre l'aliment"],
+    opts: ["Il lui donne des claques dans le dos immédiatement", "Il l'encourage à tousser et la surveille sans intervenir", "Il pratique aussitôt des compressions abdominales", "Il lui fait boire un verre d'eau pour faire descendre l'aliment"],
     c: 1,
     e: "Quand la victime tousse, l'air passe encore : la toux est le meilleur moyen d'expulsion, on ne l'interrompt pas.",
   },
   {
     id: "ova-03", cat: "Obstruction des voies aériennes", level: "PSE1",
     q: "Quelle est la conduite à tenir devant une obstruction totale chez un adulte conscient ?",
-    opts: ["Cinq compressions abdominales, puis cinq claques dans le dos", "Un doigté à l'aveugle dans la bouche, puis des claques dans le dos", "Une position assise, en attendant que l'obstruction se dissolve", "De 1 à 5 claques dans le dos, puis de 1 à 5 compressions abdominales si nécessaire"],
+    opts: ["De 1 à 5 compressions abdominales, puis de 1 à 5 claques dans le dos", "Un doigté à l'aveugle dans la bouche, puis des claques dans le dos", "Une position assise, en attendant que l'obstruction se dissolve", "De 1 à 5 claques dans le dos, puis de 1 à 5 compressions abdominales si nécessaire"],
     c: 3,
     e: "La séquence recommandée est de 1 à 5 claques dans le dos, suivies de 1 à 5 compressions abdominales si les claques sont inefficaces.",
   },
@@ -636,7 +636,7 @@ globalThis.QUESTION_BANK = [
   {
     id: "ova-08", cat: "Obstruction des voies aériennes", level: "PSE1",
     q: "Comment agit-on devant un nourrisson qui s'étouffe et ne peut plus respirer ?",
-    opts: ["Cinq compressions abdominales, puis cinq claques dans le dos", "De 1 à 5 claques dans le dos, puis de 1 à 5 compressions thoraciques", "Un doigté dans la bouche pour retirer le corps étranger", "Une position assise bien droite en attendant les secours"],
+    opts: ["De 1 à 5 compressions abdominales, puis de 1 à 5 claques dans le dos", "De 1 à 5 claques dans le dos, puis de 1 à 5 compressions thoraciques", "Un doigté dans la bouche pour retirer le corps étranger", "Une position assise bien droite en attendant les secours"],
     c: 1,
     e: "Chez le nourrisson, la tête est maintenue plus basse que le thorax et on alterne 1 à 5 claques dans le dos et 1 à 5 compressions thoraciques, jamais de compressions abdominales.",
   },
@@ -685,7 +685,7 @@ globalThis.QUESTION_BANK = [
   {
     id: "ova-15", cat: "Obstruction des voies aériennes", level: "PSE1",
     q: "La victime ne répond déjà pas et ne réagit pas à l'arrivée du secouriste et une obstruction des voies aériennes est suspectée : que fait-il ?",
-    opts: ["Il réalise cinq claques dans le dos sur la victime allongée", "Il la met en position latérale de sécurité et attend", "Il alerte, libère les voies aériennes et débute la RCP", "Il cherche un corps étranger avec ses doigts au fond de la gorge"],
+    opts: ["Il réalise des claques dans le dos sur la victime allongée", "Il la met en position latérale de sécurité et attend", "Il alerte, libère les voies aériennes et débute la RCP", "Il cherche un corps étranger avec ses doigts au fond de la gorge"],
     c: 2,
     e: "Chez une victime qui ne répond pas, ne réagit pas, la désobstruction passe par la réanimation cardio-pulmonaire (RCP) et les insufflations.",
   },
@@ -1420,7 +1420,7 @@ globalThis.QUESTION_BANK = [
   {
     id: "tra-01", cat: "Traumatismes et brûlures", level: "PSE1",
     q: "Combien de temps faut-il refroidir une brûlure thermique récente ?",
-    opts: ["Au moins dix minutes, idéalement vingt minutes, à l'eau tempérée", "Quelques secondes, juste pour calmer la douleur", "Une minute, puis appliquer un corps gras", "Une heure complète, à l'eau glacée"],
+    opts: ["Au moins dix minutes, idéalement vingt minutes, à l'eau courante tempérée", "Quelques secondes, juste pour calmer la douleur", "Une minute, puis appliquer un corps gras", "Une heure complète, à l'eau glacée"],
     c: 0,
     e: "Le refroidissement à l'eau courante tempérée dure au moins 10 minutes, idéalement 20 minutes : il limite l'extension de la brûlure et soulage la douleur. Débuter l'arrosage après 30 minutes n'a plus d'intérêt.",
   },
@@ -1468,10 +1468,10 @@ globalThis.QUESTION_BANK = [
   },
   {
     id: "tra-08", cat: "Traumatismes et brûlures", level: "PSE1",
-    q: "Combien de temps rince-t-on une brûlure chimique ?",
-    opts: ["Une seule minute, le produit étant déjà neutralisé", "Au moins vingt à trente minutes, en insistant sur la zone atteinte", "Cinq minutes, puis on couvre la plaie", "Deux heures, jusqu'à disparition de toute douleur"],
-    c: 1,
-    e: "Les brûlures chimiques nécessitent un rinçage plus long que les brûlures thermiques.",
+    q: "Que fait-on des vêtements imbibés de produit chimique lors du rinçage ?",
+    opts: ["On les laisse en place pour protéger la peau brûlée", "On les retire à sec avant de commencer le rinçage", "On les découpe et on laisse les parties collées à la peau", "On les retire pendant le rinçage, sous l'eau courante"],
+    c: 3,
+    e: "Les vêtements imbibés de produit chimique sont retirés sous l'eau pendant le rinçage, afin de ne pas prolonger le contact du produit avec la peau ni exposer le secouriste.",
   },
   {
     id: "tra-09", cat: "Traumatismes et brûlures", level: "PSE1",
@@ -2022,7 +2022,7 @@ globalThis.QUESTION_BANK = [
   {
     id: "psc-ova-05", cat: "Obstruction des voies aériennes", level: "PSC",
     q: "En cas d'obstruction totale chez un adulte ou un enfant conscient, quel enchaînement la fiche PSC recommande-t-elle ?",
-    opts: ["De 1 à 5 claques dans le dos puis de 1 à 5 compressions abdominales si nécessaire", "Deux insufflations puis cinq claques dans le dos", "Des compressions thoraciques immédiates sans autre manœuvre", "Une mise en position latérale de sécurité"],
+    opts: ["De 1 à 5 claques dans le dos puis de 1 à 5 compressions abdominales si nécessaire", "Deux insufflations puis des claques dans le dos", "Des compressions thoraciques immédiates sans autre manœuvre", "Une mise en position latérale de sécurité"],
     c: 0,
     e: "La conduite à tenir PSC prévoit de donner de 1 à 5 claques dans le dos puis, en cas d'inefficacité, de réaliser de 1 à 5 compressions abdominales chez l'adulte ou l'enfant.",
   },

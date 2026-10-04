@@ -1,14 +1,16 @@
-# Quiz PSE — Protection Civile du Lot
+# Quiz secourisme — Protection Civile du Lot
 
-Application web d'entraînement au **PSE1** (Premiers Secours en Équipe) : 266 questions
+Application web d'entraînement au **PSC**, au **PSE1** et au **PSE2** : 330 questions
 corrigées, réparties en 11 thématiques, avec correction immédiate, explications,
 mode révision et fiche mémo.
 
 **Site en ligne :** <https://rabi46.github.io/Quiz/>
 
+Les formulations ajoutées privilégient les termes officiels des références techniques nationales fournies dans le dépôt.
+
 ## Fonctionnalités
 
-- **11 thématiques** + un **mode classique** (les 9 thèmes de base, 226 questions).
+- **11 thématiques** + un **mode classique** (les 9 thèmes de base, mélangeant désormais PSC, PSE1 et PSE2 selon la banque disponible).
 - **Lots sans aucune répétition** : un cycle parcourt toutes les questions d'une
   thématique une seule fois, par lots de 7 à 10 questions ; les questions déjà
   posées ne reviennent qu'au cycle suivant.
@@ -37,6 +39,8 @@ mode révision et fiche mémo.
 | `app.js` | logique du quiz, tirage des lots, stockage de la progression |
 | `data/questions.json` | **source de vérité** de la banque de questions |
 | `questions.js` | banque compilée pour le navigateur (générée, ne pas éditer) |
+| `Références techniques nationales - Premiers Secours en Equipe (1).pdf` | référence officielle utilisée pour les formulations PSE1/PSE2 |
+| `references-techniques-nationales-psc-juillet-2026.pdf` | référence officielle utilisée pour les formulations PSC |
 | `sw.js` | service worker (hors ligne) |
 | `manifest.webmanifest` | manifeste PWA |
 | `tools/validate_bank.mjs` | contrôle automatique de la banque |
@@ -68,7 +72,7 @@ Règles à respecter :
 - `id` unique et stable : **ne jamais le changer**, c'est lui qui mémorise la
   progression des utilisateurs (modifier le texte d'une question ne casse rien) ;
 - `cat` : l'une des 11 thématiques existantes ;
-- `level` : `PSE1` ou `PSE2` ;
+- `level` : `PSC`, `PSE1` ou `PSE2` ;
 - exactement 4 propositions, toutes distinctes et de longueur comparable
   (la bonne réponse ne doit pas être repérable par sa longueur) ;
 - pas de distracteur contenant « jamais », « toujours », « 100 % »… qui le rend
@@ -122,3 +126,10 @@ Civile, ni les recommandations du médecin régulateur. Faire relire toute
 
 Code publié sous licence MIT (voir `LICENSE`).
 Le logo de la Protection Civile reste la propriété de l'association.
+
+## Sources documentaires utilisées
+
+Les formulations officielles des questions ajoutées ou reformulées s'appuient sur les documents de référence suivants :
+
+- `Références techniques nationales - Premiers Secours en Equipe (1).pdf`
+- `references-techniques-nationales-psc-juillet-2026.pdf`

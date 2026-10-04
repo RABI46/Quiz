@@ -1,4 +1,4 @@
-/* Service worker du Quiz PSE — Protection Civile du Lot
+/* Service worker du Quiz secourisme — Protection Civile du Lot
  *
  * Stratégie :
  *  - pages (navigation) : réseau d'abord, cache en secours → l'application est
@@ -8,7 +8,7 @@
  * IMPORTANT : toute modification des fichiers de l'application doit s'accompagner
  * d'une incrémentation de VERSION, sinon les visiteurs garderont l'ancienne copie.
  */
-const VERSION = "17";
+const VERSION = "18";
 const CACHE = `quiz-pse-v${VERSION}`;
 
 const CORE = [

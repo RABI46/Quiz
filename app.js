@@ -1,4 +1,4 @@
-/* Quiz PSE — logique de l'application
+/* Quiz secourisme — logique de l'application
  * Protection Civile du Lot
  *
  * Principes :
@@ -14,31 +14,31 @@
   var TIME = 30;
   var LETTERS = ["A", "B", "C", "D"];
 
-  /* Les 9 thématiques « socle » : elles forment aussi le mode classique (90 questions). */
+  /* Les 9 thématiques « socle » : elles forment aussi le mode classique. */
   var CLASSIC = [
-    "Attitude & Comportement",
-    "Urgences Vitales",
-    "RCP & DAE",
-    "Obstruction des Voies Aériennes",
-    "Évaluation Neurologique",
-    "Hémorragie & Pansements",
-    "Position Latérale de Secours",
-    "Malaises & Affections",
-    "Traumatismes & Brûlures"
+    "Attitude et comportement",
+    "Urgences vitales",
+    "RCP et DAE",
+    "Obstruction des voies aériennes",
+    "Évaluation neurologique",
+    "Hémorragies et pansements",
+    "Position latérale de sécurité",
+    "Malaises et affections",
+    "Traumatismes et brûlures"
   ];
 
   var THEMES = [
-    { cat: "Attitude & Comportement", icon: "🛡️" },
-    { cat: "Urgences Vitales", icon: "🚨" },
-    { cat: "RCP & DAE", icon: "❤️" },
-    { cat: "Obstruction des Voies Aériennes", icon: "🫁" },
-    { cat: "Évaluation Neurologique", icon: "🧠" },
-    { cat: "Hémorragie & Pansements", icon: "🩸" },
-    { cat: "Position Latérale de Secours", icon: "↩️" },
-    { cat: "Malaises & Affections", icon: "⚕️" },
-    { cat: "Traumatismes & Brûlures", icon: "🔥" },
-    { cat: "Traumatisme Rachis & Immobilisation", icon: "🦴" },
-    { cat: "Matériel & Oxygénothérapie", icon: "🧰" }
+    { cat: "Attitude et comportement", icon: "🛡️" },
+    { cat: "Urgences vitales", icon: "🚨" },
+    { cat: "RCP et DAE", icon: "❤️" },
+    { cat: "Obstruction des voies aériennes", icon: "🫁" },
+    { cat: "Évaluation neurologique", icon: "🧠" },
+    { cat: "Hémorragies et pansements", icon: "🩸" },
+    { cat: "Position latérale de sécurité", icon: "↩️" },
+    { cat: "Malaises et affections", icon: "⚕️" },
+    { cat: "Traumatismes et brûlures", icon: "🔥" },
+    { cat: "Traumatisme du rachis et immobilisation", icon: "🦴" },
+    { cat: "Matériel et oxygénothérapie", icon: "🧰" }
   ];
 
   /* ---------- état ---------- */
@@ -288,7 +288,7 @@
   function illustrationFor(question) {
     var cat = String(question.cat || "").toLowerCase();
     var text = String(question.q || "").toLowerCase();
-    var icon = "✚", title = "SECOURS", sub = "PSE1";
+    var icon = "✚", title = "SECOURS", sub = question.level || "PSE/PSC";
     if (cat.indexOf("hémorrag") !== -1 || text.indexOf("saign") !== -1 || text.indexOf("garrot") !== -1) {
       icon = "🩸"; title = "HÉMORRAGIE"; sub = "COMPRIMER · ALERTER";
     } else if (cat.indexOf("rcp") !== -1 || cat.indexOf("dae") !== -1 || text.indexOf("défibr") !== -1) {
@@ -303,7 +303,7 @@
       icon = "⚕"; title = "MALAISE"; sub = "RECONNAÎTRE · ALERTER";
     } else if (cat.indexOf("brûl") !== -1 || text.indexOf("brûl") !== -1) {
       icon = "🔥"; title = "BRÛLURE"; sub = "REFROIDIR · PROTÉGER";
-    } else if (cat.indexOf("traumatisme rachis") !== -1 || cat.indexOf("immobilisation") !== -1 || text.indexOf("rachis") !== -1) {
+    } else if (cat.indexOf("rachis") !== -1 || cat.indexOf("immobilisation") !== -1 || text.indexOf("rachis") !== -1) {
       icon = "🦴"; title = "RACHIS"; sub = "IMMOBILISER";
     } else if (cat.indexOf("traumatis") !== -1 || text.indexOf("fracture") !== -1) {
       icon = "🩹"; title = "TRAUMATISME"; sub = "PROTÉGER · IMMOBILISER";
@@ -631,11 +631,41 @@
 
   /* ---------- initialisation ---------- */
   function migrateOldStorage() {
+    var renamedThemes = {
+      "Attitude & Comportement": "Attitude et comportement",
+      "Urgences Vitales": "Urgences vitales",
+      "RCP & DAE": "RCP et DAE",
+      "Obstruction des Voies Aériennes": "Obstruction des voies aériennes",
+      "Évaluation Neurologique": "Évaluation neurologique",
+      "Hémorragie & Pansements": "Hémorragies et pansements",
+      "Position Latérale de Secours": "Position latérale de sécurité",
+      "Malaises & Affections": "Malaises et affections",
+      "Traumatismes & Brûlures": "Traumatismes et brûlures",
+      "Traumatisme Rachis & Immobilisation": "Traumatisme du rachis et immobilisation",
+      "Matériel & Oxygénothérapie": "Matériel et oxygénothérapie"
+    };
+
     /* Les versions précédentes mémorisaient des textes de questions (clés non
      * versionnées). On les supprime une fois pour toutes, sans jamais toucher
      * aux clés actuelles de la version 2. */
     storeKeys().forEach(function (key) {
       if (/^quizPSE(Pool|Previous)_(?!v2_)/.test(key)) storeRemove(key);
+    });
+
+    /* Migration douce des cycles déjà vus lorsque le nom visible d'une
+     * thématique a été officialisé. Les identifiants de questions restent les
+     * mêmes : on recopie donc les clés v2 existantes vers le nouveau libellé
+     * puis on supprime l'ancien, sans perdre la progression locale. */
+    Object.keys(renamedThemes).forEach(function (legacy) {
+      var modern = renamedThemes[legacy];
+      ["Pool", "Previous"].forEach(function (kind) {
+        var oldKey = "quizPSE" + kind + "_v2_" + legacy;
+        var newKey = "quizPSE" + kind + "_v2_" + modern;
+        var oldValue = storeGet(oldKey);
+        var newValue = storeGet(newKey);
+        if (oldValue && !newValue) storeSet(newKey, oldValue);
+        if (oldValue) storeRemove(oldKey);
+      });
     });
   }
 

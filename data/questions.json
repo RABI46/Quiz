@@ -1,9 +1,9 @@
 [
   {
     "id": "att-01",
-    "cat": "Attitude & Comportement",
+    "cat": "Attitude et comportement",
     "level": "PSE1",
-    "q": "Que signifie l'acronyme PAS, qui résume la conduite à tenir du secouriste ?",
+    "q": "Quel enchaînement d'actions générales le secouriste met-il en œuvre en priorité ?",
     "opts": [
       "Prévenir, Analyser, Soigner",
       "Protéger, Alerter, Surveiller",
@@ -11,11 +11,11 @@
       "Protéger, Alerter, Secourir"
     ],
     "c": 3,
-    "e": "La conduite à tenir est toujours la même : d'abord protéger, puis alerter, puis secourir."
+    "e": "Selon les références techniques nationales, l'action du secouriste s'organise d'abord pour protéger, puis alerter, puis secourir."
   },
   {
     "id": "att-02",
-    "cat": "Attitude & Comportement",
+    "cat": "Attitude et comportement",
     "level": "PSE1",
     "q": "Quelle est la priorité absolue du secouriste qui arrive sur les lieux d'un accident ?",
     "opts": [
@@ -29,7 +29,7 @@
   },
   {
     "id": "att-03",
-    "cat": "Attitude & Comportement",
+    "cat": "Attitude et comportement",
     "level": "PSE1",
     "q": "Que fait le secouriste quand un danger incontrôlable menace la victime ?",
     "opts": [
@@ -43,9 +43,9 @@
   },
   {
     "id": "att-04",
-    "cat": "Attitude & Comportement",
+    "cat": "Attitude et comportement",
     "level": "PSE1",
-    "q": "Quel numéro unique permet de joindre les secours depuis n'importe quel pays de l'Union européenne ?",
+    "q": "Quel numéro unique permet de joindre les secours depuis n'importe quel pays de l'Union Européenne ?",
     "opts": [
       "112",
       "115",
@@ -57,7 +57,7 @@
   },
   {
     "id": "att-05",
-    "cat": "Attitude & Comportement",
+    "cat": "Attitude et comportement",
     "level": "PSE1",
     "q": "Quel numéro permet de joindre la régulation médicale du SAMU en France ?",
     "opts": [
@@ -71,7 +71,7 @@
   },
   {
     "id": "att-06",
-    "cat": "Attitude & Comportement",
+    "cat": "Attitude et comportement",
     "level": "PSE1",
     "q": "À qui le numéro d'urgence 114 est-il réservé ?",
     "opts": [
@@ -85,7 +85,7 @@
   },
   {
     "id": "att-07",
-    "cat": "Attitude & Comportement",
+    "cat": "Attitude et comportement",
     "level": "PSE1",
     "q": "Que fait le secouriste qui a appelé les secours, avant de raccrocher ?",
     "opts": [
@@ -99,7 +99,7 @@
   },
   {
     "id": "att-08",
-    "cat": "Attitude & Comportement",
+    "cat": "Attitude et comportement",
     "level": "PSE1",
     "q": "Quelles informations sont indispensables lors d'un appel aux secours ?",
     "opts": [
@@ -113,7 +113,7 @@
   },
   {
     "id": "att-09",
-    "cat": "Attitude & Comportement",
+    "cat": "Attitude et comportement",
     "level": "PSE1",
     "q": "Que doit faire le secouriste avant de débuter la prise en charge d'une victime ?",
     "opts": [
@@ -127,7 +127,7 @@
   },
   {
     "id": "att-10",
-    "cat": "Attitude & Comportement",
+    "cat": "Attitude et comportement",
     "level": "PSE1",
     "q": "À qui le secouriste peut-il transmettre les informations recueillies sur une victime ?",
     "opts": [
@@ -141,7 +141,7 @@
   },
   {
     "id": "att-11",
-    "cat": "Attitude & Comportement",
+    "cat": "Attitude et comportement",
     "level": "PSE1",
     "q": "Quand le secouriste doit-il mettre des gants à usage unique ?",
     "opts": [
@@ -155,7 +155,7 @@
   },
   {
     "id": "att-12",
-    "cat": "Attitude & Comportement",
+    "cat": "Attitude et comportement",
     "level": "PSE1",
     "q": "Quel geste d'hygiène réduit le plus le risque de transmission manuportée ?",
     "opts": [
@@ -169,7 +169,7 @@
   },
   {
     "id": "att-13",
-    "cat": "Attitude & Comportement",
+    "cat": "Attitude et comportement",
     "level": "PSE1",
     "q": "Où élimine-t-on les déchets souillés comme les gants ou les pansements usagés ?",
     "opts": [
@@ -183,7 +183,7 @@
   },
   {
     "id": "att-14",
-    "cat": "Attitude & Comportement",
+    "cat": "Attitude et comportement",
     "level": "PSE1",
     "q": "Quelles précautions d'hygiène sont demandées au secouriste en intervention ?",
     "opts": [
@@ -197,7 +197,7 @@
   },
   {
     "id": "att-15",
-    "cat": "Attitude & Comportement",
+    "cat": "Attitude et comportement",
     "level": "PSE1",
     "q": "Quelle est l'attitude adaptée face à une victime agressive ?",
     "opts": [
@@ -211,7 +211,7 @@
   },
   {
     "id": "att-16",
-    "cat": "Attitude & Comportement",
+    "cat": "Attitude et comportement",
     "level": "PSE1",
     "q": "Une victime consciente et lucide refuse les soins : que fait le secouriste ?",
     "opts": [
@@ -225,7 +225,7 @@
   },
   {
     "id": "att-17",
-    "cat": "Attitude & Comportement",
+    "cat": "Attitude et comportement",
     "level": "PSE1",
     "q": "Pourquoi le secouriste préserve-t-il la pudeur de la victime, par exemple en la couvrant ?",
     "opts": [
@@ -239,7 +239,7 @@
   },
   {
     "id": "att-18",
-    "cat": "Attitude & Comportement",
+    "cat": "Attitude et comportement",
     "level": "PSE1",
     "q": "Qu'appelle-t-on le bilan circonstanciel ?",
     "opts": [
@@ -253,7 +253,7 @@
   },
   {
     "id": "att-19",
-    "cat": "Attitude & Comportement",
+    "cat": "Attitude et comportement",
     "level": "PSE1",
     "q": "Que fait le secouriste après avoir alerté et transmis son bilan ?",
     "opts": [
@@ -267,7 +267,7 @@
   },
   {
     "id": "att-20",
-    "cat": "Attitude & Comportement",
+    "cat": "Attitude et comportement",
     "level": "PSE1",
     "q": "La situation évolue pendant l'attente des secours : que fait le secouriste ?",
     "opts": [
@@ -281,7 +281,7 @@
   },
   {
     "id": "att-21",
-    "cat": "Attitude & Comportement",
+    "cat": "Attitude et comportement",
     "level": "PSE1",
     "q": "Lors du déplacement d'une victime, quelle zone le secouriste cherche-t-il à protéger en priorité ?",
     "opts": [
@@ -295,7 +295,7 @@
   },
   {
     "id": "att-22",
-    "cat": "Attitude & Comportement",
+    "cat": "Attitude et comportement",
     "level": "PSE1",
     "q": "Pourquoi l'équipier secouriste suit-il les consignes du médecin régulateur ?",
     "opts": [
@@ -309,7 +309,7 @@
   },
   {
     "id": "att-23",
-    "cat": "Attitude & Comportement",
+    "cat": "Attitude et comportement",
     "level": "PSE1",
     "q": "Que doit faire un secouriste blessé ou piqué par un objet souillé pendant l'intervention ?",
     "opts": [
@@ -323,7 +323,7 @@
   },
   {
     "id": "att-24",
-    "cat": "Attitude & Comportement",
+    "cat": "Attitude et comportement",
     "level": "PSE1",
     "q": "Comment l'équipier secouriste maintient-il à jour ses connaissances et sa compétence ?",
     "opts": [
@@ -337,23 +337,23 @@
   },
   {
     "id": "urg-01",
-    "cat": "Urgences Vitales",
+    "cat": "Urgences vitales",
     "level": "PSE1",
     "q": "Comment reconnaît-on un arrêt cardiaque ?",
     "opts": [
-      "La victime est inconsciente et respire lentement",
+      "La victime ne répond pas, ne réagit pas et respire lentement",
       "La victime se plaint d'une douleur thoracique intense",
-      "La victime est inconsciente et ne respire pas normalement",
+      "La victime ne répond pas, ne réagit pas et ne respire pas normalement",
       "La victime est pâle et a un pouls très rapide"
     ],
     "c": 2,
-    "e": "Le double critère inconscience + absence de respiration normale définit l'arrêt cardiaque."
+    "e": "Le double critère absence de réponse et de réaction, associé à une absence de respiration normale, définit l'arrêt cardiaque."
   },
   {
     "id": "urg-02",
-    "cat": "Urgences Vitales",
+    "cat": "Urgences vitales",
     "level": "PSE1",
-    "q": "Combien de temps consacre-t-on au contrôle de la respiration d'une victime inconsciente ?",
+    "q": "Combien de temps dure la recherche de la respiration chez une victime qui ne répond pas, ne réagit pas ?",
     "opts": [
       "10 secondes au maximum",
       "3 secondes",
@@ -361,13 +361,13 @@
       "1 minute complète"
     ],
     "c": 0,
-    "e": "Le contrôle dure au maximum 10 secondes : au-delà, la RCP est retardée inutilement."
+    "e": "La recherche de la respiration dure au maximum 10 secondes ; au-delà, la réanimation cardio-pulmonaire (RCP) est retardée inutilement."
   },
   {
     "id": "urg-03",
-    "cat": "Urgences Vitales",
+    "cat": "Urgences vitales",
     "level": "PSE1",
-    "q": "Comment contrôle-t-on la respiration d'une victime inconsciente ?",
+    "q": "Comment recherche-t-on la respiration chez une victime qui ne répond pas, ne réagit pas ?",
     "opts": [
       "En regardant le ventre se soulever, en écoutant et en sentant le souffle",
       "En posant l'oreille sur la poitrine pour compter les battements",
@@ -375,13 +375,13 @@
       "En posant la main sur le front pour sentir la chaleur"
     ],
     "c": 0,
-    "e": "Après la libération des voies aériennes, on regarde, on écoute et on sent pendant 10 secondes."
+    "e": "Après la libération des voies aériennes, le secouriste regarde si le ventre et la poitrine se soulèvent, écoute d'éventuels sons et sent un éventuel flux d'air pendant 10 secondes au plus."
   },
   {
     "id": "urg-04",
-    "cat": "Urgences Vitales",
+    "cat": "Urgences vitales",
     "level": "PSE1",
-    "q": "Qu'est-ce qu'un gasps, observé chez une victime inconsciente ?",
+    "q": "Qu'appelle-t-on respiration agonique chez une victime qui ne répond pas, ne réagit pas ?",
     "opts": [
       "Une respiration normale mais bruyante",
       "Un râle qui annonce la fin de vie et dispense de tout geste",
@@ -389,25 +389,25 @@
       "Une respiration agonique et anormale qui impose de débuter la RCP"
     ],
     "c": 3,
-    "e": "Les gasps ne sont pas une respiration efficace : ils doivent être considérés comme une absence de respiration."
+    "e": "La respiration agonique est une respiration anormale et inefficace ; elle doit être considérée comme une absence de respiration normale."
   },
   {
     "id": "urg-05",
-    "cat": "Urgences Vitales",
+    "cat": "Urgences vitales",
     "level": "PSE1",
-    "q": "Que fait le secouriste devant une victime inconsciente qui ne respire pas normalement ?",
+    "q": "Quelle conduite à tenir adopter devant une victime qui ne répond pas, ne réagit pas et ne respire pas normalement ?",
     "opts": [
-      "Il attend une minute pour vérifier que la respiration reprend",
-      "Il met la victime en PLS et attend les secours",
-      "Il débute immédiatement la RCP et fait chercher un DAE",
-      "Il soulève les jambes de la victime pour améliorer la circulation"
+      "Attendre une minute pour vérifier que la respiration reprend",
+      "Mettre la victime en position latérale de sécurité (PLS) et attendre les secours",
+      "Débuter immédiatement la réanimation cardio-pulmonaire (RCP) et faire rechercher un DAE",
+      "Soulever les jambes de la victime pour améliorer la circulation"
     ],
     "c": 2,
-    "e": "Chaque minute sans RCP réduit les chances de survie : les compressions débutent sans délai."
+    "e": "Chaque minute sans réanimation cardio-pulmonaire (RCP) réduit les chances de survie : les compressions thoraciques débutent sans délai."
   },
   {
     "id": "urg-06",
-    "cat": "Urgences Vitales",
+    "cat": "Urgences vitales",
     "level": "PSE1",
     "q": "Faut-il rechercher le pouls avant de débuter la réanimation cardio-pulmonaire ?",
     "opts": [
@@ -421,23 +421,23 @@
   },
   {
     "id": "urg-07",
-    "cat": "Urgences Vitales",
+    "cat": "Urgences vitales",
     "level": "PSE1",
-    "q": "Peut-on secouer une victime inconsciente pour la réveiller ?",
+    "q": "Peut-on secouer une victime qui ne répond pas, ne réagit pas pour obtenir une réaction ?",
     "opts": [
       "Non, on lui parle et on la stimule sans la secouer",
-      "Oui, fermement, pour la sortir de l'inconscience",
+      "Oui, fermement, pour la sortir de la perte de connaissance",
       "Oui, en la prenant par les épaules et en la redressant",
       "Oui, mais seulement si elle ne réagit pas à la voix"
     ],
     "c": 0,
-    "e": "Secouer une victime peut aggraver une lésion du rachis : on parle et on stimule sans mobiliser."
+    "e": "Le secouriste pose des questions simples, stimule sans brusquerie et évite toute mobilisation inutile susceptible d'aggraver une lésion traumatique."
   },
   {
     "id": "urg-08",
-    "cat": "Urgences Vitales",
+    "cat": "Urgences vitales",
     "level": "PSE1",
-    "q": "Comment libère-t-on les voies aériennes d'une victime inconsciente ?",
+    "q": "Comment réalise-t-on la libération des voies aériennes chez une victime qui ne répond pas, ne réagit pas ?",
     "opts": [
       "En glissant les doigts dans la bouche à la recherche d'un corps étranger",
       "En plaçant un coussin épais sous la nuque",
@@ -445,13 +445,13 @@
       "En appuyant sur le ventre pour faire remonter l'air"
     ],
     "c": 2,
-    "e": "La bascule de la tête associée à l'élévation du menton dégage la langue, principale cause d'obstruction."
+    "e": "Chez l'adulte ou l'enfant, la bascule prudente de la tête en arrière associée à l'élévation du menton améliore le passage de l'air."
   },
   {
     "id": "urg-09",
-    "cat": "Urgences Vitales",
+    "cat": "Urgences vitales",
     "level": "PSE1",
-    "q": "Comment ouvre-t-on les voies aériennes d'une victime chez qui on suspecte un traumatisme du rachis cervical ?",
+    "q": "Comment réalise-t-on la libération des voies aériennes chez une victime traumatisée ?",
     "opts": [
       "En basculant largement la tête en arrière",
       "Par l'élévation du menton, sans basculer la tête en arrière",
@@ -459,11 +459,11 @@
       "En tirant la langue vers l'extérieur"
     ],
     "c": 1,
-    "e": "Chez un traumatisé du rachis, l'élévation du menton ouvre les voies aériennes sans mobiliser la colonne cervicale."
+    "e": "Chez une victime traumatisée, la libération des voies aériennes est obtenue en limitant les mouvements du rachis cervical."
   },
   {
     "id": "urg-10",
-    "cat": "Urgences Vitales",
+    "cat": "Urgences vitales",
     "level": "PSE1",
     "q": "Quels signes font suspecter une détresse respiratoire ?",
     "opts": [
@@ -477,7 +477,7 @@
   },
   {
     "id": "urg-11",
-    "cat": "Urgences Vitales",
+    "cat": "Urgences vitales",
     "level": "PSE1",
     "q": "Quelle position adopte-t-on pour une victime consciente en détresse respiratoire ?",
     "opts": [
@@ -491,7 +491,7 @@
   },
   {
     "id": "urg-12",
-    "cat": "Urgences Vitales",
+    "cat": "Urgences vitales",
     "level": "PSE1",
     "q": "Peut-on donner à boire à une victime qui a perdu connaissance ?",
     "opts": [
@@ -505,7 +505,7 @@
   },
   {
     "id": "urg-13",
-    "cat": "Urgences Vitales",
+    "cat": "Urgences vitales",
     "level": "PSE1",
     "q": "Quels signes évoquent un état de choc, ou détresse circulatoire ?",
     "opts": [
@@ -519,21 +519,21 @@
   },
   {
     "id": "urg-14",
-    "cat": "Urgences Vitales",
+    "cat": "Urgences vitales",
     "level": "PSE1",
     "q": "Que fait le secouriste après avoir sorti de l'eau une victime de noyade ?",
     "opts": [
-      "Il la secoue pour évacuer l'eau des poumons",
-      "Il la couche sur le ventre pour laisser l'eau s'écouler",
-      "Il vérifie la conscience et la respiration, alerte, puis met en PLS ou débute la RCP",
-      "Il la fait marcher pour stimuler la circulation"
+      "Il la secoue pour évacuer l'eau supposée contenue dans les poumons avant tout bilan",
+      "Il la couche sur le ventre pour laisser l'eau s'écouler, puis attend avant d'agir",
+      "Il recherche la conscience et la respiration, alerte puis adapte la conduite à tenir",
+      "Il la fait marcher pour la réchauffer avant de rechercher la respiration et la conscience"
     ],
     "c": 2,
-    "e": "La noyade n'est pas traitée par vidange des poumons : on évalue conscience et respiration, puis on agit en conséquence."
+    "e": "Après une noyade, le secouriste recherche d'abord la conscience et la respiration ; si la victime respire, il applique la conduite à tenir adaptée, sinon il débute immédiatement la RCP."
   },
   {
     "id": "urg-15",
-    "cat": "Urgences Vitales",
+    "cat": "Urgences vitales",
     "level": "PSE1",
     "q": "Comment réagir face à une victime intoxiquée au monoxyde de carbone dans un local fermé ?",
     "opts": [
@@ -547,7 +547,7 @@
   },
   {
     "id": "urg-16",
-    "cat": "Urgences Vitales",
+    "cat": "Urgences vitales",
     "level": "PSE1",
     "q": "Que fait-on en premier devant une victime encore en contact avec un conducteur électrique ?",
     "opts": [
@@ -561,7 +561,7 @@
   },
   {
     "id": "urg-17",
-    "cat": "Urgences Vitales",
+    "cat": "Urgences vitales",
     "level": "PSE1",
     "q": "Une fois le courant coupé, que fait le secouriste pour la victime électrisée ?",
     "opts": [
@@ -575,7 +575,7 @@
   },
   {
     "id": "urg-18",
-    "cat": "Urgences Vitales",
+    "cat": "Urgences vitales",
     "level": "PSE1",
     "q": "Que faut-il surtout éviter devant une victime d'intoxication médicamenteuse ?",
     "opts": [
@@ -589,11 +589,11 @@
   },
   {
     "id": "urg-19",
-    "cat": "Urgences Vitales",
+    "cat": "Urgences vitales",
     "level": "PSE1",
     "q": "Quelles sont les détresses vitales que l'équipier secouriste doit savoir reconnaître ?",
     "opts": [
-      "L'arrêt cardiaque, l'inconscience, la détresse respiratoire et l'hémorragie externe",
+      "L'arrêt cardiaque, la perte de connaissance, la détresse respiratoire et l'hémorragie externe",
       "La fièvre, la toux et l'écoulement nasal avec un état général conservé",
       "L'entorse, la contusion et la crampe musculaire après un effort",
       "La fatigue, le vertige et l'insomnie chez une personne anxieuse"
@@ -603,9 +603,9 @@
   },
   {
     "id": "urg-20",
-    "cat": "Urgences Vitales",
+    "cat": "Urgences vitales",
     "level": "PSE1",
-    "q": "Pourquoi l'inconscience est-elle considérée comme une détresse vitale ?",
+    "q": "Pourquoi une perte de connaissance est-elle considérée comme une détresse vitale ?",
     "opts": [
       "Parce que la victime risque de se fracturer un membre",
       "Parce qu'elle ne peut pas répondre aux questions du bilan",
@@ -613,13 +613,13 @@
       "Parce qu'elle ne pourra pas signer la fiche d'intervention"
     ],
     "c": 2,
-    "e": "Une victime inconsciente perd ses réflexes de protection : ses voies aériennes doivent être surveillées en permanence."
+    "e": "Une victime qui a perdu connaissance perd ses réflexes de protection ; ses voies aériennes peuvent s'obstruer et sa respiration s'altérer rapidement."
   },
   {
     "id": "urg-21",
-    "cat": "Urgences Vitales",
+    "cat": "Urgences vitales",
     "level": "PSE1",
-    "q": "Que risque une victime inconsciente laissée sur le dos ?",
+    "q": "Que risque une victime qui ne répond pas, ne réagit pas, laissée sur le dos ?",
     "opts": [
       "Une déformation progressive de la colonne vertébrale",
       "L'inhalation de vomissures ou l'obstruction des voies aériennes",
@@ -627,11 +627,11 @@
       "Une augmentation de la pression artérielle"
     ],
     "c": 1,
-    "e": "Sur le dos, la langue et les liquides peuvent obstruer les voies aériennes : la PLS y remédie chez la victime qui respire."
+    "e": "La chute de la langue en arrière et la présence de liquides dans la gorge peuvent obstruer les voies aériennes ; la position latérale de sécurité (PLS) y remédie chez la victime qui respire."
   },
   {
     "id": "urg-22",
-    "cat": "Urgences Vitales",
+    "cat": "Urgences vitales",
     "level": "PSE1",
     "q": "Une victime de malaise est très somnolente mais répond à la voix : que fait le secouriste ?",
     "opts": [
@@ -645,13 +645,13 @@
   },
   {
     "id": "urg-23",
-    "cat": "Urgences Vitales",
+    "cat": "Urgences vitales",
     "level": "PSE1",
     "q": "Quel est le meilleur moyen d'augmenter les chances de survie d'une victime en arrêt cardiaque ?",
     "opts": [
       "L'attente de l'arrivée du médecin avant tout geste",
       "Une position allongée jambes surélevées",
-      "Une ventilation au bouche-à-bouche prolongée seule",
+      "Une ventilation au ventilation artificielle par une méthode orale prolongée seule",
       "Une RCP précoce associée à l'utilisation rapide d'un DAE"
     ],
     "c": 3,
@@ -659,7 +659,7 @@
   },
   {
     "id": "urg-24",
-    "cat": "Urgences Vitales",
+    "cat": "Urgences vitales",
     "level": "PSE1",
     "q": "Sur quelle surface faut-il pratiquer les compressions thoraciques ?",
     "opts": [
@@ -673,7 +673,7 @@
   },
   {
     "id": "urg-25",
-    "cat": "Urgences Vitales",
+    "cat": "Urgences vitales",
     "level": "PSE1",
     "q": "Pendant qu'un secouriste pratique les compressions, que fait le second secouriste ?",
     "opts": [
@@ -687,7 +687,7 @@
   },
   {
     "id": "urg-26",
-    "cat": "Urgences Vitales",
+    "cat": "Urgences vitales",
     "level": "PSE1",
     "q": "À quelle fréquence le secouriste contrôle-t-il l'état de la victime en attendant les secours ?",
     "opts": [
@@ -701,9 +701,9 @@
   },
   {
     "id": "urg-27",
-    "cat": "Urgences Vitales",
+    "cat": "Urgences vitales",
     "level": "PSE1",
-    "q": "Pourquoi retire-t-on délicatement un corps étranger visible dans la bouche d'une victime inconsciente ?",
+    "q": "Pourquoi retire-t-on délicatement un corps étranger visible dans la bouche d'une victime qui ne répond pas, ne réagit pas ?",
     "opts": [
       "Parce qu'il faut libérer la bouche avant tout examen de la victime",
       "Parce qu'il peut gêner les insufflations ou obstruer les voies aériennes",
@@ -715,7 +715,7 @@
   },
   {
     "id": "urg-28",
-    "cat": "Urgences Vitales",
+    "cat": "Urgences vitales",
     "level": "PSE1",
     "q": "Que fait le secouriste devant une personne qui s'effondre devant lui et ne se relève pas ?",
     "opts": [
@@ -729,7 +729,7 @@
   },
   {
     "id": "urg-29",
-    "cat": "Urgences Vitales",
+    "cat": "Urgences vitales",
     "level": "PSE1",
     "q": "Pourquoi est-il important de noter l'heure des événements pendant une intervention ?",
     "opts": [
@@ -743,7 +743,7 @@
   },
   {
     "id": "urg-30",
-    "cat": "Urgences Vitales",
+    "cat": "Urgences vitales",
     "level": "PSE1",
     "q": "Pourquoi une hémorragie externe non traitée peut-elle être mortelle ?",
     "opts": [
@@ -757,7 +757,7 @@
   },
   {
     "id": "rcp-01",
-    "cat": "RCP & DAE",
+    "cat": "RCP et DAE",
     "level": "PSE1",
     "q": "Quel est le ratio compressions / insufflations chez l'adulte en arrêt cardiaque ?",
     "opts": [
@@ -771,7 +771,7 @@
   },
   {
     "id": "rcp-02",
-    "cat": "RCP & DAE",
+    "cat": "RCP et DAE",
     "level": "PSE1",
     "q": "Quelle est la fréquence recommandée des compressions thoraciques chez l'adulte ?",
     "opts": [
@@ -785,7 +785,7 @@
   },
   {
     "id": "rcp-03",
-    "cat": "RCP & DAE",
+    "cat": "RCP et DAE",
     "level": "PSE1",
     "q": "Quelle doit être la profondeur des compressions chez un adulte ?",
     "opts": [
@@ -799,7 +799,7 @@
   },
   {
     "id": "rcp-04",
-    "cat": "RCP & DAE",
+    "cat": "RCP et DAE",
     "level": "PSE1",
     "q": "Où place-t-on les mains pour comprimer le thorax d'un adulte ?",
     "opts": [
@@ -813,7 +813,7 @@
   },
   {
     "id": "rcp-05",
-    "cat": "RCP & DAE",
+    "cat": "RCP et DAE",
     "level": "PSE1",
     "q": "Quelle position adopte le secouriste qui pratique les compressions thoraciques ?",
     "opts": [
@@ -827,7 +827,7 @@
   },
   {
     "id": "rcp-06",
-    "cat": "RCP & DAE",
+    "cat": "RCP et DAE",
     "level": "PSE1",
     "q": "Que fait-on juste après chaque série de compressions thoraciques chez l'adulte ?",
     "opts": [
@@ -841,7 +841,7 @@
   },
   {
     "id": "rcp-07",
-    "cat": "RCP & DAE",
+    "cat": "RCP et DAE",
     "level": "PSE1",
     "q": "À quoi reconnaît-on une insufflation efficace ?",
     "opts": [
@@ -855,7 +855,7 @@
   },
   {
     "id": "rcp-08",
-    "cat": "RCP & DAE",
+    "cat": "RCP et DAE",
     "level": "PSE1",
     "q": "Le thorax ne se soulève pas à l'insufflation : que fait le secouriste ?",
     "opts": [
@@ -869,7 +869,7 @@
   },
   {
     "id": "rcp-09",
-    "cat": "RCP & DAE",
+    "cat": "RCP et DAE",
     "level": "PSE1",
     "q": "Quand le défibrillateur automatisé externe (DAE) doit-il être utilisé ?",
     "opts": [
@@ -883,7 +883,7 @@
   },
   {
     "id": "rcp-10",
-    "cat": "RCP & DAE",
+    "cat": "RCP et DAE",
     "level": "PSE1",
     "q": "Que doivent faire les personnes autour de la victime pendant l'analyse du rythme par le DAE ?",
     "opts": [
@@ -897,7 +897,7 @@
   },
   {
     "id": "rcp-11",
-    "cat": "RCP & DAE",
+    "cat": "RCP et DAE",
     "level": "PSE1",
     "q": "Où colle-t-on les électrodes du DAE chez l'adulte ?",
     "opts": [
@@ -911,7 +911,7 @@
   },
   {
     "id": "rcp-12",
-    "cat": "RCP & DAE",
+    "cat": "RCP et DAE",
     "level": "PSE1",
     "q": "Que fait le secouriste si la victime est allongée dans une flaque d'eau ?",
     "opts": [
@@ -925,7 +925,7 @@
   },
   {
     "id": "rcp-13",
-    "cat": "RCP & DAE",
+    "cat": "RCP et DAE",
     "level": "PSE1",
     "q": "Les électrodes du DAE n'adhèrent pas à cause de poils très abondants : que fait le secouriste ?",
     "opts": [
@@ -939,7 +939,7 @@
   },
   {
     "id": "rcp-14",
-    "cat": "RCP & DAE",
+    "cat": "RCP et DAE",
     "level": "PSE1",
     "q": "La victime porte un patch médicamenteux sur le thorax : que fait le secouriste ?",
     "opts": [
@@ -953,7 +953,7 @@
   },
   {
     "id": "rcp-15",
-    "cat": "RCP & DAE",
+    "cat": "RCP et DAE",
     "level": "PSE1",
     "q": "La victime est porteuse d'un stimulateur cardiaque (pacemaker) : que fait le secouriste ?",
     "opts": [
@@ -967,7 +967,7 @@
   },
   {
     "id": "rcp-16",
-    "cat": "RCP & DAE",
+    "cat": "RCP et DAE",
     "level": "PSE1",
     "q": "Une femme enceinte est en arrêt cardiaque : que fait le secouriste ?",
     "opts": [
@@ -981,7 +981,7 @@
   },
   {
     "id": "rcp-17",
-    "cat": "RCP & DAE",
+    "cat": "RCP et DAE",
     "level": "PSE1",
     "q": "Chez un enfant ou un nourrisson, quelles précautions prend-on avec le DAE ?",
     "opts": [
@@ -995,7 +995,7 @@
   },
   {
     "id": "rcp-18",
-    "cat": "RCP & DAE",
+    "cat": "RCP et DAE",
     "level": "PSE1",
     "q": "Le DAE conseille un choc : que fait l'équipe ?",
     "opts": [
@@ -1009,7 +1009,7 @@
   },
   {
     "id": "rcp-19",
-    "cat": "RCP & DAE",
+    "cat": "RCP et DAE",
     "level": "PSE1",
     "q": "Que fait-on immédiatement après la délivrance d'un choc par le DAE ?",
     "opts": [
@@ -1023,7 +1023,7 @@
   },
   {
     "id": "rcp-20",
-    "cat": "RCP & DAE",
+    "cat": "RCP et DAE",
     "level": "PSE1",
     "q": "À quelle fréquence les secouristes changent-ils de position pour les compressions ?",
     "opts": [
@@ -1037,7 +1037,7 @@
   },
   {
     "id": "rcp-21",
-    "cat": "RCP & DAE",
+    "cat": "RCP et DAE",
     "level": "PSE1",
     "q": "Chez l'enfant, quel est le ratio compressions / insufflations ?",
     "opts": [
@@ -1051,7 +1051,7 @@
   },
   {
     "id": "rcp-22",
-    "cat": "RCP & DAE",
+    "cat": "RCP et DAE",
     "level": "PSE1",
     "q": "Par quelle manœuvre débute-t-on la réanimation d'un enfant ou d'un noyé ?",
     "opts": [
@@ -1065,7 +1065,7 @@
   },
   {
     "id": "rcp-23",
-    "cat": "RCP & DAE",
+    "cat": "RCP et DAE",
     "level": "PSE1",
     "q": "Comment se pratique la RCP chez un nourrisson ?",
     "opts": [
@@ -1079,7 +1079,7 @@
   },
   {
     "id": "rcp-24",
-    "cat": "RCP & DAE",
+    "cat": "RCP et DAE",
     "level": "PSE1",
     "q": "Que fait le secouriste si la victime se remet à respirer normalement après la RCP ?",
     "opts": [
@@ -1089,11 +1089,11 @@
       "Il la place en position latérale de sécurité et poursuit la surveillance"
     ],
     "c": 3,
-    "e": "Après une reprise de la respiration, la PLS protège les voies aériennes en attendant les secours."
+    "e": "Après une reprise de la respiration, la position latérale de sécurité (PLS) protège les voies aériennes en attendant les secours."
   },
   {
     "id": "rcp-25",
-    "cat": "RCP & DAE",
+    "cat": "RCP et DAE",
     "level": "PSE1",
     "q": "Pourquoi relâche-t-on complètement le thorax entre deux compressions ?",
     "opts": [
@@ -1107,7 +1107,7 @@
   },
   {
     "id": "rcp-26",
-    "cat": "RCP & DAE",
+    "cat": "RCP et DAE",
     "level": "PSE1",
     "q": "Dans quels cas le secouriste peut-il interrompre la RCP ?",
     "opts": [
@@ -1121,7 +1121,7 @@
   },
   {
     "id": "rcp-27",
-    "cat": "RCP & DAE",
+    "cat": "RCP et DAE",
     "level": "PSE1",
     "q": "Le DAE demande de ne pas toucher la victime mais un secouriste est seul : que fait-il ?",
     "opts": [
@@ -1135,7 +1135,7 @@
   },
   {
     "id": "ova-01",
-    "cat": "Obstruction des Voies Aériennes",
+    "cat": "Obstruction des voies aériennes",
     "level": "PSE1",
     "q": "À quoi reconnaît-on une obstruction totale des voies aériennes ?",
     "opts": [
@@ -1149,7 +1149,7 @@
   },
   {
     "id": "ova-02",
-    "cat": "Obstruction des Voies Aériennes",
+    "cat": "Obstruction des voies aériennes",
     "level": "PSE1",
     "q": "Une victime consciente tousse fortement après avoir avalé de travers : que fait le secouriste ?",
     "opts": [
@@ -1163,7 +1163,7 @@
   },
   {
     "id": "ova-03",
-    "cat": "Obstruction des Voies Aériennes",
+    "cat": "Obstruction des voies aériennes",
     "level": "PSE1",
     "q": "Quelle est la conduite à tenir devant une obstruction totale chez un adulte conscient ?",
     "opts": [
@@ -1177,7 +1177,7 @@
   },
   {
     "id": "ova-04",
-    "cat": "Obstruction des Voies Aériennes",
+    "cat": "Obstruction des voies aériennes",
     "level": "PSE1",
     "q": "Comment donne-t-on les claques dans le dos ?",
     "opts": [
@@ -1191,9 +1191,9 @@
   },
   {
     "id": "ova-05",
-    "cat": "Obstruction des Voies Aériennes",
+    "cat": "Obstruction des voies aériennes",
     "level": "PSE1",
-    "q": "Comment réalise-t-on une compression abdominale (manœuvre de Heimlich) ?",
+    "q": "Comment réalise-t-on la technique des compressions abdominales ?",
     "opts": [
       "Poing placé sous le nombril, puis poussée vers le bas",
       "Main ouverte appuyée sur le sternum, puis poussée vers l'arrière",
@@ -1201,11 +1201,11 @@
       "Deux mains croisées sur le bas-ventre, puis pression continue"
     ],
     "c": 2,
-    "e": "Les compressions abdominales créent une surpression qui expulse le corps étranger."
+    "e": "Les compressions abdominales visent à comprimer l'air contenu dans les poumons afin d'expulser le corps étranger par un effet de piston."
   },
   {
     "id": "ova-06",
-    "cat": "Obstruction des Voies Aériennes",
+    "cat": "Obstruction des voies aériennes",
     "level": "PSE1",
     "q": "Chez une femme enceinte ou une personne obèse, quelles compressions réalise-t-on ?",
     "opts": [
@@ -1219,7 +1219,7 @@
   },
   {
     "id": "ova-07",
-    "cat": "Obstruction des Voies Aériennes",
+    "cat": "Obstruction des voies aériennes",
     "level": "PSE1",
     "q": "La victime perd connaissance pendant les manœuvres de désobstruction : que fait le secouriste ?",
     "opts": [
@@ -1229,11 +1229,11 @@
       "Il l'accompagne au sol, alerte et débute la RCP"
     ],
     "c": 3,
-    "e": "La perte de connaissance signale l'arrêt de la respiration efficace : la RCP débute immédiatement."
+    "e": "La perte de connaissance impose d'accompagner la victime au sol puis de débuter immédiatement une réanimation cardio-pulmonaire (RCP)."
   },
   {
     "id": "ova-08",
-    "cat": "Obstruction des Voies Aériennes",
+    "cat": "Obstruction des voies aériennes",
     "level": "PSE1",
     "q": "Comment agit-on devant un nourrisson qui s'étouffe et ne peut plus respirer ?",
     "opts": [
@@ -1247,7 +1247,7 @@
   },
   {
     "id": "ova-09",
-    "cat": "Obstruction des Voies Aériennes",
+    "cat": "Obstruction des voies aériennes",
     "level": "PSE1",
     "q": "Après chaque série de manœuvres de désobstruction, que fait le secouriste ?",
     "opts": [
@@ -1261,13 +1261,13 @@
   },
   {
     "id": "ova-10",
-    "cat": "Obstruction des Voies Aériennes",
+    "cat": "Obstruction des voies aériennes",
     "level": "PSE1",
     "q": "À quoi reconnaît-on une obstruction partielle des voies aériennes ?",
     "opts": [
       "La victime parle, tousse ou respire, même difficilement",
       "La victime ne peut plus émettre aucun son",
-      "La victime devient immédiatement inconsciente",
+      "La victime ne répond plus et ne réagit plus immédiatement",
       "La victime a les lèvres bleues sans pouvoir tousser"
     ],
     "c": 0,
@@ -1275,7 +1275,7 @@
   },
   {
     "id": "ova-11",
-    "cat": "Obstruction des Voies Aériennes",
+    "cat": "Obstruction des voies aériennes",
     "level": "PSE1",
     "q": "Pourquoi ne faut-il jamais faire un doigté à l'aveugle dans la bouche ?",
     "opts": [
@@ -1289,7 +1289,7 @@
   },
   {
     "id": "ova-12",
-    "cat": "Obstruction des Voies Aériennes",
+    "cat": "Obstruction des voies aériennes",
     "level": "PSE1",
     "q": "Que doit-on répondre à une victime qui demande à boire pour faire descendre l'aliment coincé ?",
     "opts": [
@@ -1303,7 +1303,7 @@
   },
   {
     "id": "ova-13",
-    "cat": "Obstruction des Voies Aériennes",
+    "cat": "Obstruction des voies aériennes",
     "level": "PSE1",
     "q": "Que se passe-t-il si une obstruction totale n'est pas levée ?",
     "opts": [
@@ -1317,7 +1317,7 @@
   },
   {
     "id": "ova-14",
-    "cat": "Obstruction des Voies Aériennes",
+    "cat": "Obstruction des voies aériennes",
     "level": "PSE1",
     "q": "Que fait le secouriste après l'expulsion réussie du corps étranger ?",
     "opts": [
@@ -1331,9 +1331,9 @@
   },
   {
     "id": "ova-15",
-    "cat": "Obstruction des Voies Aériennes",
+    "cat": "Obstruction des voies aériennes",
     "level": "PSE1",
-    "q": "La victime est déjà inconsciente à l'arrivée du secouriste et l'obstruction est suspectée : que fait-il ?",
+    "q": "La victime ne répond déjà pas et ne réagit pas à l'arrivée du secouriste et une obstruction des voies aériennes est suspectée : que fait-il ?",
     "opts": [
       "Il réalise cinq claques dans le dos sur la victime allongée",
       "Il la met en position latérale de sécurité et attend",
@@ -1341,11 +1341,11 @@
       "Il cherche un corps étranger avec ses doigts au fond de la gorge"
     ],
     "c": 2,
-    "e": "Chez une victime inconsciente, la désobstruction passe par la RCP et la ventilation."
+    "e": "Chez une victime qui ne répond pas, ne réagit pas, la désobstruction passe par la réanimation cardio-pulmonaire (RCP) et les insufflations."
   },
   {
     "id": "ova-16",
-    "cat": "Obstruction des Voies Aériennes",
+    "cat": "Obstruction des voies aériennes",
     "level": "PSE1",
     "q": "Chaque année, quelle est la cause la plus fréquente d'obstruction des voies aériennes chez l'adulte ?",
     "opts": [
@@ -1359,7 +1359,7 @@
   },
   {
     "id": "ova-17",
-    "cat": "Obstruction des Voies Aériennes",
+    "cat": "Obstruction des voies aériennes",
     "level": "PSE1",
     "q": "Un témoin s'apprête à taper dans le dos d'une victime debout qui s'étouffe : quelle consigne lui donne-t-on ?",
     "opts": [
@@ -1373,7 +1373,7 @@
   },
   {
     "id": "ova-18",
-    "cat": "Obstruction des Voies Aériennes",
+    "cat": "Obstruction des voies aériennes",
     "level": "PSE1",
     "q": "Combien de personnes sont nécessaires pour gérer une obstruction totale avec alerte ?",
     "opts": [
@@ -1387,7 +1387,7 @@
   },
   {
     "id": "ova-19",
-    "cat": "Obstruction des Voies Aériennes",
+    "cat": "Obstruction des voies aériennes",
     "level": "PSE1",
     "q": "Un enfant de huit ans s'étouffe et ne peut plus respirer : quels gestes réalise-t-on ?",
     "opts": [
@@ -1401,7 +1401,7 @@
   },
   {
     "id": "ova-20",
-    "cat": "Obstruction des Voies Aériennes",
+    "cat": "Obstruction des voies aériennes",
     "level": "PSE1",
     "q": "Pourquoi la toux est-elle efficace pour expulser un corps étranger ?",
     "opts": [
@@ -1415,7 +1415,7 @@
   },
   {
     "id": "ova-21",
-    "cat": "Obstruction des Voies Aériennes",
+    "cat": "Obstruction des voies aériennes",
     "level": "PSE1",
     "q": "Que risque une victime qui présente une obstruction partielle avec une respiration sifflante persistante ?",
     "opts": [
@@ -1429,7 +1429,7 @@
   },
   {
     "id": "ova-22",
-    "cat": "Obstruction des Voies Aériennes",
+    "cat": "Obstruction des voies aériennes",
     "level": "PSE1",
     "q": "Après une désobstruction chez une victime qui respire de nouveau normalement, que surveille-t-on ?",
     "opts": [
@@ -1443,7 +1443,7 @@
   },
   {
     "id": "neu-01",
-    "cat": "Évaluation Neurologique",
+    "cat": "Évaluation neurologique",
     "level": "PSE1",
     "q": "À quoi sert l'échelle AVPU ?",
     "opts": [
@@ -1457,21 +1457,21 @@
   },
   {
     "id": "neu-02",
-    "cat": "Évaluation Neurologique",
+    "cat": "Évaluation neurologique",
     "level": "PSE1",
     "q": "Que signifie la lettre A de l'échelle AVPU ?",
     "opts": [
       "La victime est éveillée et répond correctement",
       "La victime est agitée et confuse",
       "La victime répond uniquement à la douleur",
-      "La victime est inconsciente et ne réagit pas"
+      "La victime ne répond pas, ne réagit pas"
     ],
     "c": 0,
     "e": "A signifie « Alert » : la victime est éveillée, orientée et répond de façon adaptée."
   },
   {
     "id": "neu-03",
-    "cat": "Évaluation Neurologique",
+    "cat": "Évaluation neurologique",
     "level": "PSE1",
     "q": "Que signifie la lettre V de l'échelle AVPU ?",
     "opts": [
@@ -1485,7 +1485,7 @@
   },
   {
     "id": "neu-04",
-    "cat": "Évaluation Neurologique",
+    "cat": "Évaluation neurologique",
     "level": "PSE1",
     "q": "Que signifie la lettre P de l'échelle AVPU ?",
     "opts": [
@@ -1499,21 +1499,21 @@
   },
   {
     "id": "neu-05",
-    "cat": "Évaluation Neurologique",
+    "cat": "Évaluation neurologique",
     "level": "PSE1",
     "q": "Que signifie la lettre U de l'échelle AVPU ?",
     "opts": [
       "La victime répond uniquement à la voix",
       "La victime est un peu somnolente",
-      "La victime est inconsciente mais réagit à la douleur",
+      "La victime ne répond pas, ne réagit pas, mais réagit à la douleur",
       "La victime ne réagit à aucune stimulation"
     ],
     "c": 3,
-    "e": "U signifie « Unresponsive » : aucune réaction, même à la douleur, la victime est inconsciente."
+    "e": "U signifie « Unresponsive » : aucune réaction, même à la douleur ; la victime ne répond pas et ne réagit pas."
   },
   {
     "id": "neu-06",
-    "cat": "Évaluation Neurologique",
+    "cat": "Évaluation neurologique",
     "level": "PSE1",
     "q": "Comment évalue-t-on l'orientation d'une victime consciente ?",
     "opts": [
@@ -1527,13 +1527,13 @@
   },
   {
     "id": "neu-07",
-    "cat": "Évaluation Neurologique",
+    "cat": "Évaluation neurologique",
     "level": "PSE1",
     "q": "Qu'est-ce qu'une victime obnubilée ?",
     "opts": [
       "Une victime parfaitement éveillée mais de mauvaise humeur",
       "Une victime anormalement somnolente, qui répond difficilement",
-      "Une victime inconsciente qui ne réagit plus",
+      "Une victime qui ne répond pas, ne réagit pas",
       "Une victime qui a perdu la mémoire des faits récents"
     ],
     "c": 1,
@@ -1541,7 +1541,7 @@
   },
   {
     "id": "neu-08",
-    "cat": "Évaluation Neurologique",
+    "cat": "Évaluation neurologique",
     "level": "PSE1",
     "q": "Quels sont les trois signes principaux à rechercher devant une suspicion d'AVC ?",
     "opts": [
@@ -1555,7 +1555,7 @@
   },
   {
     "id": "neu-09",
-    "cat": "Évaluation Neurologique",
+    "cat": "Évaluation neurologique",
     "level": "PSE1",
     "q": "Comment recherche-t-on une paralysie du visage ?",
     "opts": [
@@ -1569,7 +1569,7 @@
   },
   {
     "id": "neu-10",
-    "cat": "Évaluation Neurologique",
+    "cat": "Évaluation neurologique",
     "level": "PSE1",
     "q": "Comment évalue-t-on la motricité des bras ?",
     "opts": [
@@ -1583,7 +1583,7 @@
   },
   {
     "id": "neu-11",
-    "cat": "Évaluation Neurologique",
+    "cat": "Évaluation neurologique",
     "level": "PSE1",
     "q": "Devant une suspicion d'AVC, que fait le secouriste en priorité ?",
     "opts": [
@@ -1597,7 +1597,7 @@
   },
   {
     "id": "neu-12",
-    "cat": "Évaluation Neurologique",
+    "cat": "Évaluation neurologique",
     "level": "PSE1",
     "q": "Pourquoi ne jamais donner à boire à une victime suspecte d'AVC ?",
     "opts": [
@@ -1611,7 +1611,7 @@
   },
   {
     "id": "neu-13",
-    "cat": "Évaluation Neurologique",
+    "cat": "Évaluation neurologique",
     "level": "PSE1",
     "q": "Quelle position adopte-t-on pour une victime consciente victime d'un AVC ?",
     "opts": [
@@ -1625,7 +1625,7 @@
   },
   {
     "id": "neu-14",
-    "cat": "Évaluation Neurologique",
+    "cat": "Évaluation neurologique",
     "level": "PSE1",
     "q": "Que recherche-t-on en observant les pupilles d'une victime ?",
     "opts": [
@@ -1639,7 +1639,7 @@
   },
   {
     "id": "neu-15",
-    "cat": "Évaluation Neurologique",
+    "cat": "Évaluation neurologique",
     "level": "PSE1",
     "q": "Une victime présente une pupille dilatée d'un seul côté après un traumatisme crânien : que faut-il faire ?",
     "opts": [
@@ -1653,7 +1653,7 @@
   },
   {
     "id": "neu-16",
-    "cat": "Évaluation Neurologique",
+    "cat": "Évaluation neurologique",
     "level": "PSE1",
     "q": "Une victime est confuse et agitée après un choc à la tête : que faut-il en penser ?",
     "opts": [
@@ -1667,7 +1667,7 @@
   },
   {
     "id": "neu-17",
-    "cat": "Évaluation Neurologique",
+    "cat": "Évaluation neurologique",
     "level": "PSE1",
     "q": "Après un traumatisme crânien, quel élément surveille-t-on en priorité ?",
     "opts": [
@@ -1681,21 +1681,21 @@
   },
   {
     "id": "neu-18",
-    "cat": "Évaluation Neurologique",
+    "cat": "Évaluation neurologique",
     "level": "PSE1",
     "q": "Une victime perd connaissance après un choc à la tête : que fait le secouriste ?",
     "opts": [
-      "Il lui relève la tête avec un oreiller en attendant les secours",
-      "Il la laisse sur le dos en attendant qu'elle se réveille",
-      "Il alerte, libère les voies aériennes, vérifie la respiration et met en PLS si elle respire",
-      "Il lui donne à boire pour faciliter son réveil"
+      "Il surélève la tête avec un appui épais et surveille seulement son réveil progressif",
+      "Il la laisse sur le dos sans réévaluer sa respiration jusqu'au retour de la conscience",
+      "Il alerte, recherche la respiration et protège les voies aériennes selon l'état constaté",
+      "Il lui fait boire pour accélérer le réveil et vérifier si elle peut avaler sans difficulté"
     ],
     "c": 2,
-    "e": "Toute perte de connaissance après un traumatisme crânien impose l'alerte et la protection des voies aériennes."
+    "e": "Toute perte de connaissance après un traumatisme crânien impose l'alerte, la recherche de la respiration et la protection des voies aériennes selon l'état de la victime."
   },
   {
     "id": "neu-19",
-    "cat": "Évaluation Neurologique",
+    "cat": "Évaluation neurologique",
     "level": "PSE1",
     "q": "Comment recherche-t-on une atteinte motrice ou sensitive des membres ?",
     "opts": [
@@ -1709,7 +1709,7 @@
   },
   {
     "id": "neu-20",
-    "cat": "Évaluation Neurologique",
+    "cat": "Évaluation neurologique",
     "level": "PSE1",
     "q": "Que fait le secouriste devant une victime dont les réponses sont incohérentes ?",
     "opts": [
@@ -1723,7 +1723,7 @@
   },
   {
     "id": "neu-21",
-    "cat": "Évaluation Neurologique",
+    "cat": "Évaluation neurologique",
     "level": "PSE1",
     "q": "Peut-on laisser seule une victime ayant subi un traumatisme crânien ?",
     "opts": [
@@ -1737,7 +1737,7 @@
   },
   {
     "id": "neu-22",
-    "cat": "Évaluation Neurologique",
+    "cat": "Évaluation neurologique",
     "level": "PSE1",
     "q": "Pourquoi réévalue-t-on régulièrement le niveau de conscience d'une victime ?",
     "opts": [
@@ -1751,7 +1751,7 @@
   },
   {
     "id": "neu-23",
-    "cat": "Évaluation Neurologique",
+    "cat": "Évaluation neurologique",
     "level": "PSE1",
     "q": "Quelles informations neurologiques transmettre au médecin régulateur ?",
     "opts": [
@@ -1765,12 +1765,12 @@
   },
   {
     "id": "hem-01",
-    "cat": "Hémorragie & Pansements",
+    "cat": "Hémorragies et pansements",
     "level": "PSE1",
     "q": "Quel est le premier geste devant une hémorragie externe abondante ?",
     "opts": [
       "Une compression directe de la plaie, avec la main protégée",
-      "La pose immédiate d'un garrot tourniquet",
+      "La pose immédiate d'un garrot",
       "Le rinçage de la plaie à grande eau",
       "L'élévation du membre sans compression"
     ],
@@ -1779,7 +1779,7 @@
   },
   {
     "id": "hem-02",
-    "cat": "Hémorragie & Pansements",
+    "cat": "Hémorragies et pansements",
     "level": "PSE1",
     "q": "Pourquoi pose-t-on un pansement compressif sur une plaie qui saigne ?",
     "opts": [
@@ -1793,7 +1793,7 @@
   },
   {
     "id": "hem-03",
-    "cat": "Hémorragie & Pansements",
+    "cat": "Hémorragies et pansements",
     "level": "PSE1",
     "q": "Dans quels cas pose-t-on un garrot d'emblée ?",
     "opts": [
@@ -1807,9 +1807,9 @@
   },
   {
     "id": "hem-04",
-    "cat": "Hémorragie & Pansements",
+    "cat": "Hémorragies et pansements",
     "level": "PSE1",
-    "q": "Où pose-t-on un garrot tourniquet ?",
+    "q": "Où pose-t-on un garrot ?",
     "opts": [
       "Directement sur la plaie pour la comprimer",
       "En aval de la plaie, pour freiner le retour veineux",
@@ -1821,7 +1821,7 @@
   },
   {
     "id": "hem-05",
-    "cat": "Hémorragie & Pansements",
+    "cat": "Hémorragies et pansements",
     "level": "PSE1",
     "q": "Que note-t-on impérativement lorsqu'un garrot est posé ?",
     "opts": [
@@ -1835,7 +1835,7 @@
   },
   {
     "id": "hem-06",
-    "cat": "Hémorragie & Pansements",
+    "cat": "Hémorragies et pansements",
     "level": "PSE1",
     "q": "Qui peut retirer un garrot posé par un secouriste ?",
     "opts": [
@@ -1849,7 +1849,7 @@
   },
   {
     "id": "hem-07",
-    "cat": "Hémorragie & Pansements",
+    "cat": "Hémorragies et pansements",
     "level": "PSE1",
     "q": "Comment savoir qu'un garrot est efficace ?",
     "opts": [
@@ -1863,7 +1863,7 @@
   },
   {
     "id": "hem-08",
-    "cat": "Hémorragie & Pansements",
+    "cat": "Hémorragies et pansements",
     "level": "PSE1",
     "q": "Une personne saigne abondamment du nez : que fait le secouriste ?",
     "opts": [
@@ -1877,7 +1877,7 @@
   },
   {
     "id": "hem-09",
-    "cat": "Hémorragie & Pansements",
+    "cat": "Hémorragies et pansements",
     "level": "PSE1",
     "q": "Le saignement de nez persiste après vingt minutes de compression : que fait-on ?",
     "opts": [
@@ -1891,7 +1891,7 @@
   },
   {
     "id": "hem-10",
-    "cat": "Hémorragie & Pansements",
+    "cat": "Hémorragies et pansements",
     "level": "PSE1",
     "q": "Un corps étranger est planté dans une plaie : que fait le secouriste ?",
     "opts": [
@@ -1905,7 +1905,7 @@
   },
   {
     "id": "hem-11",
-    "cat": "Hémorragie & Pansements",
+    "cat": "Hémorragies et pansements",
     "level": "PSE1",
     "q": "Que fait-on pour une plaie simple et peu profonde ?",
     "opts": [
@@ -1919,7 +1919,7 @@
   },
   {
     "id": "hem-12",
-    "cat": "Hémorragie & Pansements",
+    "cat": "Hémorragies et pansements",
     "level": "PSE1",
     "q": "Que ne fait-on jamais sur une plaie grave ?",
     "opts": [
@@ -1933,7 +1933,7 @@
   },
   {
     "id": "hem-13",
-    "cat": "Hémorragie & Pansements",
+    "cat": "Hémorragies et pansements",
     "level": "PSE1",
     "q": "Comment protège-t-on une plaie grave en attendant les secours ?",
     "opts": [
@@ -1947,7 +1947,7 @@
   },
   {
     "id": "hem-14",
-    "cat": "Hémorragie & Pansements",
+    "cat": "Hémorragies et pansements",
     "level": "PSE1",
     "q": "Que fait-on devant une plaie de l'abdomen avec sortie des anses intestinales ?",
     "opts": [
@@ -1961,7 +1961,7 @@
   },
   {
     "id": "hem-15",
-    "cat": "Hémorragie & Pansements",
+    "cat": "Hémorragies et pansements",
     "level": "PSE2",
     "q": "Que fait-on devant une plaie du thorax qui laisse échapper de l'air ?",
     "opts": [
@@ -1975,7 +1975,7 @@
   },
   {
     "id": "hem-16",
-    "cat": "Hémorragie & Pansements",
+    "cat": "Hémorragies et pansements",
     "level": "PSE1",
     "q": "Comment protège-t-on une plaie de l'œil ?",
     "opts": [
@@ -1989,7 +1989,7 @@
   },
   {
     "id": "hem-17",
-    "cat": "Hémorragie & Pansements",
+    "cat": "Hémorragies et pansements",
     "level": "PSE1",
     "q": "Une personne vient d'être amputée d'un doigt : que fait-on du segment amputé ?",
     "opts": [
@@ -2003,7 +2003,7 @@
   },
   {
     "id": "hem-18",
-    "cat": "Hémorragie & Pansements",
+    "cat": "Hémorragies et pansements",
     "level": "PSE1",
     "q": "Un pansement compressif est imbibé de sang : que fait le secouriste ?",
     "opts": [
@@ -2017,7 +2017,7 @@
   },
   {
     "id": "hem-19",
-    "cat": "Hémorragie & Pansements",
+    "cat": "Hémorragies et pansements",
     "level": "PSE1",
     "q": "Quelles sont les précautions après une morsure ?",
     "opts": [
@@ -2031,7 +2031,7 @@
   },
   {
     "id": "hem-20",
-    "cat": "Hémorragie & Pansements",
+    "cat": "Hémorragies et pansements",
     "level": "PSE1",
     "q": "Une personne a été piquée par une abeille, le dard est visible : que fait-on ?",
     "opts": [
@@ -2045,7 +2045,7 @@
   },
   {
     "id": "hem-21",
-    "cat": "Hémorragie & Pansements",
+    "cat": "Hémorragies et pansements",
     "level": "PSE1",
     "q": "Pourquoi se protéger les mains avec des gants avant de comprimer une plaie qui saigne ?",
     "opts": [
@@ -2059,7 +2059,7 @@
   },
   {
     "id": "hem-22",
-    "cat": "Hémorragie & Pansements",
+    "cat": "Hémorragies et pansements",
     "level": "PSE1",
     "q": "Une victime sous traitement anticoagulant saigne du nez : quelle différence de conduite ?",
     "opts": [
@@ -2073,7 +2073,7 @@
   },
   {
     "id": "hem-23",
-    "cat": "Hémorragie & Pansements",
+    "cat": "Hémorragies et pansements",
     "level": "PSE1",
     "q": "Quel est le risque principal d'une hémorragie externe importante non contrôlée ?",
     "opts": [
@@ -2087,7 +2087,7 @@
   },
   {
     "id": "hem-24",
-    "cat": "Hémorragie & Pansements",
+    "cat": "Hémorragies et pansements",
     "level": "PSE1",
     "q": "Que doit-on faire pendant la compression d'une hémorragie ?",
     "opts": [
@@ -2101,7 +2101,7 @@
   },
   {
     "id": "hem-25",
-    "cat": "Hémorragie & Pansements",
+    "cat": "Hémorragies et pansements",
     "level": "PSE1",
     "q": "Comment comprime-t-on une plaie si aucun pansement n'est disponible ?",
     "opts": [
@@ -2115,9 +2115,9 @@
   },
   {
     "id": "hem-26",
-    "cat": "Hémorragie & Pansements",
+    "cat": "Hémorragies et pansements",
     "level": "PSE1",
-    "q": "Quel objet peut servir de garrot de fortune en dernier recours ?",
+    "q": "Quel dispositif improvisé peut servir de garrot en dernier recours ?",
     "opts": [
       "Une corde fine, qui pénètre dans la peau et serre mieux",
       "Une ceinture métallique, plus facile à serrer",
@@ -2125,11 +2125,11 @@
       "Un fil électrique, qui résiste à la tension"
     ],
     "c": 2,
-    "e": "Un garrot de fortune doit être le plus large possible pour limiter les lésions, en attendant un garrot tourniquet."
+    "e": "Un garrot improvisé doit être le plus large possible pour limiter les lésions, en attendant un matériel adapté."
   },
   {
     "id": "pls-01",
-    "cat": "Position Latérale de Secours",
+    "cat": "Position latérale de sécurité",
     "level": "PSE1",
     "q": "Que signifie l'abréviation PLS ?",
     "opts": [
@@ -2139,27 +2139,27 @@
       "Position latérale de sécurité"
     ],
     "c": 3,
-    "e": "La PLS est la position latérale de sécurité, destinée à la victime inconsciente qui respire."
+    "e": "La position latérale de sécurité (PLS) est destinée à une victime qui ne répond pas, ne réagit pas, mais respire."
   },
   {
     "id": "pls-02",
-    "cat": "Position Latérale de Secours",
+    "cat": "Position latérale de sécurité",
     "level": "PSE1",
     "q": "Quelle est l'indication principale de la mise en position latérale de sécurité ?",
     "opts": [
       "Une victime en arrêt cardiaque",
       "Une victime consciente qui se plaint d'une douleur au dos",
       "Une victime consciente qui présente une crise d'asthme",
-      "Une victime inconsciente qui respire normalement"
+      "Une victime qui ne répond pas, ne réagit pas, mais respire normalement"
     ],
     "c": 3,
-    "e": "La PLS concerne la victime inconsciente qui respire : elle protège ses voies aériennes."
+    "e": "La position latérale de sécurité (PLS) concerne la victime qui ne répond pas, ne réagit pas, mais respire ; elle protège ses voies aériennes."
   },
   {
     "id": "pls-03",
-    "cat": "Position Latérale de Secours",
+    "cat": "Position latérale de sécurité",
     "level": "PSE1",
-    "q": "Pourquoi met-on une victime inconsciente qui respire en position latérale de sécurité ?",
+    "q": "Pourquoi place-t-on en position latérale de sécurité une victime qui ne répond pas, ne réagit pas, mais respire ?",
     "opts": [
       "Pour faire remonter la tension artérielle de la victime",
       "Pour éviter que la victime ne se réveille trop rapidement",
@@ -2167,39 +2167,39 @@
       "Pour maintenir la liberté des voies aériennes et éviter l'inhalation de vomissures"
     ],
     "c": 3,
-    "e": "La position latérale permet aux liquides de s'écouler vers l'extérieur et limite l'obstruction par la langue."
+    "e": "La position latérale de sécurité (PLS) permet l'écoulement des liquides vers l'extérieur et limite l'obstruction des voies aériennes par la langue."
   },
   {
     "id": "pls-04",
-    "cat": "Position Latérale de Secours",
+    "cat": "Position latérale de sécurité",
     "level": "PSE1",
     "q": "Que vérifie-t-on avant de mettre une victime en position latérale de sécurité ?",
     "opts": [
-      "Qu'elle est inconsciente et qu'elle respire normalement",
+      "Qu'elle ne répond pas, ne réagit pas et qu'elle respire normalement",
       "Qu'elle n'a pas de fracture du bras",
       "Qu'elle a bien été vaccinée contre le tétanos",
       "Qu'elle n'a pas mangé dans l'heure précédente"
     ],
     "c": 0,
-    "e": "La PLS suppose deux conditions : inconscience et respiration présente ; sinon, la conduite change."
+    "e": "La position latérale de sécurité (PLS) suppose deux conditions : une absence de réponse et de réaction, et une respiration présente."
   },
   {
     "id": "pls-05",
-    "cat": "Position Latérale de Secours",
+    "cat": "Position latérale de sécurité",
     "level": "PSE1",
-    "q": "Pourquoi la main de la victime est-elle placée sous sa joue lors de la PLS ?",
+    "q": "Pourquoi la main de la victime est-elle placée sous sa joue lors de la position latérale de sécurité (PLS) ?",
     "opts": [
       "Pour reposer le bras de la victime pendant l'attente",
       "Pour maintenir la tête dans une position qui conserve les voies aériennes ouvertes",
-      "Pour vérifier que la victime est bien inconsciente",
+      "Pour vérifier que la victime ne répond pas et ne réagit pas",
       "Pour éviter que la victime ne se gratte le visage"
     ],
     "c": 1,
-    "e": "La main sous la joue maintient la tête en rotation douce, bouche dirigée vers le sol."
+    "e": "La main placée contre l'oreille accompagne le mouvement de la tête et participe au maintien d'une position favorable à la liberté des voies aériennes."
   },
   {
     "id": "pls-06",
-    "cat": "Position Latérale de Secours",
+    "cat": "Position latérale de sécurité",
     "level": "PSE1",
     "q": "Sur quel côté installe-t-on préférentiellement une femme enceinte en position latérale de sécurité ?",
     "opts": [
@@ -2213,21 +2213,21 @@
   },
   {
     "id": "pls-07",
-    "cat": "Position Latérale de Secours",
+    "cat": "Position latérale de sécurité",
     "level": "PSE1",
-    "q": "Une victime inconsciente respire mais est soupçonnée d'une atteinte du rachis : que fait le secouriste ?",
+    "q": "Une victime qui ne répond pas, ne réagit pas, mais respire, est soupçonnée d'une atteinte du rachis : que fait le secouriste ?",
     "opts": [
       "Il la laisse sur le dos sans surveillance particulière",
-      "Il la met en PLS en respectant l'axe tête-cou-tronc, si son état l'exige",
-      "Il la met en PLS en tournant la tête en premier",
+      "Il la met en position latérale de sécurité (PLS) en respectant l'axe tête-cou-tronc, si son état l'exige",
+      "Il la met en position latérale de sécurité (PLS) en tournant la tête en premier",
       "Il la place assise pour protéger sa colonne"
     ],
     "c": 1,
-    "e": "La PLS reste réalisée si elle est nécessaire, en maintenant l'axe tête-cou-tronc à plusieurs secouristes."
+    "e": "La position latérale de sécurité (PLS) reste possible si elle est nécessaire, en maintenant l'axe tête-cou-tronc avec plusieurs secouristes."
   },
   {
     "id": "pls-08",
-    "cat": "Position Latérale de Secours",
+    "cat": "Position latérale de sécurité",
     "level": "PSE1",
     "q": "Dans quels cas doit-on tourner une victime suspectée d'atteinte du rachis ?",
     "opts": [
@@ -2241,9 +2241,9 @@
   },
   {
     "id": "pls-09",
-    "cat": "Position Latérale de Secours",
+    "cat": "Position latérale de sécurité",
     "level": "PSE1",
-    "q": "La PLS dispense-t-elle de surveiller la respiration de la victime ?",
+    "q": "La position latérale de sécurité (PLS) dispense-t-elle de surveiller la respiration de la victime ?",
     "opts": [
       "Oui, la position garantit la liberté des voies aériennes",
       "Oui, pendant les dix premières minutes",
@@ -2251,15 +2251,15 @@
       "Non, la respiration est surveillée en permanence"
     ],
     "c": 3,
-    "e": "La PLS protège sans garantir : toute dégradation de la respiration impose une nouvelle évaluation."
+    "e": "La position latérale de sécurité (PLS) protège sans garantir : toute dégradation de la respiration impose une nouvelle évaluation."
   },
   {
     "id": "pls-10",
-    "cat": "Position Latérale de Secours",
+    "cat": "Position latérale de sécurité",
     "level": "PSE1",
-    "q": "La victime placée en PLS se met à mal respirer : que fait le secouriste ?",
+    "q": "La victime placée en position latérale de sécurité (PLS) se met à mal respirer : que fait le secouriste ?",
     "opts": [
-      "Il la laisse en PLS en attendant que cela passe",
+      "Il la laisse en position latérale de sécurité (PLS) en attendant que cela passe",
       "Il lui tourne la tête vers le sol sans changer de position",
       "Il la remet sur le dos, libère les voies aériennes et vérifie la respiration",
       "Il lui comprime le thorax pour l'aider à respirer"
@@ -2269,12 +2269,12 @@
   },
   {
     "id": "pls-11",
-    "cat": "Position Latérale de Secours",
+    "cat": "Position latérale de sécurité",
     "level": "PSE1",
-    "q": "Que fait le secouriste juste après avoir installé la victime en PLS ?",
+    "q": "Que fait le secouriste juste après avoir installé la victime en position latérale de sécurité (PLS) ?",
     "opts": [
       "Il laisse la victime seule pour accueillir les secours",
-      "Il retire la PLS au bout de cinq minutes",
+      "Il retire la position latérale de sécurité (PLS) au bout de cinq minutes",
       "Il la couvre et poursuit la surveillance en attendant les secours",
       "Il lui fait boire un peu d'eau"
     ],
@@ -2283,23 +2283,23 @@
   },
   {
     "id": "pls-12",
-    "cat": "Position Latérale de Secours",
+    "cat": "Position latérale de sécurité",
     "level": "PSE1",
-    "q": "La PLS est-elle adaptée à une victime consciente qui se sent mal ?",
+    "q": "La position latérale de sécurité (PLS) est-elle adaptée à une victime consciente qui se sent mal ?",
     "opts": [
-      "Oui, c'est la position de confort de référence",
-      "Non, elle est réservée à la victime inconsciente qui respire",
-      "Oui, si la victime se plaint de nausées",
-      "Oui, pour éviter tout risque de chute"
+      "Oui, c'est la position de confort proposée d'emblée à toute victime de malaise consciente",
+      "Non, elle concerne une victime qui ne répond pas, ne réagit pas, mais respire",
+      "Oui, si la victime consciente se plaint de nausées ou redoute de vomir ensuite",
+      "Oui, pour éviter toute chute pendant l'attente, même si la victime reste consciente"
     ],
     "c": 1,
-    "e": "Une victime consciente choisit elle-même sa position de confort ; la PLS répond à une autre situation."
+    "e": "La position latérale de sécurité concerne la victime qui ne répond pas, ne réagit pas, mais respire ; une victime consciente est installée dans la position où elle se sent le mieux."
   },
   {
     "id": "pls-13",
-    "cat": "Position Latérale de Secours",
+    "cat": "Position latérale de sécurité",
     "level": "PSE1",
-    "q": "Peut-on mettre en PLS une victime en arrêt cardiaque ?",
+    "q": "Peut-on mettre en position latérale de sécurité (PLS) une victime en arrêt cardiaque ?",
     "opts": [
       "Oui, en attendant le DAE",
       "Oui, pendant les deux premières minutes",
@@ -2311,7 +2311,7 @@
   },
   {
     "id": "pls-14",
-    "cat": "Position Latérale de Secours",
+    "cat": "Position latérale de sécurité",
     "level": "PSE1",
     "q": "Que fait la position latérale de sécurité vis-à-vis de la langue de la victime ?",
     "opts": [
@@ -2325,9 +2325,9 @@
   },
   {
     "id": "pls-15",
-    "cat": "Position Latérale de Secours",
+    "cat": "Position latérale de sécurité",
     "level": "PSE1",
-    "q": "La victime en PLS vomit : que fait le secouriste ?",
+    "q": "La victime en position latérale de sécurité (PLS) vomit : que fait le secouriste ?",
     "opts": [
       "Il vérifie que l'écoulement se fait vers l'extérieur et essuie la bouche si nécessaire",
       "Il redresse immédiatement la victime en position assise",
@@ -2335,13 +2335,13 @@
       "Il lui fait pencher la tête vers l'arrière"
     ],
     "c": 0,
-    "e": "La PLS favorise l'écoulement des liquides vers le sol : on vérifie que rien n'obstrue la bouche."
+    "e": "La position latérale de sécurité (PLS) favorise l'écoulement des liquides vers le sol : on vérifie que rien n'obstrue la bouche."
   },
   {
     "id": "pls-16",
-    "cat": "Position Latérale de Secours",
+    "cat": "Position latérale de sécurité",
     "level": "PSE1",
-    "q": "Quelle partie du corps surveille-t-on en priorité chez une victime en PLS ?",
+    "q": "Quelle fonction surveille-t-on en priorité chez une victime en position latérale de sécurité (PLS) ?",
     "opts": [
       "Les pieds et leur température, pour dépister une hypothermie",
       "La respiration et la liberté des voies aériennes",
@@ -2353,9 +2353,9 @@
   },
   {
     "id": "pls-17",
-    "cat": "Position Latérale de Secours",
+    "cat": "Position latérale de sécurité",
     "level": "PSE1",
-    "q": "Pourquoi ne laisse-t-on jamais une victime inconsciente qui respire sur le dos ?",
+    "q": "Pourquoi ne laisse-t-on jamais sur le dos une victime qui ne répond pas, ne réagit pas, mais respire ?",
     "opts": [
       "Parce qu'elle risque de se fracturer les côtes",
       "Parce que ses voies aériennes peuvent s'obstruer à tout moment",
@@ -2363,13 +2363,13 @@
       "Parce que la surveillance de la respiration y est moins efficace"
     ],
     "c": 1,
-    "e": "Sur le dos, la langue et les vomissements peuvent obstruer les voies aériennes : la PLS prévient ce risque."
+    "e": "Sur le dos, la langue et les vomissements peuvent obstruer les voies aériennes ; la position latérale de sécurité (PLS) prévient ce risque."
   },
   {
     "id": "pls-18",
-    "cat": "Position Latérale de Secours",
+    "cat": "Position latérale de sécurité",
     "level": "PSE1",
-    "q": "Quelle jambe place-t-on pliée lors de la mise en PLS ?",
+    "q": "Quelle jambe place-t-on pliée lors de la mise en position latérale de sécurité (PLS) ?",
     "opts": [
       "La jambe la plus éloignée du sol, tendue vers l'arrière et calée",
       "Les deux jambes, tendues et serrées l'une contre l'autre",
@@ -2381,9 +2381,9 @@
   },
   {
     "id": "pls-19",
-    "cat": "Position Latérale de Secours",
+    "cat": "Position latérale de sécurité",
     "level": "PSE2",
-    "q": "Faut-il retirer le casque d'un motard inconscient ?",
+    "q": "Faut-il retirer le casque d'une victime casquée qui ne répond pas, ne réagit pas ?",
     "opts": [
       "Non, sauf si les voies aériennes sont obstruées ; le retrait se fait alors à deux, dans l'axe",
       "Oui, dès qu'un traumatisme du rachis est suspecté",
@@ -2395,9 +2395,9 @@
   },
   {
     "id": "pls-20",
-    "cat": "Position Latérale de Secours",
+    "cat": "Position latérale de sécurité",
     "level": "PSE1",
-    "q": "Une victime inconsciente qui respire est allongée sur le ventre : que fait le secouriste ?",
+    "q": "Une victime qui ne répond pas, ne réagit pas, mais respire, est allongée sur le ventre : que fait le secouriste ?",
     "opts": [
       "Il la retourne délicatement en position latérale de sécurité",
       "Il la laisse sur le ventre, la position étant satisfaisante",
@@ -2409,7 +2409,7 @@
   },
   {
     "id": "mal-01",
-    "cat": "Malaises & Affections",
+    "cat": "Malaises et affections",
     "level": "PSE1",
     "q": "Qu'est-ce qu'un malaise pour le secouriste ?",
     "opts": [
@@ -2423,7 +2423,7 @@
   },
   {
     "id": "mal-02",
-    "cat": "Malaises & Affections",
+    "cat": "Malaises et affections",
     "level": "PSE1",
     "q": "Quelle est la première conduite à tenir devant une personne victime d'un malaise ?",
     "opts": [
@@ -2437,7 +2437,7 @@
   },
   {
     "id": "mal-03",
-    "cat": "Malaises & Affections",
+    "cat": "Malaises et affections",
     "level": "PSE1",
     "q": "Peut-on donner un médicament à une personne victime d'un malaise ?",
     "opts": [
@@ -2451,7 +2451,7 @@
   },
   {
     "id": "mal-04",
-    "cat": "Malaises & Affections",
+    "cat": "Malaises et affections",
     "level": "PSE1",
     "q": "Quelle position adopte-t-on pour une victime consciente qui se plaint d'une douleur thoracique ?",
     "opts": [
@@ -2465,7 +2465,7 @@
   },
   {
     "id": "mal-05",
-    "cat": "Malaises & Affections",
+    "cat": "Malaises et affections",
     "level": "PSE1",
     "q": "Une victime se plaint d'une douleur thoracique intense et serre son poing sur sa poitrine : que fait le secouriste ?",
     "opts": [
@@ -2479,7 +2479,7 @@
   },
   {
     "id": "mal-06",
-    "cat": "Malaises & Affections",
+    "cat": "Malaises et affections",
     "level": "PSE1",
     "q": "Quels signes évoquent une hypoglycémie chez une personne diabétique ?",
     "opts": [
@@ -2493,7 +2493,7 @@
   },
   {
     "id": "mal-07",
-    "cat": "Malaises & Affections",
+    "cat": "Malaises et affections",
     "level": "PSE1",
     "q": "Une personne diabétique consciente présente les signes d'une hypoglycémie : que fait le secouriste ?",
     "opts": [
@@ -2507,21 +2507,21 @@
   },
   {
     "id": "mal-08",
-    "cat": "Malaises & Affections",
+    "cat": "Malaises et affections",
     "level": "PSE1",
-    "q": "Une personne diabétique est inconsciente avec des signes d'hypoglycémie : que fait le secouriste ?",
+    "q": "Une personne diabétique ne répond pas, ne réagit pas et présente des signes d'hypoglycémie : que fait le secouriste ?",
     "opts": [
-      "Il lui fait boire un jus de fruit sucré",
-      "Il lui place un morceau de sucre entre la joue et la gencive",
-      "Il la laisse sur le dos et attend les secours",
-      "Il ne donne rien par la bouche, alerte et met en PLS si elle respire"
+      "Il lui fait boire un jus sucré, puis surveille si elle reprend peu à peu connaissance",
+      "Il place du sucre dans la bouche afin qu'il fonde sans lui faire avaler de liquide",
+      "Il la laisse sur le dos et attend l'arrivée des secours sans autre surveillance rapprochée",
+      "Il alerte, ne donne rien par la bouche et la met en PLS si elle respire"
     ],
     "c": 3,
-    "e": "Une victime inconsciente ne peut pas avaler : aucune boisson ni aliment par la bouche, alerte immédiate."
+    "e": "Une victime qui ne répond pas, ne réagit pas ne peut pas avaler ; le secouriste n'administre rien par la bouche, alerte les secours et protège les voies aériennes si la victime respire."
   },
   {
     "id": "mal-09",
-    "cat": "Malaises & Affections",
+    "cat": "Malaises et affections",
     "level": "PSE1",
     "q": "Quels signes évoquent une crise d'asthme ?",
     "opts": [
@@ -2535,7 +2535,7 @@
   },
   {
     "id": "mal-10",
-    "cat": "Malaises & Affections",
+    "cat": "Malaises et affections",
     "level": "PSE1",
     "q": "Que fait le secouriste devant une crise d'asthme ?",
     "opts": [
@@ -2549,7 +2549,7 @@
   },
   {
     "id": "mal-11",
-    "cat": "Malaises & Affections",
+    "cat": "Malaises et affections",
     "level": "PSE1",
     "q": "Quels signes évoquent une réaction allergique grave (anaphylaxie) ?",
     "opts": [
@@ -2563,7 +2563,7 @@
   },
   {
     "id": "mal-12",
-    "cat": "Malaises & Affections",
+    "cat": "Malaises et affections",
     "level": "PSE1",
     "q": "Que fait le secouriste devant une réaction allergique grave ?",
     "opts": [
@@ -2577,7 +2577,7 @@
   },
   {
     "id": "mal-13",
-    "cat": "Malaises & Affections",
+    "cat": "Malaises et affections",
     "level": "PSE1",
     "q": "Pendant une crise convulsive, que fait le secouriste ?",
     "opts": [
@@ -2591,7 +2591,7 @@
   },
   {
     "id": "mal-14",
-    "cat": "Malaises & Affections",
+    "cat": "Malaises et affections",
     "level": "PSE1",
     "q": "Pourquoi ne rien mettre dans la bouche d'une personne qui convulse ?",
     "opts": [
@@ -2605,21 +2605,21 @@
   },
   {
     "id": "mal-15",
-    "cat": "Malaises & Affections",
+    "cat": "Malaises et affections",
     "level": "PSE1",
     "q": "Que fait le secouriste après la fin d'une crise convulsive ?",
     "opts": [
-      "Il redresse immédiatement la victime et lui donne à boire",
-      "Il la laisse sur le dos et attend qu'elle reprenne ses esprits",
-      "Il la fait marcher pour évacuer le stress",
-      "Il vérifie la conscience et la respiration, met en PLS si nécessaire et alerte"
+      "Il redresse la victime, lui fait boire puis lui demande de marcher pour vérifier sa récupération",
+      "Il la laisse allongée sur le dos jusqu'au retour complet de la parole et de l'orientation",
+      "Il recherche seulement un traumatisme et attend, sans réévaluer la respiration ensuite",
+      "Il réévalue conscience et respiration, alerte et met en PLS si nécessaire"
     ],
     "c": 3,
-    "e": "Après la crise, la victime est souvent inconsciente ou confuse : PLS et surveillance s'imposent."
+    "e": "Après une crise convulsive, le secouriste recherche à nouveau la conscience et la respiration ; si la victime respire sans répondre ni réagir, la PLS est indiquée."
   },
   {
     "id": "mal-16",
-    "cat": "Malaises & Affections",
+    "cat": "Malaises et affections",
     "level": "PSE1",
     "q": "Un enfant convulse avec de la fièvre : quelle est la conduite à tenir ?",
     "opts": [
@@ -2633,9 +2633,9 @@
   },
   {
     "id": "mal-17",
-    "cat": "Malaises & Affections",
+    "cat": "Malaises et affections",
     "level": "PSE1",
-    "q": "Que fait le secouriste devant une victime en hyperventilation (crise de spasmophilie) ?",
+    "q": "Que fait le secouriste devant une victime en hyperventilation d'origine émotionnelle ?",
     "opts": [
       "Il lui fait respirer dans un sac en papier",
       "Il l'allonge sur le ventre pour limiter la respiration",
@@ -2643,11 +2643,11 @@
       "Il lui fait retenir sa respiration le plus longtemps possible"
     ],
     "c": 2,
-    "e": "La respiration dans un sac est dangereuse : la surveillance et la réassurance sont privilégiées."
+    "e": "La respiration dans un sac est dangereuse ; la surveillance, la réassurance et l'aide à une respiration contrôlée sont privilégiées."
   },
   {
     "id": "mal-18",
-    "cat": "Malaises & Affections",
+    "cat": "Malaises et affections",
     "level": "PSE1",
     "q": "Devant une personne qui a été piquée par une guêpe et qui est allergique connue, que surveille-t-on ?",
     "opts": [
@@ -2661,7 +2661,7 @@
   },
   {
     "id": "mal-19",
-    "cat": "Malaises & Affections",
+    "cat": "Malaises et affections",
     "level": "PSE1",
     "q": "Peut-on transporter soi-même une victime de malaise dans son véhicule ?",
     "opts": [
@@ -2675,7 +2675,7 @@
   },
   {
     "id": "mal-20",
-    "cat": "Malaises & Affections",
+    "cat": "Malaises et affections",
     "level": "PSE1",
     "q": "Une victime a fait un malaise avec une perte de connaissance brève puis se sent mieux : que fait le secouriste ?",
     "opts": [
@@ -2689,7 +2689,7 @@
   },
   {
     "id": "mal-21",
-    "cat": "Malaises & Affections",
+    "cat": "Malaises et affections",
     "level": "PSE1",
     "q": "Quels éléments interroge-t-on chez une victime de malaise ?",
     "opts": [
@@ -2703,7 +2703,7 @@
   },
   {
     "id": "mal-22",
-    "cat": "Malaises & Affections",
+    "cat": "Malaises et affections",
     "level": "PSE1",
     "q": "Peut-on donner à boire à une victime de malaise ?",
     "opts": [
@@ -2717,7 +2717,7 @@
   },
   {
     "id": "mal-23",
-    "cat": "Malaises & Affections",
+    "cat": "Malaises et affections",
     "level": "PSE1",
     "q": "Une victime de malaise est brûlante, a la peau sèche et a été exposée au soleil : que fait le secouriste ?",
     "opts": [
@@ -2731,7 +2731,7 @@
   },
   {
     "id": "mal-24",
-    "cat": "Malaises & Affections",
+    "cat": "Malaises et affections",
     "level": "PSE1",
     "q": "Une victime se plaint de vertiges et de faiblesse après être restée debout longtemps : quelle position adopter ?",
     "opts": [
@@ -2745,7 +2745,7 @@
   },
   {
     "id": "mal-25",
-    "cat": "Malaises & Affections",
+    "cat": "Malaises et affections",
     "level": "PSE1",
     "q": "Quand le secouriste doit-il alerter le 15 pour un malaise ?",
     "opts": [
@@ -2759,7 +2759,7 @@
   },
   {
     "id": "mal-26",
-    "cat": "Malaises & Affections",
+    "cat": "Malaises et affections",
     "level": "PSE1",
     "q": "Que signifie un trouble de la parole associé à une faiblesse d'un seul bras chez une personne âgée ?",
     "opts": [
@@ -2773,9 +2773,9 @@
   },
   {
     "id": "mal-27",
-    "cat": "Malaises & Affections",
+    "cat": "Malaises et affections",
     "level": "PSE1",
-    "q": "Une victime de malaise convulse puis reste inconsciente mais respire : que fait le secouriste ?",
+    "q": "Une victime de malaise convulse puis reste sans répondre, sans réagir, mais respire : que fait le secouriste ?",
     "opts": [
       "Il la laisse sur le dos jusqu'à son réveil complet",
       "Il lui ouvre la bouche pour vérifier qu'il n'y a rien",
@@ -2783,11 +2783,11 @@
       "Il lui administre un verre d'eau sucrée"
     ],
     "c": 2,
-    "e": "Après une crise, la victime inconsciente n'est pas protégée sur le dos : la PLS s'impose avec surveillance."
+    "e": "Après une crise, une victime qui ne répond pas, ne réagit pas n'est pas protégée sur le dos ; la position latérale de sécurité (PLS) s'impose avec surveillance."
   },
   {
     "id": "mal-28",
-    "cat": "Malaises & Affections",
+    "cat": "Malaises et affections",
     "level": "PSE1",
     "q": "Peut-on faire une fausse route en donnant à boire à une victime qui a été victime d'un AVC ?",
     "opts": [
@@ -2801,7 +2801,7 @@
   },
   {
     "id": "tra-01",
-    "cat": "Traumatismes & Brûlures",
+    "cat": "Traumatismes et brûlures",
     "level": "PSE1",
     "q": "Combien de temps faut-il refroidir une brûlure thermique récente ?",
     "opts": [
@@ -2815,7 +2815,7 @@
   },
   {
     "id": "tra-02",
-    "cat": "Traumatismes & Brûlures",
+    "cat": "Traumatismes et brûlures",
     "level": "PSE1",
     "q": "Comment refroidit-on une brûlure thermique ?",
     "opts": [
@@ -2829,7 +2829,7 @@
   },
   {
     "id": "tra-03",
-    "cat": "Traumatismes & Brûlures",
+    "cat": "Traumatismes et brûlures",
     "level": "PSE1",
     "q": "Pourquoi ne pose-t-on pas de glace directement sur une brûlure ?",
     "opts": [
@@ -2843,7 +2843,7 @@
   },
   {
     "id": "tra-04",
-    "cat": "Traumatismes & Brûlures",
+    "cat": "Traumatismes et brûlures",
     "level": "PSE1",
     "q": "Que ne faut-il jamais appliquer sur une brûlure ?",
     "opts": [
@@ -2857,7 +2857,7 @@
   },
   {
     "id": "tra-05",
-    "cat": "Traumatismes & Brûlures",
+    "cat": "Traumatismes et brûlures",
     "level": "PSE1",
     "q": "Faut-il percer les cloques d'une brûlure ?",
     "opts": [
@@ -2871,7 +2871,7 @@
   },
   {
     "id": "tra-06",
-    "cat": "Traumatismes & Brûlures",
+    "cat": "Traumatismes et brûlures",
     "level": "PSE1",
     "q": "Un vêtement est collé à une brûlure : que fait le secouriste ?",
     "opts": [
@@ -2885,7 +2885,7 @@
   },
   {
     "id": "tra-07",
-    "cat": "Traumatismes & Brûlures",
+    "cat": "Traumatismes et brûlures",
     "level": "PSE1",
     "q": "En cas de brûlure chimique de la peau, que fait-on ?",
     "opts": [
@@ -2899,7 +2899,7 @@
   },
   {
     "id": "tra-08",
-    "cat": "Traumatismes & Brûlures",
+    "cat": "Traumatismes et brûlures",
     "level": "PSE1",
     "q": "Combien de temps rince-t-on une brûlure chimique ?",
     "opts": [
@@ -2913,7 +2913,7 @@
   },
   {
     "id": "tra-09",
-    "cat": "Traumatismes & Brûlures",
+    "cat": "Traumatismes et brûlures",
     "level": "PSE1",
     "q": "Une personne a reçu un produit chimique dans l'œil : que fait le secouriste ?",
     "opts": [
@@ -2927,7 +2927,7 @@
   },
   {
     "id": "tra-10",
-    "cat": "Traumatismes & Brûlures",
+    "cat": "Traumatismes et brûlures",
     "level": "PSE1",
     "q": "En cas d'atteinte des deux yeux, par quel œil commence-t-on le rinçage ?",
     "opts": [
@@ -2941,7 +2941,7 @@
   },
   {
     "id": "tra-11",
-    "cat": "Traumatismes & Brûlures",
+    "cat": "Traumatismes et brûlures",
     "level": "PSE1",
     "q": "Une personne a été victime d'une brûlure électrique : que recherche le secouriste en priorité ?",
     "opts": [
@@ -2955,7 +2955,7 @@
   },
   {
     "id": "tra-12",
-    "cat": "Traumatismes & Brûlures",
+    "cat": "Traumatismes et brûlures",
     "level": "PSE1",
     "q": "Quelles situations font considérer une brûlure comme grave ?",
     "opts": [
@@ -2969,7 +2969,7 @@
   },
   {
     "id": "tra-13",
-    "cat": "Traumatismes & Brûlures",
+    "cat": "Traumatismes et brûlures",
     "level": "PSE1",
     "q": "Pourquoi une brûlure du visage ou des voies aériennes est-elle particulièrement grave ?",
     "opts": [
@@ -2983,7 +2983,7 @@
   },
   {
     "id": "tra-14",
-    "cat": "Traumatismes & Brûlures",
+    "cat": "Traumatismes et brûlures",
     "level": "PSE1",
     "q": "Que faire devant une personne qui a inhalé des fumées et se plaint d'une gêne pour respirer ?",
     "opts": [
@@ -2997,7 +2997,7 @@
   },
   {
     "id": "tra-15",
-    "cat": "Traumatismes & Brûlures",
+    "cat": "Traumatismes et brûlures",
     "level": "PSE1",
     "q": "Comment évaluer rapidement l'étendue d'une brûlure ?",
     "opts": [
@@ -3011,7 +3011,7 @@
   },
   {
     "id": "tra-16",
-    "cat": "Traumatismes & Brûlures",
+    "cat": "Traumatismes et brûlures",
     "level": "PSE1",
     "q": "Que fait-on après avoir refroidi une brûlure ?",
     "opts": [
@@ -3025,7 +3025,7 @@
   },
   {
     "id": "tra-17",
-    "cat": "Traumatismes & Brûlures",
+    "cat": "Traumatismes et brûlures",
     "level": "PSE1",
     "q": "Que fait le secouriste devant une contusion avec gonflement ?",
     "opts": [
@@ -3039,7 +3039,7 @@
   },
   {
     "id": "tra-18",
-    "cat": "Traumatismes & Brûlures",
+    "cat": "Traumatismes et brûlures",
     "level": "PSE1",
     "q": "Que fait-on devant une entorse de la cheville ?",
     "opts": [
@@ -3053,7 +3053,7 @@
   },
   {
     "id": "tra-19",
-    "cat": "Traumatismes & Brûlures",
+    "cat": "Traumatismes et brûlures",
     "level": "PSE1",
     "q": "Comment agit-on devant une fracture de jambe ?",
     "opts": [
@@ -3067,7 +3067,7 @@
   },
   {
     "id": "tra-20",
-    "cat": "Traumatismes & Brûlures",
+    "cat": "Traumatismes et brûlures",
     "level": "PSE1",
     "q": "Faut-il tenter de réduire une fracture visiblement déformée ?",
     "opts": [
@@ -3081,7 +3081,7 @@
   },
   {
     "id": "tra-21",
-    "cat": "Traumatismes & Brûlures",
+    "cat": "Traumatismes et brûlures",
     "level": "PSE1",
     "q": "Que fait-on devant une fracture ouverte ?",
     "opts": [
@@ -3095,7 +3095,7 @@
   },
   {
     "id": "tra-22",
-    "cat": "Traumatismes & Brûlures",
+    "cat": "Traumatismes et brûlures",
     "level": "PSE1",
     "q": "Comment immobilise-t-on une fracture du bras ou de l'avant-bras ?",
     "opts": [
@@ -3109,7 +3109,7 @@
   },
   {
     "id": "tra-23",
-    "cat": "Traumatismes & Brûlures",
+    "cat": "Traumatismes et brûlures",
     "level": "PSE1",
     "q": "Un choc à la tête est suivi de vomissements : que faut-il en penser ?",
     "opts": [
@@ -3123,7 +3123,7 @@
   },
   {
     "id": "tra-24",
-    "cat": "Traumatismes & Brûlures",
+    "cat": "Traumatismes et brûlures",
     "level": "PSE1",
     "q": "Pourquoi faut-il mettre de la glace dans un linge plutôt que directement sur la peau ?",
     "opts": [
@@ -3137,7 +3137,7 @@
   },
   {
     "id": "tra-25",
-    "cat": "Traumatismes & Brûlures",
+    "cat": "Traumatismes et brûlures",
     "level": "PSE1",
     "q": "Pourquoi surveille-t-on une victime après un traumatisme même si elle se sent bien ?",
     "opts": [
@@ -3151,7 +3151,7 @@
   },
   {
     "id": "tra-26",
-    "cat": "Traumatismes & Brûlures",
+    "cat": "Traumatismes et brûlures",
     "level": "PSE1",
     "q": "Que fait-on d'un corps étranger planté dans une plaie lors d'un traumatisme ?",
     "opts": [
@@ -3165,7 +3165,7 @@
   },
   {
     "id": "rac-01",
-    "cat": "Traumatisme Rachis & Immobilisation",
+    "cat": "Traumatisme du rachis et immobilisation",
     "level": "PSE1",
     "q": "Quelle est la première manœuvre devant une suspicion de traumatisme du rachis cervical ?",
     "opts": [
@@ -3179,7 +3179,7 @@
   },
   {
     "id": "rac-02",
-    "cat": "Traumatisme Rachis & Immobilisation",
+    "cat": "Traumatisme du rachis et immobilisation",
     "level": "PSE1",
     "q": "Pourquoi maintient-on la tête d'une victime suspecte d'atteinte du rachis ?",
     "opts": [
@@ -3193,7 +3193,7 @@
   },
   {
     "id": "rac-03",
-    "cat": "Traumatisme Rachis & Immobilisation",
+    "cat": "Traumatisme du rachis et immobilisation",
     "level": "PSE1",
     "q": "Le collier cervical suffit-il à immobiliser totalement le rachis ?",
     "opts": [
@@ -3207,7 +3207,7 @@
   },
   {
     "id": "rac-04",
-    "cat": "Traumatisme Rachis & Immobilisation",
+    "cat": "Traumatisme du rachis et immobilisation",
     "level": "PSE2",
     "q": "Quand pose-t-on un collier cervical ?",
     "opts": [
@@ -3221,7 +3221,7 @@
   },
   {
     "id": "rac-05",
-    "cat": "Traumatisme Rachis & Immobilisation",
+    "cat": "Traumatisme du rachis et immobilisation",
     "level": "PSE1",
     "q": "Peut-on asseoir ou redresser une victime suspecte d'atteinte du rachis ?",
     "opts": [
@@ -3235,7 +3235,7 @@
   },
   {
     "id": "rac-06",
-    "cat": "Traumatisme Rachis & Immobilisation",
+    "cat": "Traumatisme du rachis et immobilisation",
     "level": "PSE1",
     "q": "Que fait le secouriste si une victime suspecte d'atteinte du rachis ne respire pas ?",
     "opts": [
@@ -3249,21 +3249,21 @@
   },
   {
     "id": "rac-07",
-    "cat": "Traumatisme Rachis & Immobilisation",
+    "cat": "Traumatisme du rachis et immobilisation",
     "level": "PSE1",
-    "q": "Que fait-on d'une victime suspecte d'atteinte du rachis, inconsciente et qui respire ?",
+    "q": "Que fait-on d'une victime suspecte d'atteinte du rachis, qui ne répond pas, ne réagit pas, mais respire ?",
     "opts": [
-      "On la laisse sur le dos, sans surveillance particulière",
-      "On la met en PLS en respectant l'axe tête-cou-tronc, à plusieurs secouristes",
-      "On lui tourne la tête sur le côté pour dégager la bouche",
-      "On l'assied pour éviter l'encombrement des voies aériennes"
+      "On la laisse sur le dos, sans mobilisation, jusqu'à l'arrivée des secours sur les lieux",
+      "On la tourne sur le côté en respectant l'axe tête-cou-tronc, à plusieurs secouristes",
+      "On tourne seulement la tête sur le côté afin de dégager la bouche et de surveiller",
+      "On l'assied pour limiter l'encombrement des voies aériennes malgré la douleur du rachis"
     ],
     "c": 1,
-    "e": "Quand la PLS est nécessaire, elle se réalise en conservant l'axe du corps, avec plusieurs sauveteurs."
+    "e": "Chez une victime suspecte d'atteinte du rachis qui ne répond pas, ne réagit pas, mais respire, la mise sur le côté doit respecter l'axe tête-cou-tronc et se faire à plusieurs secouristes."
   },
   {
     "id": "rac-08",
-    "cat": "Traumatisme Rachis & Immobilisation",
+    "cat": "Traumatisme du rachis et immobilisation",
     "level": "PSE1",
     "q": "Quels signes peuvent évoquer une atteinte de la moelle épinière ?",
     "opts": [
@@ -3277,7 +3277,7 @@
   },
   {
     "id": "rac-09",
-    "cat": "Traumatisme Rachis & Immobilisation",
+    "cat": "Traumatisme du rachis et immobilisation",
     "level": "PSE1",
     "q": "Quels mécanismes doivent faire suspecter une atteinte du rachis ?",
     "opts": [
@@ -3291,7 +3291,7 @@
   },
   {
     "id": "rac-10",
-    "cat": "Traumatisme Rachis & Immobilisation",
+    "cat": "Traumatisme du rachis et immobilisation",
     "level": "PSE1",
     "q": "Que faire devant une victime qui a plongé dans une eau peu profonde et ne peut plus bouger les jambes ?",
     "opts": [
@@ -3305,7 +3305,7 @@
   },
   {
     "id": "rac-11",
-    "cat": "Traumatisme Rachis & Immobilisation",
+    "cat": "Traumatisme du rachis et immobilisation",
     "level": "PSE1",
     "q": "Que dit-on à une victime suspecte d'atteinte du rachis ?",
     "opts": [
@@ -3319,7 +3319,7 @@
   },
   {
     "id": "rac-12",
-    "cat": "Traumatisme Rachis & Immobilisation",
+    "cat": "Traumatisme du rachis et immobilisation",
     "level": "PSE1",
     "q": "Dans quelles conditions déplace-t-on une victime suspecte d'atteinte du rachis ?",
     "opts": [
@@ -3333,7 +3333,7 @@
   },
   {
     "id": "rac-13",
-    "cat": "Traumatisme Rachis & Immobilisation",
+    "cat": "Traumatisme du rachis et immobilisation",
     "level": "PSE2",
     "q": "Combien de secouristes faut-il pour retourner une victime en bloc ?",
     "opts": [
@@ -3347,9 +3347,9 @@
   },
   {
     "id": "rac-14",
-    "cat": "Traumatisme Rachis & Immobilisation",
+    "cat": "Traumatisme du rachis et immobilisation",
     "level": "PSE2",
-    "q": "Faut-il retirer le casque d'un motard conscient et suspect d'atteinte du rachis ?",
+    "q": "Faut-il retirer le casque d'une victime casquée, consciente et suspecte d'atteinte du rachis ?",
     "opts": [
       "Oui, il gêne la surveillance des voies aériennes",
       "Non, on le laisse en place et on le maintient avec la tête",
@@ -3361,7 +3361,7 @@
   },
   {
     "id": "rac-15",
-    "cat": "Traumatisme Rachis & Immobilisation",
+    "cat": "Traumatisme du rachis et immobilisation",
     "level": "PSE2",
     "q": "À quoi sert un plan dur ou une civière à coquille ?",
     "opts": [
@@ -3375,7 +3375,7 @@
   },
   {
     "id": "rac-16",
-    "cat": "Traumatisme Rachis & Immobilisation",
+    "cat": "Traumatisme du rachis et immobilisation",
     "level": "PSE1",
     "q": "Que surveille-t-on chez une victime suspecte d'atteinte du rachis ?",
     "opts": [
@@ -3389,7 +3389,7 @@
   },
   {
     "id": "rac-17",
-    "cat": "Traumatisme Rachis & Immobilisation",
+    "cat": "Traumatisme du rachis et immobilisation",
     "level": "PSE1",
     "q": "Une victime assise au sol après une chute se plaint du dos : peut-elle se relever seule ?",
     "opts": [
@@ -3403,7 +3403,7 @@
   },
   {
     "id": "rac-18",
-    "cat": "Traumatisme Rachis & Immobilisation",
+    "cat": "Traumatisme du rachis et immobilisation",
     "level": "PSE1",
     "q": "Pourquoi ne pas caler la tête d'une victime avec un oreiller épais ?",
     "opts": [
@@ -3417,7 +3417,7 @@
   },
   {
     "id": "rac-19",
-    "cat": "Traumatisme Rachis & Immobilisation",
+    "cat": "Traumatisme du rachis et immobilisation",
     "level": "PSE1",
     "q": "Pourquoi répète-t-on le bilan d'une victime suspecte d'atteinte du rachis ?",
     "opts": [
@@ -3431,7 +3431,7 @@
   },
   {
     "id": "rac-20",
-    "cat": "Traumatisme Rachis & Immobilisation",
+    "cat": "Traumatisme du rachis et immobilisation",
     "level": "PSE1",
     "q": "Une victime présente une douleur du cou et des fourmillements dans les deux mains : que fait le secouriste ?",
     "opts": [
@@ -3445,7 +3445,7 @@
   },
   {
     "id": "mat-01",
-    "cat": "Matériel & Oxygénothérapie",
+    "cat": "Matériel et oxygénothérapie",
     "level": "PSE2",
     "q": "Quel débit d'oxygène utilise-t-on avec un masque à haute concentration chez l'adulte ?",
     "opts": [
@@ -3459,7 +3459,7 @@
   },
   {
     "id": "mat-02",
-    "cat": "Matériel & Oxygénothérapie",
+    "cat": "Matériel et oxygénothérapie",
     "level": "PSE2",
     "q": "Quel débit d'oxygène utilise-t-on avec des lunettes à oxygène chez l'adulte ?",
     "opts": [
@@ -3473,9 +3473,9 @@
   },
   {
     "id": "mat-03",
-    "cat": "Matériel & Oxygénothérapie",
+    "cat": "Matériel et oxygénothérapie",
     "level": "PSE2",
-    "q": "Que vérifie-t-on avant de brancher un patient sur une bouteille d'oxygène ?",
+    "q": "Que vérifie-t-on avant de brancher une victime sur une bouteille d'oxygène ?",
     "opts": [
       "La pression au manomètre et le bon fonctionnement du détendeur après une brève purge",
       "La couleur du tuyau et la longueur totale du circuit d'oxygène",
@@ -3487,7 +3487,7 @@
   },
   {
     "id": "mat-04",
-    "cat": "Matériel & Oxygénothérapie",
+    "cat": "Matériel et oxygénothérapie",
     "level": "PSE2",
     "q": "Pourquoi ne faut-il jamais graisser ou huiler le matériel d'oxygène ?",
     "opts": [
@@ -3501,7 +3501,7 @@
   },
   {
     "id": "mat-05",
-    "cat": "Matériel & Oxygénothérapie",
+    "cat": "Matériel et oxygénothérapie",
     "level": "PSE2",
     "q": "Quelles précautions prend-on avec une bouteille d'oxygène entre deux interventions ?",
     "opts": [
@@ -3515,7 +3515,7 @@
   },
   {
     "id": "mat-06",
-    "cat": "Matériel & Oxygénothérapie",
+    "cat": "Matériel et oxygénothérapie",
     "level": "PSE2",
     "q": "Que fait-on si le manomètre indique une pression très faible ?",
     "opts": [
@@ -3529,7 +3529,7 @@
   },
   {
     "id": "mat-07",
-    "cat": "Matériel & Oxygénothérapie",
+    "cat": "Matériel et oxygénothérapie",
     "level": "PSE2",
     "q": "À quoi sert un insufflateur manuel (BAVU) ?",
     "opts": [
@@ -3543,9 +3543,9 @@
   },
   {
     "id": "mat-08",
-    "cat": "Matériel & Oxygénothérapie",
+    "cat": "Matériel et oxygénothérapie",
     "level": "PSE2",
-    "q": "Pourquoi le BAVU est-il préféré au bouche-à-bouche en équipe ?",
+    "q": "Pourquoi le BAVU est-il préféré à la ventilation artificielle par une méthode orale en équipe ?",
     "opts": [
       "Parce qu'il est obligatoire pour l'adulte uniquement",
       "Parce qu'il permet de comprimer le thorax en même temps",
@@ -3553,11 +3553,11 @@
       "Parce qu'il évite le contact direct avec la victime et permet une ventilation plus efficace"
     ],
     "c": 3,
-    "e": "Le BAVU protège le secouriste et délivre une ventilation plus riche en oxygène."
+    "e": "Le BAVU protège le secouriste et permet une ventilation artificielle plus efficace et plus riche en oxygène."
   },
   {
     "id": "mat-09",
-    "cat": "Matériel & Oxygénothérapie",
+    "cat": "Matériel et oxygénothérapie",
     "level": "PSE2",
     "q": "Que permet une canule d'aspiration ?",
     "opts": [
@@ -3571,7 +3571,7 @@
   },
   {
     "id": "mat-10",
-    "cat": "Matériel & Oxygénothérapie",
+    "cat": "Matériel et oxygénothérapie",
     "level": "PSE2",
     "q": "Quand administre-t-on de l'oxygène à une victime ?",
     "opts": [
@@ -3585,7 +3585,7 @@
   },
   {
     "id": "mat-11",
-    "cat": "Matériel & Oxygénothérapie",
+    "cat": "Matériel et oxygénothérapie",
     "level": "PSE2",
     "q": "Que mesure un oxymètre de pouls ?",
     "opts": [
@@ -3599,7 +3599,7 @@
   },
   {
     "id": "mat-12",
-    "cat": "Matériel & Oxygénothérapie",
+    "cat": "Matériel et oxygénothérapie",
     "level": "PSE2",
     "q": "Que fait-on si l'oxymètre affiche une valeur inattendue ?",
     "opts": [
@@ -3613,7 +3613,7 @@
   },
   {
     "id": "mat-13",
-    "cat": "Matériel & Oxygénothérapie",
+    "cat": "Matériel et oxygénothérapie",
     "level": "PSE2",
     "q": "À quoi sert un masque de barrière (ou masque de poche) ?",
     "opts": [
@@ -3627,7 +3627,7 @@
   },
   {
     "id": "mat-14",
-    "cat": "Matériel & Oxygénothérapie",
+    "cat": "Matériel et oxygénothérapie",
     "level": "PSE2",
     "q": "À quoi sert une couverture de survie ?",
     "opts": [
@@ -3641,7 +3641,7 @@
   },
   {
     "id": "mat-15",
-    "cat": "Matériel & Oxygénothérapie",
+    "cat": "Matériel et oxygénothérapie",
     "level": "PSE2",
     "q": "Quand vérifie-t-on la dotation et la péremption du matériel de secours ?",
     "opts": [
@@ -3655,7 +3655,7 @@
   },
   {
     "id": "mat-16",
-    "cat": "Matériel & Oxygénothérapie",
+    "cat": "Matériel et oxygénothérapie",
     "level": "PSE2",
     "q": "Après utilisation, que fait-on du matériel souillé ?",
     "opts": [
@@ -3669,7 +3669,7 @@
   },
   {
     "id": "mat-17",
-    "cat": "Matériel & Oxygénothérapie",
+    "cat": "Matériel et oxygénothérapie",
     "level": "PSE2",
     "q": "Que faut-il vérifier sur un DAE avant de le remettre en service après usage ?",
     "opts": [
@@ -3683,7 +3683,7 @@
   },
   {
     "id": "mat-18",
-    "cat": "Matériel & Oxygénothérapie",
+    "cat": "Matériel et oxygénothérapie",
     "level": "PSE2",
     "q": "Après usage, que fait-on des électrodes du DAE ?",
     "opts": [
@@ -3697,7 +3697,7 @@
   },
   {
     "id": "mat-19",
-    "cat": "Matériel & Oxygénothérapie",
+    "cat": "Matériel et oxygénothérapie",
     "level": "PSE2",
     "q": "Pourquoi le DAE doit-il être facilement accessible dans son véhicule ou son local ?",
     "opts": [
@@ -3711,7 +3711,7 @@
   },
   {
     "id": "mat-20",
-    "cat": "Matériel & Oxygénothérapie",
+    "cat": "Matériel et oxygénothérapie",
     "level": "PSE1",
     "q": "Que fait un défibrillateur automatisé externe (DAE) ?",
     "opts": [
@@ -3722,5 +3722,901 @@
     ],
     "c": 1,
     "e": "Le DAE analyse le rythme et indique au secouriste la conduite à tenir, sans jamais remplacer la RCP."
+  },
+  {
+    "id": "psc-att-01",
+    "cat": "Attitude et comportement",
+    "level": "PSC",
+    "q": "Dans la fiche PSC « Alerte », en quoi consiste l'alerte ?",
+    "opts": [
+      "À informer un service d'urgence de la présence de victimes et de l'aide apportée",
+      "À prévenir les proches de la victime et attendre ensuite l'arrivée des secours sur place",
+      "À transmettre seulement l'adresse de l'événement à une autorité locale sans autre précision",
+      "À demander un conseil médical général après avoir quitté les lieux de l'événement"
+    ],
+    "c": 0,
+    "e": "La fiche PSC « Alerte » définit l'alerte comme l'action d'informer un service d'urgence de la présence d'une ou plusieurs victimes, des détresses constatées et de l'assistance apportée."
+  },
+  {
+    "id": "psc-att-02",
+    "cat": "Attitude et comportement",
+    "level": "PSC",
+    "q": "Quel numéro d'urgence est valide dans l'ensemble de l'Union Européenne ?",
+    "opts": [
+      "18",
+      "112",
+      "15",
+      "114"
+    ],
+    "c": 1,
+    "e": "Le 112 est le numéro de téléphone réservé aux appels d'urgence et valide dans l'ensemble de l'Union Européenne."
+  },
+  {
+    "id": "psc-att-03",
+    "cat": "Attitude et comportement",
+    "level": "PSC",
+    "q": "Quel numéro d'urgence national gratuit est accessible en visio, tchat, images et SMS ?",
+    "opts": [
+      "15",
+      "17",
+      "114",
+      "18"
+    ],
+    "c": 2,
+    "e": "Le 114 est le numéro d'urgence unique, national et gratuit, accessible en visio, tchat, images et SMS, notamment pour les personnes sourdes, sourdaveugles, malentendantes et aphasiques."
+  },
+  {
+    "id": "psc-att-04",
+    "cat": "Attitude et comportement",
+    "level": "PSC",
+    "q": "Dans la fiche PSC « Protection », quand un dégagement d'urgence peut-il être réalisé ?",
+    "opts": [
+      "Quand la victime se plaint d'une douleur importante mais se trouve déjà en sécurité",
+      "Quand un témoin demande de déplacer la victime pour la mettre dans une position plus confortable",
+      "Quand la victime est allongée sur la voie publique sans danger réel, immédiat et identifié",
+      "Quand la victime ne peut pas se soustraire à un danger réel, immédiat et non contrôlable"
+    ],
+    "c": 3,
+    "e": "Le dégagement d'urgence reste exceptionnel. La fiche PSC le réserve au cas où la victime ne peut pas se soustraire elle-même à un danger réel, immédiat et non contrôlable."
+  },
+  {
+    "id": "psc-att-05",
+    "cat": "Attitude et comportement",
+    "level": "PSC",
+    "q": "Lorsqu'il peut agir sans risque pour sa propre sécurité, que doit faire immédiatement le secouriste face à un danger ?",
+    "opts": [
+      "Supprimer ou écarter le danger de façon permanente",
+      "Déplacer d'abord toutes les victimes hors de la zone",
+      "Attendre les secours en surveillant seulement la zone",
+      "S'éloigner puis revenir avec du matériel"
+    ],
+    "c": 0,
+    "e": "La fiche PSC « Protection » précise que le secouriste doit immédiatement supprimer ou écarter le danger de façon permanente, s'il peut le faire sans risque pour sa propre sécurité."
+  },
+  {
+    "id": "psc-att-06",
+    "cat": "Attitude et comportement",
+    "level": "PSC",
+    "q": "Quand le secouriste demande à une autre personne de donner l'alerte, que doit-il faire ?",
+    "opts": [
+      "La laisser formuler l'alerte comme elle le souhaite, puis revenir seulement si besoin",
+      "S'assurer qu'elle a les éléments utiles, puis vérifier qu'elle a bien transmis l'alerte",
+      "L'accompagner jusqu'à un téléphone fixe avant de reprendre tout autre geste de secours",
+      "Lui demander uniquement le nom du service contacté et l'heure précise de l'appel"
+    ],
+    "c": 1,
+    "e": "La fiche PSC précise que, lorsqu'une autre personne alerte, le secouriste s'assure d'abord qu'elle dispose des éléments utiles puis vérifie qu'elle a correctement transmis l'alerte."
+  },
+  {
+    "id": "psc-att-07",
+    "cat": "Attitude et comportement",
+    "level": "PSC",
+    "q": "Devant une attaque terroriste ou une situation de violence, quelle est la première option évoquée dans la fiche PSC « Protection » ?",
+    "opts": [
+      "Prodiguer immédiatement les premiers soins sur place",
+      "Se filmer pour décrire la scène aux secours",
+      "S'échapper sans risque",
+      "Regrouper toutes les victimes au même endroit"
+    ],
+    "c": 2,
+    "e": "La conduite à tenir évoquée dans la fiche PSC « Protection » commence par s'échapper sans risque ; si c'est impossible, s'enfermer et se barricader, puis alerter une fois caché ou en sécurité."
+  },
+  {
+    "id": "psc-att-08",
+    "cat": "Attitude et comportement",
+    "level": "PSC",
+    "q": "Selon les informations générales PSC, à quoi correspond la morphologie « nourrisson » ?",
+    "opts": [
+      "Une victime de moins de 10 ans capable de marcher seule",
+      "Une victime ressemblant à un nourrisson et pouvant tenir sur l'avant-bras du secouriste",
+      "Une victime mesurant moins d'un mètre cinquante",
+      "Une victime pouvant tenir sur la cuisse du secouriste"
+    ],
+    "c": 1,
+    "e": "Dans les informations générales PSC, le nourrisson est défini comme une victime ressemblant à un nourrisson et pouvant tenir sur l'avant-bras du secouriste."
+  },
+  {
+    "id": "psc-hem-01",
+    "cat": "Hémorragies et pansements",
+    "level": "PSC",
+    "q": "Dans la fiche PSC « Hémorragies », comment est définie une hémorragie ?",
+    "opts": [
+      "Une perte de sang venant d'une plaie ou d'un orifice naturel, sans arrêt spontané",
+      "Une petite plaie qui saigne peu pendant un court instant avant de s'arrêter seule",
+      "Un saignement limité à un membre, sans perte abondante ni retentissement particulier",
+      "Une écorchure superficielle qui cesse rapidement de saigner après simple essuyage"
+    ],
+    "c": 0,
+    "e": "La fiche PSC « Hémorragies » définit l'hémorragie comme une perte de sang provenant d'une plaie ou d'un orifice naturel et qui ne s'arrête pas spontanément."
+  },
+  {
+    "id": "psc-hem-02",
+    "cat": "Hémorragies et pansements",
+    "level": "PSC",
+    "q": "Quel signe pratique permet de reconnaître une hémorragie dans la fiche PSC ?",
+    "opts": [
+      "Le saignement colore la peau autour de la plaie",
+      "Le sang imbibe un mouchoir de tissu ou de papier en quelques secondes",
+      "La victime ressent seulement une douleur locale",
+      "Le saignement apparaît uniquement quand la victime se lève"
+    ],
+    "c": 1,
+    "e": "La fiche PSC précise qu'une hémorragie imbibe de sang un mouchoir de tissu ou de papier en quelques secondes."
+  },
+  {
+    "id": "psc-hem-03",
+    "cat": "Hémorragies et pansements",
+    "level": "PSC",
+    "q": "Quel est le premier moyen proposé pour arrêter immédiatement une hémorragie selon la fiche PSC ?",
+    "opts": [
+      "Poser un linge sec puis attendre l'arrêt spontané",
+      "Faire boire la victime pour prévenir la détresse circulatoire",
+      "Demander à la victime de comprimer immédiatement l'endroit qui saigne",
+      "Installer la victime assise avant toute autre action"
+    ],
+    "c": 2,
+    "e": "La conduite à tenir PSC prévoit d'arrêter immédiatement l'hémorragie, d'abord en demandant à la victime de comprimer elle-même l'endroit qui saigne, ou à défaut en le faisant à sa place."
+  },
+  {
+    "id": "psc-hem-04",
+    "cat": "Hémorragies et pansements",
+    "level": "PSC",
+    "q": "Dans la fiche PSC « Compression », dans quel cas un pansement compressif est-il indiqué ?",
+    "opts": [
+      "Quand l'endroit qui saigne est au cou ou à l'œil",
+      "Quand la victime peut maintenir seule une compression pendant plusieurs heures",
+      "Quand le saignement est minime et déjà arrêté",
+      "Quand l'hémorragie est contrôlée manuellement et que le secouriste doit se libérer"
+    ],
+    "c": 3,
+    "e": "Le pansement compressif est indiqué si l'hémorragie est déjà contrôlée par la compression manuelle, si le secouriste doit se libérer, et que la zone n'est pas située au cou, à la tête, au thorax ou à l'abdomen."
+  },
+  {
+    "id": "psc-hem-05",
+    "cat": "Hémorragies et pansements",
+    "level": "PSC",
+    "q": "Quand la fiche PSC « Garrot » indique-t-elle la pose d'un garrot ?",
+    "opts": [
+      "Lors d'une hémorragie d'un membre si la compression directe est inefficace ou impossible",
+      "Dès qu'une plaie saigne un peu, afin de prévenir toute aggravation ultérieure du saignement",
+      "Seulement après l'arrivée d'un médecin ou d'un chef d'agrès sur le lieu de l'intervention",
+      "Uniquement devant une plaie abdominale quand la compression manuelle devient douloureuse"
+    ],
+    "c": 0,
+    "e": "La fiche PSC « Garrot » indique le garrot en cas d'hémorragie d'un membre lorsque la compression directe est inefficace ou impossible."
+  },
+  {
+    "id": "psc-hem-06",
+    "cat": "Hémorragies et pansements",
+    "level": "PSC",
+    "q": "Où doit être positionné un garrot selon la fiche PSC ?",
+    "opts": [
+      "Directement sur l'articulation la plus proche",
+      "À quelques centimètres de la plaie, entre la plaie et la racine du membre, sans le poser sur une articulation",
+      "Le plus près possible de la main ou du pied, même sur une articulation",
+      "Uniquement à la racine du membre"
+    ],
+    "c": 1,
+    "e": "Le référentiel PSC indique de positionner le garrot à quelques centimètres de la plaie, idéalement 5 à 7 cm, entre la plaie et la racine du membre, jamais sur une articulation."
+  },
+  {
+    "id": "psc-hem-07",
+    "cat": "Hémorragies et pansements",
+    "level": "PSC",
+    "q": "Quelle position est demandée devant une victime qui saigne du nez dans la fiche PSC « Hémorragies » ?",
+    "opts": [
+      "Allongée, tête en arrière",
+      "Debout, tête tournée sur le côté",
+      "Assise, tête penchée en avant",
+      "À genoux, front au sol"
+    ],
+    "c": 2,
+    "e": "La conduite à tenir particulière devant un saignement de nez est de faire asseoir la victime, tête penchée en avant, puis de faire comprimer les deux narines durant 10 minutes sans relâcher."
+  },
+  {
+    "id": "psc-hem-08",
+    "cat": "Hémorragies et pansements",
+    "level": "PSC",
+    "q": "Après la pose d'un garrot, quelle information doit être notée selon la fiche PSC ?",
+    "opts": [
+      "Le groupe sanguin présumé de la victime",
+      "Le nombre de témoins présents",
+      "La température extérieure",
+      "L'heure de pose du garrot"
+    ],
+    "c": 3,
+    "e": "La fiche PSC « Garrot » précise qu'il faut noter lisiblement l'heure de pose du garrot pour la communiquer au relais de prise en charge."
+  },
+  {
+    "id": "psc-ova-01",
+    "cat": "Obstruction des voies aériennes",
+    "level": "PSC",
+    "q": "Comment la fiche PSC définit-elle l'obstruction des voies aériennes (OVA) ?",
+    "opts": [
+      "La gêne brutale du passage de l'air entre l'extérieur et les poumons, par un corps étranger",
+      "Une douleur thoracique avec gêne respiratoire liée à l'effort ou à une émotion importante",
+      "Un encombrement bronchique progressif avec sécrétions, rencontré lors d'une infection respiratoire",
+      "Une difficulté respiratoire d'origine allergique, sans obstacle mécanique par corps étranger"
+    ],
+    "c": 0,
+    "e": "La fiche PSC définit l'obstruction des voies aériennes comme la gêne ou l'empêchement brutal des mouvements de l'air entre l'extérieur et les poumons, par un corps étranger."
+  },
+  {
+    "id": "psc-ova-02",
+    "cat": "Obstruction des voies aériennes",
+    "level": "PSC",
+    "q": "Quel signe correspond à une obstruction des voies aériennes non totale selon la fiche PSC ?",
+    "opts": [
+      "La victime ne peut plus émettre aucun son",
+      "La victime peut parler, crier, tousser et respirer, parfois avec un bruit surajouté",
+      "La victime ne répond plus et ne réagit plus immédiatement",
+      "La victime présente obligatoirement un arrêt cardiaque"
+    ],
+    "c": 1,
+    "e": "Si la victime peut parler, crier, tousser et respirer, parfois avec un bruit surajouté, l'obstruction n'est pas totale."
+  },
+  {
+    "id": "psc-ova-03",
+    "cat": "Obstruction des voies aériennes",
+    "level": "PSC",
+    "q": "Quel signe fait évoquer une obstruction totale des voies aériennes dans la fiche PSC ?",
+    "opts": [
+      "Une toux forte et efficace avec parole encore possible pendant la respiration",
+      "Une respiration difficile mais avec sons audibles et possibilité de parler encore",
+      "L'impossibilité de parler, de tousser ou d'émettre un son audible",
+      "Une douleur du bras avec essoufflement lors d'un effort sans corps étranger identifié"
+    ],
+    "c": 2,
+    "e": "La fiche PSC fait évoquer une obstruction totale lorsque la victime ne peut plus parler, crier, tousser ni émettre un son, avec agitation puis cyanose possibles."
+  },
+  {
+    "id": "psc-ova-04",
+    "cat": "Obstruction des voies aériennes",
+    "level": "PSC",
+    "q": "Que faut-il faire si la victime peut parler ou tousser lors d'une OVA selon la fiche PSC ?",
+    "opts": [
+      "Pratiquer immédiatement des compressions abdominales",
+      "L'allonger d'emblée sur le dos",
+      "Lui faire boire un verre d'eau",
+      "Continuer à l'encourager à tousser et surveiller l'efficacité de la toux"
+    ],
+    "c": 3,
+    "e": "Si la victime peut parler, crier ou tousser, la conduite à tenir PSC est de continuer à l'encourager à tousser et de surveiller l'efficacité de cette toux ou l'apparition de signes de fatigue."
+  },
+  {
+    "id": "psc-ova-05",
+    "cat": "Obstruction des voies aériennes",
+    "level": "PSC",
+    "q": "En cas d'obstruction totale chez un adulte ou un enfant conscient, quel enchaînement la fiche PSC recommande-t-elle ?",
+    "opts": [
+      "De 1 à 5 claques dans le dos puis de 1 à 5 compressions abdominales si nécessaire",
+      "Deux insufflations puis cinq claques dans le dos",
+      "Des compressions thoraciques immédiates sans autre manœuvre",
+      "Une mise en position latérale de sécurité"
+    ],
+    "c": 0,
+    "e": "La conduite à tenir PSC prévoit de donner de 1 à 5 claques dans le dos puis, en cas d'inefficacité, de réaliser de 1 à 5 compressions abdominales chez l'adulte ou l'enfant."
+  },
+  {
+    "id": "psc-ova-06",
+    "cat": "Obstruction des voies aériennes",
+    "level": "PSC",
+    "q": "Dans quel cas la fiche PSC prévoit-elle des compressions thoraciques pour désobstruer les voies aériennes ?",
+    "opts": [
+      "Quand la victime a déjà rejeté le corps étranger mais garde une toux encore présente",
+      "Quand il est impossible d'encercler l'abdomen, notamment chez la femme enceinte ou le nourrisson",
+      "Uniquement chez un adulte sportif dont le thorax développé gêne la prise abdominale",
+      "Seulement devant une douleur abdominale isolée, sans signe d'étouffement ni de toux"
+    ],
+    "c": 1,
+    "e": "La fiche PSC prévoit des compressions thoraciques lorsqu'il est impossible d'encercler l'abdomen, notamment chez la femme enceinte, la personne obèse, la personne alitée ou le nourrisson."
+  },
+  {
+    "id": "psc-ova-07",
+    "cat": "Obstruction des voies aériennes",
+    "level": "PSC",
+    "q": "Où la fiche PSC demande-t-elle de donner les claques dans le dos ?",
+    "opts": [
+      "Au milieu des lombaires avec le poing fermé",
+      "Sur la nuque avec la paume de la main",
+      "Entre les omoplates avec le talon de la main ouverte",
+      "Sous les côtes avec la pulpe des doigts"
+    ],
+    "c": 2,
+    "e": "La fiche PSC « Désobstruction par des claques dans le dos » précise que la claque doit être donnée entre les omoplates, avec le talon de la main ouverte et de façon vigoureuse."
+  },
+  {
+    "id": "psc-ova-08",
+    "cat": "Obstruction des voies aériennes",
+    "level": "PSC",
+    "q": "Que faut-il faire si la victime perd connaissance pendant une obstruction des voies aériennes ?",
+    "opts": [
+      "La relever immédiatement pour reprendre les claques dans le dos",
+      "Attendre le rejet spontané du corps étranger",
+      "L'installer assise et lui demander de tousser",
+      "L'accompagner au sol et réaliser une réanimation cardio-pulmonaire"
+    ],
+    "c": 3,
+    "e": "En cas de perte de connaissance au cours d'une OVA, la conduite à tenir PSC est d'accompagner la victime au sol puis de réaliser une réanimation cardio-pulmonaire."
+  },
+  {
+    "id": "psc-rcp-01",
+    "cat": "RCP et DAE",
+    "level": "PSC",
+    "q": "Quels signes définissent un arrêt cardiaque dans la fiche PSC « Arrêt cardiaque » ?",
+    "opts": [
+      "La victime ne répond pas, ne réagit pas et ne respire pas ou présente une respiration anormale",
+      "La victime se plaint d'une douleur thoracique mais marche encore",
+      "La victime parle difficilement après un effort",
+      "La victime présente une plaie profonde au membre supérieur"
+    ],
+    "c": 0,
+    "e": "Dans la fiche PSC « Arrêt cardiaque », la victime est en arrêt cardiaque lorsqu'elle ne répond pas, ne réagit pas, et ne respire pas ou présente une respiration anormale de type agonique."
+  },
+  {
+    "id": "psc-rcp-02",
+    "cat": "RCP et DAE",
+    "level": "PSC",
+    "q": "Quelle « chaîne de survie » est explicitement rappelée dans la fiche PSC « Arrêt cardiaque » ?",
+    "opts": [
+      "Protéger, diagnostiquer, transporter",
+      "Alerter, masser, défibriller",
+      "Observer, refroidir, oxygéner",
+      "Identifier, immobiliser, évacuer"
+    ],
+    "c": 1,
+    "e": "La fiche PSC rappelle la chaîne de survie : alerter, masser, défibriller."
+  },
+  {
+    "id": "psc-rcp-03",
+    "cat": "RCP et DAE",
+    "level": "PSC",
+    "q": "Selon la fiche PSC « Arrêt cardiaque », quel bénéfice peut apporter chaque minute gagnée dans la mise en place d'une RCP efficace ?",
+    "opts": [
+      "Une baisse de 10 % du risque de malaise ultérieur",
+      "Une amélioration de 4 % de la saturation en oxygène",
+      "Une augmentation de 10 % des chances de survie",
+      "Une réduction de moitié des douleurs thoraciques"
+    ],
+    "c": 2,
+    "e": "Le document PSC précise que chaque minute gagnée dans la mise en place d'une RCP efficace peut augmenter de 10 % les chances de survie de la victime."
+  },
+  {
+    "id": "psc-rcp-04",
+    "cat": "RCP et DAE",
+    "level": "PSC",
+    "q": "Si le secouriste est seul et dispose d'un téléphone portable avec haut-parleur, que prévoit la fiche PSC ?",
+    "opts": [
+      "Attendre un second secouriste avant de commencer la RCP",
+      "Appeler puis raccrocher avant toute compression",
+      "Chercher d'abord un DAE même éloigné",
+      "Activer le haut-parleur et débuter immédiatement la RCP en même temps que l'alerte"
+    ],
+    "c": 3,
+    "e": "La conduite à tenir PSC prévoit, si le secouriste est seul et dispose d'un téléphone portable avec mode haut-parleur, de l'activer et de débuter immédiatement la RCP en même temps que l'alerte."
+  },
+  {
+    "id": "psc-rcp-05",
+    "cat": "RCP et DAE",
+    "level": "PSC",
+    "q": "Quel rythme compressions / insufflations la fiche PSC recommande-t-elle chez l'adulte en arrêt cardiaque ?",
+    "opts": [
+      "30 compressions thoraciques pour 2 insufflations",
+      "15 compressions thoraciques pour 2 insufflations",
+      "5 compressions thoraciques pour 1 insufflation",
+      "100 compressions thoraciques sans pause obligatoire"
+    ],
+    "c": 0,
+    "e": "Chez l'adulte, la fiche PSC « Arrêt cardiaque » recommande de répéter des cycles de 30 compressions thoraciques pour 2 insufflations."
+  },
+  {
+    "id": "psc-rcp-06",
+    "cat": "RCP et DAE",
+    "level": "PSC",
+    "q": "Quel rythme compressions / insufflations la fiche PSC recommande-t-elle chez l'enfant et le nourrisson en arrêt cardiaque ?",
+    "opts": [
+      "30 compressions thoraciques pour 2 insufflations",
+      "15 compressions thoraciques pour 2 insufflations",
+      "10 compressions thoraciques pour 2 insufflations",
+      "5 compressions thoraciques pour 5 insufflations"
+    ],
+    "c": 1,
+    "e": "Chez l'enfant et le nourrisson, la fiche PSC « Arrêt cardiaque » recommande des cycles de 15 compressions thoraciques pour 2 insufflations."
+  },
+  {
+    "id": "psc-rcp-07",
+    "cat": "RCP et DAE",
+    "level": "PSC",
+    "q": "Quelle fréquence de compressions thoraciques la fiche PSC demande-t-elle de maintenir ?",
+    "opts": [
+      "60 à 80 compressions par minute",
+      "80 à 100 compressions par minute",
+      "100 à 120 compressions par minute",
+      "120 à 140 compressions par minute"
+    ],
+    "c": 2,
+    "e": "La fiche PSC « Compressions thoraciques » demande de maintenir une fréquence comprise entre 100 et 120 compressions par minute."
+  },
+  {
+    "id": "psc-rcp-08",
+    "cat": "RCP et DAE",
+    "level": "PSC",
+    "q": "Quelle profondeur de compression thoracique est demandée chez l'adulte dans la fiche PSC ?",
+    "opts": [
+      "Environ 3 cm sans dépasser 4 cm",
+      "Environ 4 cm sans dépasser 5 cm",
+      "Au moins 7 cm",
+      "Environ 5 cm sans dépasser 6 cm"
+    ],
+    "c": 3,
+    "e": "Chez l'adulte, la fiche PSC « Compressions thoraciques » indique une profondeur d'environ 5 cm, sans dépasser 6 cm."
+  },
+  {
+    "id": "psc-rcp-09",
+    "cat": "RCP et DAE",
+    "level": "PSC",
+    "q": "Dans la fiche PSC « Compressions thoraciques », quelle profondeur est indiquée chez le nourrisson ?",
+    "opts": [
+      "Un tiers de l'épaisseur du thorax, soit environ 4 cm",
+      "Deux tiers de l'épaisseur du thorax, soit environ 6 cm",
+      "Environ 2 cm, sans autre repère",
+      "La même profondeur que chez l'adulte"
+    ],
+    "c": 0,
+    "e": "Chez le nourrisson, la fiche PSC indique une profondeur d'un tiers de l'épaisseur du thorax, soit environ 4 cm."
+  },
+  {
+    "id": "psc-rcp-10",
+    "cat": "RCP et DAE",
+    "level": "PSC",
+    "q": "À quel moment les compressions thoraciques doivent-elles être interrompues lors de l'installation d'un DAE ?",
+    "opts": [
+      "Dès que l'appareil est sorti de son étui",
+      "Dès que les électrodes sont visibles",
+      "Seulement lorsque le DAE indique de ne plus toucher la victime",
+      "Pendant toute la durée de préparation du matériel"
+    ],
+    "c": 2,
+    "e": "La fiche PSC « Défibrillation » précise que les compressions thoraciques doivent être interrompues seulement lorsque le DAE indique de ne plus toucher à la victime."
+  },
+  {
+    "id": "psc-rcp-11",
+    "cat": "RCP et DAE",
+    "level": "PSC",
+    "q": "Que faut-il faire si le DAE annonce que le choc n'est pas nécessaire ?",
+    "opts": [
+      "Couper l'appareil et attendre les secours",
+      "Retirer immédiatement les électrodes",
+      "Reprendre immédiatement les compressions thoraciques",
+      "Rechercher à nouveau le pouls avant toute action"
+    ],
+    "c": 2,
+    "e": "Si le défibrillateur annonce que le choc n'est pas nécessaire, la conduite à tenir PSC est de reprendre immédiatement les compressions thoraciques."
+  },
+  {
+    "id": "psc-rcp-12",
+    "cat": "RCP et DAE",
+    "level": "PSC",
+    "q": "En l'absence d'électrodes enfants, où la fiche PSC conseille-t-elle de positionner les électrodes adultes chez l'enfant ou le nourrisson ?",
+    "opts": [
+      "Toutes les deux sur le thorax, côte à côte",
+      "Une au milieu du thorax et l'autre au milieu du dos",
+      "Une sur l'abdomen et l'autre sur le thorax",
+      "Une sur chaque bras"
+    ],
+    "c": 1,
+    "e": "Chez l'enfant et le nourrisson, en l'absence d'électrodes adaptées, les électrodes adultes sont positionnées au milieu du thorax pour l'une et au milieu du dos pour l'autre."
+  },
+  {
+    "id": "psc-pls-01",
+    "cat": "Position latérale de sécurité",
+    "level": "PSC",
+    "q": "Comment la fiche PSC « Perte de connaissance » définit-elle une personne qui a perdu connaissance ?",
+    "opts": [
+      "Elle ne répond et ne réagit à aucune sollicitation verbale ou physique, mais respire",
+      "Elle parle difficilement après un effort intense",
+      "Elle ouvre les yeux à l'appel mais refuse de répondre",
+      "Elle est agitée et transpire abondamment"
+    ],
+    "c": 0,
+    "e": "La fiche PSC « Perte de connaissance » définit la perte de connaissance comme une situation où la personne ne répond et ne réagit à aucune sollicitation verbale ou physique, mais respire."
+  },
+  {
+    "id": "psc-pls-02",
+    "cat": "Position latérale de sécurité",
+    "level": "PSC",
+    "q": "Quel est le principal risque d'une victime qui ne répond pas, ne réagit pas, laissée sur le dos selon la fiche PSC ?",
+    "opts": [
+      "L'apparition d'une hypothermie isolée",
+      "L'obstruction des voies aériennes par des liquides ou la chute de la langue en arrière",
+      "Une augmentation systématique de la douleur thoracique",
+      "La survenue d'une hémorragie externe"
+    ],
+    "c": 1,
+    "e": "Le référentiel PSC explique qu'une victime laissée sur le dos peut présenter une obstruction des voies aériennes par des liquides présents dans la gorge ou par la chute de la langue en arrière."
+  },
+  {
+    "id": "psc-pls-03",
+    "cat": "Position latérale de sécurité",
+    "level": "PSC",
+    "q": "Quelle conduite à tenir la fiche PSC prévoit-elle après un événement non traumatique si la victime ne répond pas, ne réagit pas mais respire ?",
+    "opts": [
+      "La laisser assise contre un mur",
+      "La mettre en position latérale de sécurité (PLS)",
+      "Débuter des compressions thoraciques sans délai",
+      "Lui faire boire de l'eau fraîche"
+    ],
+    "c": 1,
+    "e": "Après un événement non traumatique, une victime qui ne répond pas, ne réagit pas mais respire doit être placée en position latérale de sécurité (PLS)."
+  },
+  {
+    "id": "psc-pls-04",
+    "cat": "Position latérale de sécurité",
+    "level": "PSC",
+    "q": "Quelle conduite à tenir la fiche PSC prévoit-elle après un traumatisme ou un événement d'origine inconnue si la victime respire ?",
+    "opts": [
+      "La mettre d'emblée en position latérale de sécurité (PLS), quel que soit le contexte",
+      "La faire marcher pour évaluer son équilibre",
+      "La relever progressivement en position assise",
+      "La laisser sur le dos, alerter les secours et surveiller la respiration"
+    ],
+    "c": 3,
+    "e": "Après un traumatisme ou un événement d'origine inconnue, si la victime respire, la fiche PSC indique de la laisser sur le dos, d'alerter les secours et de surveiller en permanence sa respiration."
+  },
+  {
+    "id": "psc-pls-05",
+    "cat": "Position latérale de sécurité",
+    "level": "PSC",
+    "q": "Selon la fiche PSC « Position latérale de sécurité - PLS », quel est l'effet recherché par cette position ?",
+    "opts": [
+      "Maintenir libres les voies aériennes et permettre l'écoulement des liquides vers l'extérieur",
+      "Diminuer les douleurs abdominales en relâchant les muscles de la paroi puis du bassin",
+      "Réduire la température corporelle quand la victime présente une fièvre ou une forte chaleur",
+      "Favoriser une reprise immédiate de la conscience grâce à une meilleure circulation générale"
+    ],
+    "c": 0,
+    "e": "La fiche PSC « Position latérale de sécurité - PLS » précise qu'elle maintient libres les voies aériennes supérieures, permet l'écoulement des liquides vers l'extérieur et évite la chute de la langue dans le fond de la gorge."
+  },
+  {
+    "id": "psc-pls-06",
+    "cat": "Position latérale de sécurité",
+    "level": "PSC",
+    "q": "Lors de la stabilisation d'une PLS chez l'adulte ou l'enfant, comment doit être placée la jambe située au-dessus ?",
+    "opts": [
+      "Complètement tendue dans l'axe du corps",
+      "De telle sorte que la hanche et le genou soient à angle droit",
+      "Croisée au-dessus de l'autre jambe sans appui au sol",
+      "Repliée sous le bassin"
+    ],
+    "c": 1,
+    "e": "Lors du troisième temps de la position latérale de sécurité (PLS), la jambe située au-dessus est ajustée de telle sorte que la hanche et le genou soient à angle droit afin de stabiliser la position."
+  },
+  {
+    "id": "psc-pls-07",
+    "cat": "Position latérale de sécurité",
+    "level": "PSC",
+    "q": "Selon la fiche PSC, comment place-t-on le nourrisson en position latérale de sécurité ?",
+    "opts": [
+      "Sur le ventre, tête tournée de côté et bras repliés pour dégager la bouche et le nez",
+      "Assis dans un siège adapté, le dos maintenu par des coussins et la tête tenue droite",
+      "Sur le côté, le plus souvent dans les bras du secouriste, dos du nourrisson contre lui",
+      "Sur le dos, tête maintenue en hyperextension afin de faciliter le passage de l'air"
+    ],
+    "c": 2,
+    "e": "Pour le nourrisson, la fiche PSC prévoit une installation sur le côté, le plus souvent dans les bras du secouriste, dos du nourrisson contre lui."
+  },
+  {
+    "id": "psc-pls-08",
+    "cat": "Position latérale de sécurité",
+    "level": "PSC",
+    "q": "Quel point clé figure dans la fiche PSC « Position latérale de sécurité - PLS » ?",
+    "opts": [
+      "La position doit empêcher tout recherche de la respiration pour laisser la victime au repos",
+      "La position doit garder la bouche fermée pour limiter les sécrétions",
+      "La position doit redresser complètement la colonne vertébrale",
+      "La position doit être stable, la plus latérale possible, et permettre le contrôle permanent de la respiration"
+    ],
+    "c": 3,
+    "e": "Parmi les points clés de la position latérale de sécurité (PLS), la fiche PSC cite une position stable, la plus latérale possible, permettant le contrôle permanent de la respiration et l'écoulement des liquides vers l'extérieur."
+  },
+  {
+    "id": "psc-mal-01",
+    "cat": "Malaises et affections",
+    "level": "PSC",
+    "q": "Comment la fiche PSC « Malaises » définit-elle un malaise ?",
+    "opts": [
+      "Une sensation pénible traduisant un trouble du fonctionnement de l'organisme",
+      "Une douleur thoracique brutale qui permet à elle seule d'affirmer un accident cardiaque",
+      "Une perte de connaissance brève qui survient nécessairement après un traumatisme crânien",
+      "Une fièvre élevée avec frissons correspondant forcément à une maladie infectieuse grave"
+    ],
+    "c": 0,
+    "e": "La fiche PSC « Malaises » définit le malaise comme une sensation pénible traduisant un trouble du fonctionnement de l'organisme, sans pouvoir en identifier obligatoirement l'origine."
+  },
+  {
+    "id": "psc-mal-02",
+    "cat": "Malaises et affections",
+    "level": "PSC",
+    "q": "Parmi les signes suivants, lequel fait partie des signes qui doivent alerter le secouriste dans la fiche PSC « Malaises » ?",
+    "opts": [
+      "Une rougeur isolée du bout du nez",
+      "Une déformation de la face",
+      "Une démangeaison localisée de l'avant-bras",
+      "Un hoquet passager après le repas"
+    ],
+    "c": 1,
+    "e": "La fiche PSC « Malaises » cite notamment comme signes d'alerte une déformation de la face, une faiblesse d'un bras, une difficulté de langage, une douleur dans la poitrine ou une perte de vision."
+  },
+  {
+    "id": "psc-mal-03",
+    "cat": "Malaises et affections",
+    "level": "PSC",
+    "q": "Quel est le principe d'action du secouriste face à un malaise selon la fiche PSC ?",
+    "opts": [
+      "Faire marcher immédiatement la victime pour évaluer sa tolérance à l'effort",
+      "Administrer d'emblée une boisson sucrée sans évaluation",
+      "Après mise au repos, recueillir en écoutant et en observant les informations à transmettre pour obtenir un avis médical",
+      "Mesurer la tension artérielle avant tout dialogue"
+    ],
+    "c": 2,
+    "e": "Le principe d'action PSC est de mettre la victime au repos puis de recueillir, en écoutant et en observant, les informations à transmettre pour obtenir un avis médical."
+  },
+  {
+    "id": "psc-mal-04",
+    "cat": "Malaises et affections",
+    "level": "PSC",
+    "q": "Quelle position d'attente la fiche PSC prévoit-elle en cas de difficulté à respirer lors d'un malaise ?",
+    "opts": [
+      "La position couchée sur le ventre",
+      "La position à genoux, buste penché en avant",
+      "La position debout contre un mur",
+      "La position assise"
+    ],
+    "c": 3,
+    "e": "La conduite à tenir PSC prévoit d'installer la victime en position d'attente, assise en cas de difficultés à respirer, allongée ou dans la position où elle se sent le mieux selon les cas."
+  },
+  {
+    "id": "psc-mal-05",
+    "cat": "Malaises et affections",
+    "level": "PSC",
+    "q": "Quelle aide le secouriste peut-il apporter concernant un traitement ou du sucre selon la fiche PSC ?",
+    "opts": [
+      "Aider la victime, sur demande, à prendre son traitement prescrit ou du sucre",
+      "Choisir lui-même le médicament qui lui paraît le mieux adapté à la situation décrite",
+      "Donner du sucre sans demande de la victime ni consigne donnée par les secours alertés",
+      "Interdire le traitement habituel même si les secours demandent ensuite de l'administrer"
+    ],
+    "c": 0,
+    "e": "La fiche PSC prévoit que le secouriste peut aider la victime, à sa demande ou à la demande des secours, à prendre son traitement prescrit ou du sucre en morceaux."
+  },
+  {
+    "id": "psc-mal-06",
+    "cat": "Malaises et affections",
+    "level": "PSC",
+    "q": "Qui réalise les manœuvres physiques décrites dans la fiche PSC « Manœuvres physiques » ?",
+    "opts": [
+      "Le secouriste à la place de la victime",
+      "La victime elle-même",
+      "Le témoin le plus proche",
+      "Le médecin régulateur par téléassistance"
+    ],
+    "c": 1,
+    "e": "Les manœuvres physiques sont réalisées par la victime elle-même dès qu'elle reconnaît les signes annonciateurs d'une perte de connaissance imminente."
+  },
+  {
+    "id": "psc-mal-07",
+    "cat": "Malaises et affections",
+    "level": "PSC",
+    "q": "Quelle manœuvre physique est présentée comme ayant une efficacité supérieure aux deux autres dans la fiche PSC ?",
+    "opts": [
+      "L'accroupissement tête entre les genoux",
+      "Le crochetage des doigts et la tension des bras",
+      "Le croisement des membres inférieurs",
+      "La marche rapide avec appui"
+    ],
+    "c": 2,
+    "e": "La fiche PSC « Manœuvres physiques » précise que le croisement des membres inférieurs a une efficacité supérieure aux deux autres techniques décrites."
+  },
+  {
+    "id": "psc-mal-08",
+    "cat": "Malaises et affections",
+    "level": "PSC",
+    "q": "Quelle conduite complémentaire la fiche PSC prévoit-elle en cas de malaise provoqué par la chaleur ?",
+    "opts": [
+      "La couvrir davantage pour éviter les frissons et attendre l'amélioration sans la déplacer",
+      "La faire marcher un peu pour activer la circulation et favoriser la transpiration ensuite",
+      "Lui proposer une boisson chaude caféinée pour corriger rapidement la sensation de fatigue",
+      "L'installer au frais, la rafraîchir et lui faire boire par petites quantités si elle peut avaler"
+    ],
+    "c": 3,
+    "e": "En cas de malaise provoqué par la chaleur, la fiche PSC prévoit d'installer la victime dans un endroit frais et bien aéré, de la rafraîchir et de lui faire boire de l'eau fraîche par petites quantités si elle est consciente et capable d'avaler."
+  },
+  {
+    "id": "psc-tra-01",
+    "cat": "Traumatismes et brûlures",
+    "level": "PSC",
+    "q": "Parmi les propositions suivantes, laquelle correspond à une plaie grave selon la fiche PSC « Plaies » ?",
+    "opts": [
+      "Une plaie thoracique, abdominale ou provoquée par un mécanisme pénétrant",
+      "Une petite éraflure superficielle, peu douloureuse et saignant très faiblement au repos",
+      "Une coupure superficielle déjà nettoyée, séchée puis protégée par un pansement simple",
+      "Une rougeur simple sans rupture cutanée ni atteinte des tissus situés sous la peau"
+    ],
+    "c": 0,
+    "e": "La fiche PSC « Plaies » classe comme plaie grave une plaie associée à une hémorragie, par mécanisme pénétrant, ou située notamment au thorax, à l'abdomen ou à l'œil."
+  },
+  {
+    "id": "psc-tra-02",
+    "cat": "Traumatismes et brûlures",
+    "level": "PSC",
+    "q": "Que ne faut-il jamais faire devant une plaie grave avec corps étranger pénétrant selon la fiche PSC ?",
+    "opts": [
+      "La couvrir et surveiller la victime",
+      "Retirer le corps étranger pénétrant",
+      "Alerter les secours et appliquer les consignes",
+      "Installer la victime dans une position adaptée"
+    ],
+    "c": 1,
+    "e": "La fiche PSC « Plaies » précise de ne jamais retirer le corps étranger pénétrant, car cela risque d'aggraver la plaie."
+  },
+  {
+    "id": "psc-tra-03",
+    "cat": "Traumatismes et brûlures",
+    "level": "PSC",
+    "q": "Quelle position d'attente la fiche PSC recommande-t-elle devant une plaie au thorax ?",
+    "opts": [
+      "Allongée, jambes fléchies, afin de relâcher les muscles de la paroi abdominale",
+      "Assise en laissant la plaie à l'air libre pour faciliter la respiration",
+      "Allongée sur le ventre pour limiter les mouvements du thorax pendant la surveillance",
+      "Debout, bras relevés, afin d'ouvrir davantage la cage thoracique et le thorax"
+    ],
+    "c": 1,
+    "e": "En présence d'une plaie au thorax, la fiche PSC recommande d'installer la victime assise en laissant la plaie à l'air libre."
+  },
+  {
+    "id": "psc-tra-04",
+    "cat": "Traumatismes et brûlures",
+    "level": "PSC",
+    "q": "Quelle position d'attente la fiche PSC recommande-t-elle devant une plaie de l'abdomen ?",
+    "opts": [
+      "Assise, buste penché en avant",
+      "Debout avec appui contre un mur",
+      "Sur le côté avec les jambes tendues",
+      "Allongée, jambes fléchies"
+    ],
+    "c": 3,
+    "e": "En présence d'une plaie de l'abdomen, la fiche PSC recommande d'installer la victime allongée, jambes fléchies, afin de diminuer la douleur et de prévenir les détresses."
+  },
+  {
+    "id": "psc-tra-05",
+    "cat": "Traumatismes et brûlures",
+    "level": "PSC",
+    "q": "Quelle conduite à tenir particulière la fiche PSC prévoit-elle devant une plaie à l'œil ?",
+    "opts": [
+      "Installer la victime allongée, yeux fermés, en lui demandant de ne pas bouger la tête",
+      "Rincer immédiatement l'œil et faire ouvrir largement les paupières",
+      "Retirer tout corps étranger visible avec une compresse",
+      "Mettre la victime assise et lui faire cligner des yeux"
+    ],
+    "c": 0,
+    "e": "Devant une plaie à l'œil, la fiche PSC recommande d'installer la victime allongée, yeux fermés, en lui demandant de ne pas bouger la tête, et si possible en maintenant sa tête à deux mains."
+  },
+  {
+    "id": "psc-tra-06",
+    "cat": "Traumatismes et brûlures",
+    "level": "PSC",
+    "q": "Comment la fiche PSC demande-t-elle de conditionner une partie amputée ou arrachée ?",
+    "opts": [
+      "La placer directement dans la glace pilée pour la conserver au plus froid possible",
+      "L'envelopper dans un tissu humide puis la placer dans un double contenant refroidi",
+      "La laisser à température ambiante dans une compresse sèche jusqu'au relais des secours",
+      "La désinfecter puis la poser sur la plaie pour protéger directement le moignon restant"
+    ],
+    "c": 1,
+    "e": "La fiche PSC demande d'envelopper la partie amputée ou arrachée dans un tissu propre humidifié, de la placer dans un contenant étanche, puis dans un second contenant avec glace ou eau glacée, sans congeler."
+  },
+  {
+    "id": "psc-tra-07",
+    "cat": "Traumatismes et brûlures",
+    "level": "PSC",
+    "q": "À partir de quel critère une brûlure est-elle grave selon la fiche PSC ?",
+    "opts": [
+      "Dès qu'elle est douloureuse, même sans rougeur importante ni cloque visible ensuite",
+      "Uniquement lorsqu'elle atteint un membre inférieur ou un pied, sans autre critère",
+      "Lorsque les cloques dépassent la moitié de la paume de la main de la victime",
+      "Seulement lorsqu'elle a été provoquée par de l'eau chaude ou de la vapeur"
+    ],
+    "c": 2,
+    "e": "La fiche PSC considère comme brûlure grave, notamment, une ou plusieurs cloques dont la surface totale est supérieure à la moitié de la paume de la main de la victime."
+  },
+  {
+    "id": "psc-tra-08",
+    "cat": "Traumatismes et brûlures",
+    "level": "PSC",
+    "q": "Comment refroidit-on immédiatement une brûlure thermique selon la fiche PSC ?",
+    "opts": [
+      "Avec de la glace directement appliquée sur la lésion pour accélérer le refroidissement",
+      "Avec une compresse sèche posée sur la zone brûlée sans rinçage préalable à l'eau",
+      "En appliquant immédiatement un corps gras protecteur avant tout autre geste local",
+      "Avec de l'eau courante tempérée, à faible pression, pendant au moins 10 minutes"
+    ],
+    "c": 3,
+    "e": "La fiche PSC « Brûlures » demande un refroidissement immédiat à l'eau courante tempérée et à faible pression, pendant au moins 10 minutes, idéalement 20 minutes."
+  },
+  {
+    "id": "psc-tra-09",
+    "cat": "Traumatismes et brûlures",
+    "level": "PSC",
+    "q": "Que ne faut-il pas faire devant une brûlure simple selon la fiche PSC ?",
+    "opts": [
+      "Percer les cloques",
+      "Protéger la brûlure par un pansement stérile",
+      "Poursuivre le refroidissement jusqu'à disparition de la douleur",
+      "Conseiller une consultation si la vaccination antitétanique n'est pas à jour"
+    ],
+    "c": 0,
+    "e": "Devant une brûlure simple, la fiche PSC précise de ne jamais percer les cloques."
+  },
+  {
+    "id": "psc-tra-10",
+    "cat": "Traumatismes et brûlures",
+    "level": "PSC",
+    "q": "En cas d'ingestion d'un produit chimique, que précise la fiche PSC « Brûlures » ?",
+    "opts": [
+      "Faire boire abondamment de l'eau froide",
+      "Ne jamais faire vomir ni boire, et conserver les informations du produit",
+      "Donner du lait pour protéger l'estomac",
+      "Faire marcher la victime pour limiter l'absorption"
+    ],
+    "c": 1,
+    "e": "En cas d'ingestion d'un produit chimique, la fiche PSC précise de ne jamais faire vomir ni boire, et de conserver les informations du produit."
+  },
+  {
+    "id": "psc-tra-11",
+    "cat": "Traumatismes et brûlures",
+    "level": "PSC",
+    "q": "Quel est le principe d'action du secouriste face à un traumatisme selon la fiche PSC « Traumatismes » ?",
+    "opts": [
+      "Mobiliser prudemment la victime pour tester les douleurs",
+      "Ne pas mobiliser la victime",
+      "Mettre d'emblée une attelle sur toute douleur de membre",
+      "Faire marcher la victime si elle le peut"
+    ],
+    "c": 1,
+    "e": "La fiche PSC « Traumatismes » rappelle que le secouriste ne doit pas mobiliser la victime."
+  },
+  {
+    "id": "psc-tra-12",
+    "cat": "Traumatismes et brûlures",
+    "level": "PSC",
+    "q": "Que faut-il éviter devant une fracture de membre déplacée selon la fiche PSC « Traumatismes » ?",
+    "opts": [
+      "Protéger la victime contre les intempéries",
+      "Alerter les secours",
+      "Tenter de réaligner le membre",
+      "Surveiller en permanence la victime"
+    ],
+    "c": 2,
+    "e": "La fiche PSC « Traumatismes » précise que si la victime présente une fracture de membre déplacée, il ne faut pas tenter de le réaligner."
   }
 ]

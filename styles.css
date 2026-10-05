@@ -12,6 +12,7 @@
   --bg: #f4f7fb;
   --card: #ffffff;
   --line: #d7e0ea;
+  --line-strong: #6f869c;      /* contour des contrôles : 3,8:1 sur blanc */
   --text: #142033;
   --focus: #0b62c4;
   --radius: 16px;
@@ -65,6 +66,24 @@ button { font: inherit; }
   overflow: hidden;
   clip: rect(0 0 0 0);
   white-space: nowrap; border: 0;
+}
+/* …sauf au clavier : un lien d'évitement qu'on ne voit jamais ne sert à rien
+   (WCAG 2.4.1 et 2.4.7). Il se déploie dès qu'il reçoit le focus. */
+.visually-hidden:focus,
+.visually-hidden:focus-visible {
+  position: fixed;
+  top: 10px; left: 10px;
+  width: auto; height: auto;
+  margin: 0; padding: 10px 16px;
+  clip: auto;
+  overflow: visible;
+  z-index: 60;
+  background: var(--card);
+  color: var(--navy);
+  font-weight: 700;
+  border: 1px solid var(--line-strong);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
 }
 
 .app { width: min(760px, 100%); margin: auto; padding: 14px; }
@@ -241,6 +260,26 @@ button { font: inherit; }
 .revision-card .r-answer b { color: #076242; }
 .revision-card p { margin: 10px 0 0; color: #475569; font-size: 13px; line-height: 1.5; }
 
+/* ---------- fiche mémo ---------- */
+.memo-list {
+  list-style: none;
+  margin: 0 0 4px;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+.memo-list li {
+  padding: 11px 13px;
+  background: #f7fafd;
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--orange);
+  border-radius: 12px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.memo-list li b { color: var(--orange-dark); font-variant-numeric: tabular-nums; }
+.memo-list li:first-child { border-left-color: var(--red); }
+
 /* ---------- quiz ---------- */
 .progress { height: 7px; background: #e5ebf2; border-radius: 99px; overflow: hidden; }
 .progress i {
@@ -266,6 +305,7 @@ button { font: inherit; }
   color: var(--text);
 }
 .timer.warn { border-color: var(--red); color: var(--red); }
+.timer.paused { border-style: dashed; color: var(--muted); border-color: var(--line-strong); }
 
 .question { padding: 20px 18px; margin-bottom: 10px; border-left: 4px solid var(--orange); }
 .tag {
@@ -296,7 +336,7 @@ button { font: inherit; }
   text-transform: uppercase;
   fill: #b8c8dc;
 }
-.q-illustration .ill-main { font: 800 54px system-ui, sans-serif; }
+.q-illustration .ill-main { font: 800 54px system-ui, sans-serif; fill: #10233a; }
 
 .answers { display: grid; gap: 9px; }
 .answer {
@@ -307,7 +347,7 @@ button { font: inherit; }
   min-height: 60px;
   padding: 11px 13px;
   text-align: left;
-  border: 1px solid var(--line);
+  border: 1px solid var(--line-strong);
   border-radius: 15px;
   background: var(--card);
   color: var(--text);
@@ -323,9 +363,21 @@ button { font: inherit; }
   color: var(--navy);
   font-weight: 800;
 }
+.answer .mark {
+  margin-left: auto;
+  flex: 0 0 auto;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1;
+}
+/* Réponses non choisies : atténuées mais toujours lisibles (6:1 obtenu en
+   composant le texte sur blanc, seuil AA à 4,5:1). */
+.answer.void { opacity: .7; }
 .answer.correct { border-color: var(--green); background: #ecfdf5; }
+.answer.correct .mark { color: #0b6b48; }
 .answer.correct .letter { background: var(--green); color: #ffffff; }
 .answer.wrong { border-color: var(--red); background: #fff1f3; }
+.answer.wrong .mark { color: #a31d1d; }
 .answer.wrong .letter { background: var(--red); color: #ffffff; }
 .answer:disabled { cursor: default; }
 
@@ -348,6 +400,16 @@ button { font: inherit; }
 .done p { color: var(--muted); line-height: 1.5; }
 .done .score { font-size: 34px; font-weight: 800; color: var(--orange-dark); }
 .done .theme-again { margin-top: 10px; }
+.done .done-perfect {
+  display: inline-block;
+  margin: 4px 0 0;
+  padding: 12px 18px;
+  border-radius: 14px;
+  background: #ecfdf5;
+  border: 1px solid #a7e5cb;
+  color: #076242;
+  font-weight: 700;
+}
 
 .foot { text-align: center; color: var(--muted); font-size: 11px; margin-top: 18px; }
 

@@ -28,7 +28,11 @@ Les formulations ajoutées privilégient les termes officiels des références t
   s'efface tout seul (nettoyage garanti par un minuteur, appui ou touche pour
   passer, désactivée si « réduire les animations » est demandé).
 - **Accessibilité** : navigation au clavier (touches `1`-`4` ou `A`-`D`), annonces
-  lecteur d'écran, contrastes conformes AA, respect de `prefers-reduced-motion`.
+  lecteur d'écran, contrastes conformes AA, respect de `prefers-reduced-motion`,
+  lien d'évitement visible au focus, bonne/mauvaise réponse signalées par un
+  glyphe et un libellé (pas par la couleur seule).
+- **Chronomètre respectueux** : le décompte de 30 secondes se met en pause quand
+  l'onglet passe en arrière-plan et reprend où il s'était arrêté.
 
 ## Structure du dépôt
 
@@ -44,6 +48,7 @@ Les formulations ajoutées privilégient les termes officiels des références t
 | `sw.js` | service worker (hors ligne) |
 | `manifest.webmanifest` | manifeste PWA |
 | `tools/validate_bank.mjs` | contrôle automatique de la banque |
+| `tools/check_sw_version.mjs` | exige l'incrémentation de `VERSION` quand un fichier publié change |
 | `tools/test_lot.mjs` | test des lots (aucune répétition dans un cycle) |
 | `tools/generate_questions_js.py` | génère `questions.js` depuis `data/questions.json` |
 | `tools/check_ui.mjs` | vérifie identifiants, fichiers et absence de dépendance externe |
@@ -71,10 +76,14 @@ Règles à respecter :
 
 - `id` unique et stable : **ne jamais le changer**, c'est lui qui mémorise la
   progression des utilisateurs (modifier le texte d'une question ne casse rien) ;
-- `cat` : l'une des 11 thématiques existantes ;
+- `cat` : l'une des thématiques **déclarées dans `app.js`** (la liste n'est plus
+  recopiée dans l'outillage : ajouter un thème se fait d'abord dans `THEMES`) ;
 - `level` : `PSC`, `PSE1` ou `PSE2` ;
 - exactement 4 propositions, toutes distinctes et de longueur comparable
   (la bonne réponse ne doit pas être repérable par sa longueur) ;
+- une thématique doit compter **au moins 7 questions** (`MIN_LOT`) pour pouvoir
+  composer un lot ; en dessous, le contrôle bloque. Entre 11 et 13 questions,
+  le lot de fin de cycle est court : le contrôle le signale en avertissement ;
 - pas de distracteur contenant « jamais », « toujours », « 100 % »… qui le rend
   éliminable d'office ;
 - l'explication (`e`) est obligatoire.
@@ -85,10 +94,12 @@ Règles à respecter :
 python3 tools/generate_questions_js.py   # met à jour questions.js
 node tools/validate_bank.mjs             # doit afficher « Banque valide »
 node tools/test_lot.mjs                  # doit afficher « 0 répétition »
+node tools/check_ui.mjs                  # doit afficher « Interface cohérente »
 ```
 
 3. Si des fichiers de l'application changent, incrémenter `VERSION` dans `sw.js`
-   (sinon les visiteurs gardent l'ancienne version en cache).
+   (sinon les visiteurs gardent l'ancienne version en cache). GitHub Actions le
+   vérifie désormais : `node tools/check_sw_version.mjs <révision-de-base>`.
 
 ## Développement local
 
@@ -106,7 +117,12 @@ npm install            # jsdom, uniquement pour le test de bout en bout
 npm test               # banque + lots + cohérence de l'interface
 python3 -m http.server 8080 &
 npm run test:e2e       # parcours complet dans un DOM simulé
+npm run test:sw        # cache : VERSION incrémentée si un fichier publié change
 ```
+
+`tools/check_ui.mjs` vérifie aussi que **chaque classe posée par `index.html` ou
+`app.js` a bien une règle dans `styles.css`** (une classe orpheline = un style
+oublié) et que **le service worker précharge tous les fichiers du site**.
 
 ## Déploiement
 

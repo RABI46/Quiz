@@ -106,6 +106,11 @@ if (!api) {
 }
 
 const LOT = api.total;
+const MIN_LOT = api.minLot ?? 7;
+if (typeof api.lotSize !== "function") {
+  console.error("❌ app.js n'expose pas quizPSE.lotSize : le test ne peut plus suivre la règle de tirage");
+  process.exit(1);
+}
 const bankById = new Map(api.bank().map((q) => [q.id, q]));
 
 function idsFor(mode) {
@@ -113,11 +118,14 @@ function idsFor(mode) {
   return bank.map((q) => q.id);
 }
 
+/* Les tailles attendues sont calculées avec la fonction de l'application elle-même
+ * (quizPSE.lotSize) : recopier la formule ici faisait tester une règle qui
+ * n'existait plus dans le code. */
 function expectedSizes(total) {
   const sizes = [];
   let remaining = total;
   while (remaining > 0) {
-    const size = Math.max(1, Math.ceil(remaining / Math.ceil(remaining / LOT)));
+    const size = api.lotSize(remaining);
     sizes.push(size);
     remaining -= size;
   }
@@ -128,6 +136,11 @@ function checkMode(mode, expected) {
   api.clear();
   const total = expected.length;
   const sizes = expectedSizes(total);
+  /* Un cycle d'un seul lot (thématique courte) ne peut pas éviter le lot
+   * précédent : la garantie est mathématiquement hors de portée, on la vérifie
+   * ailleurs et on l'affiche au lieu de la signaler comme échec. */
+  const crossCycleExpected = sizes.length > 1;
+  let shortLots = 0;
   const seenInCycle = new Set();
   let previousLot = [];
   let lotIndex = 0;
@@ -141,6 +154,10 @@ function checkMode(mode, expected) {
       if (lot.length !== size) {
         failures.push(`${mode} : lot de ${lot.length} questions au lieu de ${size} attendues`);
       }
+      if (lot.length > LOT) failures.push(`${mode} : lot de ${lot.length} questions, plus que le maximum ${LOT}`);
+      if (lot.length < MIN_LOT && index + lot.length < total) {
+        shortLots++;
+      }
       if (new Set(lot).size !== lot.length) {
         failures.push(`${mode} : lot contenant deux fois la même question`);
       }
@@ -148,7 +165,7 @@ function checkMode(mode, expected) {
         if (!bankById.has(id)) failures.push(`${mode} : identifiant inconnu « ${id} »`);
         if (seenInCycle.has(id)) failures.push(`${mode} : question répétée dans le même cycle (${id})`);
         seenInCycle.add(id);
-        if (cycle > 0 && previousLot.includes(id)) {
+        if (cycle > 0 && crossCycleExpected && previousLot.includes(id)) {
           failures.push(`${mode} : question répétée d'un lot au suivant (${id})`);
         }
       }
@@ -166,13 +183,21 @@ function checkMode(mode, expected) {
     }
   }
 
+  const note = !crossCycleExpected
+    ? "cycle d'un seul lot : non-répétition inter-cycles impossible"
+    : shortLots
+      ? `${shortLots} lot(s) court(s) hors lot final`
+      : "0 répétition ✓";
+  if (shortLots && crossCycleExpected) {
+    failures.push(`${mode} : ${shortLots} lot(s) de moins de ${MIN_LOT} questions avant la fin du cycle`);
+  }
   console.log(
     mode.padEnd(38) +
     String(total).padStart(6) + " q.  " +
     String(sizes.length).padStart(3) + " lots de " +
     String(Math.min(...sizes)) + " à " + String(Math.max(...sizes)) + "  " +
     String(lotIndex).padStart(3) + " lots testés  " +
-    "0 répétition ✓"
+    note
   );
 }
 

@@ -14,21 +14,20 @@ import { dirname, join } from "node:path";
 import vm from "node:vm";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
-const THEMES = [
-  "Attitude et comportement",
-  "Urgences vitales",
-  "RCP et DAE",
-  "Obstruction des voies aériennes",
-  "Évaluation neurologique",
-  "Hémorragies et pansements",
-  "Position latérale de sécurité",
-  "Malaises et affections",
-  "Traumatismes et brûlures",
-  "Traumatisme du rachis et immobilisation",
-  "Matériel et oxygénothérapie",
-];
+const appSource = readFileSync(join(ROOT, "app.js"), "utf8");
+
+/* La liste des thématiques et les tailles de lot sont lues dans app.js : c'est
+ * le moteur de l'application qui décide de ce qu'il sait composer. Les recopier
+ * ici faisait diverger le contrôle du code (un thème de 8 questions était refusé
+ * alors que l'application le gère très bien). */
+const THEMES = [...appSource.matchAll(/\{\s*cat:\s*"([^"]+)"/g)].map((m) => m[1]);
+const MIN_LOT = Number(appSource.match(/var MIN_LOT = (\d+)/)?.[1] ?? 7);
+const LOT_SIZE = Number(appSource.match(/var TOTAL = (\d+)/)?.[1] ?? 10);
+if (!THEMES.length) {
+  console.error("❌ impossible de lire la liste des thématiques dans app.js (THEMES)");
+  process.exit(1);
+}
 const LEVELS = ["PSC", "PSE1", "PSE2"];
-const LOT_SIZE = 10;
 const MAX_OPTION_RATIO = 1.6;
 
 const errors = [];
@@ -118,7 +117,18 @@ console.log("Thématique".padEnd(40) + "questions");
 for (const theme of THEMES.filter((t) => counts.get(t))) {
   const total = counts.get(theme);
   console.log(theme.padEnd(40) + String(total).padStart(8));
-  if (total < LOT_SIZE) errors.push(`thématique « ${theme} » : ${total} questions, impossible de composer un lot de ${LOT_SIZE}`);
+  /* En dessous d'un lot minimal, aucun cycle n'est possible : bloquant. */
+  if (total < MIN_LOT) {
+    errors.push(`thématique « ${theme} » : ${total} questions, moins que le lot minimal de ${MIN_LOT} — aucun lot ne peut être composé`);
+  } else if (total > LOT_SIZE && total < 2 * MIN_LOT) {
+    /* Exemple : 12 questions = 7 puis 5. Légitime, mais le lot de fin de cycle
+     * est court : autant que l'auteur le sache. */
+    warnings.push(`thématique « ${theme} » : ${total} questions, le lot de fin de cycle sera court (< ${MIN_LOT})`);
+  }
+}
+/* Une thématique déclarée dans app.js mais vide n'apparaît nulle part : signalée. */
+for (const theme of THEMES) {
+  if (!counts.get(theme)) warnings.push(`thématique « ${theme} » déclarée dans app.js mais sans aucune question`);
 }
 console.log("TOTAL".padEnd(40) + String(bank.length).padStart(8));
 

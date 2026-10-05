@@ -8,7 +8,7 @@
  * IMPORTANT : toute modification des fichiers de l'application doit s'accompagner
  * d'une incrémentation de VERSION, sinon les visiteurs garderont l'ancienne copie.
  */
-const VERSION = "18";
+const VERSION = "19";
 const CACHE = `quiz-pse-v${VERSION}`;
 
 const CORE = [
@@ -21,6 +21,7 @@ const CORE = [
   "./icon.svg",
   "./icons/icon-192.png",
   "./icons/icon-512.png",
+  "./icons/maskable-512.png",
   "./icons/apple-touch-icon.png",
   "./assets/logo-protection-civile.jpg",
 ];
@@ -81,7 +82,9 @@ self.addEventListener("fetch", (event) => {
             }
             return response;
           })
-          .catch(() => caches.match("./index.html"))
+          /* Une ressource manquante ne doit pas être remplacée par la page :
+           * le navigateur refuserait du HTML à la place du CSS ou du JS. */
+          .catch(() => Response.error())
     )
   );
 });

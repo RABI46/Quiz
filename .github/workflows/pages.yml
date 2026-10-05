@@ -24,6 +24,9 @@ jobs:
     steps:
       - name: Récupérer le dépôt
         uses: actions/checkout@v4
+        with:
+          # Historique court mais suffisant pour comparer à la révision de base
+          fetch-depth: 20
 
       - name: Installer Node.js
         uses: actions/setup-node@v4
@@ -44,6 +47,15 @@ jobs:
 
       - name: Vérifier que questions.js correspond à data/questions.json
         run: python3 tools/generate_questions_js.py --check
+
+      - name: Vérifier l'incrémentation du cache du service worker
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            BASE="${{ github.event.pull_request.base.sha }}"
+          else
+            BASE="${{ github.event.before }}"
+          fi
+          node tools/check_sw_version.mjs "$BASE"
 
       - name: Test de bout en bout dans un navigateur simulé
         run: |

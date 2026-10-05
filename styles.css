@@ -413,6 +413,18 @@ button { font: inherit; }
 
 .foot { text-align: center; color: var(--muted); font-size: 11px; margin-top: 18px; }
 
+/* Bandeau d'état du contenu (accueil uniquement). Texte #4a3210 sur #fff8e8 : 11,3:1. */
+.notice { display: flex; gap: 10px; align-items: flex-start; text-align: left; background: #fff8e8; border: 1px solid #f0c05a; border-left: 4px solid #b45309; color: #4a3210; border-radius: 13px; padding: 12px 14px; margin: 0 0 14px; font-size: 14px; line-height: 1.45; }
+.notice-icon { flex: 0 0 auto; font-size: 18px; line-height: 1.2; }
+
+/* Pied de page : sources, RGPD, contacts (visible sur tous les écrans). */
+.foot-note { display: grid; gap: 8px; text-align: center; background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 14px 16px; margin-top: 18px; }
+.foot-note p { margin: 0; font-size: 13px; line-height: 1.5; }
+.foot-note .foot { font-size: 12px; color: var(--muted); margin-top: 0; }
+.foot-note a { color: #0b5cad; text-decoration: underline; }   /* 6,7:1 sur blanc */
+.foot-note a:hover, .foot-note a:focus-visible { color: var(--orange-dark); }
+.contact { overflow-wrap: anywhere; }
+
 /* ---------- animation de démarrage (PWA) ----------
    Découpe de l'emblème de la Protection Civile : le disque orange se pose,
    les tracés du triangle blanc et du triangle bleu se dessinent, des ondes

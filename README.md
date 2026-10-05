@@ -149,3 +149,9 @@ Les formulations officielles des questions ajoutées ou reformulées s'appuient 
 
 - `Références techniques nationales - Premiers Secours en Equipe (1).pdf`
 - `references-techniques-nationales-psc-juillet-2026.pdf`
+
+## Mentions d'état du contenu, sources, RGPD et contacts
+
+- **Bandeau d'accueil** (`#home .notice`) : « En attente de validation par Vianney et Ana ». Il n'apparaît que sur l'écran d'accueil. **Retirer le bandeau est une décision de l'association, pas une retouche d'interface** : il ne disparaîtra qu'une fois la relecture validée.
+- **Pied de page** (`footer.foot-note`, visible sur tous les écrans) : sources (références techniques nationales de la Sécurité civile, édition 2026 — PSC · PSE1 · PSE2), mention de conformité RGPD (aucune donnée collectée ; progression stockée localement uniquement, effaçable depuis l'accueil) et contacts (courriel et téléphone).
+- `tools/e2e.mjs` vérifie la présence de ces mentions et la validité des liens `mailto:` et `tel:` : les retirer fait échouer la CI.

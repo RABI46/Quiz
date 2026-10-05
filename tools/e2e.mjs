@@ -59,6 +59,22 @@ if (!visible("home")) problems.push("accueil : l'écran d'accueil n'est pas visi
 if ($("bank-total").textContent !== String(BANK)) problems.push(`accueil : total affiché « ${$("bank-total").textContent} » au lieu de ${BANK}`);
 if (/\bnouveau cycle\b/.test(buttons[0].textContent) === false) problems.push("accueil : compteur de cycle absent");
 
+/* Mentions obligatoires : elles ne doivent pas disparaître silencieusement. */
+const doc = window.document;
+const notice = doc.querySelector("#home .notice");
+if (!notice || !/Vianney et Ana/.test(notice.textContent)) problems.push("accueil : le bandeau « en attente de validation par Vianney et Ana » est absent");
+const footNote = doc.querySelector("footer.foot-note");
+if (!footNote) problems.push("pied de page : footer.foot-note absent");
+else {
+  const t = footNote.textContent.replace(/\s+/g, " ");
+  if (!/RGPD/.test(t)) problems.push("pied de page : mention RGPD absente");
+  if (!/références techniques nationales/.test(t) || !/2026/.test(t)) problems.push("pied de page : référence aux références techniques nationales 2026 absente");
+  const mail = footNote.querySelector('a[href^="mailto:"]');
+  if (!mail || !/^mailto:[^@\s]+@[^@\s]+\.[a-z]{2,}$/i.test(mail.getAttribute("href"))) problems.push("pied de page : lien mailto: absent ou invalide");
+  const tel = footNote.querySelector('a[href^="tel:"]');
+  if (!tel || !/^tel:\+\d{9,15}$/.test(tel.getAttribute("href"))) problems.push("pied de page : lien tel: absent ou invalide");
+}
+
 /* ---------- 2. lancer un lot ---------- */
 const theme = buttons.find((b) => /RCP/.test(b.dataset.theme));
 theme.dispatchEvent(new window.MouseEvent("click", { bubbles: true }));

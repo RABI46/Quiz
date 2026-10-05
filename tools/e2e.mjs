@@ -46,10 +46,17 @@ else {
 }
 
 /* ---------- 1. écran d'accueil ---------- */
+/* Attendus dérivés de l'application et de la banque : ajouter une question ou
+ * un thème ne doit plus obliger à retoucher ce test. */
+const api = window.quizPSE;
+const BANK = api.bank().length;
+const THEMES = api.themes.length;
+const MIN_LOT = api.minLot ?? 7;
+const MAX_LOT = api.total ?? 10;
 const buttons = [...window.document.querySelectorAll("#themes .theme-btn")];
-if (buttons.length !== 11) problems.push(`accueil : ${buttons.length} thématiques affichées au lieu de 11`);
+if (buttons.length !== THEMES) problems.push(`accueil : ${buttons.length} thématiques affichées au lieu de ${THEMES}`);
 if (!visible("home")) problems.push("accueil : l'écran d'accueil n'est pas visible");
-if ($("bank-total").textContent !== "330") problems.push(`accueil : total affiché « ${$("bank-total").textContent} » au lieu de 330`);
+if ($("bank-total").textContent !== String(BANK)) problems.push(`accueil : total affiché « ${$("bank-total").textContent} » au lieu de ${BANK}`);
 if (/\bnouveau cycle\b/.test(buttons[0].textContent) === false) problems.push("accueil : compteur de cycle absent");
 
 /* ---------- 2. lancer un lot ---------- */
@@ -66,11 +73,36 @@ if ($("cat").textContent !== "RCP et DAE") problems.push(`quiz : catégorie affi
 if ($("bar-wrap").getAttribute("aria-valuenow") !== "1") problems.push("quiz : barre de progression non mise à jour");
 
 const lotSize = Number($("num").textContent.split("/")[1].trim());
-if (lotSize < 7 || lotSize > 10) problems.push(`quiz : lot de ${lotSize} questions, hors de la plage 7-10`);
+if (lotSize > MAX_LOT) problems.push(`quiz : lot de ${lotSize} questions, au-dessus du maximum ${MAX_LOT}`);
+if (lotSize < MIN_LOT) problems.push(`quiz : premier lot de ${lotSize} questions, sous le minimum ${MIN_LOT}`);
+/* Le progressbar doit annoncer le vrai dénominateur : un lot de 8 questions ne
+ * finit pas « 8 sur 10 ». */
+if ($("bar-wrap").getAttribute("aria-valuemax") !== String(lotSize)) {
+  problems.push(`quiz : aria-valuemax=${$("bar-wrap").getAttribute("aria-valuemax")} au lieu de ${lotSize}`);
+}
+if (!/Question 1 sur \d+/.test($("bar-wrap").getAttribute("aria-valuetext") || "")) {
+  problems.push(`quiz : aria-valuetext absent ou incorrect « ${$("bar-wrap").getAttribute("aria-valuetext")} »`);
+}
 
 let answers = [...window.document.querySelectorAll("#answers .answer")];
 if (answers.length !== 4) problems.push(`quiz : ${answers.length} propositions affichées au lieu de 4`);
 if (answers.some((a) => !a.textContent.trim())) problems.push("quiz : une proposition est vide");
+
+/* ---------- 2bis. onglet masqué : le chronomètre doit s'arrêter ---------- */
+const timerEl = $("timer");
+const leftBefore = Number(timerEl.textContent);
+Object.defineProperty(window.document, "hidden", { configurable: true, get: () => true });
+window.document.dispatchEvent(new window.Event("visibilitychange"));
+await wait(1300);
+if (Number(timerEl.textContent) !== leftBefore) {
+  problems.push("chronomètre : le décompte continue alors que l'onglet est en arrière-plan");
+}
+if (!timerEl.classList.contains("paused")) problems.push("chronomètre : la mise en pause n'est pas signalée (visuellement ni aux lecteurs d'écran)");
+Object.defineProperty(window.document, "hidden", { configurable: true, get: () => false });
+window.document.dispatchEvent(new window.Event("visibilitychange"));
+await wait(1300);
+if (Number(timerEl.textContent) >= leftBefore) problems.push("chronomètre : le décompte ne reprend pas au retour de l'onglet");
+if (timerEl.classList.contains("paused")) problems.push("chronomètre : la pause reste affichée après le retour de l'onglet");
 
 /* ---------- 3. répondre à tout le lot (alternance juste/faux) ---------- */
 let mistakes = 0;
@@ -94,6 +126,13 @@ for (let i = 0; i < lotSize; i++) {
   if ($("feedback").classList.contains("hidden")) problems.push(`quiz : pas de correction après la question ${i + 1}`);
   if (!$("feedback").textContent.trim()) problems.push(`quiz : correction vide à la question ${i + 1}`);
   if (!window.document.querySelector("#answers .answer.correct")) problems.push("quiz : la bonne réponse n'est pas mise en évidence");
+  /* L'état doit rester lisible sans couleur et sans vue : un glyphe et un nom
+   * accessible sur la bonne réponse comme sur la réponse choisie. */
+  const corrected = [...window.document.querySelectorAll("#answers .answer")];
+  const goodBtn = corrected.find((a) => a.classList.contains("correct"));
+  if (!goodBtn || !/✓/.test(goodBtn.textContent)) problems.push(`quiz : la bonne réponse n'affiche pas de repère non coloré (${$( "q").textContent.slice(0, 30)}…)`);
+  if (goodBtn && !/^Bonne réponse/.test(goodBtn.getAttribute("aria-label") || "")) problems.push("quiz : la bonne réponse n'est pas annoncée aux lecteurs d'écran");
+  if (wrong && !/Votre réponse/.test((corrected[clickIndex].getAttribute("aria-label") || ""))) problems.push("quiz : la réponse choisie n'est pas signalée comme telle");
   if ($("next").classList.contains("hidden")) problems.push("quiz : bouton de passage masqué après la réponse");
 
   $("next").dispatchEvent(new window.MouseEvent("click", { bubbles: true }));
@@ -119,8 +158,28 @@ if (mistakes > 0) {
   if (!visible("quiz")) problems.push("erreurs : le lot d'erreurs ne se lance pas");
   const num = $("num").textContent;
   if (!new RegExp(`/ ${mistakes}$`).test(num)) problems.push(`erreurs : ${num} au lieu de ${mistakes} questions`);
+  if (!/Révision de mes erreurs/.test($("lot").textContent)) problems.push(`erreurs : entête de lot « ${$("lot").textContent} »`);
+
+  /* Cette fois on répond juste à tout : plus aucune erreur ne subsiste, le
+   * bouton principal doit donc proposer de repartir sur la thématique d'origine
+   * — et le faire réellement (l'étiquette et l'action avaient divergé). */
+  for (let i = 0; i < mistakes; i++) {
+    const state = window.quizPSE.state();
+    const current = state.questions[state.index];
+    answers = [...window.document.querySelectorAll("#answers .answer")];
+    answers[current.c].dispatchEvent(new window.MouseEvent("click", { bubbles: true }));
+    await wait(30);
+    $("next").dispatchEvent(new window.MouseEvent("click", { bubbles: true }));
+    await wait(30);
+  }
+  const label = $("done-again").textContent;
+  if (!/Refaire un lot de la thématique d'origine/.test(label)) problems.push(`erreurs : bouton de fin « ${label} » après une révision sans faute`);
+  $("done-again").dispatchEvent(new window.MouseEvent("click", { bubbles: true }));
+  await wait(40);
+  if (!visible("quiz")) problems.push("erreurs : « Refaire un lot de la thématique d'origine » ne lance pas de lot");
   $("top-home").dispatchEvent(new window.MouseEvent("click", { bubbles: true }));
   await wait(20);
+  if (!visible("home")) problems.push("erreurs : le retour à l'accueil ne fonctionne plus");
 }
 
 /* ---------- 6. mode classique, mémo, révision ---------- */
@@ -154,7 +213,7 @@ $("revision-btn").dispatchEvent(new window.MouseEvent("click", { bubbles: true }
 await wait(50);
 if (!visible("revision")) problems.push("révision : l'écran révision ne s'affiche pas");
 const cards = [...window.document.querySelectorAll("#revision-list .revision-card")];
-if (cards.length !== 330) problems.push(`révision : ${cards.length} fiches affichées au lieu de 330`);
+if (cards.length !== BANK) problems.push(`révision : ${cards.length} fiches affichées au lieu de ${BANK}`);
 const firstCard = cards[0] && cards[0].textContent;
 if (!firstCard || !/Bonne réponse/.test(firstCard)) problems.push("révision : la bonne réponse n'apparaît pas");
 $("revision-back").dispatchEvent(new window.MouseEvent("click", { bubbles: true }));
@@ -181,6 +240,13 @@ if (window.document.body.classList.contains("booting")) {
   problems.push("splash : la page reste bloquée en mode démarrage");
 }
 
+/* ---------- 8bis. lien d'évitement ---------- */
+const skip = window.document.querySelector("a.visually-hidden");
+if (!skip) problems.push("accessibilité : lien d'évitement absent");
+else if (!skip.getAttribute("href")?.startsWith("#") || !window.document.querySelector(skip.getAttribute("href"))) {
+  problems.push("accessibilité : le lien d'évitement ne pointe vers aucune cible du document");
+}
+
 /* ---------- résultat ---------- */
 errors.forEach((e) => problems.push(e));
 if (problems.length) {
@@ -188,5 +254,5 @@ if (problems.length) {
   problems.forEach((p) => console.error("   - " + p));
   process.exit(1);
 }
-console.log("✅ Parcours complet validé : animation de démarrage, accueil, lot sans répétition, corrections, score, erreurs, classique, clavier, mémo, révision, stockage.");
+console.log(`✅ Parcours complet validé (${BANK} questions, ${THEMES} thématiques) : animation de démarrage, accueil, lot sans répétition, corrections, chronomètre en pause, score, erreurs rejouées, classique, clavier, mémo, révision, stockage.`);
 dom.window.close();

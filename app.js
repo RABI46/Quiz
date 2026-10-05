@@ -10,9 +10,11 @@
 (function () {
   "use strict";
 
-  var TOTAL = 10;
+  var TOTAL = 10;          /* taille visée d'un lot (et d'un cycle complet) */
+  var MIN_LOT = 7;         /* un lot peut descendre jusque-là pour finir un cycle pile */
   var TIME = 30;
   var LETTERS = ["A", "B", "C", "D"];
+  var REVIEW = "Révision de mes erreurs";
 
   /* Les 9 thématiques « socle » : elles forment aussi le mode classique. */
   var CLASSIC = [
@@ -48,9 +50,9 @@
   var timer = null;
   var answered = false;
   var currentTheme = "";
+  var reviewOrigin = "";      /* thématique d'origine quand on rejoue ses erreurs */
   var score = 0;
   var history = [];
-  var favorite = [];
 
   /* ---------- utilitaires ---------- */
   function $(id) { return document.getElementById(id); }
@@ -124,17 +126,27 @@
     return counts;
   }
 
+  /* Libellé lisible du mode courant : le même mot partout (en-tête de lot,
+   * écran de résultat), pour qu'ils ne divergent jamais. */
+  function modeLabel(mode) {
+    if (mode === "classique") return "Mode classique";
+    if (mode === REVIEW) return "Révision de mes erreurs";
+    return mode || "Quiz";
+  }
+
   /* ---------- navigation entre les écrans ---------- */
   function show(id) {
     ["home", "memo", "revision", "quiz", "done"].forEach(function (x) {
       var el = $(x);
       if (el) el.classList.toggle("hidden", x !== id);
     });
-    $("top-home").classList.toggle("hidden", id === "home");
+    /* L'écran de résultat a déjà ses propres boutons : le bouton « Accueil »
+     * de l'en-tête n'y a rien à faire. */
+    $("top-home").classList.toggle("hidden", id === "home" || id === "done");
   }
 
   function goHome() {
-    clearInterval(timer);
+    stopTimer();
     show("home");
     buildThemes();
     window.scrollTo(0, 0);
@@ -184,7 +196,14 @@
     bank.forEach(function (q) { valid[q.id] = true; });
     var pool = readJSON(poolKey(mode), []);
     if (!Array.isArray(pool)) return [];
-    return pool.filter(function (id) { return valid[id]; });
+    /* Un identifiant ne doit jamais compter deux fois dans un cycle, même si
+     * le stockage a été altéré ou vient d'une version antérieure. */
+    var unique = {};
+    return pool.filter(function (id) {
+      if (!valid[id] || unique[id]) return false;
+      unique[id] = true;
+      return true;
+    });
   }
 
   function writePool(mode, pool, previousIds) {
@@ -212,8 +231,12 @@
    * lot précédent.
    */
   function lotSize(remaining) {
+    if (remaining <= TOTAL) return Math.max(1, remaining);
     var lots = Math.ceil(remaining / TOTAL);
-    return Math.max(1, Math.ceil(remaining / lots));
+    /* Le lot ne descend jamais sous MIN_LOT : la seule exception est le lot
+     * final, quand il reste moins de questions que ce minimum pour finir le
+     * cycle pile. */
+    return Math.min(remaining, Math.max(MIN_LOT, Math.ceil(remaining / lots)));
   }
 
   function drawQuestions(mode) {
@@ -264,6 +287,7 @@
     if (!drawn || !drawn.length) { alert("Impossible de composer un lot de questions."); return; }
 
     currentTheme = mode;
+    reviewOrigin = "";
     score = 0;
     history = [];
     qs = drawn.map(function (item) {
@@ -341,13 +365,17 @@
   function render() {
     if (!qs.length || !qs[cur]) { goHome(); return; }
     answered = false;
-    clearInterval(timer);
+    stopTimer();
 
     var q = qs[cur];
     $("num").textContent = "Question " + (cur + 1) + " / " + qs.length;
-    $("lot").textContent = currentTheme === "classique" ? "Mode classique" : currentTheme;
+    $("lot").textContent = modeLabel(currentTheme);
     $("bar").style.width = ((cur + 1) / qs.length * 100) + "%";
     $("bar-wrap").setAttribute("aria-valuenow", String(cur + 1));
+    /* Les lots font 7 à 10 questions : le maximum doit suivre la taille réelle
+     * du lot, sinon l'annonce « 8 sur 10 » ment à la fin d'un lot de 8. */
+    $("bar-wrap").setAttribute("aria-valuemax", String(qs.length));
+    $("bar-wrap").setAttribute("aria-valuetext", "Question " + (cur + 1) + " sur " + qs.length);
     $("cat").textContent = q.cat;
     $("level").textContent = "Niveau " + q.level;
     $("q").textContent = q.q;
@@ -371,17 +399,47 @@
     });
 
     left = TIME;
+    $("timer").classList.remove("paused");
     tick();
+    startTimer();
+
+    announce("Question " + (cur + 1) + " sur " + qs.length + ". " + q.q);
+  }
+
+  /* ---------- chronomètre ---------- *
+   * Le décompte est arrêté dès que l'onglet passe en arrière-plan : les
+   * minuteurs sont ralentis par le navigateur, et la question se fermait toute
+   * seule sur un « temps écoulé » infligé hors écran. Le décompte reprend où il
+   * s'était arrêté, sans pénalité. */
+  function stopTimer() {
+    if (timer) { clearInterval(timer); timer = null; }
+  }
+
+  function startTimer() {
+    stopTimer();
+    if (left <= 0) return;
     timer = setInterval(function () {
       left--;
       tick();
       if (left <= 0) {
-        clearInterval(timer);
+        stopTimer();
         answer(-1);
       }
     }, 1000);
+  }
 
-    announce("Question " + (cur + 1) + " sur " + qs.length + ". " + q.q);
+  function pauseTimer() {
+    if (!timer) return;
+    var t = $("timer");
+    if (t) { t.classList.add("paused"); t.setAttribute("aria-label", "Chronomètre en pause"); }
+    stopTimer();
+  }
+
+  function resumeTimer() {
+    var quizVisible = $("quiz") && !$("quiz").classList.contains("hidden");
+    var t = $("timer");
+    if (t) t.classList.remove("paused");
+    if (quizVisible && !answered && !timer) { tick(); startTimer(); }
   }
 
   function tick() {
@@ -395,14 +453,29 @@
   function answer(choice) {
     if (answered) return;
     answered = true;
-    clearInterval(timer);
+    stopTimer();
 
     var q = qs[cur];
     var buttons = $("answers").querySelectorAll(".answer");
     Array.prototype.forEach.call(buttons, function (btn, i) {
       btn.disabled = true;
-      if (i === q.c) btn.classList.add("correct");
-      else if (i === choice) btn.classList.add("wrong");
+      /* Le bon/mauvais état est porté par la couleur, par un glyphe ET par le
+       * nom accessible : un lecteur d'écran et un daltonien doivent voir la
+       * même chose qu'un œil valide. */
+      var label = LETTERS[i] + ". " + q.opts[i];
+      if (i === q.c) {
+        btn.classList.add("correct");
+        btn.innerHTML += '<span class="mark" aria-hidden="true">✓</span>';
+        label = "Bonne réponse — " + label;
+      } else if (i === choice) {
+        btn.classList.add("wrong");
+        btn.innerHTML += '<span class="mark" aria-hidden="true">✗</span>';
+        label = "Votre réponse (incorrecte) — " + label;
+      } else {
+        btn.classList.add("void");
+        label = "Non choisie — " + label;
+      }
+      btn.setAttribute("aria-label", label);
     });
 
     var good = choice === q.c;
@@ -440,15 +513,19 @@
 
   /* ---------- fin de lot ---------- */
   function showResult() {
-    clearInterval(timer);
+    stopTimer();
     var percent = Math.round(score / qs.length * 100);
-    $("done-theme").textContent = currentTheme === "classique" ? "Mode classique" : currentTheme;
+    $("done-theme").textContent = currentTheme === REVIEW && reviewOrigin
+      ? modeLabel(REVIEW) + " · " + modeLabel(reviewOrigin)
+      : modeLabel(currentTheme);
     $("done-score").textContent = score + " / " + qs.length;
     $("done-percent").textContent = percent + " % de bonnes réponses";
 
     var wrong = history.filter(function (h) { return !h.ok; });
+    var hasWrong = wrong.length > 0;
+    var reviewing = currentTheme === REVIEW;
     var recap = $("done-recap");
-    if (!wrong.length) {
+    if (!hasWrong) {
       recap.innerHTML = '<p class="done-perfect">Sans faute, bravo ! 🎉</p>';
     } else {
       recap.innerHTML = "<h3 class=\"section-title\">À revoir (" + wrong.length + ")</h3>" +
@@ -459,23 +536,29 @@
         }).join("");
     }
 
-    $("done-again").textContent = currentTheme === "Révision de mes erreurs"
-      ? "🔁 Rejouer ce lot d'erreurs"
+    $("done-again").textContent = reviewing
+      ? (hasWrong ? "🔁 Rejouer les questions encore ratées"
+                  : "🔁 Refaire un lot de la thématique d'origine")
       : "🔁 Refaire un lot de cette thématique";
     var reviewWrong = $("done-review-wrong");
-    reviewWrong.classList.toggle("hidden", wrong.length === 0);
+    reviewWrong.classList.toggle("hidden", !hasWrong);
 
     announce("Lot terminé. Score : " + score + " sur " + qs.length + ".");
     $("bar").style.width = "100%";
+    $("bar-wrap").setAttribute("aria-valuenow", String(qs.length));
+    $("bar-wrap").setAttribute("aria-valuetext", "Lot terminé : " + score + " bonnes réponses sur " + qs.length);
     show("done");
     window.scrollTo(0, 0);
   }
 
-  /* Rejoue uniquement les questions ratées. */
+  /* Rejoue uniquement les questions ratées. La thématique d'origine est
+   * mémorisée : une fois les erreurs corrigées, « Refaire un lot » ramène au
+   * thème plutôt qu'à l'accueil. */
   function replayMistakes() {
     var wrong = history.filter(function (h) { return !h.ok; });
     if (!wrong.length) return;
-    currentTheme = "Révision de mes erreurs";
+    if (currentTheme !== REVIEW) reviewOrigin = currentTheme;
+    currentTheme = REVIEW;
     score = 0;
     history = [];
     qs = shuffle(wrong.map(function (h) { return h.q; })).map(function (q) {
@@ -496,7 +579,7 @@
 
   /* ---------- mode révision ---------- */
   function showRevision() {
-    clearInterval(timer);
+    stopTimer();
     var bank = getBank();
     var list = $("revision-list");
     list.innerHTML = "";
@@ -528,7 +611,7 @@
 
   /* ---------- fiche mémo ---------- */
   function showMemo() {
-    clearInterval(timer);
+    stopTimer();
     show("memo");
     window.scrollTo(0, 0);
   }
@@ -537,6 +620,10 @@
   if (typeof window !== "undefined") {
     window.quizPSE = {
       total: TOTAL,
+      minLot: MIN_LOT,
+      /* Taille réellement appliquée à un lot restant : les outils de contrôle
+       * l'utilisent au lieu de recopier la formule. */
+      lotSize: lotSize,
       themes: THEMES.map(function (t) { return t.cat; }),
       classic: CLASSIC.slice(),
       bank: getBank,
@@ -690,11 +777,26 @@
     $("reset-btn").addEventListener("click", resetHistory);
     $("next").addEventListener("click", nextQuestion);
     $("done-again").addEventListener("click", function () {
-      if (currentTheme === "Révision de mes erreurs") { goHome(); return; }
+      if (currentTheme === REVIEW) {
+        /* En révision, le bouton promet de rejouer : on rejoue vraiment les
+         * questions encore ratées, sinon on repart sur la thématique d'origine. */
+        var stillWrong = history.some(function (h) { return !h.ok; });
+        if (stillWrong) { replayMistakes(); return; }
+        if (!reviewOrigin) { goHome(); return; }
+        startQuiz(reviewOrigin);
+        return;
+      }
       startQuiz(currentTheme);
     });
     $("done-review-wrong").addEventListener("click", replayMistakes);
     $("done-home").addEventListener("click", goHome);
+
+    /* Le chronomètre suit la visibilité de l'onglet : une question ne doit pas
+     * se corriger toute seule pendant que l'application est en arrière-plan. */
+    document.addEventListener("visibilitychange", function () {
+      if (document.hidden) pauseTimer();
+      else resumeTimer();   /* retour : on reprend le décompte où il s'était arrêté */
+    });
 
     /* Réponses au clavier : 1-4 ou A-D. */
     document.addEventListener("keydown", function (e) {
@@ -714,10 +816,13 @@
     buildThemes();
     bindEvents();
     /* Mise à jour du service worker : recharge discrètement quand une nouvelle
-     * version est publiée. */
+     * version est publiée. Une première installation n'est pas une mise à jour :
+     * sans ce garde-fou, le message s'affichait dès la toute première visite. */
     if ("serviceWorker" in navigator) {
       navigator.serviceWorker.register("./sw.js").then(function (registration) {
+        var wasInstalled = !!registration.active;
         registration.addEventListener("updatefound", function () {
+          if (!wasInstalled) return;
           var sw = registration.installing;
           if (!sw) return;
           sw.addEventListener("statechange", function () {

@@ -10,6 +10,11 @@ Les formulations ajoutées privilégient les termes officiels des références t
 
 ## Fonctionnalités
 
+- **Édition Halloween** : thème nuit violette, accents orange citrouille et
+  lavande sur tous les écrans, illustration locale (citrouille, fantôme et
+  trousse de secours), toiles et chauves-souris discrètes. Les contenus,
+  l'emblème officiel et la progression sont conservés. Décors disponibles
+  hors ligne, sans police ni ressource externe.
 - **11 thématiques** + un **mode classique** (les 9 thèmes de base, mélangeant désormais PSC, PSE1 et PSE2 selon la banque disponible).
 - **Lots sans aucune répétition** : un cycle parcourt toutes les questions d'une
   thématique une seule fois, par lots de 7 à 10 questions ; les questions déjà
@@ -39,12 +44,13 @@ Les formulations ajoutées privilégient les termes officiels des références t
 | Chemin | Rôle |
 |---|---|
 | `index.html` | structure des écrans (accueil, mémo, révision, quiz, résultat) |
-| `styles.css` | feuille de styles unique (thème clair, contrastes AA) |
+| `styles.css` | feuille de styles unique (thème Halloween sombre, contrastes AA) |
 | `app.js` | logique du quiz, tirage des lots, stockage de la progression |
 | `data/questions.json` | **source de vérité** de la banque de questions |
 | `questions.js` | banque compilée pour le navigateur (générée, ne pas éditer) |
 | `Références techniques nationales - Premiers Secours en Equipe (1).pdf` | référence officielle utilisée pour les formulations PSE1/PSE2 |
 | `references-techniques-nationales-psc-juillet-2026.pdf` | référence officielle utilisée pour les formulations PSC |
+| `assets/halloween-*.svg` | illustrations et décors Halloween, purement décoratifs |
 | `sw.js` | service worker (hors ligne) |
 | `manifest.webmanifest` | manifeste PWA |
 | `tools/validate_bank.mjs` | contrôle automatique de la banque |

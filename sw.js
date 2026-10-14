@@ -8,7 +8,7 @@
  * IMPORTANT : toute modification des fichiers de l'application doit s'accompagner
  * d'une incrémentation de VERSION, sinon les visiteurs garderont l'ancienne copie.
  */
-const VERSION = "20";
+const VERSION = "21";
 const CACHE = `quiz-pse-v${VERSION}`;
 
 const CORE = [
@@ -24,6 +24,9 @@ const CORE = [
   "./icons/maskable-512.png",
   "./icons/apple-touch-icon.png",
   "./assets/logo-protection-civile.jpg",
+  "./assets/halloween-night.svg",
+  "./assets/halloween-bat.svg",
+  "./assets/halloween-web.svg",
 ];
 
 self.addEventListener("install", (event) => {

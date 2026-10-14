@@ -1,23 +1,31 @@
 /* Quiz PSE — Protection Civile du Lot
-   Feuille de styles unique. Thème clair, contrastes conformes AA,
-   animations neutralisées si l'utilisateur le demande. */
+   Édition Halloween : nuit violette, citrouille et lavande.
+   Palette contrastée, ressources locales et animations réduites sur demande. */
 
 :root {
-  --orange: #e85d04;
-  --orange-dark: #b34100;
-  --navy: #16324f;
-  --muted: #556070;          /* texte secondaire, contraste AA sur fond clair */
-  --green: #0f7a53;
-  --red: #c62828;
-  --bg: #f4f7fb;
-  --card: #ffffff;
-  --line: #d7e0ea;
-  --line-strong: #6f869c;      /* contour des contrôles : 3,8:1 sur blanc */
-  --text: #142033;
-  --focus: #0b62c4;
+  color-scheme: dark;
+  --orange: #ff9f50;
+  --orange-dark: #ffb976;
+  --navy: #f4e8ff;
+  --muted: #c1b3ce;
+  --green: #87e0af;
+  --red: #ff9aa6;
+  --bg: #140e1e;
+  --card: #231a30;
+  --surface: #1b1426;
+  --hover: #33223f;
+  --line: #4b3a5b;
+  --line-strong: #927da5;
+  --text: #faf3ea;
+  --focus: #d4b2ff;
+  --success-bg: #173429;
+  --success-line: #56977c;
+  --error-bg: #39202b;
+  --error-line: #c67a8a;
+  --gutter: 24px;
   --radius: 16px;
-  --shadow: 0 12px 35px #183b5d18;
-  /* Couleurs de l'emblème de la Protection Civile (relevées sur le logo). */
+  --shadow: 0 14px 40px #08050d4d;
+  /* L'emblème officiel conserve ses couleurs, y compris au démarrage. */
   --pc-orange: #ee8720;
   --pc-blue: #014181;
 }
@@ -29,27 +37,43 @@ body {
   min-height: 100vh;
   font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
   color: var(--text);
-  background: linear-gradient(180deg, #ffffff 0%, var(--bg) 55%, #eef3f8 100%);
+  background:
+    radial-gradient(ellipse at 80% 0%, #62395130, transparent 42rem),
+    radial-gradient(ellipse at 0% 30%, #67369b1c, transparent 40rem),
+    var(--bg);
   position: relative;
   overflow-x: hidden;
 }
 
-/* Filigrane : logo local, aucune dépendance à un site tiers. */
-body::before {
+/* Décors purement visuels : aucun événement ni ressource extérieure.
+   L'emblème officiel reste présent dans l'en-tête de démarrage. */
+body::before,
+body::after {
   content: "";
   position: fixed;
-  inset: 0;
-  background-image: url("./assets/logo-protection-civile.jpg");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: min(560px, 78vw);
-  opacity: .06;
   pointer-events: none;
   z-index: 0;
+  background-repeat: no-repeat;
+}
+body::before {
+  inset: 0;
+  background-image: url("./assets/halloween-web.svg");
+  background-position: left top;
+  background-size: min(230px, 30vw);
+  opacity: .14;
+}
+body::after {
+  top: 58px; right: 3vw;
+  width: 140px; height: 70px;
+  background-image: url("./assets/halloween-bat.svg");
+  background-size: contain;
+  opacity: .09;
+  transform: rotate(12deg);
 }
 body > * { position: relative; z-index: 1; }
 
-button { font: inherit; }
+button { font: inherit; touch-action: manipulation; }
+::selection { background: #ff9f5040; color: var(--text); }
 
 :focus-visible {
   outline: 3px solid var(--focus);
@@ -86,7 +110,15 @@ button { font: inherit; }
   box-shadow: var(--shadow);
 }
 
-.app { width: min(760px, 100%); margin: auto; padding: 14px; }
+.app {
+  width: min(900px, 100%);
+  margin: auto;
+  padding:
+    max(var(--gutter), env(safe-area-inset-top))
+    max(var(--gutter), env(safe-area-inset-right))
+    max(var(--gutter), env(safe-area-inset-bottom))
+    max(var(--gutter), env(safe-area-inset-left));
+}
 
 /* ---------- en-tête ---------- */
 .top {
@@ -94,52 +126,85 @@ button { font: inherit; }
   justify-content: space-between;
   align-items: center;
   gap: 10px;
-  margin-bottom: 18px;
+  margin-bottom: 12px;
 }
 .brand { display: flex; align-items: center; gap: 10px; }
 .cross {
   display: grid; place-items: center;
   width: 40px; height: 40px;
   border-radius: 11px;
-  background: var(--orange);
-  color: #ffffff;
+  background: linear-gradient(145deg, #ffb66d, var(--orange));
+  color: #2a1724;
   font-size: 22px;
+  box-shadow: 0 4px 18px #ff9f501a;
 }
 .brand small {
   display: block;
   color: var(--muted);
   font-size: 11px;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 1.4px;
 }
 .brand b { font-size: 14px; }
 .home-btn {
-  border: 1px solid var(--line);
+  border: 1px solid var(--line-strong);
   background: var(--card);
   color: var(--text);
   border-radius: 12px;
   padding: 10px 14px;
   cursor: pointer;
+  flex-shrink: 0;
 }
 
 /* ---------- accueil ---------- */
 .hero { text-align: center; padding: 18px 4px; }
 .hero h1 {
-  margin: 0;
-  font-size: clamp(40px, 12vw, 68px);
-  line-height: .95;
-  letter-spacing: 1px;
+  margin: 16px 0 0;
+  font-size: clamp(38px, 6.9vw, 60px);
+  line-height: 1.04;
+  letter-spacing: -1.8px;
 }
-.hero h1 span { color: var(--orange); }
-.hero p { color: var(--muted); font-size: 14px; }
+.hero h1 span { display: block; color: var(--orange); }
+.hero p { color: var(--muted); font-size: 14px; line-height: 1.6; }
+.hero-home {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 280px;
+  align-items: center;
+  gap: 8px;
+  text-align: left;
+  padding: 22px 0 30px;
+}
+.hero-copy { min-width: 0; }
+.hero .hero-motto { margin: 16px 0 0; color: var(--navy); font-size: 17px; font-weight: 600; }
+.edition-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 11px;
+  border: 1px solid #8f6548;
+  border-radius: 99px;
+  background: #ff9f500d;
+  color: var(--orange-dark);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+}
+.edition-pill svg { flex-shrink: 0; }
+.halloween-art {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 12px 28px #ff861c0d);
+}
 
 .card {
-  background: var(--card);
+  background: linear-gradient(145deg, #291e36, var(--card) 65%);
   border: 1px solid var(--line);
   border-radius: 20px;
   box-shadow: var(--shadow);
 }
-.start { padding: 20px; }
+.start { padding: 24px; }
 
 .stats {
   display: grid;
@@ -150,11 +215,11 @@ button { font: inherit; }
 .stat {
   text-align: center;
   padding: 14px 6px;
-  background: #f2f6fb;
+  background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 14px;
 }
-.stat b { display: block; font-size: 22px; }
+.stat b { display: block; font-size: 27px; color: var(--orange-dark); font-variant-numeric: tabular-nums; }
 .stat span {
   color: var(--muted);
   font-size: 11px;
@@ -179,31 +244,30 @@ button { font: inherit; }
   min-height: 82px;
   padding: 13px;
   text-align: left;
-  border: 1px solid var(--line);
+  border: 1px solid var(--line-strong);
   border-radius: 17px;
   background: var(--card);
   color: var(--text);
   cursor: pointer;
-  transition: transform .18s, border-color .18s, background .18s;
+  transition: transform .18s, border-color .18s, background .18s, box-shadow .18s;
 }
 .theme-btn:hover, .theme-btn:active {
   transform: translateY(-2px);
-  border-color: #e85d0480;
-  background: #fff7f0;
+  border-color: var(--orange);
+  background: var(--hover);
 }
 .theme-icon {
   flex: 0 0 44px;
   width: 44px; height: 44px;
   display: grid; place-items: center;
   border-radius: 13px;
-  background: #fff0e5;
+  background: #38263f;
   font-size: 23px;
 }
 .theme-text { min-width: 0; }
 .theme-name { display: block; font-weight: 800; font-size: 13px; line-height: 1.25; }
 .theme-count { display: block; color: var(--muted); font-size: 11px; margin-top: 5px; }
 .theme-count strong { color: var(--orange-dark); }
-.theme-btn.seen { border-color: #e6ebf1; }
 .theme-btn.seen .theme-count strong { color: var(--green); }
 .theme-arrow { margin-left: auto; color: var(--orange-dark); font-size: 18px; }
 
@@ -212,7 +276,7 @@ button { font: inherit; }
 
 .secondary {
   width: 100%;
-  border: 1px solid var(--line);
+  border: 1px solid var(--line-strong);
   border-radius: 15px;
   padding: 13px;
   background: var(--card);
@@ -225,12 +289,19 @@ button { font: inherit; }
   border: 0;
   border-radius: 15px;
   padding: 15px;
-  background: linear-gradient(135deg, #c2410c, #9a3412);
-  color: #ffffff;
+  background: linear-gradient(115deg, #ff9f50, #ffc07a);
+  color: #2a1724;
+  box-shadow: 0 4px 22px #ff9f5014;
   font-weight: 800;
   cursor: pointer;
 }
 .primary:disabled { opacity: .6; cursor: default; }
+.primary:hover:not(:disabled) { background: linear-gradient(115deg, #ffb068, #ffd09b); }
+.secondary:hover, .home-btn:hover { border-color: var(--orange); background: var(--hover); }
+#classic-btn { background: linear-gradient(120deg, #42283b, #302039); border-color: #c38c62; }
+#classic-btn:hover { border-color: var(--orange); background: #4a2d40; }
+#reset-btn { border-style: dashed; background: transparent; color: var(--muted); font-weight: 600; }
+#reset-btn:hover { color: var(--text); background: var(--hover); }
 
 /* ---------- mode révision ---------- */
 .back-btn { margin-bottom: 12px; }
@@ -239,7 +310,7 @@ button { font: inherit; }
   padding: 15px;
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: #f8fafc;
+  background: var(--card);
 }
 .revision-card .r-theme {
   color: var(--orange-dark);
@@ -253,12 +324,12 @@ button { font: inherit; }
   margin-top: 10px;
   padding: 10px;
   border-radius: 11px;
-  background: #ecfdf5;
-  border: 1px solid #a7e5cb;
+  background: var(--success-bg);
+  border: 1px solid var(--success-line);
   font-size: 14px;
 }
-.revision-card .r-answer b { color: #076242; }
-.revision-card p { margin: 10px 0 0; color: #475569; font-size: 13px; line-height: 1.5; }
+.revision-card .r-answer b { color: var(--green); }
+.revision-card p { margin: 10px 0 0; color: var(--muted); font-size: 13px; line-height: 1.5; }
 
 /* ---------- fiche mémo ---------- */
 .memo-list {
@@ -270,7 +341,7 @@ button { font: inherit; }
 }
 .memo-list li {
   padding: 11px 13px;
-  background: #f7fafd;
+  background: var(--surface);
   border: 1px solid var(--line);
   border-left: 4px solid var(--orange);
   border-radius: 12px;
@@ -281,10 +352,10 @@ button { font: inherit; }
 .memo-list li:first-child { border-left-color: var(--red); }
 
 /* ---------- quiz ---------- */
-.progress { height: 7px; background: #e5ebf2; border-radius: 99px; overflow: hidden; }
+.progress { height: 7px; background: #382c46; border-radius: 99px; overflow: hidden; }
 .progress i {
   display: block; height: 100%; width: 0;
-  background: linear-gradient(90deg, var(--orange), #ff8a3d);
+  background: linear-gradient(90deg, var(--orange), #d4b2ff);
   transition: width .2s;
 }
 .meta {
@@ -312,31 +383,31 @@ button { font: inherit; }
   display: inline-block;
   padding: 5px 9px;
   border-radius: 8px;
-  background: #ffe3cf;
-  color: #8a3300;
+  background: #493026;
+  color: #ffc58f;
   font-size: 11px;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: .4px;
 }
-.tag.level { background: #e3edf9; color: #1f4d7a; margin-left: 6px; }
+.tag.level { background: #392b4d; color: #e1c5ff; margin-left: 6px; }
 .question h2 { font-size: clamp(19px, 5vw, 25px); line-height: 1.4; margin: 12px 0 0; }
 
 .q-illustration {
   margin: -20px -18px 16px;
   overflow: hidden;
   border-radius: 20px 20px 0 0;
-  background: linear-gradient(135deg, #edf4fa, #dfeaf4);
-  border-bottom: 1px solid #d5e0ea;
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
 }
-.q-illustration svg { display: block; width: 100%; height: 170px; }
+.q-illustration svg { display: block; width: 100%; height: auto; }
 .q-illustration .ill-label {
   font: 700 11px system-ui, sans-serif;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  fill: #b8c8dc;
+  fill: #d0bce5;
 }
-.q-illustration .ill-main { font: 800 54px system-ui, sans-serif; fill: #10233a; }
+.q-illustration .ill-main { font: 800 54px system-ui, sans-serif; fill: #29192e; }
 
 .answers { display: grid; gap: 9px; }
 .answer {
@@ -353,13 +424,13 @@ button { font: inherit; }
   color: var(--text);
   cursor: pointer;
 }
-.answer:hover:not(:disabled) { border-color: #e85d0480; background: #fff7f0; }
+.answer:hover:not(:disabled) { border-color: var(--orange); background: var(--hover); }
 .letter {
   flex: 0 0 35px;
   height: 35px;
   display: grid; place-items: center;
   border-radius: 9px;
-  background: #eef3f8;
+  background: #3c2c4c;
   color: var(--navy);
   font-weight: 800;
 }
@@ -370,28 +441,28 @@ button { font: inherit; }
   font-weight: 800;
   line-height: 1;
 }
-/* Réponses non choisies : atténuées mais toujours lisibles (6:1 obtenu en
-   composant le texte sur blanc, seuil AA à 4,5:1). */
-.answer.void { opacity: .7; }
-.answer.correct { border-color: var(--green); background: #ecfdf5; }
-.answer.correct .mark { color: #0b6b48; }
-.answer.correct .letter { background: var(--green); color: #ffffff; }
-.answer.wrong { border-color: var(--red); background: #fff1f3; }
-.answer.wrong .mark { color: #a31d1d; }
-.answer.wrong .letter { background: var(--red); color: #ffffff; }
+/* Les réponses non choisies restent lisibles sur le fond nuit.
+   Les états sont aussi indiqués par un glyphe et un nom accessible. */
+.answer.void { opacity: .78; }
+.answer.correct { border-color: var(--green); background: var(--success-bg); }
+.answer.correct .mark { color: var(--green); }
+.answer.correct .letter { background: var(--green); color: #17251d; }
+.answer.wrong { border-color: var(--red); background: var(--error-bg); }
+.answer.wrong .mark { color: var(--red); }
+.answer.wrong .letter { background: var(--red); color: #321a24; }
 .answer:disabled { cursor: default; }
 
 .feedback {
   margin: 11px 0;
   padding: 14px 15px;
   border-radius: 14px;
-  background: #f7f9fc;
+  background: var(--surface);
   border: 1px solid var(--line);
   line-height: 1.45;
   font-size: 14px;
 }
-.feedback.good { border-color: #4cae8b; background: #f0fdf7; }
-.feedback.bad { border-color: #e08a99; background: #fff5f7; }
+.feedback.good { border-color: var(--success-line); background: var(--success-bg); }
+.feedback.bad { border-color: var(--error-line); background: var(--error-bg); }
 .next { margin-top: 10px; }
 
 /* ---------- fin de lot ---------- */
@@ -405,23 +476,23 @@ button { font: inherit; }
   margin: 4px 0 0;
   padding: 12px 18px;
   border-radius: 14px;
-  background: #ecfdf5;
-  border: 1px solid #a7e5cb;
-  color: #076242;
+  background: var(--success-bg);
+  border: 1px solid var(--success-line);
+  color: var(--green);
   font-weight: 700;
 }
 
 .foot { text-align: center; color: var(--muted); font-size: 11px; margin-top: 18px; }
 
-/* Bandeau d'état du contenu (accueil uniquement). Texte #4a3210 sur #fff8e8 : 11,3:1. */
-.notice { display: flex; gap: 10px; align-items: flex-start; text-align: left; background: #fff8e8; border: 1px solid #f0c05a; border-left: 4px solid #b45309; color: #4a3210; border-radius: 13px; padding: 12px 14px; margin: 0 0 14px; font-size: 14px; line-height: 1.45; }
+/* Bandeau d'état du contenu : toujours visible et contrasté à l'accueil. */
+.notice { display: flex; gap: 10px; align-items: flex-start; text-align: left; background: #302417; border: 1px solid #8d693a; border-left: 4px solid var(--orange); color: #f9d9a2; border-radius: 13px; padding: 12px 14px; margin: 0 0 14px; font-size: 14px; line-height: 1.45; }
 .notice-icon { flex: 0 0 auto; font-size: 18px; line-height: 1.2; }
 
 /* Pied de page : sources, RGPD, contacts (visible sur tous les écrans). */
 .foot-note { display: grid; gap: 8px; text-align: center; background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 14px 16px; margin-top: 18px; }
 .foot-note p { margin: 0; font-size: 13px; line-height: 1.5; }
 .foot-note .foot { font-size: 12px; color: var(--muted); margin-top: 0; }
-.foot-note a { color: #0b5cad; text-decoration: underline; }   /* 6,7:1 sur blanc */
+.foot-note a { color: #d4b2ff; text-decoration: underline; text-underline-offset: 3px; }
 .foot-note a:hover, .foot-note a:focus-visible { color: var(--orange-dark); }
 .contact { overflow-wrap: anywhere; }
 
@@ -438,7 +509,7 @@ button { font: inherit; }
   display: grid;
   place-items: center;
   padding: 24px;
-  background: radial-gradient(125% 90% at 50% 8%, #ffffff 0%, var(--bg) 46%, #e5eef7 100%);
+  background: radial-gradient(125% 90% at 50% 8%, #382344 0%, var(--bg) 65%, #100b18 100%);
   cursor: pointer;
   opacity: 1;
   transition: opacity .42s ease, visibility .42s ease;
@@ -461,7 +532,7 @@ body.booting { overflow: hidden; }
   width: min(232px, 58vw);
   height: auto;
   overflow: visible;                    /* les ondes dépassent du cadre */
-  filter: drop-shadow(0 16px 28px #16324f2e);
+  filter: drop-shadow(0 16px 35px #ee872025);
 }
 
 /* le disque orange de l'emblème */
@@ -555,9 +626,27 @@ body.reveal .app { animation: sp-app-in .48s ease .12s both; }
   to { opacity: 1; transform: none; }
 }
 
+@media (max-width: 680px) {
+  .hero-home { grid-template-columns: 1fr; justify-items: center; text-align: center; padding: 12px 0 24px; }
+  .halloween-art { grid-row: 1; width: 210px; margin-bottom: -12px; }
+  .hero h1 { font-size: clamp(34px, 7.5vw, 50px); letter-spacing: -1px; }
+}
+
 @media (max-width: 520px) {
+  :root { --gutter: 16px; }
+  .halloween-art { width: 170px; }
+  .brand b { font-size: 12px; }
+  .brand small { font-size: 10px; }
+  .brand { gap: 8px; }
+  .cross { width: 36px; height: 36px; flex-shrink: 0; }
+  .home-btn { padding: 9px 10px; font-size: 12px; }
+  .start { padding: 16px; }
   .themes { grid-template-columns: 1fr; }
   .theme-btn { min-height: 74px; }
+  .stat b { font-size: 23px; }
+  .stat span { font-size: 10px; }
+  .hero .hero-motto { font-size: 15px; }
+  body::after { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -571,5 +660,11 @@ body.reveal .app { animation: sp-app-in .48s ease .12s both; }
 }
 
 @media (prefers-contrast: more) {
-  .theme-count, .section-sub, .hero p, .meta, .foot { color: #33404f; }
+  :root {
+    --muted: #e2d8eb;
+    --line: #a791b8;
+    --line-strong: #c9b5dc;
+  }
+  .answer.void { opacity: 1; }
+  body::before, body::after { display: none; }
 }

@@ -340,20 +340,20 @@
       return String(v).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
     };
     return '<svg viewBox="0 0 760 170" role="img" aria-label="' + escSvg(title) + '">' +
-      '<defs><linearGradient id="ig" x1="0" x2="1"><stop offset="0" stop-color="#ff6600"/>' +
-      '<stop offset="1" stop-color="#ff9a58"/></linearGradient>' +
+      '<defs><linearGradient id="ig" x1="0" x2="1"><stop offset="0" stop-color="#ff9f50"/>' +
+      '<stop offset="1" stop-color="#ffc07a"/></linearGradient>' +
       '<radialGradient id="rg"><stop stop-color="#ffffff22"/><stop offset="1" stop-color="#ffffff00"/></radialGradient></defs>' +
-      '<rect width="760" height="170" fill="#0b1b33"/>' +
+      '<rect width="760" height="170" fill="#1b1229"/>' +
       '<circle cx="650" cy="30" r="145" fill="url(#rg)"/>' +
-      '<circle cx="120" cy="150" r="110" fill="#ff660012"/>' +
+      '<circle cx="120" cy="150" r="110" fill="#ff9f5012"/>' +
       '<rect x="28" y="28" width="114" height="114" rx="28" fill="url(#ig)" opacity=".95"/>' +
       '<text x="85" y="103" text-anchor="middle" class="ill-main">' + escSvg(icon) + "</text>" +
       '<text x="175" y="72" class="ill-label">' + escSvg(title) + "</text>" +
       '<text x="175" y="102" fill="#ffffff" font-size="24" font-weight="800" font-family="system-ui,sans-serif">' + escSvg(sub) + "</text>" +
       '<path d="M175 121h430" stroke="#ffffff22"/>' +
-      '<circle cx="625" cy="121" r="5" fill="#ff6600"/>' +
-      '<circle cx="645" cy="121" r="5" fill="#ff6600" opacity=".55"/>' +
-      '<circle cx="665" cy="121" r="5" fill="#ff6600" opacity=".25"/></svg>';
+      '<circle cx="625" cy="121" r="5" fill="#ff9f50"/>' +
+      '<circle cx="645" cy="121" r="5" fill="#ff9f50" opacity=".55"/>' +
+      '<circle cx="665" cy="121" r="5" fill="#ff9f50" opacity=".25"/></svg>';
   }
 
   /* ---------- rendu d'une question ---------- */

@@ -79,10 +79,20 @@ if (external.length) problems.push(`index.html charge des ressources externes : 
 const cssExternal = [...css.matchAll(/url\((?!")[^)]*https?:\/\/[^)]+/g)].map((m) => m[0]);
 if (cssExternal.length) problems.push(`styles.css charge des ressources externes : ${cssExternal.join(", ")}`);
 
-/* le thème clair annoncé doit correspondre au manifeste et au HTML */
+/* Le thème annoncé doit correspondre au manifeste, au HTML et au CSS. */
 const themeTag = (html.match(/name="theme-color" content="([^"]+)"/) || [])[1];
 if (themeTag && themeTag.toLowerCase() !== manifest.theme_color.toLowerCase()) {
   problems.push(`theme-color incohérent : index.html=${themeTag}, manifest=${manifest.theme_color}`);
+}
+const rootStyle = (css.match(/:root\s*\{([^}]+)\}/) || [])[1] || "";
+const background = (rootStyle.match(/--bg:\s*(#[\da-f]+)/i) || [])[1];
+if (background && background.toLowerCase() !== manifest.background_color.toLowerCase()) {
+  problems.push(`fond PWA incohérent : styles.css=${background}, manifest=${manifest.background_color}`);
+}
+const schemeTag = (html.match(/name="color-scheme" content="([^"]+)"/) || [])[1];
+const schemeStyle = (rootStyle.match(/color-scheme:\s*([^;]+);/) || [])[1]?.trim();
+if (schemeTag && schemeStyle && schemeTag !== schemeStyle) {
+  problems.push(`color-scheme incohérent : index.html=${schemeTag}, styles.css=${schemeStyle}`);
 }
 
 if (problems.length) {

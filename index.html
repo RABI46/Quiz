@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Quiz PSC · PSE1 · PSE2 · Protection Civile du Lot</title>
 <meta name="description" content="Quiz d'entraînement PSC, PSE1 et PSE2 : 330 questions corrigées, sans aucune répétition, réparties en 11 thématiques. Protection Civile du Lot.">
-<meta name="theme-color" content="#140e1e">
+<meta name="theme-color" content="#0a1f16">
 <meta name="color-scheme" content="dark">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -70,21 +70,13 @@
   <section id="home" aria-labelledby="home-title">
     <div class="hero hero-home">
       <div class="hero-copy">
-        <span class="edition-pill"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><path fill="currentColor" d="m8 0 2 6 6 2-6 2-2 6-2-6-6-2 6-2Z"/></svg> Édition Halloween</span>
+        <span class="edition-pill"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><path fill="currentColor" d="m8 0 2 6 6 2-6 2-2 6-2-6-6-2 6-2Z"/></svg> Édition Noël</span>
         <h1 id="home-title">QUIZ <span>SECOURISME</span></h1>
-        <p class="hero-motto">Même pas peur de sauver des vies.</p>
+        <p class="hero-motto">Un cadeau qui peut sauver une vie.</p>
         <p>Entraînement PSC · PSE1 · PSE2<br>Protection Civile du Lot</p>
       </div>
-      <img class="halloween-art" src="./assets/halloween-night.svg" width="320" height="280" alt="" aria-hidden="true">
+      <img class="noel-art" src="./assets/noel-sapin.svg" width="320" height="280" alt="" aria-hidden="true">
     </div>
-
-    <p class="notice">
-      <span class="notice-icon" aria-hidden="true">⚠️</span>
-      <span><b>En attente de validation par Vianney et Ana.</b> Tant que la
-      relecture n'est pas faite, les questions et les explications restent des
-      repères d'entraînement et ne remplacent pas la formation suivie en
-      organisme.</span>
-    </p>
 
     <div class="card start">
       <div class="stats">
@@ -101,19 +93,42 @@
           🏁 Mode classique — les 9 thèmes de base<br>
           <span class="theme-count" id="classic-count"></span>
         </button>
+        <div class="level-filter" id="level-filter" role="group" aria-label="Niveau du mode classique">
+          <span class="level-label">Niveau :</span>
+          <button type="button" class="level-btn" data-level="tous" aria-pressed="true">Tous</button>
+          <button type="button" class="level-btn" data-level="PSC" aria-pressed="false">PSC</button>
+          <button type="button" class="level-btn" data-level="PSE1" aria-pressed="false">PSE1</button>
+          <button type="button" class="level-btn" data-level="PSE2" aria-pressed="false">PSE2</button>
+        </div>
       </div>
 
       <div id="themes" class="themes"></div>
+      <div id="recent-lots" class="recent hidden"></div>
 
       <div class="home-actions">
         <button type="button" class="secondary" id="memo-btn">🧾 Fiche mémo — les chiffres et conduites clés</button>
         <button type="button" class="secondary" id="revision-btn">📖 Mode révision — apprendre sans chronomètre</button>
+        <button type="button" class="secondary hidden" id="last-errors-btn">🎯 Réviser les erreurs du dernier lot</button>
         <button type="button" class="secondary" id="reset-btn">♻️ Réinitialiser les questions déjà vues</button>
       </div>
 
       <p class="storage-note">La progression est mémorisée sur cet appareil uniquement (aucune donnée envoyée).</p>
       <p class="storage-note hidden" id="update-note">Une nouvelle version de l'application est disponible : rechargez la page pour en profiter.</p>
     </div>
+
+    <section class="card about" aria-labelledby="about-title">
+      <h2 class="section-title" id="about-title">ℹ️ À propos</h2>
+      <ul class="about-list">
+        <li><b>Quizz accessible et partageable gratuitement.</b></li>
+        <li>Ce Quizz est un travail personnel open source et ne représente
+        aucune structure ou association de secourisme française.</li>
+        <li>Ce Quizz s'appuie sur les recommandations <b>juillet 2026</b> de la
+        sécurité civile française.</li>
+        <li>Code source et contributions :
+        <a href="https://github.com/RABI46/Quiz" target="_blank" rel="noopener noreferrer">github.com/RABI46/Quiz<span class="visually-hidden"> (nouvel onglet)</span></a>.</li>
+        <li>Fait par <b>Rabie Kahlaoui</b>.</li>
+      </ul>
+    </section>
   </section>
 
   <!-- ======================= FICHE MÉMO ======================= -->
@@ -166,7 +181,7 @@
     <button type="button" class="secondary back-btn" id="revision-back">← Retour à l'accueil</button>
     <div class="hero">
       <h2 id="revision-title" style="margin:0;font-size:30px">📖 Mode révision</h2>
-      <p>Les <b id="revision-count">330</b> questions, leurs bonnes réponses et les explications.</p>
+      <p><b id="revision-count">330</b> <span id="revision-sub">questions, avec leurs bonnes réponses et les explications.</span></p>
     </div>
     <div id="revision-list" class="revision-list"></div>
   </section>
@@ -200,11 +215,12 @@
     <div class="card done">
       <div style="font-size:54px" aria-hidden="true">🎉</div>
       <h2 id="done-title">Lot terminé</h2>
-      <p>Thématique : <b id="done-theme"></b></p>
+      <p><span id="done-label">Thématique</span> : <b id="done-theme"></b></p>
       <p class="score"><span id="done-score"></span><br><span id="done-percent"></span></p>
       <div id="done-recap"></div>
       <button type="button" class="primary theme-again" id="done-again">🔁 Refaire un lot de cette thématique</button>
       <button type="button" class="secondary theme-again hidden" id="done-review-wrong">🎯 Rejouer mes erreurs</button>
+      <button type="button" class="secondary theme-again hidden" id="done-revise">📖 Revoir les explications</button>
       <button type="button" class="secondary theme-again" id="done-home">← Choisir une autre thématique</button>
     </div>
   </section>

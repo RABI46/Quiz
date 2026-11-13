@@ -26,6 +26,8 @@ const { window } = dom;
 const $ = (id) => window.document.getElementById(id);
 const visible = (id) => !$(id).classList.contains("hidden");
 const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+/* jsdom n'implémente pas window.confirm : le test accepte les confirmations. */
+window.confirm = () => true;
 
 await new Promise((resolve) => {
   if (window.document.readyState === "complete") resolve();
@@ -61,8 +63,17 @@ if (/\bnouveau cycle\b/.test(buttons[0].textContent) === false) problems.push("a
 
 /* Mentions obligatoires : elles ne doivent pas disparaître silencieusement. */
 const doc = window.document;
-const notice = doc.querySelector("#home .notice");
-if (!notice || !/Vianney et Ana/.test(notice.textContent)) problems.push("accueil : le bandeau « en attente de validation par Vianney et Ana » est absent");
+const about = doc.querySelector("#home .about");
+if (!about) problems.push("accueil : le bloc À propos est absent");
+else {
+  const aboutText = about.textContent.replace(/\s+/g, " ");
+  if (!/gratuitement/.test(aboutText)) problems.push("accueil : la mention « partageable gratuitement » est absente");
+  if (!/travail personnel open source/.test(aboutText)) problems.push("accueil : la mention « travail personnel open source » est absente");
+  if (!/juillet 2026/.test(aboutText)) problems.push("accueil : la référence à juillet 2026 est absente");
+  if (!/Rabie Kahlaoui/.test(aboutText)) problems.push("accueil : le crédit d'auteur est absent");
+  if (!about.querySelector('a[href="https://github.com/RABI46/Quiz"]')) problems.push("accueil : le lien du dépôt GitHub est absent");
+}
+if (!/Édition Noël/.test($("home").textContent)) problems.push("accueil : l'édition Noël n'est pas annoncée");
 const footNote = doc.querySelector("footer.foot-note");
 if (!footNote) problems.push("pied de page : footer.foot-note absent");
 else {
@@ -235,6 +246,39 @@ if (!firstCard || !/Bonne réponse/.test(firstCard)) problems.push("révision : 
 $("revision-back").dispatchEvent(new window.MouseEvent("click", { bubbles: true }));
 await wait(20);
 
+/* ---------- 6bis. filtre de niveau et historique des scores ---------- */
+const levelButtons = [...window.document.querySelectorAll("#level-filter .level-btn")];
+if (levelButtons.length !== 4) problems.push(`niveau : ${levelButtons.length} boutons au lieu de 4`);
+const pse2Button = levelButtons.find((b) => b.dataset.level === "PSE2");
+if (!pse2Button) problems.push("niveau : le bouton PSE2 est absent");
+else {
+  pse2Button.dispatchEvent(new window.MouseEvent("click", { bubbles: true }));
+  await wait(20);
+  if (pse2Button.getAttribute("aria-pressed") !== "true") problems.push("niveau : le filtre PSE2 n'est pas signalé comme actif");
+  const pse2Count = api.bank().filter((q) => q.level === "PSE2").length;
+  if (!$("classic-count").textContent.includes(String(pse2Count))) {
+    problems.push(`niveau : le mode classique annonce « ${$("classic-count").textContent} » au lieu de ${pse2Count} questions PSE2`);
+  }
+  $("classic-btn").dispatchEvent(new window.MouseEvent("click", { bubbles: true }));
+  await wait(30);
+  if (!visible("quiz")) problems.push("niveau : le mode classique filtré ne démarre pas");
+  const levels = new Set(window.quizPSE.state().questions.map((q) => q.level));
+  if (levels.size !== 1 || !levels.has("PSE2")) problems.push(`niveau : le lot contient des niveaux ${[...levels].join(", ")}`);
+  if (!/PSE2/.test($("lot").textContent)) problems.push(`niveau : l'en-tête de lot « ${$("lot").textContent} » ne mentionne pas le niveau`);
+  $("top-home").dispatchEvent(new window.MouseEvent("click", { bubbles: true }));
+  await wait(20);
+  if (!visible("home")) problems.push("niveau : retour à l'accueil impossible");
+  /* Quitter sans répondre doit rendre toutes les questions au cycle. */
+  if (!$("classic-count").textContent.includes(`${pse2Count} restantes`)) {
+    problems.push(`niveau : le lot quitté n'a pas restitué ses questions (« ${$("classic-count").textContent} »)`);
+  }
+}
+
+const recentItems = [...window.document.querySelectorAll("#recent-lots .recent-item")];
+if ($("recent-lots").classList.contains("hidden")) problems.push("historique : les derniers scores ne sont pas affichés après un lot terminé");
+else if (!recentItems.length) problems.push("historique : aucune ligne de score");
+else if (!recentItems[0].textContent.includes("/")) problems.push("historique : la ligne de score est incomplète");
+
 /* ---------- 7. progression mémorisée ---------- */
 const keys = Object.keys(window.localStorage).filter((k) => k.startsWith("quizPSE"));
 if (!keys.length) problems.push("stockage : aucune progression mémorisée");
@@ -263,6 +307,58 @@ else if (!skip.getAttribute("href")?.startsWith("#") || !window.document.querySe
   problems.push("accessibilité : le lien d'évitement ne pointe vers aucune cible du document");
 }
 
+/* ---------- 9. erreurs du dernier lot et réinitialisation par thématique ---------- */
+/* Le filtre PSE2 est encore actif : on termine un lot en laissant une erreur. */
+$("classic-btn").dispatchEvent(new window.MouseEvent("click", { bubbles: true }));
+await wait(30);
+if (!visible("quiz")) problems.push("révision filtrée : le lot de préparation ne démarre pas");
+const prepSize = Number($("num").textContent.split("/")[1].trim());
+for (let i = 0; i < prepSize; i++) {
+  const state = window.quizPSE.state();
+  const current = state.questions[state.index];
+  answers = [...window.document.querySelectorAll("#answers .answer")];
+  const choice = i === 0 ? (current.c + 1) % 4 : current.c;
+  answers[choice].dispatchEvent(new window.MouseEvent("click", { bubbles: true }));
+  await wait(20);
+  $("next").dispatchEvent(new window.MouseEvent("click", { bubbles: true }));
+  await wait(20);
+}
+if (!visible("done")) problems.push("révision filtrée : le lot de préparation ne se termine pas");
+
+const reviseBtn = $("done-revise");
+if (reviseBtn.classList.contains("hidden")) problems.push("révision filtrée : le bouton de révision est masqué malgré une erreur");
+reviseBtn.dispatchEvent(new window.MouseEvent("click", { bubbles: true }));
+await wait(30);
+if (!visible("revision")) problems.push("révision filtrée : l'écran ne s'ouvre pas depuis le résultat");
+if (!/Révision de mes erreurs/.test($("revision-title").textContent)) {
+  problems.push(`révision filtrée : titre inattendu « ${$("revision-title").textContent} »`);
+}
+const targetedCards = window.document.querySelectorAll("#revision-list .revision-card").length;
+if (targetedCards !== 1) problems.push(`révision filtrée : ${targetedCards} fiche(s) au lieu de l'erreur unique`);
+$("revision-back").dispatchEvent(new window.MouseEvent("click", { bubbles: true }));
+await wait(20);
+
+const lastErrors = $("last-errors-btn");
+if (lastErrors.classList.contains("hidden")) problems.push("révision filtrée : l'accès depuis l'accueil est masqué");
+else if (!/\(1\)/.test(lastErrors.textContent)) problems.push(`révision filtrée : compte inattendu « ${lastErrors.textContent} »`);
+lastErrors.dispatchEvent(new window.MouseEvent("click", { bubbles: true }));
+await wait(30);
+if (!visible("revision")) problems.push("révision filtrée : l'accès depuis l'accueil ne fonctionne pas");
+$("revision-back").dispatchEvent(new window.MouseEvent("click", { bubbles: true }));
+await wait(20);
+
+const rcpReset = window.document.querySelector('#themes .theme-reset[data-theme="RCP et DAE"]');
+if (!rcpReset) problems.push("réinitialisation : le bouton de la thématique RCP est absent");
+else {
+  const rcpCount = () => window.document.querySelector('#themes .theme-btn[data-theme="RCP et DAE"] .theme-count').textContent;
+  const beforeReset = rcpCount();
+  rcpReset.dispatchEvent(new window.MouseEvent("click", { bubbles: true }));
+  await wait(20);
+  const afterReset = rcpCount();
+  if (beforeReset === afterReset) problems.push(`réinitialisation : la thématique n'a pas été réinitialisée (« ${afterReset} »)`);
+  if (!/nouveau cycle/.test(afterReset)) problems.push(`réinitialisation : compteur inattendu « ${afterReset} »`);
+}
+
 /* ---------- résultat ---------- */
 errors.forEach((e) => problems.push(e));
 if (problems.length) {
@@ -270,5 +366,5 @@ if (problems.length) {
   problems.forEach((p) => console.error("   - " + p));
   process.exit(1);
 }
-console.log(`✅ Parcours complet validé (${BANK} questions, ${THEMES} thématiques) : animation de démarrage, accueil, lot sans répétition, corrections, chronomètre en pause, score, erreurs rejouées, classique, clavier, mémo, révision, stockage.`);
+console.log(`✅ Parcours complet validé (${BANK} questions, ${THEMES} thématiques) : animation de démarrage, accueil, lot sans répétition, corrections, chronomètre en pause, score, erreurs rejouées, classique, filtre de niveau, lot interrompu restitué, derniers scores, révision filtrée, réinitialisation par thématique, clavier, mémo, révision, stockage.`);
 dom.window.close();

@@ -1,30 +1,30 @@
 /* Quiz PSE — Protection Civile du Lot
-   Édition Halloween : nuit violette, citrouille et lavande.
+   Édition Noël : nuit verte, rouge houx et or.
    Palette contrastée, ressources locales et animations réduites sur demande. */
 
 :root {
   color-scheme: dark;
-  --orange: #ff9f50;
-  --orange-dark: #ffb976;
-  --navy: #f4e8ff;
-  --muted: #c1b3ce;
-  --green: #87e0af;
-  --red: #ff9aa6;
-  --bg: #140e1e;
-  --card: #231a30;
-  --surface: #1b1426;
-  --hover: #33223f;
-  --line: #4b3a5b;
-  --line-strong: #927da5;
-  --text: #faf3ea;
-  --focus: #d4b2ff;
-  --success-bg: #173429;
-  --success-line: #56977c;
-  --error-bg: #39202b;
-  --error-line: #c67a8a;
+  --orange: #e0433a;
+  --orange-dark: #f3c969;
+  --navy: #f7efe0;
+  --muted: #c6c2b4;
+  --green: #8fe0b0;
+  --red: #ff9a9a;
+  --bg: #0a1f16;
+  --card: #123024;
+  --surface: #0e271b;
+  --hover: #1a3f2d;
+  --line: #2e5540;
+  --line-strong: #7fa48c;
+  --text: #fbf5e9;
+  --focus: #ffd166;
+  --success-bg: #10382a;
+  --success-line: #5aa380;
+  --error-bg: #3a1d21;
+  --error-line: #c97f86;
   --gutter: 24px;
   --radius: 16px;
-  --shadow: 0 14px 40px #08050d4d;
+  --shadow: 0 14px 40px #04120b66;
   /* L'emblème officiel conserve ses couleurs, y compris au démarrage. */
   --pc-orange: #ee8720;
   --pc-blue: #014181;
@@ -38,8 +38,8 @@ body {
   font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
   color: var(--text);
   background:
-    radial-gradient(ellipse at 80% 0%, #62395130, transparent 42rem),
-    radial-gradient(ellipse at 0% 30%, #67369b1c, transparent 40rem),
+    radial-gradient(ellipse at 80% 0%, #2f8a5d33, transparent 42rem),
+    radial-gradient(ellipse at 0% 35%, #f3c96910, transparent 40rem),
     var(--bg);
   position: relative;
   overflow-x: hidden;
@@ -57,23 +57,23 @@ body::after {
 }
 body::before {
   inset: 0;
-  background-image: url("./assets/halloween-web.svg");
-  background-position: left top;
-  background-size: min(230px, 30vw);
-  opacity: .14;
+  background-image: url("./assets/noel-flocon.svg");
+  background-position: left 10px top 240px;
+  background-size: min(200px, 24vw);
+  opacity: .08;
 }
 body::after {
   top: 58px; right: 3vw;
   width: 140px; height: 70px;
-  background-image: url("./assets/halloween-bat.svg");
+  background-image: url("./assets/noel-boules.svg");
   background-size: contain;
-  opacity: .09;
+  opacity: .12;
   transform: rotate(12deg);
 }
 body > * { position: relative; z-index: 1; }
 
 button { font: inherit; touch-action: manipulation; }
-::selection { background: #ff9f5040; color: var(--text); }
+::selection { background: #e0433a40; color: var(--text); }
 
 :focus-visible {
   outline: 3px solid var(--focus);
@@ -133,10 +133,10 @@ button { font: inherit; touch-action: manipulation; }
   display: grid; place-items: center;
   width: 40px; height: 40px;
   border-radius: 11px;
-  background: linear-gradient(145deg, #ffb66d, var(--orange));
-  color: #2a1724;
+  background: linear-gradient(145deg, #f3c969, var(--orange));
+  color: #2a140f;
   font-size: 22px;
-  box-shadow: 0 4px 18px #ff9f501a;
+  box-shadow: 0 4px 18px #e0433a1f;
 }
 .brand small {
   display: block;
@@ -181,9 +181,9 @@ button { font: inherit; touch-action: manipulation; }
   align-items: center;
   gap: 8px;
   padding: 7px 11px;
-  border: 1px solid #8f6548;
+  border: 1px solid #a67c3d;
   border-radius: 99px;
-  background: #ff9f500d;
+  background: #f3c9690d;
   color: var(--orange-dark);
   font-size: 10px;
   font-weight: 800;
@@ -191,20 +191,34 @@ button { font: inherit; touch-action: manipulation; }
   text-transform: uppercase;
 }
 .edition-pill svg { flex-shrink: 0; }
-.halloween-art {
+.noel-art {
   display: block;
   width: 100%;
   height: auto;
-  filter: drop-shadow(0 12px 28px #ff861c0d);
+  filter: drop-shadow(0 12px 28px #e0433a1a);
 }
 
 .card {
-  background: linear-gradient(145deg, #291e36, var(--card) 65%);
+  background: linear-gradient(145deg, #16382a, var(--card) 65%);
   border: 1px solid var(--line);
   border-radius: 20px;
   box-shadow: var(--shadow);
 }
 .start { padding: 24px; }
+
+/* Bloc de mentions de l'accueil : gratuité, open source, sources, crédit. */
+.about { margin-top: 14px; padding: 20px 22px; }
+.about-list {
+  margin: 0;
+  padding-left: 20px;
+  display: grid;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+.about-list b { color: var(--text); }
+.about-list a { color: var(--orange-dark); text-underline-offset: 3px; }
 
 .stats {
   display: grid;
@@ -261,7 +275,7 @@ button { font: inherit; touch-action: manipulation; }
   width: 44px; height: 44px;
   display: grid; place-items: center;
   border-radius: 13px;
-  background: #38263f;
+  background: #1b4332;
   font-size: 23px;
 }
 .theme-text { min-width: 0; }
@@ -270,6 +284,22 @@ button { font: inherit; touch-action: manipulation; }
 .theme-count strong { color: var(--orange-dark); }
 .theme-btn.seen .theme-count strong { color: var(--green); }
 .theme-arrow { margin-left: auto; color: var(--orange-dark); font-size: 18px; }
+
+/* Une thématique + sa réinitialisation individuelle */
+.theme-row { display: flex; align-items: stretch; gap: 7px; min-width: 0; }
+.theme-row .theme-btn { width: auto; flex: 1; min-width: 0; }
+.theme-reset {
+  flex: 0 0 42px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 16px;
+  cursor: pointer;
+}
+.theme-reset:hover { border-color: var(--orange); color: var(--text); background: var(--hover); }
 
 .home-actions { display: grid; gap: 10px; margin-top: 14px; }
 .storage-note { text-align: center; color: var(--muted); font-size: 11px; margin: 10px 0 0; }
@@ -289,19 +319,57 @@ button { font: inherit; touch-action: manipulation; }
   border: 0;
   border-radius: 15px;
   padding: 15px;
-  background: linear-gradient(115deg, #ff9f50, #ffc07a);
-  color: #2a1724;
-  box-shadow: 0 4px 22px #ff9f5014;
+  background: linear-gradient(115deg, #c92f2f, #e2564e);
+  color: #fff9ef;
+  box-shadow: 0 4px 22px #e0433a22;
   font-weight: 800;
   cursor: pointer;
 }
 .primary:disabled { opacity: .6; cursor: default; }
-.primary:hover:not(:disabled) { background: linear-gradient(115deg, #ffb068, #ffd09b); }
+.primary:hover:not(:disabled) { background: linear-gradient(115deg, #d63d36, #ef6a60); }
 .secondary:hover, .home-btn:hover { border-color: var(--orange); background: var(--hover); }
-#classic-btn { background: linear-gradient(120deg, #42283b, #302039); border-color: #c38c62; }
-#classic-btn:hover { border-color: var(--orange); background: #4a2d40; }
+#classic-btn { background: linear-gradient(120deg, #14402e, #0f2f22); border-color: #b08a4f; }
+#classic-btn:hover { border-color: var(--orange); background: #1a5038; }
 #reset-btn { border-style: dashed; background: transparent; color: var(--muted); font-weight: 600; }
 #reset-btn:hover { color: var(--text); background: var(--hover); }
+
+/* Filtre de niveau du mode classique */
+.level-filter { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.level-label { color: var(--muted); font-size: 13px; font-weight: 600; }
+.level-btn {
+  border: 1px solid var(--line-strong);
+  border-radius: 99px;
+  padding: 6px 14px;
+  background: var(--surface);
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.level-btn:hover { border-color: var(--orange); background: var(--hover); }
+.level-btn[aria-pressed="true"] {
+  background: var(--orange);
+  border-color: var(--orange);
+  color: #fff8ee;
+}
+
+/* Derniers lots joués (mémoire locale) */
+.recent { margin-top: 18px; }
+.recent-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 7px; }
+.recent-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 9px 13px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  font-size: 13px;
+}
+.recent-item span:first-child { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.recent-item b { color: var(--orange-dark); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.recent-item span:last-child { color: var(--muted); white-space: nowrap; }
 
 /* ---------- mode révision ---------- */
 .back-btn { margin-bottom: 12px; }
@@ -352,10 +420,10 @@ button { font: inherit; touch-action: manipulation; }
 .memo-list li:first-child { border-left-color: var(--red); }
 
 /* ---------- quiz ---------- */
-.progress { height: 7px; background: #382c46; border-radius: 99px; overflow: hidden; }
+.progress { height: 7px; background: #1a3b2b; border-radius: 99px; overflow: hidden; }
 .progress i {
   display: block; height: 100%; width: 0;
-  background: linear-gradient(90deg, var(--orange), #d4b2ff);
+  background: linear-gradient(90deg, var(--orange), var(--orange-dark));
   transition: width .2s;
 }
 .meta {
@@ -383,14 +451,14 @@ button { font: inherit; touch-action: manipulation; }
   display: inline-block;
   padding: 5px 9px;
   border-radius: 8px;
-  background: #493026;
-  color: #ffc58f;
+  background: #173a29;
+  color: #ffda9c;
   font-size: 11px;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: .4px;
 }
-.tag.level { background: #392b4d; color: #e1c5ff; margin-left: 6px; }
+.tag.level { background: #3a2026; color: #ffc9c2; margin-left: 6px; }
 .question h2 { font-size: clamp(19px, 5vw, 25px); line-height: 1.4; margin: 12px 0 0; }
 
 .q-illustration {
@@ -405,9 +473,9 @@ button { font: inherit; touch-action: manipulation; }
   font: 700 11px system-ui, sans-serif;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  fill: #d0bce5;
+  fill: #cfe3d6;
 }
-.q-illustration .ill-main { font: 800 54px system-ui, sans-serif; fill: #29192e; }
+.q-illustration .ill-main { font: 800 54px system-ui, sans-serif; fill: #2a140f; }
 
 .answers { display: grid; gap: 9px; }
 .answer {
@@ -424,13 +492,15 @@ button { font: inherit; touch-action: manipulation; }
   color: var(--text);
   cursor: pointer;
 }
-.answer:hover:not(:disabled) { border-color: var(--orange); background: var(--hover); }
+/* Le survol ne doit pas emprunter le rouge de l'état « mauvaise réponse » :
+   une bordure dorée signale l'interactivité sans préjuger du résultat. */
+.answer:hover:not(:disabled) { border-color: var(--orange-dark); background: var(--hover); }
 .letter {
   flex: 0 0 35px;
   height: 35px;
   display: grid; place-items: center;
   border-radius: 9px;
-  background: #3c2c4c;
+  background: #1b4332;
   color: var(--navy);
   font-weight: 800;
 }
@@ -484,15 +554,11 @@ button { font: inherit; touch-action: manipulation; }
 
 .foot { text-align: center; color: var(--muted); font-size: 11px; margin-top: 18px; }
 
-/* Bandeau d'état du contenu : toujours visible et contrasté à l'accueil. */
-.notice { display: flex; gap: 10px; align-items: flex-start; text-align: left; background: #302417; border: 1px solid #8d693a; border-left: 4px solid var(--orange); color: #f9d9a2; border-radius: 13px; padding: 12px 14px; margin: 0 0 14px; font-size: 14px; line-height: 1.45; }
-.notice-icon { flex: 0 0 auto; font-size: 18px; line-height: 1.2; }
-
 /* Pied de page : sources, RGPD, contacts (visible sur tous les écrans). */
 .foot-note { display: grid; gap: 8px; text-align: center; background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 14px 16px; margin-top: 18px; }
 .foot-note p { margin: 0; font-size: 13px; line-height: 1.5; }
 .foot-note .foot { font-size: 12px; color: var(--muted); margin-top: 0; }
-.foot-note a { color: #d4b2ff; text-decoration: underline; text-underline-offset: 3px; }
+.foot-note a { color: var(--orange-dark); text-decoration: underline; text-underline-offset: 3px; }
 .foot-note a:hover, .foot-note a:focus-visible { color: var(--orange-dark); }
 .contact { overflow-wrap: anywhere; }
 
@@ -509,7 +575,7 @@ button { font: inherit; touch-action: manipulation; }
   display: grid;
   place-items: center;
   padding: 24px;
-  background: radial-gradient(125% 90% at 50% 8%, #382344 0%, var(--bg) 65%, #100b18 100%);
+  background: radial-gradient(125% 90% at 50% 8%, #173a2a 0%, var(--bg) 65%, #06140d 100%);
   cursor: pointer;
   opacity: 1;
   transition: opacity .42s ease, visibility .42s ease;
@@ -628,13 +694,20 @@ body.reveal .app { animation: sp-app-in .48s ease .12s both; }
 
 @media (max-width: 680px) {
   .hero-home { grid-template-columns: 1fr; justify-items: center; text-align: center; padding: 12px 0 24px; }
-  .halloween-art { grid-row: 1; width: 210px; margin-bottom: -12px; }
+  .noel-art { grid-row: 1; width: 210px; margin-bottom: -12px; }
   .hero h1 { font-size: clamp(34px, 7.5vw, 50px); letter-spacing: -1px; }
+}
+
+@media (max-width: 420px) {
+  /* Les quatre pastilles de niveau tiennent sur une ligne, même à 360 px. */
+  .level-filter { gap: 6px; }
+  .level-label { font-size: 12px; }
+  .level-btn { padding: 5px 11px; font-size: 12px; }
 }
 
 @media (max-width: 520px) {
   :root { --gutter: 16px; }
-  .halloween-art { width: 170px; }
+  .noel-art { width: 170px; }
   .brand b { font-size: 12px; }
   .brand small { font-size: 10px; }
   .brand { gap: 8px; }
@@ -661,9 +734,9 @@ body.reveal .app { animation: sp-app-in .48s ease .12s both; }
 
 @media (prefers-contrast: more) {
   :root {
-    --muted: #e2d8eb;
-    --line: #a791b8;
-    --line-strong: #c9b5dc;
+    --muted: #efe9dc;
+    --line: #9fbfa9;
+    --line-strong: #cfe0d5;
   }
   .answer.void { opacity: 1; }
   body::before, body::after { display: none; }

@@ -1,4 +1,4 @@
-/* Banque de questions — Quiz PSE · Protection Civile du Lot
+/* Banque de questions — Quiz PSE
  *
  * Format d'un item :
  *   { id: "xxx-01", cat: "<thématique>", level: "PSC" | "PSE1" | "PSE2",

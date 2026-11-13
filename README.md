@@ -1,4 +1,4 @@
-# Quiz secourisme — Protection Civile non officiel 
+# Quiz secourisme — non officiel
 
 Application web d'entraînement au **PSC**, au **PSE1** et au **PSE2** : 330 questions
 corrigées, réparties en 11 thématiques, avec correction immédiate, explications,
@@ -12,7 +12,7 @@ Les formulations ajoutées privilégient les termes officiels des références t
 
 - **Édition Noël** : thème nuit verte, accents rouge houx et or sur tous les
   écrans, illustration locale (sapin, cadeaux et trousse de secours), flocons
-  et boules discrètes. Les contenus, l'emblème officiel et la progression sont
+  et boules discrètes. Les contenus, l'emblème et la progression sont
   conservés. Décors disponibles hors ligne, sans police ni ressource externe.
 - **11 thématiques** + un **mode classique** (les 9 thèmes de base, mélangeant désormais PSC, PSE1 et PSE2 selon la banque disponible).
 - **Lots sans aucune répétition** : un cycle parcourt toutes les questions d'une
@@ -38,9 +38,9 @@ Les formulations ajoutées privilégient les termes officiels des références t
 - **Réinitialisation par thématique** : le bouton ♻️ de chaque thématique efface
   uniquement sa progression ; le bouton global reste disponible.
 - **PWA** : installation sur mobile et fonctionnement hors ligne via service worker.
-- **Animation de démarrage** : au lancement, l'emblème de la Protection Civile
-  (disque orange, triangle blanc, triangle bleu) se dessine, des ondes de
-  protection s'en échappent et le nom de l'association apparaît, puis l'écran
+- **Animation de démarrage** : au lancement, l'emblème de secourisme (disque
+  orange, triangle blanc, triangle bleu) se dessine, des ondes de protection
+  s'en échappent et le nom de l'application apparaît, puis l'écran
   s'efface tout seul (nettoyage garanti par un minuteur, appui ou touche pour
   passer, désactivée si « réduire les animations » est demandé).
 - **Accessibilité** : navigation au clavier (touches `1`-`4` ou `A`-`D`), annonces
@@ -156,14 +156,14 @@ GitHub Pages si la banque est valide. Les branches mortes et l'outillage interne
 ## Contenu et responsabilité
 
 Les questions et la fiche mémo sont des **repères pédagogiques** destinés à
-l'entraînement. Elles ne remplacent ni le référentiel officiel de la Protection
-Civile, ni les recommandations du médecin régulateur. Faire relire toute
+l'entraînement. Elles ne remplacent ni le référentiel officiel de la sécurité
+civile, ni les recommandations du médecin régulateur. Faire relire toute
 évolution de contenu par un formateur PSE habilité.
 
 ## Licence
 
 Code publié sous licence MIT (voir `LICENSE`).
-Le logo de la Protection Civile reste la propriété de l'association.
+L'emblème affiché dans l'application est décoratif.
 
 ## Sources documentaires utilisées
 

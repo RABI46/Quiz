@@ -1,5 +1,4 @@
 /* Quiz secourisme — logique de l'application
- * Protection Civile du Lot
  *
  * Principes :
  *  - les questions sont identifiées par un identifiant stable (champ « id »),
@@ -891,8 +890,8 @@
   }
 
   /* ---------- animation de démarrage ---------- *
-   * L'écran de démarrage reprend l'emblème de la Protection Civile : le
-   * disque orange se pose, les triangles se tracent, le nom s'affiche, puis
+   * L'écran de démarrage reprend l'emblème de secourisme : le disque orange
+   * se pose, les triangles se tracent, le nom s'affiche, puis
    * la page reprend la main. L'animation est purement décorative : elle ne
    * bloque jamais l'application (durée maximale garantie) et disparaît d'un
    * simple appui, d'une touche ou dès que « réduire les animations » est

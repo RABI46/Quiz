@@ -1,4 +1,4 @@
-/* Quiz PSE — Protection Civile du Lot
+/* Quiz PSE
    Édition Noël : nuit verte, rouge houx et or.
    Palette contrastée, ressources locales et animations réduites sur demande. */
 
@@ -25,7 +25,7 @@
   --gutter: 24px;
   --radius: 16px;
   --shadow: 0 14px 40px #04120b66;
-  /* L'emblème officiel conserve ses couleurs, y compris au démarrage. */
+  /* L'emblème conserve ses couleurs, y compris au démarrage. */
   --pc-orange: #ee8720;
   --pc-blue: #014181;
 }
@@ -46,7 +46,7 @@ body {
 }
 
 /* Décors purement visuels : aucun événement ni ressource extérieure.
-   L'emblème officiel reste présent dans l'en-tête de démarrage. */
+       L'emblème reste présent dans l'en-tête de démarrage. */
 body::before,
 body::after {
   content: "";
@@ -563,9 +563,9 @@ button { font: inherit; touch-action: manipulation; }
 .contact { overflow-wrap: anywhere; }
 
 /* ---------- animation de démarrage (PWA) ----------
-   Découpe de l'emblème de la Protection Civile : le disque orange se pose,
-   les tracés du triangle blanc et du triangle bleu se dessinent, des ondes
-   de protection s'en échappent et le nom de l'association apparaît.
+   Découpe de l'emblème de secourisme : le disque orange se pose, les tracés
+   du triangle blanc et du triangle bleu se dessinent, des ondes de protection
+   s'en échappent et le nom de l'application apparaît.
    app.js retire l'écran dès la fin de l'animation (et tout de suite si
    l'utilisateur a demandé à réduire les animations). */
 .splash {
@@ -660,7 +660,7 @@ body.booting { overflow: hidden; }
   100% { opacity: 0; transform: scale(1.3); }
 }
 
-/* signature de l'association */
+/* signature de l'application */
 .splash-title {
   margin: 0;
   text-align: center;

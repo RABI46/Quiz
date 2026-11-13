@@ -114,7 +114,11 @@ if (typeof api.lotSize !== "function") {
 const bankById = new Map(api.bank().map((q) => [q.id, q]));
 
 function idsFor(mode) {
-  const bank = mode === "classique" ? api.bank().filter((q) => api.classic.includes(q.cat)) : api.bank().filter((q) => q.cat === mode);
+  const bank = mode.startsWith("classique:")
+    ? api.bank().filter((q) => q.level === mode.split(":")[1])
+    : mode === "classique"
+      ? api.bank().filter((q) => api.classic.includes(q.cat))
+      : api.bank().filter((q) => q.cat === mode);
   return bank.map((q) => q.id);
 }
 
@@ -205,12 +209,14 @@ console.log("Thématique".padEnd(38) + "  banque   cycle");
 const themes = [...new Set(api.bank().map((q) => q.cat))].sort((a, b) => a.localeCompare(b, "fr"));
 themes.forEach((theme) => checkMode(theme, idsFor(theme)));
 checkMode("classique", idsFor("classique"));
+/* Filtres de niveau : ils couvrent toutes les thématiques du niveau. */
+["PSC", "PSE1", "PSE2"].forEach((level) => checkMode("classique:" + level, idsFor("classique:" + level)));
 
 /* Stockage : identifiants uniquement, clés versionnées. */
 api.clear();
 api.draw(themes[0]);
 const keys = api.keys();
-if (!keys.every((k) => /^quizPSE(Pool|Previous)_v2_/.test(k))) {
+if (!keys.every((k) => /^quizPSE(Pool|Previous|Lot)_v2_/.test(k))) {
   failures.push("clés de stockage inattendues : " + keys.join(", "));
 }
 const stored = storage.get(keys.find((k) => k.startsWith("quizPSEPool_v2_")));
@@ -218,18 +224,25 @@ JSON.parse(stored).forEach((id) => {
   if (!bankById.has(id)) failures.push(`le cycle mémorise un identifiant inconnu « ${id} »`);
 });
 
-/* Persistance : un rechargement de l'application ne doit pas effacer la progression. */
+/* Persistance : un rechargement restitue le lot interrompu, sans perdre de
+ * question non posée, sans doublon et sans identifiant inconnu. */
 api.clear();
 const mode = themes[0];
 const firstLot = api.draw(mode);
-const poolKey = keys.find((k) => k.startsWith("quizPSEPool_v2_")) || "quizPSEPool_v2_" + mode;
-const before = storage.get(poolKey);
+const poolKey = "quizPSEPool_v2_" + mode;
+const before = JSON.parse(storage.get(poolKey) || "[]");
 vm.runInContext(readFileSync(join(ROOT, "app.js"), "utf8"), context, { filename: "app.js" });
-const after = storage.get(poolKey);
-if (before === undefined || before !== after) {
-  failures.push("un rechargement de l'application efface ou modifie la progression mémorisée");
+const after = JSON.parse(storage.get(poolKey) || "[]");
+if (!firstLot.every((id) => after.includes(id))) {
+  failures.push("un rechargement ne restitue pas les questions du lot interrompu");
 }
-if (firstLot.length && !JSON.parse(after || "[]").every((id) => bankById.has(id))) {
+if (after.length !== before.length + firstLot.length) {
+  failures.push(`un rechargement modifie la taille du cycle (${before.length} + ${firstLot.length} ≠ ${after.length})`);
+}
+if (new Set(after).size !== after.length) {
+  failures.push("le cycle contient des doublons après un rechargement");
+}
+if (!after.every((id) => bankById.has(id))) {
   failures.push("la progression mémorisée contient des identifiants inconnus");
 }
 
@@ -241,7 +254,7 @@ vm.runInContext(readFileSync(join(ROOT, "app.js"), "utf8"), context, { filename:
 if (storage.has("quizPSEPool_RCP & DAE") || storage.has("quizPSEPrevious_RCP & DAE")) {
   failures.push("les anciennes clés de stockage ne sont pas nettoyées");
 }
-if (storage.get(poolKey) !== after) {
+if (JSON.stringify(JSON.parse(storage.get(poolKey) || "[]")) !== JSON.stringify(after)) {
   failures.push("la migration a effacé la progression de la version actuelle");
 }
 

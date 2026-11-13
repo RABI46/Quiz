@@ -15,6 +15,12 @@
   var TIME = 30;
   var LETTERS = ["A", "B", "C", "D"];
   var REVIEW = "Révision de mes erreurs";
+  var LEVELS = ["tous", "PSC", "PSE1", "PSE2"];
+  var levelKey = "quizPSELevel_v2_classique";
+  var pendingKeyBase = "quizPSELot_v2_";
+  var scoresKey = "quizPSEScores_v2_lots";
+  var errorsKey = "quizPSEErrors_v2_lot";
+  var MAX_SCORES = 20;
 
   /* Les 9 thématiques « socle » : elles forment aussi le mode classique. */
   var CLASSIC = [
@@ -53,6 +59,8 @@
   var reviewOrigin = "";      /* thématique d'origine quand on rejoue ses erreurs */
   var score = 0;
   var history = [];
+  var levelFilter = "tous";   /* filtre de niveau appliqué au mode classique */
+  var pending = null;        /* lot en cours : questions non posées à restituer */
 
   /* ---------- utilitaires ---------- */
   function $(id) { return document.getElementById(id); }
@@ -112,12 +120,27 @@
     });
   }
 
+  /* Un mode est soit une thématique, soit « classique », éventuellement suivi
+   * du niveau choisi (« classique:PSE2 ») : la clé de cycle distingue donc
+   * proprement les progressions par niveau. */
+  function parseMode(mode) {
+    if (mode.indexOf("classique:") === 0) return { theme: "classique", level: mode.slice(10) };
+    return { theme: mode, level: "tous" };
+  }
+
   function bankFor(mode) {
     var bank = getBank();
-    if (mode === "classique") {
-      return bank.filter(function (q) { return CLASSIC.indexOf(q.cat) !== -1; });
+    var m = parseMode(mode);
+    if (m.level !== "tous") {
+      /* Un niveau choisi couvre toutes les thématiques de ce niveau : le PSE2
+       * n'existe que dans deux thématiques, hors du socle des neuf. */
+      bank = bank.filter(function (q) { return q.level === m.level; });
+    } else if (m.theme === "classique") {
+      bank = bank.filter(function (q) { return CLASSIC.indexOf(q.cat) !== -1; });
+    } else {
+      bank = bank.filter(function (q) { return q.cat === m.theme; });
     }
-    return bank.filter(function (q) { return q.cat === mode; });
+    return bank;
   }
 
   function countsByTheme() {
@@ -129,8 +152,11 @@
   /* Libellé lisible du mode courant : le même mot partout (en-tête de lot,
    * écran de résultat), pour qu'ils ne divergent jamais. */
   function modeLabel(mode) {
-    if (mode === "classique") return "Mode classique";
-    if (mode === REVIEW) return "Révision de mes erreurs";
+    if (mode === REVIEW) return REVIEW;
+    var m = parseMode(mode);
+    if (m.theme === "classique") {
+      return m.level === "tous" ? "Mode classique" : m.level + " · toutes thématiques";
+    }
     return mode || "Quiz";
   }
 
@@ -147,6 +173,9 @@
 
   function goHome() {
     stopTimer();
+    /* Quitter un lot en cours remet dans le cycle les questions qui n'ont pas
+     * été posées : rien n'est consommé sans avoir été affiché. */
+    if ($("quiz") && !$("quiz").classList.contains("hidden")) abortLot();
     show("home");
     buildThemes();
     window.scrollTo(0, 0);
@@ -164,6 +193,9 @@
       if (!total) return;
       var pool = readPool(theme.cat);
       var remaining = pool.length;
+      var row = document.createElement("div");
+      row.className = "theme-row";
+
       var btn = document.createElement("button");
       btn.type = "button";
       btn.className = "theme-btn" + (total > remaining ? " seen" : "");
@@ -177,17 +209,33 @@
         (remaining ? remaining + " restantes" : "nouveau cycle") + "</span>" +
         "</span>" +
         '<span class="theme-arrow" aria-hidden="true">›</span>';
-      host.appendChild(btn);
+
+      /* Réinitialisation limitée à cette thématique, à côté du bouton de
+       * lancement pour ne pas l'alourdir. */
+      var reset = document.createElement("button");
+      reset.type = "button";
+      reset.className = "theme-reset";
+      reset.dataset.theme = theme.cat;
+      reset.title = "Réinitialiser la progression : " + theme.cat;
+      reset.setAttribute("aria-label", "Réinitialiser la progression de la thématique " + theme.cat);
+      reset.innerHTML = '<span aria-hidden="true">♻️</span>';
+
+      row.appendChild(btn);
+      row.appendChild(reset);
+      host.appendChild(row);
     });
 
-    var classicTotal = bankFor("classique").length;
-    var classicRemaining = readPool("classique").length;
+    var classicKey = classicMode();
+    var classicTotal = bankFor(classicKey).length;
+    var classicRemaining = readPool(classicKey).length;
     $("classic-count").innerHTML = "<strong>" + classicTotal + " questions</strong> · " +
       (classicRemaining ? classicRemaining + " restantes" : "nouveau cycle");
 
     var total = getBank().length;
     $("bank-total").textContent = total;
     $("bank-themes").textContent = THEMES.filter(function (t) { return counts[t.cat]; }).length;
+    renderRecent();
+    renderLastErrors();
   }
 
   function readPool(mode) {
@@ -211,13 +259,172 @@
     storeSet(seenKey(mode), JSON.stringify(previousIds || []));
   }
 
-  function resetHistory() {
-    THEMES.forEach(function (t) {
-      storeRemove(poolKey(t.cat));
-      storeRemove(seenKey(t.cat));
+  /* ---------- filtre de niveau du mode classique ---------- */
+  function normalizeLevel(level) {
+    return LEVELS.indexOf(level) === -1 ? "tous" : level;
+  }
+
+  function classicMode() {
+    return levelFilter === "tous" ? "classique" : "classique:" + levelFilter;
+  }
+
+  function setLevel(level) {
+    levelFilter = normalizeLevel(level);
+    storeSet(levelKey, levelFilter);
+    renderLevelFilter();
+    buildThemes();
+  }
+
+  function renderLevelFilter() {
+    var host = $("level-filter");
+    if (!host) return;
+    Array.prototype.forEach.call(host.querySelectorAll(".level-btn"), function (btn) {
+      btn.setAttribute("aria-pressed", btn.dataset.level === levelFilter ? "true" : "false");
     });
-    storeRemove(poolKey("classique"));
-    storeRemove(seenKey("classique"));
+  }
+
+  /* ---------- historique local des scores ---------- */
+  function readScores() {
+    var list = readJSON(scoresKey, []);
+    if (!Array.isArray(list)) return [];
+    return list.filter(function (s) {
+      return s && typeof s.score === "number" && typeof s.size === "number" && s.size > 0;
+    });
+  }
+
+  function saveScore(mode, value, size) {
+    var list = readScores();
+    list.unshift({ mode: mode, score: value, size: size, at: Date.now() });
+    storeSet(scoresKey, JSON.stringify(list.slice(0, MAX_SCORES)));
+  }
+
+  /* ---------- erreurs du dernier lot ---------- */
+  function saveErrors(mode, ids) {
+    if (!ids || !ids.length) { storeRemove(errorsKey); return; }
+    storeSet(errorsKey, JSON.stringify({ mode: mode, ids: ids.slice(0, 50) }));
+  }
+
+  function readErrors() {
+    var saved = readJSON(errorsKey, null);
+    if (!saved || !Array.isArray(saved.ids)) return null;
+    var valid = {};
+    getBank().forEach(function (q) { valid[q.id] = true; });
+    var ids = saved.ids.filter(function (id) { return valid[id]; });
+    return ids.length ? { mode: saved.mode, ids: ids } : null;
+  }
+
+  function renderLastErrors() {
+    var btn = $("last-errors-btn");
+    if (!btn) return;
+    var last = readErrors();
+    btn.classList.toggle("hidden", !last);
+    btn.textContent = last
+      ? "🎯 Réviser les erreurs du dernier lot (" + last.ids.length + ")"
+      : "🎯 Réviser les erreurs du dernier lot";
+  }
+
+  function renderRecent() {
+    var host = $("recent-lots");
+    if (!host) return;
+    var list = readScores().slice(0, 5);
+    if (!list.length) {
+      host.classList.add("hidden");
+      host.innerHTML = "";
+      return;
+    }
+    host.classList.remove("hidden");
+    host.innerHTML = '<h2 class="section-title">📈 Vos derniers lots</h2><ul class="recent-list">' +
+      list.map(function (s) {
+        return '<li class="recent-item"><span>' + esc(modeLabel(s.mode)) + "</span><b>" +
+          s.score + " / " + s.size + "</b><span>" + Math.round(s.score / s.size * 100) + " %</span></li>";
+      }).join("") + "</ul>";
+  }
+
+  /* ---------- lot en cours ---------- *
+   * Le cycle est écrit dès le tirage (la suite est décidée à l'avance), mais le
+   * lot est mémorisé : s'il est interrompu, ses questions non posées y sont
+   * réinjectées. Auparavant, quitter après la première question en consommait
+   * neuf qui n'avaient jamais été affichées.
+   */
+  function commitLot() {
+    if (!pending) return;
+    storeRemove(pendingKeyBase + pending.mode);
+    pending = null;
+  }
+
+  function abortLot() {
+    if (!pending) return;
+    var lot = pending;
+    pending = null;
+    storeRemove(pendingKeyBase + lot.mode);
+
+    var answered = {};
+    history.forEach(function (h) { answered[h.q.id] = true; });
+    var answeredIds = lot.chosen.filter(function (id) { return answered[id]; });
+    var unanswered = lot.chosen.filter(function (id) { return !answered[id]; });
+
+    var pool = readPool(lot.mode);
+    var known = {};
+    pool.forEach(function (id) { known[id] = true; });
+    var restored = pool.slice();
+    unanswered.forEach(function (id) {
+      if (known[id]) return;
+      known[id] = true;
+      restored.push(id);
+    });
+    writePool(lot.mode, restored, answeredIds);
+  }
+
+  /* Un rechargement en plein lot (mobile, fermeture d'onglet) ne doit pas
+   * perdre les questions non posées : le lot mémorisé retourne au cycle. */
+  function restoreInterruptedLots() {
+    storeKeys().forEach(function (key) {
+      if (key.indexOf(pendingKeyBase) !== 0) return;
+      var mode = key.slice(pendingKeyBase.length);
+      var lot = readJSON(key, null);
+      storeRemove(key);
+      if (!lot || !Array.isArray(lot.chosen) || !mode) return;
+
+      var valid = {};
+      bankFor(mode).forEach(function (q) { valid[q.id] = true; });
+      var pool = readPool(mode);
+      var known = {};
+      pool.forEach(function (id) { known[id] = true; });
+      var restored = pool.slice();
+      lot.chosen.forEach(function (id) {
+        if (!valid[id] || known[id]) return;
+        known[id] = true;
+        restored.push(id);
+      });
+      writePool(mode, restored, []);
+    });
+  }
+
+  function resetTheme(theme) {
+    if (!theme) return;
+    if (!window.confirm("Effacer la progression de « " + theme + " » ?\n\n" +
+      "Cette thématique repartira d'un cycle complet.")) return;
+    storeRemove(poolKey(theme));
+    storeRemove(seenKey(theme));
+    storeRemove(pendingKeyBase + theme);
+    if (pending && pending.mode === theme) pending = null;
+    buildThemes();
+    announce(theme + " : progression réinitialisée.");
+  }
+
+  function resetHistory() {
+    /* Supprimer tout l'historique est irréversible : on demande confirmation
+     * avant d'effacer, et non l'inverse. */
+    if (!window.confirm("Effacer la progression enregistrée sur cet appareil ?\n\n" +
+      "Chaque thématique repartira d'un cycle complet. Cette action est définitive.")) return;
+    /* Une seule expression couvre aussi les cycles filtrés par niveau
+     * (« classique:PSE2 ») et les lots en cours. */
+    storeKeys().forEach(function (key) {
+      if (/^quizPSE(Pool|Previous|Lot)_v2_/.test(key)) storeRemove(key);
+    });
+    pending = null;
+    storeRemove(scoresKey);
+    storeRemove(errorsKey);
     buildThemes();
     alert("Historique des questions réinitialisé : chaque thématique repart d'un cycle complet.");
   }
@@ -232,11 +439,17 @@
    */
   function lotSize(remaining) {
     if (remaining <= TOTAL) return Math.max(1, remaining);
-    var lots = Math.ceil(remaining / TOTAL);
-    /* Le lot ne descend jamais sous MIN_LOT : la seule exception est le lot
-     * final, quand il reste moins de questions que ce minimum pour finir le
-     * cycle pile. */
-    return Math.min(remaining, Math.max(MIN_LOT, Math.ceil(remaining / lots)));
+    /* Choisit la plus grande taille de lot (10 → 7) qui laisse une fin de
+     * cycle d'au moins MIN_LOT questions. Sans cela, 241 questions donnaient
+     * 24 lots de 10 puis un lot final d'une seule question. */
+    for (var size = TOTAL; size >= MIN_LOT; size--) {
+      var lots = Math.ceil(remaining / size);
+      var last = remaining - size * (lots - 1);
+      if (last >= MIN_LOT) return size;
+    }
+    /* Aucune taille ne convient (banque très courte) : repli sur la règle
+     * historique, qui autorise un dernier lot court. */
+    return Math.min(remaining, Math.max(MIN_LOT, Math.ceil(remaining / Math.ceil(remaining / TOTAL))));
   }
 
   function drawQuestions(mode) {
@@ -275,6 +488,10 @@
     });
 
     writePool(mode, poolRest, chosenIds);
+    /* Le lot reste « en cours » tant qu'il n'est pas terminé : c'est ce qui
+     * permet de restituer au cycle les questions non posées en cas d'abandon. */
+    pending = { mode: mode, chosen: chosenIds };
+    storeSet(pendingKeyBase + mode, JSON.stringify(pending));
     return chosenIds.map(function (id) { return byId[id]; }).filter(Boolean);
   }
 
@@ -340,20 +557,20 @@
       return String(v).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
     };
     return '<svg viewBox="0 0 760 170" role="img" aria-label="' + escSvg(title) + '">' +
-      '<defs><linearGradient id="ig" x1="0" x2="1"><stop offset="0" stop-color="#ff9f50"/>' +
-      '<stop offset="1" stop-color="#ffc07a"/></linearGradient>' +
+      '<defs><linearGradient id="ig" x1="0" x2="1"><stop offset="0" stop-color="#e0433a"/>' +
+      '<stop offset="1" stop-color="#f3c969"/></linearGradient>' +
       '<radialGradient id="rg"><stop stop-color="#ffffff22"/><stop offset="1" stop-color="#ffffff00"/></radialGradient></defs>' +
-      '<rect width="760" height="170" fill="#1b1229"/>' +
+      '<rect width="760" height="170" fill="#0b2418"/>' +
       '<circle cx="650" cy="30" r="145" fill="url(#rg)"/>' +
-      '<circle cx="120" cy="150" r="110" fill="#ff9f5012"/>' +
+      '<circle cx="120" cy="150" r="110" fill="#f3c96914"/>' +
       '<rect x="28" y="28" width="114" height="114" rx="28" fill="url(#ig)" opacity=".95"/>' +
       '<text x="85" y="103" text-anchor="middle" class="ill-main">' + escSvg(icon) + "</text>" +
       '<text x="175" y="72" class="ill-label">' + escSvg(title) + "</text>" +
-      '<text x="175" y="102" fill="#ffffff" font-size="24" font-weight="800" font-family="system-ui,sans-serif">' + escSvg(sub) + "</text>" +
+      '<text x="175" y="102" fill="#fbf5e9" font-size="24" font-weight="800" font-family="system-ui,sans-serif">' + escSvg(sub) + "</text>" +
       '<path d="M175 121h430" stroke="#ffffff22"/>' +
-      '<circle cx="625" cy="121" r="5" fill="#ff9f50"/>' +
-      '<circle cx="645" cy="121" r="5" fill="#ff9f50" opacity=".55"/>' +
-      '<circle cx="665" cy="121" r="5" fill="#ff9f50" opacity=".25"/></svg>';
+      '<circle cx="625" cy="121" r="5" fill="#e0433a"/>' +
+      '<circle cx="645" cy="121" r="5" fill="#e0433a" opacity=".55"/>' +
+      '<circle cx="665" cy="121" r="5" fill="#e0433a" opacity=".25"/></svg>';
   }
 
   /* ---------- rendu d'une question ---------- */
@@ -506,7 +723,7 @@
 
   function nextQuestion() {
     cur++;
-    if (cur >= qs.length) { showResult(); return; }
+    if (cur >= qs.length) { commitLot(); showResult(); return; }
     render();
     window.scrollTo(0, 0);
   }
@@ -515,14 +732,19 @@
   function showResult() {
     stopTimer();
     var percent = Math.round(score / qs.length * 100);
+    saveScore(currentTheme, score, qs.length);
     $("done-theme").textContent = currentTheme === REVIEW && reviewOrigin
       ? modeLabel(REVIEW) + " · " + modeLabel(reviewOrigin)
       : modeLabel(currentTheme);
+    /* « Thématique : Niveau PSE2… » n'avait pas de sens pour un lot filtré. */
+    $("done-label").textContent = currentTheme === REVIEW ? "Mode"
+      : parseMode(currentTheme).level !== "tous" ? "Niveau" : "Thématique";
     $("done-score").textContent = score + " / " + qs.length;
     $("done-percent").textContent = percent + " % de bonnes réponses";
 
     var wrong = history.filter(function (h) { return !h.ok; });
     var hasWrong = wrong.length > 0;
+    saveErrors(currentTheme, wrong.map(function (h) { return h.q.id; }));
     var reviewing = currentTheme === REVIEW;
     var recap = $("done-recap");
     if (!hasWrong) {
@@ -542,6 +764,9 @@
       : "🔁 Refaire un lot de cette thématique";
     var reviewWrong = $("done-review-wrong");
     reviewWrong.classList.toggle("hidden", !hasWrong);
+    var revise = $("done-revise");
+    revise.classList.toggle("hidden", !hasWrong);
+    revise.textContent = "📖 Revoir les explications (" + wrong.length + ")";
 
     announce("Lot terminé. Score : " + score + " sur " + qs.length + ".");
     $("bar").style.width = "100%";
@@ -578,9 +803,16 @@
   }
 
   /* ---------- mode révision ---------- */
-  function showRevision() {
+  function showRevision(onlyIds) {
     stopTimer();
     var bank = getBank();
+    var targeted = false;
+    if (Array.isArray(onlyIds) && onlyIds.length) {
+      var keep = {};
+      onlyIds.forEach(function (id) { keep[id] = true; });
+      bank = bank.filter(function (q) { return keep[q.id]; });
+      targeted = bank.length > 0;
+    }
     var list = $("revision-list");
     list.innerHTML = "";
     var groups = {};
@@ -592,7 +824,7 @@
     Object.keys(groups).sort(function (a, b) { return a.localeCompare(b, "fr"); }).forEach(function (theme) {
       var title = document.createElement("h3");
       title.className = "section-title";
-      title.textContent = theme + " (" + groups[theme].length + " questions)";
+      title.textContent = theme + " (" + groups[theme].length + (groups[theme].length > 1 ? " questions)" : " question)");
       list.appendChild(title);
       groups[theme].forEach(function (q) {
         var card = document.createElement("article");
@@ -604,7 +836,14 @@
         list.appendChild(card);
       });
     });
+    $("revision-title").textContent = targeted ? "📖 Révision de mes erreurs" : "📖 Mode révision";
     $("revision-count").textContent = bank.length;
+    /* Accord du libellé : « Les 1 questions » était visible en révision filtrée. */
+    $("revision-sub").textContent = bank.length === 1
+      ? (targeted ? "question ratée du dernier lot, avec sa bonne réponse et l'explication."
+                  : "question, avec sa bonne réponse et l'explication.")
+      : (targeted ? "questions ratées du dernier lot, avec leurs bonnes réponses et les explications."
+                  : "questions, avec leurs bonnes réponses et les explications.");
     show("revision");
     window.scrollTo(0, 0);
   }
@@ -640,9 +879,12 @@
         };
       },
       clear: function () {
-        THEMES.forEach(function (t) { storeRemove(poolKey(t.cat)); storeRemove(seenKey(t.cat)); });
-        storeRemove(poolKey("classique"));
-        storeRemove(seenKey("classique"));
+        storeKeys().forEach(function (key) {
+          if (/^quizPSE(Pool|Previous|Lot)_v2_/.test(key)) storeRemove(key);
+        });
+        storeRemove(scoresKey);
+        storeRemove(errorsKey);
+        pending = null;
       },
       keys: function () { return storeKeys().filter(function (k) { return /^quizPSE/.test(k); }); }
     };
@@ -758,6 +1000,12 @@
 
   function bindEvents() {
     document.addEventListener("click", function (e) {
+      var resetBtn = e.target.closest("#themes .theme-reset");
+      if (resetBtn) {
+        e.preventDefault();
+        resetTheme(resetBtn.dataset.theme || "");
+        return;
+      }
       var btn = e.target.closest("#themes .theme-btn");
       if (!btn) return;
       e.preventDefault();
@@ -768,7 +1016,16 @@
       }
     });
 
-    $("classic-btn").addEventListener("click", function () { startQuiz("classique"); });
+    $("classic-btn").addEventListener("click", function () { startQuiz(classicMode()); });
+    var levelHost = $("level-filter");
+    if (levelHost) {
+      levelHost.addEventListener("click", function (e) {
+        var btn = e.target.closest(".level-btn");
+        if (!btn) return;
+        e.preventDefault();
+        setLevel(btn.dataset.level || "tous");
+      });
+    }
     $("top-home").addEventListener("click", goHome);
     $("memo-btn").addEventListener("click", showMemo);
     $("memo-back").addEventListener("click", goHome);
@@ -789,6 +1046,13 @@
       startQuiz(currentTheme);
     });
     $("done-review-wrong").addEventListener("click", replayMistakes);
+    $("done-revise").addEventListener("click", function () {
+      showRevision(history.filter(function (h) { return !h.ok; }).map(function (h) { return h.q.id; }));
+    });
+    $("last-errors-btn").addEventListener("click", function () {
+      var last = readErrors();
+      if (last) showRevision(last.ids);
+    });
     $("done-home").addEventListener("click", goHome);
 
     /* Le chronomètre suit la visibilité de l'onglet : une question ne doit pas
@@ -812,7 +1076,10 @@
 
   function init() {
     showSplash();
+    levelFilter = normalizeLevel(storeGet(levelKey));
+    restoreInterruptedLots();
     migrateOldStorage();
+    renderLevelFilter();
     buildThemes();
     bindEvents();
     /* Mise à jour du service worker : recharge discrètement quand une nouvelle

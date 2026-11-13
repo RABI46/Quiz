@@ -10,11 +10,10 @@ Les formulations ajoutées privilégient les termes officiels des références t
 
 ## Fonctionnalités
 
-- **Édition Halloween** : thème nuit violette, accents orange citrouille et
-  lavande sur tous les écrans, illustration locale (citrouille, fantôme et
-  trousse de secours), toiles et chauves-souris discrètes. Les contenus,
-  l'emblème officiel et la progression sont conservés. Décors disponibles
-  hors ligne, sans police ni ressource externe.
+- **Édition Noël** : thème nuit verte, accents rouge houx et or sur tous les
+  écrans, illustration locale (sapin, cadeaux et trousse de secours), flocons
+  et boules discrètes. Les contenus, l'emblème officiel et la progression sont
+  conservés. Décors disponibles hors ligne, sans police ni ressource externe.
 - **11 thématiques** + un **mode classique** (les 9 thèmes de base, mélangeant désormais PSC, PSE1 et PSE2 selon la banque disponible).
 - **Lots sans aucune répétition** : un cycle parcourt toutes les questions d'une
   thématique une seule fois, par lots de 7 à 10 questions ; les questions déjà
@@ -26,6 +25,18 @@ Les formulations ajoutées privilégient les termes officiels des références t
 - **Fiche mémo** : numéros d'urgence et repères chiffrés à connaître par cœur.
 - **Progression locale** : les questions déjà vues sont mémorisées sur l'appareil
   (localStorage), aucune donnée n'est envoyée.
+- **Filtre de niveau** en mode classique : tous niveaux, PSC, PSE1 ou PSE2.
+  Choisir un niveau restreint le mode classique à toutes les thématiques de ce
+  niveau (le PSE2 n'existe que dans deux thématiques, hors du socle des neuf).
+- **Lots interrompus** : quitter un lot en cours (retour à l'accueil ou
+  rechargement) remet dans le cycle les questions qui n'ont pas été posées ;
+  aucune question n'est consommée sans avoir été affichée.
+- **Derniers scores** : les cinq derniers lots sont mémorisés sur l'appareil et
+  affichés sur l'accueil, sans aucune donnée envoyée.
+- **Révision filtrée** : depuis l'écran de résultat ou l'accueil, le mode
+  révision peut se limiter aux erreurs du dernier lot.
+- **Réinitialisation par thématique** : le bouton ♻️ de chaque thématique efface
+  uniquement sa progression ; le bouton global reste disponible.
 - **PWA** : installation sur mobile et fonctionnement hors ligne via service worker.
 - **Animation de démarrage** : au lancement, l'emblème de la Protection Civile
   (disque orange, triangle blanc, triangle bleu) se dessine, des ondes de
@@ -44,13 +55,13 @@ Les formulations ajoutées privilégient les termes officiels des références t
 | Chemin | Rôle |
 |---|---|
 | `index.html` | structure des écrans (accueil, mémo, révision, quiz, résultat) |
-| `styles.css` | feuille de styles unique (thème Halloween sombre, contrastes AA) |
+| `styles.css` | feuille de styles unique (thème Noël sombre, contrastes AA) |
 | `app.js` | logique du quiz, tirage des lots, stockage de la progression |
 | `data/questions.json` | **source de vérité** de la banque de questions |
 | `questions.js` | banque compilée pour le navigateur (générée, ne pas éditer) |
 | `Références techniques nationales - Premiers Secours en Equipe (1).pdf` | référence officielle utilisée pour les formulations PSE1/PSE2 |
 | `references-techniques-nationales-psc-juillet-2026.pdf` | référence officielle utilisée pour les formulations PSC |
-| `assets/halloween-*.svg` | illustrations et décors Halloween, purement décoratifs |
+| `assets/noel-*.svg` | illustrations et décors de Noël, purement décoratifs |
 | `sw.js` | service worker (hors ligne) |
 | `manifest.webmanifest` | manifeste PWA |
 | `tools/validate_bank.mjs` | contrôle automatique de la banque |
@@ -59,7 +70,8 @@ Les formulations ajoutées privilégient les termes officiels des références t
 | `tools/generate_questions_js.py` | génère `questions.js` depuis `data/questions.json` |
 | `tools/check_ui.mjs` | vérifie identifiants, fichiers et absence de dépendance externe |
 | `tools/e2e.mjs` | parcours complet dans un DOM simulé (jsdom) |
-| `tools/make_icons.sh` | régénère les icônes PNG (`icons/`) |
+| `tools/generate_icons.py` | génère les icônes PNG (`icons/`) sans dépendance, à partir des formes de `icon.svg` |
+| `tools/make_icons.sh` | raccourci : appelle `tools/generate_icons.py` |
 | `.github/workflows/pages.yml` | contrôles + déploiement GitHub Pages |
 
 ## Ajouter ou corriger une question
@@ -128,7 +140,11 @@ npm run test:sw        # cache : VERSION incrémentée si un fichier publié cha
 
 `tools/check_ui.mjs` vérifie aussi que **chaque classe posée par `index.html` ou
 `app.js` a bien une règle dans `styles.css`** (une classe orpheline = un style
-oublié) et que **le service worker précharge tous les fichiers du site**.
+oublié), que **le service worker précharge tous les fichiers du site**, et que
+les **nombres de questions annoncés** (meta description, `og:description`,
+manifeste, compteurs de l'accueil et introduction de ce README) correspondent
+à la banque réelle : ils étaient recopiés « 330 » en dur et seraient devenus
+faux à la première question ajoutée.
 
 ## Déploiement
 
@@ -156,8 +172,8 @@ Les formulations officielles des questions ajoutées ou reformulées s'appuient 
 - `Références techniques nationales - Premiers Secours en Equipe (1).pdf`
 - `references-techniques-nationales-psc-juillet-2026.pdf`
 
-## Mentions d'état du contenu, sources, RGPD et contacts
+## Mentions, sources, RGPD et contacts
 
-- **Bandeau d'accueil** (`#home .notice`) : « En attente de validation par Vianney et Ana ». Il n'apparaît que sur l'écran d'accueil. **Retirer le bandeau est une décision de l'association, pas une retouche d'interface** : il ne disparaîtra qu'une fois la relecture validée.
+- **Bloc À propos** (`#home .about`) : accès gratuit et partageable, travail personnel open source sans représentation d'une structure ou association de secourisme, appui sur les recommandations de juillet 2026 de la Sécurité civile, lien vers le dépôt GitHub et crédit « Fait par Rabie Kahlaoui ».
 - **Pied de page** (`footer.foot-note`, visible sur tous les écrans) : sources (références techniques nationales de la Sécurité civile, édition 2026 — PSC · PSE1 · PSE2), mention de conformité RGPD (aucune donnée collectée ; progression stockée localement uniquement, effaçable depuis l'accueil) et contacts (courriel et téléphone).
-- `tools/e2e.mjs` vérifie la présence de ces mentions et la validité des liens `mailto:` et `tel:` : les retirer fait échouer la CI.
+- `tools/e2e.mjs` vérifie la présence de ces mentions (dont le bloc À propos et le lien du dépôt) et la validité des liens `mailto:` et `tel:` : les retirer fait échouer la CI.

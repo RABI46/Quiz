@@ -74,7 +74,12 @@ for (const cls of [...usedClasses].sort()) {
 
 /* 3. aucune dépendance à un domaine tiers -------------------------------- */
 const body = html.slice(html.indexOf("</head>"));
-const external = [...body.matchAll(/https?:\/\/[^"'\s)]+/g)].map((m) => m[0]);
+/* Un lien sortant (<a href="https://…">) est légitime : seules les ressources
+ * réellement chargées par la page doivent rester locales. */
+const external = [
+  ...body.matchAll(/\bsrc(?:set)?="(https?:\/\/[^"]+)"/g),
+  ...body.matchAll(/<link\b[^>]*\bhref="(https?:\/\/[^"]+)"/g),
+].map((match) => match[1]);
 if (external.length) problems.push(`index.html charge des ressources externes : ${external.join(", ")}`);
 const cssExternal = [...css.matchAll(/url\((?!")[^)]*https?:\/\/[^)]+/g)].map((m) => m[0]);
 if (cssExternal.length) problems.push(`styles.css charge des ressources externes : ${cssExternal.join(", ")}`);
@@ -93,6 +98,29 @@ const schemeTag = (html.match(/name="color-scheme" content="([^"]+)"/) || [])[1]
 const schemeStyle = (rootStyle.match(/color-scheme:\s*([^;]+);/) || [])[1]?.trim();
 if (schemeTag && schemeStyle && schemeTag !== schemeStyle) {
   problems.push(`color-scheme incohérent : index.html=${schemeTag}, styles.css=${schemeStyle}`);
+}
+
+/* 5. les nombres de questions annoncés doivent suivre la banque réelle ------
+ * « 330 » était recopié dans la meta description, og:description, le manifeste,
+ * les compteurs de l'accueil et le README : ajouter une question rendait ces
+ * annonces fausses sans qu'aucun contrôle ne s'en aperçoive. */
+const bankTotal = JSON.parse(read("data/questions.json")).length;
+const readme = read("README.md");
+const claims = [
+  ["index.html (meta description)", (html.match(/<meta name="description" content="([^"]*)"/) || [])[1]],
+  ["index.html (og:description)", (html.match(/<meta property="og:description" content="([^"]*)"/) || [])[1]],
+  ["manifest.webmanifest (description)", manifest.description],
+  ["README.md (introduction)", readme],
+];
+for (const [label, text] of claims) {
+  const claim = (text || "").match(/(\d+)\s+questions?\b/);
+  if (!claim) problems.push(`${label} n'annonce aucun nombre de questions`);
+  else if (Number(claim[1]) !== bankTotal) problems.push(`${label} annonce ${claim[1]} questions au lieu de ${bankTotal}`);
+}
+for (const id of ["bank-total", "revision-count"]) {
+  const counter = html.match(new RegExp(`id="${id}"[^>]*>(\\d+)<`));
+  if (!counter) problems.push(`index.html : le compteur #${id} est absent`);
+  else if (Number(counter[1]) !== bankTotal) problems.push(`index.html : #${id} affiche ${counter[1]} au lieu de ${bankTotal}`);
 }
 
 if (problems.length) {

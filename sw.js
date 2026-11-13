@@ -8,7 +8,7 @@
  * IMPORTANT : toute modification des fichiers de l'application doit s'accompagner
  * d'une incrémentation de VERSION, sinon les visiteurs garderont l'ancienne copie.
  */
-const VERSION = "21";
+const VERSION = "26";
 const CACHE = `quiz-pse-v${VERSION}`;
 
 const CORE = [
@@ -23,10 +23,9 @@ const CORE = [
   "./icons/icon-512.png",
   "./icons/maskable-512.png",
   "./icons/apple-touch-icon.png",
-  "./assets/logo-protection-civile.jpg",
-  "./assets/halloween-night.svg",
-  "./assets/halloween-bat.svg",
-  "./assets/halloween-web.svg",
+  "./assets/noel-sapin.svg",
+  "./assets/noel-boules.svg",
+  "./assets/noel-flocon.svg",
 ];
 
 self.addEventListener("install", (event) => {
@@ -62,8 +61,14 @@ self.addEventListener("fetch", (event) => {
     event.respondWith(
       fetch(request)
         .then((response) => {
-          const copy = response.clone();
-          caches.open(CACHE).then((cache) => cache.put("./index.html", copy));
+          /* Seule une page réellement servie remplace la coque hors ligne :
+           * une 404 (URL inconnue) ou une 500 est quand même renvoyée par
+           * fetch(), et la cacher ici l'aurait servie à la place de
+           * l'application lors des navigations suivantes. */
+          if (response && response.ok && response.type === "basic") {
+            const copy = response.clone();
+            caches.open(CACHE).then((cache) => cache.put("./index.html", copy));
+          }
           return response;
         })
         .catch(() =>

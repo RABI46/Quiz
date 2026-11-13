@@ -42,8 +42,9 @@ else {
   if (!splash.querySelector(".sp-disc")) problems.push("splash : le disque orange de l'emblème est absent");
   if (!splash.querySelector(".sp-tri-white")) problems.push("splash : le triangle blanc de l'emblème est absent");
   if (!splash.querySelector(".sp-tri-blue")) problems.push("splash : le triangle bleu de l'emblème est absent");
-  if (!/Protection Civile/i.test(splash.textContent)) problems.push("splash : le nom de l'association n'apparaît pas");
-  if (!/du Lot/i.test(splash.textContent)) problems.push("splash : la mention « du Lot » n'apparaît pas");
+  if (!/Quiz secourisme/i.test(splash.textContent)) problems.push("splash : le nom de l'application n'apparaît pas");
+  if (!/PSC · PSE1 · PSE2/.test(splash.textContent)) problems.push("splash : les niveaux PSC, PSE1 et PSE2 n'apparaissent pas");
+  if (/Protection Civile|du Lot/i.test(splash.textContent)) problems.push("splash : une référence à une structure est encore affichée");
   if (!window.document.body.classList.contains("booting")) problems.push("splash : la page n'est pas signalée en cours de démarrage");
 }
 

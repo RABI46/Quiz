@@ -15,7 +15,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 JSON_PATH = os.path.join(ROOT, "data", "questions.json")
 JS_PATH = os.path.join(ROOT, "questions.js")
 
-HEADER = """/* Banque de questions — Quiz PSE · Protection Civile du Lot
+HEADER = """/* Banque de questions — Quiz PSE
  *
  * Format d'un item :
  *   { id: "xxx-01", cat: "<thématique>", level: "PSC" | "PSE1" | "PSE2",

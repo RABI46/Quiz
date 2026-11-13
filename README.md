@@ -1,4 +1,4 @@
-# Quiz secourisme — Protection Civile du Lot
+# Quiz secourisme — Protection Civile non officiel 
 
 Application web d'entraînement au **PSC**, au **PSE1** et au **PSE2** : 330 questions
 corrigées, réparties en 11 thématiques, avec correction immédiate, explications,

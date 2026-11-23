@@ -81,10 +81,8 @@ else {
   const t = footNote.textContent.replace(/\s+/g, " ");
   if (!/RGPD/.test(t)) problems.push("pied de page : mention RGPD absente");
   if (!/références techniques nationales/.test(t) || !/2026/.test(t)) problems.push("pied de page : référence aux références techniques nationales 2026 absente");
-  const mail = footNote.querySelector('a[href^="mailto:"]');
-  if (!mail || !/^mailto:[^@\s]+@[^@\s]+\.[a-z]{2,}$/i.test(mail.getAttribute("href"))) problems.push("pied de page : lien mailto: absent ou invalide");
-  const tel = footNote.querySelector('a[href^="tel:"]');
-  if (!tel || !/^tel:\+\d{9,15}$/.test(tel.getAttribute("href"))) problems.push("pied de page : lien tel: absent ou invalide");
+  if (footNote.querySelector('a[href^="mailto:"], a[href^="tel:"]')) problems.push("pied de page : coordonnées personnelles encore présentes");
+  if (/@|07\s*69\s*64\s*18\s*86/.test(t)) problems.push("pied de page : adresse e-mail ou numéro de téléphone encore affiché");
 }
 
 /* ---------- 2. lancer un lot ---------- */

@@ -172,8 +172,8 @@ Les formulations officielles des questions ajoutées ou reformulées s'appuient 
 - `Références techniques nationales - Premiers Secours en Equipe (1).pdf`
 - `references-techniques-nationales-psc-juillet-2026.pdf`
 
-## Mentions, sources, RGPD et contacts
+## Mentions, sources et RGPD
 
 - **Bloc À propos** (`#home .about`) : accès gratuit et partageable, travail personnel open source sans représentation d'une structure ou association de secourisme, appui sur les recommandations de juillet 2026 de la Sécurité civile, lien vers le dépôt GitHub et crédit « Fait par Rabie Kahlaoui ».
-- **Pied de page** (`footer.foot-note`, visible sur tous les écrans) : sources (références techniques nationales de la Sécurité civile, édition 2026 — PSC · PSE1 · PSE2), mention de conformité RGPD (aucune donnée collectée ; progression stockée localement uniquement, effaçable depuis l'accueil) et contacts (courriel et téléphone).
-- `tools/e2e.mjs` vérifie la présence de ces mentions (dont le bloc À propos et le lien du dépôt) et la validité des liens `mailto:` et `tel:` : les retirer fait échouer la CI.
+- **Pied de page** (`footer.foot-note`, visible sur tous les écrans) : sources (références techniques nationales de la Sécurité civile, édition 2026 — PSC · PSE1 · PSE2) et mention de conformité RGPD (aucune donnée collectée ; progression stockée localement uniquement, effaçable depuis l'accueil). Les coordonnées personnelles ne sont pas affichées.
+- `tools/e2e.mjs` vérifie la présence de ces mentions et du bloc À propos, ainsi que l'absence de coordonnées personnelles dans le pied de page.
